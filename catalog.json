@@ -90,7 +90,7 @@
     },
     {
       "name": "farhangestan-orthography",
-      "description": "Copyediting against the Academy of Persian Language's spelling rules, with a house style sheet for the open choices. Inspired by Byte-Magazine's byte-virastari.",
+      "description": "Copyediting by the Academy of Persian Language's official «دستور خطّ فارسی» (new edition, 1401), with the book's page for every rule: spacing, affixes, ezafe, hamza, Arabic forms, compounds and preferred spellings. Inspired by Byte-Magazine's byte-virastari.",
       "variety": "iran",
       "category": "writing",
       "author": "persianskills",

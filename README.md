@@ -27,7 +27,7 @@ Our own skills:
 | [`persian-locales`](skills/persian-locales) | CLDR data for fa-IR, fa-AF and tg | Draft |
 | [`persian-text-editor`](skills/persian-text-editor) | Editing a Persian draft in four passes | Draft |
 | [`persian-translation-review`](skills/persian-translation-review) | Translator plus independent reviewer | Draft |
-| [`farhangestan-orthography`](skills/farhangestan-orthography) | Copyediting to the Academy's spelling rules | Draft |
+| [`farhangestan-orthography`](skills/farhangestan-orthography) | Copyediting by the Academy's «دستور خطّ فارسی» (1401), with page references | Draft |
 | [`persian-book-translation`](skills/persian-book-translation) | Whole-book translation and RTL EPUB | Draft |
 
 **Font:** every skill that bundles or recommends a Persian font uses

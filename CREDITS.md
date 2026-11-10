@@ -67,7 +67,7 @@ copying any text, and credit those authors for the idea.
 | [`persian-locales`](skills/persian-locales) | Inspired by skills-on-ai/skills-on-ai locale cards. |
 | [`persian-text-editor`](skills/persian-text-editor) | Inspired by SamanQasempour/persian-skills. |
 | [`persian-translation-review`](skills/persian-translation-review) | Inspired by jwiegley/claude-prompts (persian). |
-| [`farhangestan-orthography`](skills/farhangestan-orthography) | Inspired by Byte-Magazine/skills (byte-virastari). |
+| [`farhangestan-orthography`](skills/farhangestan-orthography) | Built from the Academy of Persian Language and Literature's «دستور خطّ فارسی (ویراست جدید)», 1401 ([PDF](https://apll.ir/wp-content/uploads/2023/07/Dastour-e-Khat-17.04.1402.pdf)): rules summarized in our own words with page references; the book's text and full word lists are not copied. Inspired by Byte-Magazine/skills (byte-virastari). |
 | [`persian-book-translation`](skills/persian-book-translation) | Inspired by m4tinbeigi-official/hermes-literary-translation-mastery. |
 
 ## Listed but not copied
