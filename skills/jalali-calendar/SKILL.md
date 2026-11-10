@@ -110,8 +110,8 @@ new Intl.DateTimeFormat("fa-IR-u-ca-persian-nu-latn", { dateStyle: "short" }).fo
 Limits: `Intl` formats but does not give you year/month/day integers for
 arithmetic, month grids or validation. For a date picker, ranges, "add one
 month", leap checks and age, use a converter (`toJalali` / `toGregorian`).
-For a one-off conversion or the current date, `convert-persian-dates` (Python
-`persiantools`) and `local-time` (system clock) do it without code.
+For a one-off conversion in Python, the `persiantools` library
+(`JalaliDate`) does it without writing a converter.
 
 ## 7. Date pickers and ranges
 

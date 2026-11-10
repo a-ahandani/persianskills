@@ -74,6 +74,7 @@ const cmd = (comment, text) => `<div class="cmd"><pre><code><span class="c"># ${
 
 const skillFiles = readdirSync(join(here, "..", "skills"), { recursive: true }).filter((f) => f.endsWith("SKILL.md")).length;
 const skillAuthors = new Set(skills.filter((s) => s.here && s.author !== "persianskills").map((s) => s.author)).size;
+const ownSkills = skills.filter((s) => s.here && s.author === "persianskills").length;
 const page = `<!doctype html>
 <html lang="en">
 <head>
@@ -129,7 +130,7 @@ const page = `<!doctype html>
 
 <section class="section wrap" id="skills">
   <h2>Every Persian skill, in one repo.</h2>
-  <p class="lede">${num(skillFiles)} skills from ${num(skillAuthors)} authors, copied with their licenses and credit, plus our own, all written to one standard. Entries marked Link only stay in their authors' repos, because they can't be copied or they overlap a skill here.</p>
+  <p class="lede">${num(skillFiles - ownSkills)} skills from ${num(skillAuthors)} authors, copied with their licenses and credit, plus ${num(ownSkills)} of our own, all about the Persian language and written to one standard. Entries marked Link only stay in their authors' repos: they can't be copied, overlap a skill here, or aren't about the language.</p>
   <div class="db">
     <div class="db-head">
       <div class="db-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></svg>Skills directory</div>
