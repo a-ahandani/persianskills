@@ -11,7 +11,7 @@ description: >-
 license: MIT
 metadata:
   author: persianskills (Edyt)
-  source: https://github.com/edyt-app/persianskills
+  source: https://github.com/a-ahandani/persianskills
   version: 0.1.0
   inspired-by: m4tinbeigi-official/hermes-literary-translation-mastery (literary book translation and EPUB typesetting skills); written from scratch, no text copied
 ---

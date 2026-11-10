@@ -11,7 +11,7 @@ description: >-
 license: MIT
 metadata:
   author: persianskills (Edyt)
-  source: https://github.com/edyt-app/persianskills
+  source: https://github.com/a-ahandani/persianskills
   version: 0.1.0
   based-on: Unicode CLDR (common/main/fa.xml, fa_AF.xml, tg.xml; supplemental data), checked 2026-11-10
   inspired-by: skills-on-ai/skills-on-ai locale cards (locale-fa-ir, locale-prs-af, locale-tg-001); written from CLDR, no text copied

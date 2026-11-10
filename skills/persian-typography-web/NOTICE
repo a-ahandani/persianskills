@@ -3,7 +3,7 @@
 ## Modifications
 
 This skill is one of four copied from landco-llc/kumihan (plugins/kumihan-fa)
-and changed on 2026-11-10 by https://github.com/edyt-app/persianskills:
+and changed on 2026-11-10 by https://github.com/a-ahandani/persianskills:
 
 - Suggested Persian font changed from Vazirmatn to Sahel in references/web.md.
 - SKILL.md made English only: the Persian half of the bilingual description and lead line removed, frontmatter metadata added (author, source, upstream commit, version, changes), file paths marked as code, how to run the source check added, and the entry skill names the other three skills.
