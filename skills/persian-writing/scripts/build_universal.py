@@ -45,9 +45,10 @@ Two adaptations for this edition:
    to run them, an AI without code execution applies the same rules manually —
    they are all stated in prose in the Orthography and Writing-style parts.
    An AI WITH code execution should get the full package instead.
-2. **Fonts can't be bundled in a text file.** Get Vazirmatn and Lalezar from
-   Google Fonts or github.com/rastikerdar/vazirmatn; everything here refers
-   to them by name.
+2. **Fonts can't be bundled in a text file.** Get Sahel (v3.4.0, not on
+   Google Fonts) from github.com/rastikerdar/sahel-font or
+   cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/; everything here
+   refers to it by name.
 
 The single most important rule, before any writing: detect the register
 (رسمی / اداری / محاوره / علمی) using the procedure in Part 1 — classify the

@@ -1,0 +1,97 @@
+---
+title: "Installation"
+description: "How to install PersianLabs/ui - scaffold with /create or the CLI, or add components to an existing project."
+---
+
+> **Recommended for new projects:** use [/create](/create) to build your preset visually and generate the right setup command for your framework.
+
+PersianLabs/ui is distributed as a [shadcn-compatible registry](https://ui.shadcn.com/docs/registry), so there's no package to install and no version to chase. Choose the setup that matches your starting point.
+
+- **[Use /create](#use-create)** — build your preset visually and generate a setup command.
+- **[Use the CLI](#use-cli)** — scaffold a supported template directly from the terminal.
+- **[Existing project](#existing-project)** — add components to an app you already have.
+
+## Use /create
+
+Build your preset visually, preview your choices — theme, radius, and the Persian/English font pairing — and get a framework-specific setup command.
+
+<CopyCommand command="npx persianlabsui@latest init -p <preset-code>" />
+
+Open [/create](/create), pick your design system, and copy the generated command. Every choice is encoded into the short preset code (e.g. `c0`), so the link and the command always reproduce the same setup.
+
+Available for **Next.js** (flat and Turborepo) and **Vite** (flat and monorepo). The scaffolded projects ship RTL, the Persian-first font stack (Vazirmatn as scaffolded, Estedad optional; switch to Sahel as shown in [Fonts](/docs/fonts)), Farsi digit handling, and the full theming tokens — the first render already looks right.
+
+## Use the CLI
+
+Scaffold a new project directly from the terminal:
+
+```bash
+npx persianlabsui@latest init -t [template]
+```
+
+Supported templates: `next`, `vite`, `next-monorepo`, and `vite-monorepo`.
+
+Combine with a preset code from [/create](/create) to apply your design system in the same step:
+
+```bash
+npx persianlabsui@latest init -t next -p <preset-code> -n my-app
+```
+
+See the [CLI docs](/docs/cli) for every command and option.
+
+## Existing Project
+
+If your project already has shadcn configured, skip straight to adding components. Initialize shadcn once — nothing about this step is specific to this registry:
+
+<CopyCommand command="npx shadcn@latest init" />
+
+Then add any component by its registry namespace — the CLI copies the source straight into your project and wires dependencies automatically. You can use either the shadcn CLI or the PersianLabs CLI:
+
+<CopyCommand command="npx shadcn@latest add @persianlabsui/tabs" />
+
+```bash
+npx persianlabsui@latest add tabs
+```
+
+The direct-URL form also works:
+
+<CopyCommand command="npx shadcn@latest add https://ui.persian-labs.ir/r/tabs.json" />
+
+To install everything the registry offers in one command, use the bundle endpoint:
+
+<CopyCommand command="npx shadcn@latest add https://ui.persian-labs.ir/r/registry.json" />
+
+Already have a project without scaffolding but want the fonts and theme? The CLI can apply a preset (theme + fonts) to an existing project:
+
+```bash
+npx persianlabsui@latest apply <preset-code>
+```
+
+## Requirements
+
+| Requirement     | Notes                                                               |
+| --------------- | ------------------------------------------------------------------- |
+| React 19+       | Components are built against modern React.                          |
+| TypeScript 5+   | All source ships typed.                                             |
+| Tailwind CSS v4 | Uses the v4 CSS-first configuration.                                |
+| Base UI         | `@base-ui/react` — resolved automatically as a registry dependency. |
+| `lucide-react`  | Icons used across components.                                       |
+
+## First render
+
+After adding a component, import it and drop it into your page:
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+export function App() {
+  return <Button>ذخیره</Button>
+}
+```
+
+## Next steps
+
+- [Theming](/docs/theming) — copy the CSS color tokens into your `globals.css`.
+- [RTL](/docs/rtl) — confirm `dir="rtl"` and the logical-property conventions.
+- [Fonts](/docs/fonts) — pick a Persian font stack that pairs with the components.
+- [CLI](/docs/cli) — the full command reference for `init`, `apply`, `add`, and `preset`.

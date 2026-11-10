@@ -2,10 +2,10 @@
 """
 download_fonts.py — fetch Persian font families into assets/fonts/.
 
-NOTE: requires direct access to github.com. In sandboxed/allowlisted
-environments (e.g. Cowork) this WILL fail with 403 — that is expected: use the
-fonts already bundled in assets/fonts/, or ask the user to download the release
-zip on their machine and drop it into the project folder.
+NOTE: requires direct access to github.com (cdn.jsdelivr.net for sahel). In
+sandboxed/allowlisted environments (e.g. Cowork) this WILL fail with 403 — that
+is expected: use the fonts already bundled in assets/fonts/, or ask the user to
+download the release zip on their machine and drop it into the project folder.
 
 Usage:
   python3 download_fonts.py sahel shabnam        # specific families
@@ -17,21 +17,23 @@ from pathlib import Path
 from urllib.request import urlopen, Request
 
 # Pinned releases (update versions here when upstream releases)
+SAHEL_CDN = 'https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/'
 FAMILIES = {
-    'vazirmatn': 'https://github.com/rastikerdar/vazirmatn/releases/download/v33.003/vazirmatn-v33.003.zip',
+    # bundled default: the same five static TTFs that ship in assets/fonts/
+    'sahel':     [SAHEL_CDN + f for f in ('Sahel-Light.ttf', 'Sahel.ttf', 'Sahel-SemiBold.ttf',
+                                          'Sahel-Bold.ttf', 'Sahel-Black.ttf')],
     'shabnam':   'https://github.com/rastikerdar/shabnam-font/releases/download/v5.0.1/shabnam-font-v5.0.1.zip',
-    'sahel':     'https://github.com/rastikerdar/sahel-font/releases/download/v3.4.0/sahel-font-v3.4.0.zip',
     'samim':     'https://github.com/rastikerdar/samim-font/releases/download/v4.0.5/samim-font-v4.0.5.zip',
     'parastoo':  'https://github.com/rastikerdar/parastoo-font/releases/download/v2.0.1/parastoo-font-v2.0.1.zip',
     'tanha':     'https://github.com/rastikerdar/tanha-font/releases/download/v0.9/tanha-font-v0.9.zip',
     'gandom':    'https://github.com/rastikerdar/gandom-font/releases/download/v0.6/gandom-font-v0.6.zip',
-    # single TTF, served from the google/fonts repo
-    'lalezar':   'https://raw.githubusercontent.com/google/fonts/main/ofl/lalezar/Lalezar-Regular.ttf',
 }
 
 DEST = Path(__file__).resolve().parent.parent / 'assets' / 'fonts'
 
 def fetch(name, url):
+    if isinstance(url, list):
+        return all([fetch(name, u) for u in url])
     print(f'{name}: downloading …')
     req = Request(url, headers={'User-Agent': 'persian-writing-skill'})
     try:

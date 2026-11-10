@@ -43,7 +43,7 @@ RIGHT renders left-aligned. Use `START`, which in RTL always means visual right.
 new Paragraph({
   alignment: AlignmentType.RIGHT,
   bidirectional: true,
-  children: [new TextRun({ text: "متن فارسی", font: { name: "Vazirmatn" } })]
+  children: [new TextRun({ text: "متن فارسی", font: { name: "Sahel" } })]
 })
 
 // ✅ RIGHT — visually right-aligned
@@ -52,7 +52,7 @@ new Paragraph({
   bidirectional: true,
   children: [new TextRun({
     text: "متن فارسی",
-    font: { name: "Vazirmatn", hint: "cs" },
+    font: { name: "Sahel", hint: "cs" },
     rightToLeft: true
   })]
 })
@@ -69,7 +69,7 @@ Define a helper once and use it for all Persian runs:
 const fa = (text, opts = {}) => new TextRun({
   text,
   rightToLeft: true,
-  font: { name: "Vazirmatn", hint: "cs" },
+  font: { name: "Sahel", hint: "cs" },
   ...opts,
 });
 ```
@@ -120,12 +120,12 @@ substitute font in the PDF. Check before using:
 
 ```python
 from fontTools.ttLib import TTFont
-cmap = TTFont("Vazirmatn-Regular.ttf").getBestCmap()
+cmap = TTFont("Sahel.ttf").getBestCmap()
 print(0x2299 in cmap)  # ⊙ supported?
 ```
 
-Verified safe in the bundled Vazirmatn and Lalezar: `•` (U+2022), `·` (U+00B7).
-NOT in Vazirmatn/Lalezar (falls back to DejaVu): ▪ ■ ⊙ ◆ ✓ ✕ ● ○ and emoji.
+Verified safe in the bundled Sahel (all five weights): `•` (U+2022), `·` (U+00B7).
+NOT in Sahel (falls back to DejaVu): ▪ ■ ⊙ ◆ ✓ ✕ ● ○ and emoji.
 Other Persian fonts have different coverage — run the check above before using
 any symbol; a fallback shows up later as a DejaVu row in `pdffonts`.
 
@@ -199,7 +199,7 @@ styles: {
   default: {
     document: {
       run: {
-        font: { name: "Vazirmatn", hint: "cs" },
+        font: { name: "Sahel", hint: "cs" },
         size: 22,            // 11pt — half-points
         rightToLeft: true,
       },
@@ -300,7 +300,7 @@ function sectionHeading(text) {
     // border/color OPTIONAL and neutral — omit for plain output; set only
     // from the user's brief or brand. Structure is what matters here.
     children: [
-      fa("•  ", { size: 32, bold: true }),   // • verified in Vazirmatn; ▪ is NOT
+      fa("•  ", { size: 32, bold: true }),   // • verified in Sahel; ▪ is NOT
       fa(text, { size: 36, bold: true }),
     ],
   });
@@ -396,7 +396,7 @@ new TableRow({ cantSplit: true, children: dataCells });                      // 
 
 1. Install fonts BEFORE converting (else LibreOffice substitutes silently):
    ```bash
-   bash scripts/install_fonts.sh && fc-list | grep -i vazir
+   bash scripts/install_fonts.sh && fc-list | grep -i sahel
    ```
 2. Convert: `soffice --headless --convert-to pdf output.docx`
 3. Post-process white bars if you have full-bleed pages (§2).
@@ -468,7 +468,7 @@ it). Never edit the user's original — always work on a copy.
 
 ## 5. Verification checklist (run every time)
 
-`python3 scripts/verify_pdf.py output.pdf --expect-font Vazirmatn` automates
+`python3 scripts/verify_pdf.py output.pdf --expect-font Sahel` automates
 these; the manual equivalents:
 
 ```bash
@@ -523,7 +523,7 @@ def rtl_paragraph(p):
         jc = _set(OxmlElement('w:jc'), pPr)
     jc.set(qn('w:val'), 'start')
 
-def fa_run(p, text, font='Vazirmatn', size=11, bold=False):
+def fa_run(p, text, font='Sahel', size=11, bold=False):
     run = p.add_run(text)
     run.bold = bold
     rPr = run._r.get_or_add_rPr()
@@ -577,14 +577,14 @@ Word/LibreOffice pull from `styles.xml` and `numbering.xml`, which python-docx
 generates from a Latin default template. All three are verified failures, not
 theory: without the fix below, a test document rendered `.1` (Latin digit,
 wrong side) for list items, a blue Heading nobody asked for, and pulled DejaVu +
-OpenSymbol into the PDF. With it: Persian «۱.», black heading, Vazirmatn only.
+OpenSymbol into the PDF. With it: Persian «۱.», black heading, Sahel only.
 
 **Run this once, right after `Document()`, before adding content:**
 
 ```python
 from docx.shared import Pt, RGBColor
 
-def persianize_styles(doc, font='Vazirmatn', size=11):
+def persianize_styles(doc, font='Sahel', size=11):
     """Fix the document-wide defaults python-docx inherits from its Latin template.
     Without this: Latin list numbers, Word's blue headings, DejaVu fallback."""
     st = doc.styles['Normal']
@@ -638,7 +638,7 @@ for i, item in enumerate(items, 1):
 
 for item in bullets:
     p = rtl_paragraph(doc.add_paragraph())
-    fa_run(p, "•  ")                # • verified in Vazirmatn; ▪ is NOT
+    fa_run(p, "•  ")                # • verified in Sahel; ▪ is NOT
     fa_run(p, item)
 ```
 Indent with `p.paragraph_format.right_indent` (RTL side), not `left_indent`.

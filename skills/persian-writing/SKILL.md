@@ -10,9 +10,9 @@ description: >
   are costly), Persian AI-tell removal, orthography (نیم‌فاصله/ZWNJ، اعداد
   فارسی، «گیومه»), cleanup and spell-check (ویرایش، پاکسازی — bundled
   paknevis+davat toolkit), RTL layout/pagination fixes, and Persian fonts
-  (Vazirmatn bundled). Trigger whenever you see Persian/Arabic script or words
+  (Sahel bundled). Trigger whenever you see Persian/Arabic script or words
   like فارسی, Farsi, Persian, Iran, RTL, راست‌چین, نیم‌فاصله, ویرایش, مقاله,
-  پایان‌نامه, سئو, کپشن, Vazirmatn — even if the user never mentions this skill.
+  پایان‌نامه, سئو, کپشن, Sahel — even if the user never mentions this skill.
 metadata:
   version: 1.4.0
 license: MIT (bundled fonts under SIL OFL)
@@ -71,7 +71,7 @@ about RTL behavior, this skill wins — its rules come from debugging real Persi
 documents. If another active skill or the user specifies particular fonts or
 colors, those win on aesthetics; this skill still governs RTL mechanics and
 orthography. This skill itself is brand-neutral: colors in the code examples are
-placeholders, and Vazirmatn is just the default font, not a requirement.
+placeholders, and Sahel is just the default font, not a requirement.
 
 ## Writing: the five-second summary
 
@@ -187,10 +187,12 @@ applies the خانهٔ ezafe style; drop `fix_ezafe` from `--steps` to keep خا
 
 Bundled in `assets/fonts/` (SIL OFL — free for commercial use):
 
-- **Vazirmatn** — the default for everything: body, UI, documents. 9 weights.
-- **Lalezar** — display font for headlines, covers, posters. One weight; never body.
+- **Sahel** — the default for everything: body, UI, documents. 5 weights
+  (Light 300, Regular 400, SemiBold 600, Bold 700, Black 900).
+- **Sahel Black** (900) — the display weight for headlines, covers, posters; never body.
+  In docx/pptx name it as the family `"Sahel Black"`; in CSS use `"Sahel"` + `font-weight: 900`.
 
-Other families (Shabnam, Sahel, Samim, Parastoo, Tanha, Gandom) and pairing advice:
+Other families (Shabnam, Samim, Parastoo, Tanha, Gandom) and pairing advice:
 `references/fonts.md`. In offline sandboxes only bundled fonts exist —
 `scripts/download_fonts.py` works only where GitHub is reachable.
 
@@ -198,7 +200,7 @@ Other families (Shabnam, Sahel, Samim, Parastoo, Tanha, Gandom) and pairing advi
 
 ```bash
 bash scripts/install_fonts.sh   # copies assets/fonts → ~/.fonts, runs fc-cache
-fc-list | grep -i vazir         # verify — else LibreOffice silently falls back
+fc-list | grep -i sahel         # verify — else LibreOffice silently falls back
 ```
 
 Skipping this is the #1 cause of broken Persian PDFs: conversion "succeeds" but
@@ -227,7 +229,7 @@ Format-specific recipes live in the reference files. The universal ones:
    cards/boxes go inside a single-cell table with `cantSplit: true` (never split
    across pages); no separator after the last list item; no stray `PageBreak`
    before a section break (blank pages).
-7. **Symbols:** Persian fonts miss many glyphs. In bundled Vazirmatn/Lalezar
+7. **Symbols:** Persian fonts miss many glyphs. In bundled Sahel (all weights)
    only • and · are verified; ▪ ■ ✓ ✕ ● ◆ ⊙ fall back to DejaVu. For any other
    symbol/font, check the cmap first (fonts.md shows how).
 
@@ -241,10 +243,10 @@ then check the PDF:
 #    then section bidi, jc=right traps, cs fonts, list numbering, heading colors.
 #    --fix repairs missing <w:bidi/>; --sanitize strips the Word-for-Mac template
 #    artifacts python-docx inherits (the classic "file is corrupt" fingerprint).
-python3 scripts/verify_docx.py output.docx --expect-font Vazirmatn --fix --sanitize
+python3 scripts/verify_docx.py output.docx --expect-font Sahel --fix --sanitize
 
 # 2. PDF: fallback fonts, blank pages, template leaks, Arabic chars
-python3 scripts/verify_pdf.py output.pdf --expect-font Vazirmatn
+python3 scripts/verify_pdf.py output.pdf --expect-font Sahel
 ```
 
 `verify_docx.py` exists because setting an RTL flag and that flag reaching the
@@ -291,6 +293,6 @@ persian-writing/
 │   ├── install_fonts.sh        ← bundled fonts → ~/.fonts (run before PDF export)
 │   └── download_fonts.py       ← fetch extra families (needs GitHub access)
 └── assets/
-    ├── fonts/                  ← Vazirmatn + Lalezar TTFs
+    ├── fonts/                  ← Sahel TTFs (5 weights) + OFL
     └── persian_words.txt       ← 453K-word frequency dictionary (spell-check)
 ```

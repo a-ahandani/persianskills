@@ -15,9 +15,10 @@ Two adaptations for this edition:
    to run them, an AI without code execution applies the same rules manually —
    they are all stated in prose in the Orthography and Writing-style parts.
    An AI WITH code execution should get the full package instead.
-2. **Fonts can't be bundled in a text file.** Get Vazirmatn and Lalezar from
-   Google Fonts or github.com/rastikerdar/vazirmatn; everything here refers
-   to them by name.
+2. **Fonts can't be bundled in a text file.** Get Sahel (v3.4.0, not on
+   Google Fonts) from github.com/rastikerdar/sahel-font or
+   cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/; everything here
+   refers to it by name.
 
 The single most important rule, before any writing: detect the register
 (رسمی / اداری / محاوره / علمی) using the procedure in Part 1 — classify the
@@ -76,7 +77,7 @@ about RTL behavior, this skill wins — its rules come from debugging real Persi
 documents. If another active skill or the user specifies particular fonts or
 colors, those win on aesthetics; this skill still governs RTL mechanics and
 orthography. This skill itself is brand-neutral: colors in the code examples are
-placeholders, and Vazirmatn is just the default font, not a requirement.
+placeholders, and Sahel is just the default font, not a requirement.
 
 ## Writing: the five-second summary
 
@@ -192,10 +193,12 @@ applies the خانهٔ ezafe style; drop `fix_ezafe` from `--steps` to keep خا
 
 Bundled in `assets/fonts/` (SIL OFL — free for commercial use):
 
-- **Vazirmatn** — the default for everything: body, UI, documents. 9 weights.
-- **Lalezar** — display font for headlines, covers, posters. One weight; never body.
+- **Sahel** — the default for everything: body, UI, documents. 5 weights
+  (Light 300, Regular 400, SemiBold 600, Bold 700, Black 900).
+- **Sahel Black** (900) — the display weight for headlines, covers, posters; never body.
+  In docx/pptx name it as the family `"Sahel Black"`; in CSS use `"Sahel"` + `font-weight: 900`.
 
-Other families (Shabnam, Sahel, Samim, Parastoo, Tanha, Gandom) and pairing advice:
+Other families (Shabnam, Samim, Parastoo, Tanha, Gandom) and pairing advice:
 the «Fonts» part below. In offline sandboxes only bundled fonts exist —
 the download_fonts script (full package; chat-only AIs apply the equivalent rules manually) works only where GitHub is reachable.
 
@@ -203,7 +206,7 @@ the download_fonts script (full package; chat-only AIs apply the equivalent rule
 
 ```bash
 bash the install_fonts script (full package; chat-only AIs apply the equivalent rules manually)   # copies assets/fonts → ~/.fonts, runs fc-cache
-fc-list | grep -i vazir         # verify — else LibreOffice silently falls back
+fc-list | grep -i sahel         # verify — else LibreOffice silently falls back
 ```
 
 Skipping this is the #1 cause of broken Persian PDFs: conversion "succeeds" but
@@ -232,7 +235,7 @@ Format-specific recipes live in the reference files. The universal ones:
    cards/boxes go inside a single-cell table with `cantSplit: true` (never split
    across pages); no separator after the last list item; no stray `PageBreak`
    before a section break (blank pages).
-7. **Symbols:** Persian fonts miss many glyphs. In bundled Vazirmatn/Lalezar
+7. **Symbols:** Persian fonts miss many glyphs. In bundled Sahel (all weights)
    only • and · are verified; ▪ ■ ✓ ✕ ● ◆ ⊙ fall back to DejaVu. For any other
    symbol/font, check the cmap first (fonts.md shows how).
 
@@ -246,10 +249,10 @@ then check the PDF:
 #    then section bidi, jc=right traps, cs fonts, list numbering, heading colors.
 #    --fix repairs missing <w:bidi/>; --sanitize strips the Word-for-Mac template
 #    artifacts python-docx inherits (the classic "file is corrupt" fingerprint).
-python3 scripts/verify_docx.py output.docx --expect-font Vazirmatn --fix --sanitize
+python3 scripts/verify_docx.py output.docx --expect-font Sahel --fix --sanitize
 
 # 2. PDF: fallback fonts, blank pages, template leaks, Arabic chars
-python3 the verify_pdf script (full package; chat-only AIs apply the equivalent rules manually) output.pdf --expect-font Vazirmatn
+python3 the verify_pdf script (full package; chat-only AIs apply the equivalent rules manually) output.pdf --expect-font Sahel
 ```
 
 `verify_docx.py` exists because setting an RTL flag and that flag reaching the
@@ -2023,19 +2026,18 @@ carry genuinely unique content (no doorway clones)?
 # Persian fonts: catalog, pairing, embedding
 
 All fonts here are SIL OFL — free for commercial use, embedding allowed.
-Bundled families live in `assets/fonts/`. The rest need
-the download_fonts script (full package; chat-only AIs apply the equivalent rules manually) (requires GitHub access — will NOT work in
-offline/allowlisted sandboxes; in that case use only what's bundled, or ask
-the user to drop TTFs into the project folder).
+The bundled family (Sahel, five static weights) lives in `assets/fonts/`.
+The rest need the download_fonts script (full package; chat-only AIs apply the equivalent rules manually) (requires GitHub access — will NOT
+work in offline/allowlisted sandboxes; in that case use only what's bundled,
+or ask the user to drop TTFs into the project folder).
 
 ## Catalog
 
 | Font | Personality | Use for | Avoid for | Weights |
 |---|---|---|---|---|
-| **Vazirmatn** ★bundled | Neutral, clean, contemporary; the Persian Inter | Body text, UI, documents, anything | — (the safe default) | 9 (Thin–Black) |
-| **Lalezar** ★bundled | Loud, friendly, poster/tabloid display | Headlines, covers, banners, campaign titles | Body text, long headings | 1 |
-| **Shabnam** | Softer, rounder Vazir sibling | Body alternative, friendly docs | — | 5 + FD variants |
-| **Sahel** | Modern, slightly condensed | Headings, dashboards, UI labels | Dense long-form body | 3 + FD |
+| **Sahel** ★bundled | Modern, clean, slightly condensed | Body text, UI, documents, dashboards, anything | — (the safe default) | 5 (Light 300–Black 900) + FD |
+| **Sahel Black** ★bundled | The 900 weight as display face: heavy, poster-like | Headlines, covers, banners, campaign titles | Body text, long headings | 1 (Sahel's 900) |
+| **Shabnam** | Softer, rounder sibling from the same designer | Body alternative, friendly docs | — | 5 + FD variants |
 | **Samim** | Sober text face tuned for reading | Long reports, articles, books | Display sizes | 3 + FD |
 | **Parastoo** | Bookish, literary, mild serif flavor | Formal letters, literary/academic docs | Modern tech branding | 2 + FD |
 | **Tanha** | Thin, elegant, airy display | Pull quotes, elegant covers, invitations | Body text (too light) | 1 |
@@ -2045,22 +2047,23 @@ the user to drop TTFs into the project folder).
 prefer real Persian digit characters instead; see orthography.md.)
 
 Sources (for `download_fonts.py` or manual download):
-- Vazirmatn: github.com/rastikerdar/vazirmatn (also on Google Fonts)
-- Lalezar: fonts.google.com/specimen/Lalezar (github.com/BornaIz/Lalezar)
-- Others: github.com/rastikerdar/{shabnam,sahel,samim,parastoo,tanha,gandom}-font
+- Sahel: github.com/rastikerdar/sahel-font, release v3.4.0 (not on Google Fonts);
+  CDN: `https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/`
+  (Farsi-digit builds under `dist/Farsi-Digits/`, family "Sahel FD")
+- Others: github.com/rastikerdar/{shabnam,samim,parastoo,tanha,gandom}-font
 
 ## Pairings that work
 
 | Deliverable | Headings | Body |
 |---|---|---|
-| Business proposal / invoice | Vazirmatn Bold/Black | Vazirmatn Regular |
-| Marketing one-pager, poster | Lalezar | Vazirmatn |
-| Long report / whitepaper | Vazirmatn Bold | Samim or Vazirmatn |
-| Product docs / dashboard | Sahel Bold | Shabnam or Vazirmatn |
+| Business proposal / invoice | Sahel Bold/Black | Sahel Regular |
+| Marketing one-pager, poster | Sahel Black | Sahel |
+| Long report / whitepaper | Sahel Bold | Samim or Sahel |
+| Product docs / dashboard | Sahel Bold | Shabnam or Sahel |
 | Literary / formal letter | Parastoo Bold | Parastoo |
-| Elegant cover + quote | Tanha (display) | Vazirmatn |
+| Elegant cover + quote | Tanha (display) | Sahel |
 
-One display font per document, maximum. When in doubt: Vazirmatn everywhere,
+One display font per document, maximum. When in doubt: Sahel everywhere,
 weights for hierarchy.
 
 ## Typography rules for Persian
@@ -2083,7 +2086,10 @@ weights for hierarchy.
 ## Embedding per format
 
 ### docx (docx-js / python-docx)
-Font name exactly as the family name: `"Vazirmatn"`, `"Lalezar"`.
+Font name exactly as the family name: `"Sahel"` (Regular; bold toggle gives
+the real Bold), `"Sahel Black"` for display headings (also `"Sahel Light"`,
+`"Sahel SemiBold"` — docx has no numeric weight, so non-bold weights are
+separate family names).
 Always with `hint: "cs"` (docx-js) or `w:rFonts w:cs=` (python-docx) — see
 docx-pdf.md. The font must be installed on the converting machine
 (`bash the install_fonts script (full package; chat-only AIs apply the equivalent rules manually)) or LibreOffice substitutes DejaVu.
@@ -2091,19 +2097,21 @@ docx-pdf.md. The font must be installed on the converting machine
 ### HTML / CSS
 ```css
 @font-face {
-  font-family: "Vazirmatn";
-  src: url("fonts/Vazirmatn-Regular.woff2") format("woff2"),
-       url("fonts/Vazirmatn-Regular.ttf") format("truetype");
+  font-family: "Sahel";
+  src: url("fonts/Sahel.woff2") format("woff2"),
+       url("fonts/Sahel.ttf") format("truetype");
   font-weight: 400; font-display: swap;
 }
+/* repeat per weight: Sahel-Light 300, Sahel-SemiBold 600, Sahel-Bold 700, Sahel-Black 900 */
 body {
-  font-family: "Vazirmatn", "Segoe UI", Tahoma, sans-serif; /* Tahoma = classic Persian-safe fallback */
+  font-family: "Sahel", "Segoe UI", Tahoma, sans-serif; /* Tahoma = classic Persian-safe fallback */
   line-height: 1.8;
 }
 ```
-Online pages can use Google Fonts (`family=Vazirmatn:wght@100..900` or
-`family=Lalezar`); offline/PDF-print pages must reference local files —
-copy them from `assets/fonts/`.
+Online pages can use the jsdelivr CSS (Sahel is not on Google Fonts):
+`https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css`
+(family `Sahel`, weights 300/400/600/700/900); offline/PDF-print pages must
+reference local files — copy them from `assets/fonts/`.
 
 ### pptx
 Set the font on both latin and cs typefaces of every run (see pptx.md).
@@ -2113,7 +2121,7 @@ travel, export a PDF (with fonts installed) alongside it.
 ### Checking a glyph exists (before using any symbol)
 ```python
 from fontTools.ttLib import TTFont
-cmap = TTFont("assets/fonts/Vazirmatn-Regular.ttf").getBestCmap()
+cmap = TTFont("assets/fonts/Sahel.ttf").getBestCmap()
 ok = all(ord(c) in cmap for c in "•·۱۲۳؟،؛«»٪٬")
 ```
 Known result for the bundled fonts: • · and all Persian punctuation/digits are
@@ -2172,7 +2180,7 @@ RIGHT renders left-aligned. Use `START`, which in RTL always means visual right.
 new Paragraph({
   alignment: AlignmentType.RIGHT,
   bidirectional: true,
-  children: [new TextRun({ text: "متن فارسی", font: { name: "Vazirmatn" } })]
+  children: [new TextRun({ text: "متن فارسی", font: { name: "Sahel" } })]
 })
 
 // ✅ RIGHT — visually right-aligned
@@ -2181,7 +2189,7 @@ new Paragraph({
   bidirectional: true,
   children: [new TextRun({
     text: "متن فارسی",
-    font: { name: "Vazirmatn", hint: "cs" },
+    font: { name: "Sahel", hint: "cs" },
     rightToLeft: true
   })]
 })
@@ -2198,7 +2206,7 @@ Define a helper once and use it for all Persian runs:
 const fa = (text, opts = {}) => new TextRun({
   text,
   rightToLeft: true,
-  font: { name: "Vazirmatn", hint: "cs" },
+  font: { name: "Sahel", hint: "cs" },
   ...opts,
 });
 ```
@@ -2249,12 +2257,12 @@ substitute font in the PDF. Check before using:
 
 ```python
 from fontTools.ttLib import TTFont
-cmap = TTFont("Vazirmatn-Regular.ttf").getBestCmap()
+cmap = TTFont("Sahel.ttf").getBestCmap()
 print(0x2299 in cmap)  # ⊙ supported?
 ```
 
-Verified safe in the bundled Vazirmatn and Lalezar: `•` (U+2022), `·` (U+00B7).
-NOT in Vazirmatn/Lalezar (falls back to DejaVu): ▪ ■ ⊙ ◆ ✓ ✕ ● ○ and emoji.
+Verified safe in the bundled Sahel (all five weights): `•` (U+2022), `·` (U+00B7).
+NOT in Sahel (falls back to DejaVu): ▪ ■ ⊙ ◆ ✓ ✕ ● ○ and emoji.
 Other Persian fonts have different coverage — run the check above before using
 any symbol; a fallback shows up later as a DejaVu row in `pdffonts`.
 
@@ -2328,7 +2336,7 @@ styles: {
   default: {
     document: {
       run: {
-        font: { name: "Vazirmatn", hint: "cs" },
+        font: { name: "Sahel", hint: "cs" },
         size: 22,            // 11pt — half-points
         rightToLeft: true,
       },
@@ -2429,7 +2437,7 @@ function sectionHeading(text) {
     // border/color OPTIONAL and neutral — omit for plain output; set only
     // from the user's brief or brand. Structure is what matters here.
     children: [
-      fa("•  ", { size: 32, bold: true }),   // • verified in Vazirmatn; ▪ is NOT
+      fa("•  ", { size: 32, bold: true }),   // • verified in Sahel; ▪ is NOT
       fa(text, { size: 36, bold: true }),
     ],
   });
@@ -2525,7 +2533,7 @@ new TableRow({ cantSplit: true, children: dataCells });                      // 
 
 1. Install fonts BEFORE converting (else LibreOffice substitutes silently):
    ```bash
-   bash the install_fonts script (full package; chat-only AIs apply the equivalent rules manually) && fc-list | grep -i vazir
+   bash the install_fonts script (full package; chat-only AIs apply the equivalent rules manually) && fc-list | grep -i sahel
    ```
 2. Convert: `soffice --headless --convert-to pdf output.docx`
 3. Post-process white bars if you have full-bleed pages (§2).
@@ -2597,7 +2605,7 @@ it). Never edit the user's original — always work on a copy.
 
 ## 5. Verification checklist (run every time)
 
-`python3 the verify_pdf script (full package; chat-only AIs apply the equivalent rules manually) output.pdf --expect-font Vazirmatn` automates
+`python3 the verify_pdf script (full package; chat-only AIs apply the equivalent rules manually) output.pdf --expect-font Sahel` automates
 these; the manual equivalents:
 
 ```bash
@@ -2652,7 +2660,7 @@ def rtl_paragraph(p):
         jc = _set(OxmlElement('w:jc'), pPr)
     jc.set(qn('w:val'), 'start')
 
-def fa_run(p, text, font='Vazirmatn', size=11, bold=False):
+def fa_run(p, text, font='Sahel', size=11, bold=False):
     run = p.add_run(text)
     run.bold = bold
     rPr = run._r.get_or_add_rPr()
@@ -2706,14 +2714,14 @@ Word/LibreOffice pull from `styles.xml` and `numbering.xml`, which python-docx
 generates from a Latin default template. All three are verified failures, not
 theory: without the fix below, a test document rendered `.1` (Latin digit,
 wrong side) for list items, a blue Heading nobody asked for, and pulled DejaVu +
-OpenSymbol into the PDF. With it: Persian «۱.», black heading, Vazirmatn only.
+OpenSymbol into the PDF. With it: Persian «۱.», black heading, Sahel only.
 
 **Run this once, right after `Document()`, before adding content:**
 
 ```python
 from docx.shared import Pt, RGBColor
 
-def persianize_styles(doc, font='Vazirmatn', size=11):
+def persianize_styles(doc, font='Sahel', size=11):
     """Fix the document-wide defaults python-docx inherits from its Latin template.
     Without this: Latin list numbers, Word's blue headings, DejaVu fallback."""
     st = doc.styles['Normal']
@@ -2767,7 +2775,7 @@ for i, item in enumerate(items, 1):
 
 for item in bullets:
     p = rtl_paragraph(doc.add_paragraph())
-    fa_run(p, "•  ")                # • verified in Vazirmatn; ▪ is NOT
+    fa_run(p, "•  ")                # • verified in Sahel; ▪ is NOT
     fa_run(p, item)
 ```
 Indent with `p.paragraph_format.right_indent` (RTL side), not `left_indent`.
@@ -2817,7 +2825,7 @@ def rtl_paragraph(paragraph, align=PP_ALIGN.RIGHT):
     pPr = paragraph._p.get_or_add_pPr()
     pPr.set('rtl', '1')
 
-def fa_run(run, font='Vazirmatn', size=18, bold=False, color=None):
+def fa_run(run, font='Sahel', size=18, bold=False, color=None):
     run.font.name = font          # sets latin typeface
     run.font.size = Pt(size)
     run.font.bold = bold
@@ -2829,7 +2837,7 @@ def fa_run(run, font='Vazirmatn', size=18, bold=False, color=None):
         cs = etree.SubElement(rPr, qn('a:cs'))
     cs.set('typeface', font)      # complex-script typeface — REQUIRED for Persian
 
-def fa_text_frame(tf, font='Vazirmatn', size=18):
+def fa_text_frame(tf, font='Sahel', size=18):
     """Apply to every paragraph+run in a text frame."""
     for p in tf.paragraphs:
         rtl_paragraph(p)
@@ -2858,9 +2866,9 @@ Persian slides mirror LTR conventions:
 
 ```python
 # Persian-safe bullet char (theme bullets often lack Persian-font glyphs).
-# • is verified in Vazirmatn/Lalezar; ▪ is NOT (falls back to DejaVu).
+# • is verified in Sahel (all weights); ▪ is NOT (falls back to DejaVu).
 pPr = paragraph._p.get_or_add_pPr()
-buFont = etree.SubElement(pPr, qn('a:buFont')); buFont.set('typeface', 'Vazirmatn')
+buFont = etree.SubElement(pPr, qn('a:buFont')); buFont.set('typeface', 'Sahel')
 buChar = etree.SubElement(pPr, qn('a:buChar')); buChar.set('char', '•')
 ```
 
@@ -2877,19 +2885,19 @@ row: bold + fill; keep rows short — pptx tables don't paginate.
 
 ## Fonts and delivery
 
-- Use bundled Vazirmatn (+ Lalezar for title slides) — see fonts.md pairings.
+- Use bundled Sahel (+ `"Sahel Black"` for title slides) — see fonts.md pairings.
 - PowerPoint font embedding is flaky cross-platform (and python-pptx can't do
   it). If the deck travels beyond machines with the fonts installed, ALWAYS
   ship a PDF export alongside: install fonts (`bash the install_fonts script (full package; chat-only AIs apply the equivalent rules manually)),
   then `soffice --headless --convert-to pdf deck.pptx`, then
-  `python3 the verify_pdf script (full package; chat-only AIs apply the equivalent rules manually) deck.pdf --expect-font Vazirmatn`.
+  `python3 the verify_pdf script (full package; chat-only AIs apply the equivalent rules manually) deck.pdf --expect-font Sahel`.
 - No letter-spacing on Persian, real bold weights only, line spacing ≥1.3
   (`paragraph.line_spacing = 1.3`).
 
 ## If building via the pptx skill's HTML pipeline (html2pptx)
 
 Apply html-css.md rules in the source HTML: `<html dir="rtl" lang="fa">`,
-Vazirmatn @font-face, `text-align: right`, Persian digits, no letter-spacing.
+Sahel @font-face, `text-align: right`, Persian digits, no letter-spacing.
 Then visually verify a rendered screenshot of at least the first 3 slides —
 bidi bugs in HTML pipelines show up as scrambled punctuation at line edges.
 
@@ -2898,7 +2906,7 @@ bidi bugs in HTML pipelines show up as scrambled punctuation at line edges.
 1. Every paragraph: `rtl='1'`; every run: `a:cs` typeface set.
 2. Persian digits in all visible numbers (slide numbers can stay Latin).
 3. Layout mirrored (text right, flow right→left).
-4. Bullets use verified glyphs (• · in Vazirmatn), numbering manual Persian.
+4. Bullets use verified glyphs (• · in Sahel), numbering manual Persian.
 5. Tables column-reversed.
 6. PDF exported with fonts installed + verify_pdf.py clean.
 
@@ -2941,7 +2949,7 @@ component survives reuse.
 
 ```css
 body {
-  font-family: "Vazirmatn", "Segoe UI", Tahoma, sans-serif;
+  font-family: "Sahel", "Segoe UI", Tahoma, sans-serif;
   font-size: 17px;          /* Persian reads small — go one step larger */
   line-height: 1.8;         /* 1.6 minimum; Persian clips below that */
   letter-spacing: 0;        /* NEVER track Persian — it breaks letter joins */
@@ -2949,7 +2957,7 @@ body {
 h1, h2, h3 { line-height: 1.5; font-weight: 700; }  /* real weights, no faux bold */
 ```
 
-Display headings: `font-family: "Lalezar"` — one display face per page, max.
+Display headings: `font-family: "Sahel"; font-weight: 900` (Sahel Black) — one display face per page, max.
 
 ### Mixed-direction content (the hard part)
 
@@ -2994,10 +3002,11 @@ Tables under `dir=rtl` mirror automatically: first `<th>` renders rightmost. ✓
 
 ## Persian web fonts
 
-See fonts.md for the catalog. Online: Google Fonts serves Vazirmatn and Lalezar:
+See fonts.md for the catalog. Online: Sahel is not on Google Fonts; jsdelivr serves
+the v3.4.0 release (family `Sahel`, weights 300/400/600/700/900):
 
 ```html
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&family=Lalezar&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css" rel="stylesheet">
 ```
 
 Offline / HTML→PDF / email: embed local files from `assets/fonts/` via
@@ -3030,7 +3039,7 @@ p { orphans: 2; widows: 2; }                   /* no lonely lines */
   (`bash the install_fonts script (full package; chat-only AIs apply the equivalent rules manually)) or referenced via @font-face with absolute
   paths.
 - Verify the output exactly like a docx-derived PDF:
-  `python3 the verify_pdf script (full package; chat-only AIs apply the equivalent rules manually) out.pdf --expect-font Vazirmatn`.
+  `python3 the verify_pdf script (full package; chat-only AIs apply the equivalent rules manually) out.pdf --expect-font Sahel`.
 
 ## Pre-delivery checklist
 
@@ -3073,7 +3082,7 @@ assert features.check('raqm')   # True in most modern Pillow builds
 
 ```python
 from PIL import Image, ImageDraw, ImageFont
-font = ImageFont.truetype('assets/fonts/Vazirmatn-Bold.ttf', 48)
+font = ImageFont.truetype('assets/fonts/Sahel-Bold.ttf', 48)
 draw.text(
     (width - margin, y),          # x = RIGHT edge of the text block
     'سلام دنیا ۱۲۳',
@@ -3088,7 +3097,7 @@ draw.text(
   Persian clips in tight leading.
 - Mixed Persian/Latin in one line: raqm handles bidi correctly — do NOT
   reverse strings manually.
-- Never letter-space; use Lalezar for display headlines, Vazirmatn otherwise
+- Never letter-space; use Sahel Black for display headlines, Sahel otherwise
   (fonts.md pairings apply to posters too).
 - Persian digits ۰-۹ in all visible numbers.
 
@@ -3130,15 +3139,15 @@ from reportlab.pdfbase.ttfonts import TTFont
 import arabic_reshaper
 from bidi.algorithm import get_display
 
-pdfmetrics.registerFont(TTFont('Vazirmatn', 'assets/fonts/Vazirmatn-Regular.ttf'))
-c.setFont('Vazirmatn', 14)
+pdfmetrics.registerFont(TTFont('Sahel', 'assets/fonts/Sahel.ttf'))
+c.setFont('Sahel', 14)
 line = get_display(arabic_reshaper.reshape('متن فارسی ۱۲۳'))
 c.drawRightString(page_width - margin, y, line)   # right-anchored per line
 ```
 
 Manipulating EXISTING Persian PDFs (merge/split/rotate/extract via pypdf,
 form-filling) is safe — those operations never touch text shaping.
-Always finish with the verify_pdf script (full package; chat-only AIs apply the equivalent rules manually) out.pdf --expect-font Vazirmatn`.
+Always finish with the verify_pdf script (full package; chat-only AIs apply the equivalent rules manually) out.pdf --expect-font Sahel`.
 
 ## 3. Excel (xlsx skill, openpyxl / pandas)
 
@@ -3154,8 +3163,8 @@ ws.title = 'گزارش فروش'
 
 ws.sheet_view.rightToLeft = True          # ← THE critical line, per sheet
 
-fa_font   = Font(name='Vazirmatn', size=11)
-fa_header = Font(name='Vazirmatn', size=11, bold=True)
+fa_font   = Font(name='Sahel', size=11)
+fa_header = Font(name='Sahel', size=11, bold=True)
 fa_align  = Alignment(horizontal='right', vertical='center',
                       readingOrder=2)     # 2 = right-to-left reading order
 
@@ -3168,7 +3177,7 @@ for cell in row:
 - **Numbers stay real numbers** (Latin digits in numeric cells) so formulas,
   sorting and charts keep working; Persian digits belong in text/label cells.
   Give currency cells a format like `#,##0 "تومان"`.
-- Headers, sheet names, chart titles: Persian, Vazirmatn, bold.
+- Headers, sheet names, chart titles: Persian, Sahel, bold.
 - pandas: `df.to_excel(...)` first, then reopen with openpyxl to apply
   rightToLeft + fonts + alignment (pandas can't set them).
 - Column order: with rightToLeft the first column (A) displays rightmost —
@@ -3184,4 +3193,4 @@ for cell in row:
 | Web page / email | RTL HTML/CSS | html-css.md |
 | New PDF | docx or HTML pipeline, NOT raw reportlab | this file §2 |
 | Poster/social image | PIL + raqm (direction='rtl') | this file §1 |
-| Spreadsheet | openpyxl + rightToLeft + Vazirmatn | this file §3 |
+| Spreadsheet | openpyxl + rightToLeft + Sahel | this file §3 |

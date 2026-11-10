@@ -7,7 +7,7 @@ someone opens the file: dropped section bidi, Latin list numbering, missing
 complex-script fonts, Arabic characters, unstyled headings.
 
 Usage:
-  python3 verify_docx.py file.docx [--expect-font Vazirmatn] [--fix]
+  python3 verify_docx.py file.docx [--expect-font Sahel] [--fix]
 
   --fix   repair what is safely repairable (inserts <w:bidi/> into every
           <w:sectPr>), then re-check.

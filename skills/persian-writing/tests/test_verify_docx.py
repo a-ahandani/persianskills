@@ -22,10 +22,10 @@ class TestVerifyDocx(unittest.TestCase):
         doc = docx.Document()
         # Set style-level RTL and complex script on Normal style
         st = doc.styles["Normal"]
-        st.font.name = "Vazirmatn"
+        st.font.name = "Sahel"
         rPr = st.element.get_or_add_rPr()
         rF = OxmlElement("w:rFonts")
-        rF.set(qn("w:cs"), "Vazirmatn")
+        rF.set(qn("w:cs"), "Sahel")
         rPr.append(rF)
         rPr.append(OxmlElement("w:rtl"))
         rPr.append(OxmlElement("w:szCs"))
@@ -37,7 +37,7 @@ class TestVerifyDocx(unittest.TestCase):
         path = "/tmp/test_persianize_styles_unit.docx"
         doc.save(path)
 
-        errors, warnings, notes = check(path, expect_fonts=["Vazirmatn"])
+        errors, warnings, notes = check(path, expect_fonts=["Sahel"])
         self.assertEqual(errors, [], f"Expected 0 errors with style inheritance, got: {errors}")
         self.assertTrue(
             any("styles.xml" in n for n in notes),

@@ -31,7 +31,7 @@ component survives reuse.
 
 ```css
 body {
-  font-family: "Vazirmatn", "Segoe UI", Tahoma, sans-serif;
+  font-family: "Sahel", "Segoe UI", Tahoma, sans-serif;
   font-size: 17px;          /* Persian reads small — go one step larger */
   line-height: 1.8;         /* 1.6 minimum; Persian clips below that */
   letter-spacing: 0;        /* NEVER track Persian — it breaks letter joins */
@@ -39,7 +39,7 @@ body {
 h1, h2, h3 { line-height: 1.5; font-weight: 700; }  /* real weights, no faux bold */
 ```
 
-Display headings: `font-family: "Lalezar"` — one display face per page, max.
+Display headings: `font-family: "Sahel"; font-weight: 900` (Sahel Black) — one display face per page, max.
 
 ### Mixed-direction content (the hard part)
 
@@ -84,10 +84,11 @@ Tables under `dir=rtl` mirror automatically: first `<th>` renders rightmost. ✓
 
 ## Persian web fonts
 
-See fonts.md for the catalog. Online: Google Fonts serves Vazirmatn and Lalezar:
+See fonts.md for the catalog. Online: Sahel is not on Google Fonts; jsdelivr serves
+the v3.4.0 release (family `Sahel`, weights 300/400/600/700/900):
 
 ```html
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&family=Lalezar&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css" rel="stylesheet">
 ```
 
 Offline / HTML→PDF / email: embed local files from `assets/fonts/` via
@@ -120,7 +121,7 @@ p { orphans: 2; widows: 2; }                   /* no lonely lines */
   (`bash scripts/install_fonts.sh`) or referenced via @font-face with absolute
   paths.
 - Verify the output exactly like a docx-derived PDF:
-  `python3 scripts/verify_pdf.py out.pdf --expect-font Vazirmatn`.
+  `python3 scripts/verify_pdf.py out.pdf --expect-font Sahel`.
 
 ## Pre-delivery checklist
 

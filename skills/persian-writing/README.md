@@ -9,7 +9,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Claude Skill](https://img.shields.io/badge/Claude-Skill-cc785c)](https://claude.ai)
 [![Works with any agent](https://img.shields.io/badge/agents-any-blue)](AGENTS.md)
-[![Fonts: Vazirmatn + Lalezar](https://img.shields.io/badge/fonts-Vazirmatn%20%2B%20Lalezar-8A2BE2)](references/fonts.md)
+[![Fonts: Sahel](https://img.shields.io/badge/fonts-Sahel-8A2BE2)](references/fonts.md)
 
 AI output in Persian has two chronic failures: prose that screams «متن هوش
 مصنوعی» (می‌باشد، لازم به ذکر است، rule-of-three triads, em dashes) and
@@ -17,7 +17,7 @@ documents that betray the text (left-aligned "RTL", broken نیم‌فاصله, 
 ي/ك, orphan headings, DejaVu fallback glyphs). This skill fixes both, in one
 package, for any AI that can read Markdown.
 
-![Sample output: fully RTL Persian proposal, Vazirmatn, verified](docs/preview.png)
+![Sample output: fully RTL Persian proposal, verified](docs/preview.png)
 
 ## What it does
 
@@ -32,7 +32,7 @@ package, for any AI that can read Markdown.
 | **Content craft** | POV discipline، آموزش vs تبلیغ، الگوهای بدنه، وفاداری به منبع |
 | **Social channels** | تلگرام و اینستاگرام: قالب، هوک، کاروسل، ریلز، استوری، کپشن، بازطراحی |
 | **SEO + copywriting** | Search intent, Persian keyword variants, E-E-A-T, doorway-page warning, PAS/AIDA, CTA per register, «قیمت همیشه با تومان» |
-| **Fonts** | Vazirmatn (5 weights) + Lalezar bundled (SIL OFL); catalog & pairings for 8 families |
+| **Fonts** | Sahel bundled (5 weights, Light–Black; SIL OFL); catalog & pairings for 6 families |
 
 ## Install
 
@@ -59,7 +59,7 @@ as knowledge (GPTs / Projects / Gems) — the whole skill in one self-contained 
 python3 scripts/persian_cleanup.py --edit --spellcheck draft.txt   # fix + spell-check
 python3 scripts/fa_lint.py --check draft.txt                       # lint report
 python3 scripts/verify_docx.py out.docx --fix --sanitize            # DOCX RTL + integrity
-python3 scripts/verify_pdf.py out.pdf --expect-font Vazirmatn      # PDF QA
+python3 scripts/verify_pdf.py out.pdf --expect-font Sahel          # PDF QA
 ```
 Python 3.8+, standard library only.
 
@@ -187,14 +187,13 @@ After editing SKILL.md or references, regenerate the single-file edition:
 - **1.0.0** — initial release: 4 registers + detection procedure, 18 AI-tell
   patterns, paknevis+davat cleanup with frequency-ranked spell-check, RTL
   recipes for docx/pptx/html/xlsx/images, PDF verification, academic + SEO +
-  copywriting modules, Vazirmatn/Lalezar bundled. Benchmarked at 100% vs 79%
+  copywriting modules, bundled Persian fonts. Benchmarked at 100% vs 79%
   (with/without skill) on register, orthography and RTL-structure assertions.
 
 ## Credits & license
 
-MIT — see [LICENSE](LICENSE). Fonts under SIL OFL: [Vazirmatn](https://github.com/rastikerdar/vazirmatn)
-and the rastikerdar family, [Lalezar](https://github.com/BornaIz/Lalezar) by
-Borna Izadpanah. Cleanup toolkit merges [paknevis](https://github.com/afshin-ir/paknevis)
+MIT — see [LICENSE](LICENSE). Fonts under SIL OFL: [Sahel](https://github.com/rastikerdar/sahel-font)
+and the rest of the rastikerdar family by Saber Rastikerdar. Cleanup toolkit merges [paknevis](https://github.com/afshin-ir/paknevis)
 (afshin-ir) and [davat](https://github.com/mh-salari/davat) (mh-salari);
 dictionary from [Persian-Words-Database](https://github.com/shahind/Persian-Words-Database).
 AI-tell patterns adapted for Persian from Wikipedia's

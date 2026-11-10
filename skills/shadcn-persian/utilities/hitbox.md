@@ -1,0 +1,91 @@
+﻿---
+title: "Hitbox"
+description: "Extends the clickable area of a child element for improved accessibility."
+---
+
+import { hitboxApi } from "@/lib/api-data/hitbox"
+
+Wrap an interactive element to extend its clickable area without changing its visible size.
+
+<LastEdited path="apps/web/content/docs/utilities/hitbox.mdx" />
+
+<Credits
+  sources={[{ label: "Dice UI", href: "https://diceui.com/" }]}
+  changed={false}
+/>
+
+## Overview
+
+Hitbox preserves the child's semantics while adding an invisible touch target around it. Use its size, position, radius, and debug props to control the extended area.
+
+<ComponentPreview name="hitbox-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli" className="mt-4">
+<TabsList>
+<TabsTrigger value="cli">CLI</TabsTrigger>
+<TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli" className="mt-4">
+  <CodeBlockCommand
+    prompt="Add the Hitbox utility to my project. It extends any element's clickable area — see https://ui.persian-labs.ir/llms.txt for the full agent catalog"
+    pnpm="pnpm dlx shadcn@latest add @persianlabsui/hitbox"
+    npm="npx shadcn@latest add @persianlabsui/hitbox"
+    bun="bunx --bun shadcn@latest add @persianlabsui/hitbox"
+  />
+</TabsContent>
+
+<TabsContent value="manual" className="mt-4">
+<Steps>
+<Step>Install the dependencies</Step>
+
+<InstallCommand packages="class-variance-authority" />
+
+<Step>Copy the component source</Step>
+
+<ComponentSource name="hitbox" title="components/ui/hitbox.tsx" />
+
+</Steps>
+</TabsContent>
+</Tabs>
+
+## Layout
+
+Import Hitbox and wrap it around any interactive element.
+
+```tsx
+import { Hitbox } from "@/components/ui/hitbox"
+
+;<Hitbox>
+  <Button />
+</Hitbox>
+```
+
+## Examples
+
+### Sizes [#sizes]
+
+Control how far the hitbox extends. Use sm, default, lg, or a custom CSS value.
+
+<ComponentPreview name="hitbox-sizes" />
+### Positions [#positions]
+
+Limit the extended hitbox to one or more sides of the element.
+
+<ComponentPreview name="hitbox-positions" />
+### Radii [#radii]
+
+Match the extended area to the child’s corner radius.
+
+<ComponentPreview name="hitbox-radii" />
+### Debug mode [#debug]
+
+Enable debug to visualize the normally invisible hitbox while developing.
+
+<ComponentPreview name="hitbox-debug" />
+
+## API Reference
+
+<ApiReference title="Hitbox" rows={hitboxApi} />

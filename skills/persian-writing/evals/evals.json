@@ -5,7 +5,7 @@
       "id": 0,
       "name": "rtl-proposal-docx",
       "prompt": "یک پروپوزال یک صفحه‌ای فارسی برای «طراحی سایت فروشگاهی رستوران سنتی نارنج» بنویس و به صورت فایل Word تحویل بده. بخش‌ها: معرفی کوتاه، ۳ مرحله انجام کار، قیمت (۸۵ میلیون تومان، تحویل ۴۵ روز کاره)، و یک جمله دعوت به اقدام. لحن حرفه‌ای ولی گرم.",
-      "expected_output": "A .docx that is truly RTL (bidi sections, START alignment, rtl runs with cs font hint), Persian digits throughout, Vazirmatn font, keepNext headings, natural formal-but-human Persian with no AI tells (no می‌باشد، لازم به ذکر است، em dashes)",
+      "expected_output": "A .docx that is truly RTL (bidi sections, START alignment, rtl runs with cs font hint), Persian digits throughout, Sahel font, keepNext headings, natural formal-but-human Persian with no AI tells (no می‌باشد، لازم به ذکر است، em dashes)",
       "files": []
     },
     {

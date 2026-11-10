@@ -23,8 +23,7 @@ SOFTWARE.
 ---
 
 Bundled fonts (assets/fonts/) are NOT covered by the MIT license above.
-They are licensed under the SIL Open Font License 1.1 by their respective
-authors: Vazirmatn (The Vazirmatn Project Authors,
-github.com/rastikerdar/vazirmatn) and Lalezar (Borna Izadpanah,
-github.com/BornaIz/Lalezar). The bundled Persian word list derives from
+They are licensed under the SIL Open Font License 1.1: Sahel, Copyright (c)
+2016 Saber Rastikerdar (github.com/rastikerdar/sahel-font); full license text
+in assets/fonts/Sahel-OFL.txt. The bundled Persian word list derives from
 github.com/shahind/Persian-Words-Database.

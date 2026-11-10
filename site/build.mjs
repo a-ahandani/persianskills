@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, mkdirSync, cpSync, rmSync } from "node:fs";
+import { readFileSync, readdirSync, writeFileSync, mkdirSync, cpSync, rmSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import assert from "node:assert/strict";
@@ -24,6 +24,7 @@ const num = (n) => n.toLocaleString("en-US");
 
 const icon = {
   github: '<svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.05-.49.05-.49.8.06 1.23.83 1.23.83.72 1.22 1.88.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.66 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0Z"/></svg>',
+  terminal: '<svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 4.5 3.5 3.5L3 11.5M8.5 12h4.5"/></svg>',
   copy: '<svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 3.5v-.5A1.5 1.5 0 0 0 9 1.5H3A1.5 1.5 0 0 0 1.5 3v6A1.5 1.5 0 0 0 3 10.5h.5"/></svg>',
 };
 
@@ -32,16 +33,15 @@ const description = "Open-source agent skills that make AI write Persian correct
 const agents = [["claude-code", "Claude Code"], ["codex", "Codex"], ["cursor", "Cursor"], ["gemini", "Gemini CLI"], ["copilot", "GitHub Copilot"], ["windsurf", "Windsurf"], ["opencode", "OpenCode"], ["cline", "Cline"], ["roo", "Roo Code"], ["goose", "Goose"], ["kiro", "Kiro"], ["amp", "Amp"]];
 
 const varieties = [
-  { where: "Iran", name: "فارسی", lang: "fa", sample: "دانشجو با اتوبوس به بیمارستان رفت.", values: ["Perso-Arabic, RTL", "toman, rial", "Farvardin", "fa-IR"] },
-  { where: "Afghanistan", name: "دری", lang: "fa-AF", sample: "محصل با بس به شفاخانه رفت.", values: ["Perso-Arabic, RTL", "afghani ؋", "Hamal", "fa-AF"] },
-  { where: "Tajikistan", name: "Тоҷикӣ", lang: "tg", sample: "Донишҷӯ бо автобус ба беморхона рафт.", values: ["Cyrillic, LTR", "сомонӣ", "январ", "tg"] },
+  { where: "Iran", code: "fa-IR", dir: "rtl", lang: "fa", title: "Farsi in Iran", sample: "<mark>دانشجو</mark> با <mark>اتوبوس</mark> به <mark>بیمارستان</mark> رفت.", desc: "Perso-Arabic, right to left. Prices in tomans, and the year starts in Farvardin." },
+  { where: "Afghanistan", code: "fa-AF", dir: "rtl", lang: "fa-AF", title: "Dari in Afghanistan", sample: "<mark>محصل</mark> با <mark>بس</mark> به <mark>شفاخانه</mark> رفت.", desc: "Same script, different words. Prices in afghani (؋), and the year starts in Hamal." },
+  { where: "Tajikistan", code: "tg", dir: "ltr", lang: "tg", title: "Tajik in Tajikistan", sample: "<mark>Донишҷӯ</mark> бо <mark>автобус</mark> ба <mark>беморхона</mark> рафт.", desc: "Cyrillic, left to right. Prices in somoni, and dates follow the Gregorian calendar." },
 ];
-const facts = ["Script", "Money", "First month", "Locale"];
 
 const credits = [
-  ["ali2000hos/persian-writing", "https://github.com/ali2000hos/persian-writing", "The persian-writing skill is copied unchanged from this repo. Code under MIT, fonts under the SIL OFL."],
+  ["Every author in the list", `${gh}/blob/main/CREDITS.md`, "Each copied skill keeps its author's license file. CREDITS.md lists the source repo, commit and every change we made, such as the switch to the Sahel font."],
   ["Edyt", "https://edyt.app", "The persian-localization rules come from a native speaker's review of Edyt's Persian translation."],
-  ["Every author in the list", "#skills", "Each row links to its author's repo. Each skill keeps the license its author chose."],
+  ["Sahel font", "https://github.com/rastikerdar/sahel-font", "Every skill that bundles or recommends a Persian font uses Sahel by Saber Rastikerdar (SIL OFL)."],
 ];
 const sources = [
   ["Unicode CLDR", "https://github.com/unicode-org/cldr", "Months, currency, numbers and weekend data for fa-AF and tg."],
@@ -56,12 +56,12 @@ const edyt = readFileSync(join(here, "edyt-mark.svg"), "utf8").trim().replace("<
 
 const row = (s, i) => {
   const href = s.here ? `${gh}/tree/main/${s.path}` : s.url;
-  const tags = [s.here ? '<span class="tag here">In this repo</span>' : "", s.draft ? '<span class="tag draft">Draft</span>' : "", s.kind === "mcp" ? '<span class="tag">MCP</span>' : ""].join("");
+  const tags = [s.author === "persianskills" ? '<span class="tag here">Original</span>' : "", s.here ? "" : '<span class="tag">Link only</span>', s.draft ? '<span class="tag draft">Draft</span>' : "", s.kind === "mcp" ? '<span class="tag">MCP</span>' : ""].join("");
   const text = `${s.name} ${s.author} ${s.description} ${VARIETIES[s.variety]} ${CATEGORIES[s.category]}`.toLowerCase();
   return `<a class="row" href="${esc(href)}" data-variety="${s.variety}" data-text="${esc(text)}" target="_blank" rel="noopener">
   <span class="n">${i + 1}</span>
   <div><b>${esc(s.name)}</b><span class="src">${esc(source(s))}</span>${tags ? `<span class="tags">${tags}</span>` : ""}<p class="desc">${esc(s.description)}</p></div>
-  <span class="col">${VARIETIES[s.variety]}</span>
+  <span class="col"><span class="tag">${VARIETIES[s.variety]}</span></span>
   <span class="col">${esc(licenseLabel(s.license))}</span>
   <span class="stars">${s.stars === undefined ? "" : num(s.stars)}</span>
 </a>`;
@@ -70,9 +70,10 @@ const row = (s, i) => {
 const linkList = (items) =>
   `<ul>${items.map(([name, href, note]) => `<li><a href="${esc(href)}"${href.startsWith("#") ? "" : ' target="_blank" rel="noopener"'}>${esc(name)}</a><span>${esc(note)}</span></li>`).join("")}</ul>`;
 
-const authors = new Set(skills.map((s) => s.author)).size;
-const cmd = (text) => `<pre class="cmd"><code>${text.split("\n").map((l) => `<span class="p">$ </span>${esc(l)}`).join("\n")}</code><button class="copy" type="button" aria-label="Copy" data-copy="${esc(text)}">${icon.copy}</button></pre>`;
+const cmd = (comment, text) => `<div class="cmd"><pre><code><span class="c"># ${esc(comment)}</span>\n${esc(text)}</code></pre><button class="copy" type="button" aria-label="Copy" data-copy="${esc(text)}">${icon.copy}</button></div>`;
 
+const skillFiles = readdirSync(join(here, "..", "skills"), { recursive: true }).filter((f) => f.endsWith("SKILL.md")).length;
+const skillAuthors = new Set(skills.filter((s) => s.here && s.author !== "persianskills").map((s) => s.author)).size;
 const page = `<!doctype html>
 <html lang="en">
 <head>
@@ -85,7 +86,7 @@ const page = `<!doctype html>
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${site}/">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0b0b0a">
+<meta name="theme-color" content="#eda220">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/fonts/lexend-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
@@ -94,77 +95,101 @@ const page = `<!doctype html>
 <header class="top"><div class="bar">
   <a class="brand" href="/" aria-label="Persian Skills home">${edyt}<span class="slash" aria-hidden="true">/</span>Persian Skills</a>
   <nav class="links" aria-label="Sections">
-    <a class="hide-sm" href="#skills">Skills</a><a class="hide-sm" href="#install">Install</a><a class="hide-sm" href="#sources">Sources</a><a class="hide-sm" href="#contribute">Contribute</a><a class="btn solid" href="${gh}" target="_blank" rel="noopener">${icon.github}GitHub</a>
+    <a href="#skills">Skills</a><a href="#install">Install</a><a href="#agents">Agents</a><a href="#sources">Credits</a><a href="#contribute">Contribute</a>
   </nav>
+  <div class="top-actions">
+    <a class="btn hide-sm" href="${gh}" target="_blank" rel="noopener">${icon.github}GitHub</a>
+    <a class="btn fill" href="#install">${icon.terminal}Install</a>
+  </div>
 </div></header>
 
-<main class="wrap">
+<main>
 <section class="hero">
-  <div>
-    <h1 class="wordmark"><span>Persian</span><span>Skills</span></h1>
-    <p class="tagline">Agent skills for every Persian reader</p>
-    <span class="underline" aria-hidden="true"></span>
-  </div>
-  <p class="lead">Skills that make AI agents write Persian the way its readers do: <b>Farsi</b> for Iran, <b>Dari</b> for Afghanistan, <b>Tajik</b> in Cyrillic. One command installs them into any agent that reads SKILL.md.</p>
-</section>
-
-<section class="grid2" id="install">
-  <div>
-    <h2 class="label">Install</h2>
-    ${cmd(`npx skills add ${repo}`)}
-    <div class="more">
-      <div><small>One skill</small>${cmd(`npx skills add ${repo} --skill dari-writing`)}</div>
-      <div><small>Claude Code plugin</small>${cmd(`/plugin marketplace add ${repo}\n/plugin install persian-skills@persianskills`)}</div>
-    </div>
-  </div>
-  <div>
-    <h2 class="label">Works with</h2>
-    <div class="agents">${agents.map(([file, name]) => `<span class="agent" title="${name}"><img src="/agents/${file}.svg" alt="${name}" width="32" height="32"></span>`).join("")}</div>
-    <p class="note">For ChatGPT, Gemini and other chat apps, upload a skill's SKILL.md as knowledge.</p>
+  <div class="wrap">
+    <h1>Persian Skills</h1>
+    <p class="sub">Agent skills that write Persian the way its readers do: Farsi for Iran, Dari for Afghanistan, Tajik in Cyrillic.</p>
+    <div class="install"><code><span class="p">$ </span>npx skills add ${repo}</code><button class="copy" type="button" aria-label="Copy" data-copy="npx skills add ${repo}">${icon.copy}</button></div>
+    <p class="more">${num(skillFiles)} skills in one repo, each credited to its author · <a href="#install">other ways to install</a></p>
   </div>
 </section>
 
-<section class="section">
-  <h2 class="label">One language, three standards</h2>
-  <div class="varieties">
+<section class="section wrap" id="varieties">
+  <h2>One sentence, three standards.</h2>
+  <p class="lede">“The student took the bus to the hospital.” The marked words change from country to country, so your agent has to know who it's writing for.</p>
+  <div class="cards">
     ${varieties
       .map(
-        (v) => `<article class="variety">
-      <div class="where">${v.where}</div>
-      <div class="name" lang="${v.lang}" dir="auto">${v.name}</div>
-      <p class="sample" lang="${v.lang}" dir="auto">${v.sample}</p>
-      <dl>${facts.map((f, i) => `<dt>${f}</dt><dd>${v.values[i]}</dd>`).join("")}</dl>
+        (v, i) => `<article class="card">
+      <div class="art"><div class="mini"><div class="mini-top"><span>${v.where}</span><code>${v.code}</code></div><p lang="${v.lang}" dir="${v.dir}">${v.sample}</p></div></div>
+      <div class="num">0${i + 1}</div>
+      <h3>${v.title}</h3>
+      <p>${v.desc}</p>
     </article>`,
       )
       .join("\n    ")}
   </div>
-  <p class="note">The same sentence in each: “The student took the bus to the hospital.” Afghans say shafakhana for hospital, and most Tajiks can't read Persian script, so your agent has to know who it is writing for.</p>
 </section>
 
-<section class="section" id="skills">
-  <h2 class="label">Skills directory</h2>
-  <label class="search"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="m11 11 3.5 3.5"/></svg><input type="search" placeholder="Search skills..." aria-label="Search skills"><kbd>/</kbd></label>
-  <div class="tabs" role="group" aria-label="Filter by variety">
-    ${Object.entries({ any: `All (${num(skills.length)})`, ...VARIETIES }).map(([k, label], i) => `<button type="button" data-filter="${k}" aria-pressed="${i === 0}">${label}</button>`).join("")}
-  </div>
-  <div class="thead"><span>#</span><span>Skill</span><span class="col">Variety</span><span class="col">License</span><span class="stars">Stars</span></div>
-  <div class="list">
+<section class="section wrap" id="skills">
+  <h2>Every Persian skill, in one repo.</h2>
+  <p class="lede">${num(skillFiles)} skills from ${num(skillAuthors)} authors, copied with their licenses and credit, plus our own. The four marked Link only can't be copied and stay in their authors' repos.</p>
+  <div class="db">
+    <div class="db-head">
+      <div class="db-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></svg>Skills directory</div>
+      <div class="tools">
+        <div class="tabs" role="group" aria-label="Filter by variety">
+          ${Object.entries({ any: `All (${num(skills.length)})`, ...VARIETIES }).map(([k, label], i) => `<button type="button" data-filter="${k}" aria-pressed="${i === 0}">${label}</button>`).join("")}
+        </div>
+        <label class="search"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="m11 11 3.5 3.5"/></svg><input type="search" placeholder="Search skills" aria-label="Search skills"><kbd>/</kbd></label>
+      </div>
+    </div>
+    <div class="thead"><span class="n">#</span><span>Skill</span><span class="col">Variety</span><span class="col">License</span><span class="stars">Stars</span></div>
+    <div class="list">
 ${skills.map(row).join("\n")}
+    </div>
+    <p class="empty" hidden>No skills match.</p>
   </div>
-  <p class="empty" hidden>No skills match.</p>
-  <p class="note">${num(skills.length)} skills and tools from ${num(authors)} authors, checked on ${checked}. Stars are the author's repo stars. The first four live in this repo; the rest install from their authors' repos.</p>
+  <p class="note">Checked on ${checked}. Stars are the author's repo stars.</p>
 </section>
 
-<section class="section credits" id="sources">
-  <div><h2 class="label">Credits</h2>${linkList(credits)}</div>
-  <div><h2 class="label">Dari and Tajik sources</h2>${linkList(sources)}</div>
+<section class="section wrap" id="install">
+  <div class="frame">
+    <h2>Install it your way.</h2>
+    <p class="lede">The skills CLI finds the agents on your machine and puts each skill where that agent looks for it.</p>
+    <div class="code">
+      <div class="file"><span>terminal</span><a href="${gh}" target="_blank" rel="noopener">${icon.github}See the repo</a></div>
+      <div class="cmds">
+        ${cmd("every skill, pick from the list", `npx skills add ${repo}`)}
+        ${cmd("one skill", `npx skills add ${repo} --skill dari-writing`)}
+        ${cmd("Claude Code plugin, run inside Claude Code", `/plugin marketplace add ${repo}\n/plugin install persian-skills@persianskills`)}
+      </div>
+      <div class="status"><b>›</b> npx skills add ${repo}<span>For ChatGPT, Gemini and other chat apps, upload a skill's SKILL.md as knowledge.</span></div>
+    </div>
+  </div>
 </section>
 
-<section class="section closing" id="contribute">
+<section class="section wrap" id="agents">
+  <h2>Works with the agents you use.</h2>
+  <p class="lede">Any agent that reads SKILL.md files can load these skills.</p>
+  <div class="logos">${agents.map(([file, name]) => `<div class="logo"><img src="/agents/${file}.svg" alt="" width="30" height="30"><span>${name}</span></div>`).join("")}</div>
+</section>
+
+<section class="section wrap" id="sources">
+  <div class="frame">
+    <h2>Credit where it's due.</h2>
+    <div class="credits">
+      <div><h3>Credits</h3>${linkList(credits)}</div>
+      <div><h3>Dari and Tajik sources</h3>${linkList(sources)}</div>
+    </div>
+  </div>
+</section>
+
+<section class="closing wrap" id="contribute">
+  <span class="underline" aria-hidden="true"></span>
   <h2>Built a Persian skill?</h2>
-  <p>Add a row to catalog.json and open a pull request. Dari, Hazaragi and Tajik skills are the scarcest.</p>
+  <p class="lede">Add a row to catalog.json and open a pull request. Dari, Hazaragi and Tajik skills are the scarcest.</p>
   <div class="btns">
-    <a class="btn solid" href="${gh}/edit/main/catalog.json" target="_blank" rel="noopener">Add a skill</a>
+    <a class="btn fill blue" href="${gh}/edit/main/catalog.json" target="_blank" rel="noopener">Add a skill</a>
     <a class="btn" href="${gh}/issues" target="_blank" rel="noopener">${icon.github}Report a problem</a>
   </div>
 </section>
@@ -192,7 +217,11 @@ const apply = () => {
   empty.hidden = shown > 0;
 };
 input.addEventListener("input", apply);
-document.addEventListener("keydown", (e) => { if (e.key === "/" && document.activeElement !== input) { e.preventDefault(); input.focus(); } });
+const header = document.querySelector("header.top");
+new IntersectionObserver(([e]) => header.classList.toggle("solid", !e.isIntersecting), { rootMargin: "-68px 0px 0px 0px" }).observe(document.querySelector(".hero .wrap"));
+document.addEventListener("keydown", (e) => {
+  if (e.key === "/" && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); input.focus(); }
+});
 document.querySelectorAll("[data-filter]").forEach((b) => b.addEventListener("click", () => {
   variety = b.dataset.filter;
   document.querySelectorAll("[data-filter]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));

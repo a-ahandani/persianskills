@@ -1,0 +1,103 @@
+---
+title: "Message"
+description: "Composable layout for a chat message with an avatar, header, content, and footer."
+---
+
+import { messageApi } from "@/lib/api-data/message"
+
+Composable layout for a chat message row: an avatar, an optional header/footer (name, timestamp), and `Bubble` content.
+
+<LastEdited path="apps/web/content/docs/components/message.mdx" />
+
+<Credits
+          sources={[{ label: "shadcn/ui", href: "https://ui.shadcn.com" }]}
+          changed={false}
+        />
+
+## Overview
+
+<ComponentPreview name="message-demo" />
+
+## Installation
+
+<InstallTabs command="npx shadcn@latest add @persianlabsui/message" sourceName="message" sourceTitle="components/ui/message.tsx" />
+
+## Usage
+
+```tsx
+import {
+
+  Message,
+  MessageAvatar,
+  MessageContent,
+  MessageGroup,
+  MessageHeader,
+} from "@/components/ui/message"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+
+import { Bubble, BubbleContent } from "@/components/ui/bubble"
+
+export function Example() {
+  return (
+    <MessageGroup>
+      <Message align="start">
+        <MessageAvatar>
+          <Avatar>
+            <AvatarFallback>AI</AvatarFallback>
+          </Avatar>
+        </MessageAvatar>
+        <MessageContent>
+          <MessageHeader>Assistant</MessageHeader>
+          <Bubble variant="muted">
+            <BubbleContent>How can I help you today?</BubbleContent>
+          </Bubble>
+        </MessageContent>
+      </Message>
+    </MessageGroup>
+  )
+}
+```
+
+## Examples
+
+### RTL
+
+`align` uses `flex-row-reverse` rather than a physical side, so it already reads correctly under RTL.
+
+<ComponentPreview name="message-rtl" direction="rtl" />
+
+### Mixed-language content
+
+Bubble placement, paragraph direction, and text alignment are independent:
+
+- Keep `Message` / `Bubble` `align` for start/end placement in the surrounding UI.
+- Set `dir` on each prose paragraph, not the whole message row. A single bubble
+  can contain both Persian and English paragraphs without moving its avatar or tail.
+- Use `text-start` for direction-aware alignment. Use `text-left` only when the
+  product deliberately wants the physical left edge, including for Persian text.
+  This is an intentional exception to the usual logical-property rule.
+- Wrap a known opposite-direction inline fragment with native `<bdi dir="ltr">`
+  or `<bdi dir="rtl">`; do not reverse strings or insert hidden controls into
+  the stored message. Keep code and URL text in its original order.
+
+<ComponentPreview name="message-mixed-direction" />
+
+The directions above are explicit author choices for these known examples, not
+language detection. Native `dir="auto"` uses first-strong direction, not the
+majority language. In an unmarked plain-text paragraph, a leading `React`
+identifier can therefore select LTR for Persian prose. Text inside `<bdi>` is
+excluded from that first-strong scan. For unknown user/AI text, offer an
+Auto/LTR/RTL override or apply
+your chosen content-direction policy at the paragraph boundary. Preserve an
+explicit caller choice. Keep the surrounding UI's layout direction on the
+message row or an ancestor, separate from each paragraph's `dir`.
+
+Try the preview in both UI directions and at a narrow width. The English control
+paragraph must stay LTR, the intentionally left-aligned Persian paragraph must
+stay RTL, and selecting/copying a paragraph must retain its logical source text.
+Screen-reader pronunciation and editor caret/IME behavior need separate testing;
+this example is read-only message presentation, not an editor integration.
+
+## API Reference
+
+<ApiReference title="Message" rows={messageApi} />

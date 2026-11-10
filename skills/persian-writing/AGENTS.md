@@ -12,7 +12,7 @@ natural human-sounding prose in the correct register, correct orthography
 (ZWNJ, Persian digits/punctuation), correct right-to-left documents
 (Word/PDF/PowerPoint/HTML/Excel/images), Persian SEO writing and copywriting,
 plus deterministic scripts for cleanup, spell-check, linting, and PDF
-verification. Bundled Vazirmatn and Lalezar fonts (SIL OFL).
+verification. Bundled Sahel font (SIL OFL).
 
 ## How an agent should use it
 
@@ -29,9 +29,10 @@ verification. Bundled Vazirmatn and Lalezar fonts (SIL OFL).
    single-file version for paste/upload use is at
    `universal/persian-writing-universal.md` (regenerate with
    `scripts/build_universal.py`).
-4. Fonts: reference by family name (`Vazirmatn`, `Lalezar`); files live in
-   `assets/fonts/`. Install them into the OS/font cache before rendering
-   PDFs or images, or output silently falls back to broken glyphs.
+4. Fonts: reference by family name (`Sahel`; `Sahel Black` for the display
+   weight in docx/pptx); files live in `assets/fonts/`. Install them into
+   the OS/font cache before rendering PDFs or images, or output silently
+   falls back to broken glyphs.
 
 ## Layout
 

@@ -21,7 +21,7 @@ assert features.check('raqm')   # True in most modern Pillow builds
 
 ```python
 from PIL import Image, ImageDraw, ImageFont
-font = ImageFont.truetype('assets/fonts/Vazirmatn-Bold.ttf', 48)
+font = ImageFont.truetype('assets/fonts/Sahel-Bold.ttf', 48)
 draw.text(
     (width - margin, y),          # x = RIGHT edge of the text block
     'سلام دنیا ۱۲۳',
@@ -36,7 +36,7 @@ draw.text(
   Persian clips in tight leading.
 - Mixed Persian/Latin in one line: raqm handles bidi correctly — do NOT
   reverse strings manually.
-- Never letter-space; use Lalezar for display headlines, Vazirmatn otherwise
+- Never letter-space; use Sahel Black for display headlines, Sahel otherwise
   (fonts.md pairings apply to posters too).
 - Persian digits ۰-۹ in all visible numbers.
 
@@ -78,15 +78,15 @@ from reportlab.pdfbase.ttfonts import TTFont
 import arabic_reshaper
 from bidi.algorithm import get_display
 
-pdfmetrics.registerFont(TTFont('Vazirmatn', 'assets/fonts/Vazirmatn-Regular.ttf'))
-c.setFont('Vazirmatn', 14)
+pdfmetrics.registerFont(TTFont('Sahel', 'assets/fonts/Sahel.ttf'))
+c.setFont('Sahel', 14)
 line = get_display(arabic_reshaper.reshape('متن فارسی ۱۲۳'))
 c.drawRightString(page_width - margin, y, line)   # right-anchored per line
 ```
 
 Manipulating EXISTING Persian PDFs (merge/split/rotate/extract via pypdf,
 form-filling) is safe — those operations never touch text shaping.
-Always finish with `scripts/verify_pdf.py out.pdf --expect-font Vazirmatn`.
+Always finish with `scripts/verify_pdf.py out.pdf --expect-font Sahel`.
 
 ## 3. Excel (xlsx skill, openpyxl / pandas)
 
@@ -102,8 +102,8 @@ ws.title = 'گزارش فروش'
 
 ws.sheet_view.rightToLeft = True          # ← THE critical line, per sheet
 
-fa_font   = Font(name='Vazirmatn', size=11)
-fa_header = Font(name='Vazirmatn', size=11, bold=True)
+fa_font   = Font(name='Sahel', size=11)
+fa_header = Font(name='Sahel', size=11, bold=True)
 fa_align  = Alignment(horizontal='right', vertical='center',
                       readingOrder=2)     # 2 = right-to-left reading order
 
@@ -116,7 +116,7 @@ for cell in row:
 - **Numbers stay real numbers** (Latin digits in numeric cells) so formulas,
   sorting and charts keep working; Persian digits belong in text/label cells.
   Give currency cells a format like `#,##0 "تومان"`.
-- Headers, sheet names, chart titles: Persian, Vazirmatn, bold.
+- Headers, sheet names, chart titles: Persian, Sahel, bold.
 - pandas: `df.to_excel(...)` first, then reopen with openpyxl to apply
   rightToLeft + fonts + alignment (pandas can't set them).
 - Column order: with rightToLeft the first column (A) displays rightmost —
@@ -132,4 +132,4 @@ for cell in row:
 | Web page / email | RTL HTML/CSS | html-css.md |
 | New PDF | docx or HTML pipeline, NOT raw reportlab | this file §2 |
 | Poster/social image | PIL + raqm (direction='rtl') | this file §1 |
-| Spreadsheet | openpyxl + rightToLeft + Vazirmatn | this file §3 |
+| Spreadsheet | openpyxl + rightToLeft + Sahel | this file §3 |

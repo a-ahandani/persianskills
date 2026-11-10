@@ -3,7 +3,7 @@
 verify_pdf.py — post-generation checks for Persian PDFs.
 
 Usage:
-  python3 verify_pdf.py output.pdf --expect-font Vazirmatn [--expect-font Lalezar]
+  python3 verify_pdf.py output.pdf --expect-font Sahel [--expect-font Samim]
           [--min-lines 3] [--allow-empty-pages 1,5]
 
 Checks:
