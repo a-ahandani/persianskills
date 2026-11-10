@@ -74,7 +74,7 @@ the real Bold), `"Sahel Black"` for display headings (also `"Sahel Light"`,
 separate family names).
 Always with `hint: "cs"` (docx-js) or `w:rFonts w:cs=` (python-docx) — see
 docx-pdf.md. The font must be installed on the converting machine
-(`bash scripts/install_fonts.sh`) or LibreOffice substitutes DejaVu.
+(`bash scripts/install-fonts.sh`) or LibreOffice substitutes DejaVu.
 
 ### HTML / CSS
 ```css

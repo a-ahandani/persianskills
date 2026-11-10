@@ -161,4 +161,4 @@ Read on demand, not all up front.
 
 Paths are relative to the skill root (the folder holding this file); run scripts from there.
 Scripts: `scripts/persian_lint.py`, `scripts/lookup.py`. Data: `scripts/data/idioms.tsv` and
-`scripts/data/glossary.tsv`, never loaded into context. Tests: `python scripts/test_scripts.py`.
+`scripts/data/glossary.tsv`, never loaded into context. Tests: `python3 tests/test_scripts.py`.

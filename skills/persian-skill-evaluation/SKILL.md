@@ -64,15 +64,19 @@ can't, it's a duplicate.
 
 ## Step 3: standard
 
-In the persianskills repo, run `node scripts/check-skills.mjs`. Elsewhere,
-check by hand:
+Check the skill against `persian-skill-standard`. In the persianskills repo,
+run `node scripts/check-skills.mjs`, which checks most of it. Elsewhere, check
+by hand:
 
+- **Name:** `persian-`, `dari-` or `tajik-` plus a plain topic, with no brand
+  name or `-skill` suffix.
+- **Files:** the standard layout and file names, with no upstream repo files,
+  host manifests or caches, and every file the skill points to exists.
 - **Frontmatter:** only the standard fields.
 - **Description:** English, third person, saying what the skill does and when
   to use it, at most 1,024 characters.
 - **Body:** English instructions with Persian kept for examples, under 500
   lines, with references one level deep.
-- **Files:** every file the skill points to exists.
 
 Standard problems alone mean **fix**, never reject.
 

@@ -112,7 +112,7 @@ def lint_code_file(path):
         boxes = re.search(r"inline-block|inlineBlock|display:\s*['\"]?flex|display:\s*['\"]?grid", src)
         if splits and boxes:
             add(src[: splits.start()].count("\n") + 1, "letter-boxes",
-                "text split into characters in a file that also makes inline-block/flex boxes: per-letter boxes break Persian joins (use shaped outlines or split_fa.js)")
+                "text split into characters in a file that also makes inline-block/flex boxes: per-letter boxes break Persian joins (use shaped outlines or split-fa.js)")
         if not re.search(r"rtl", src) and re.search(f"['\"`>][^'\"`<]*[{FA_LETTER}]", code_only):
             add(1, "no-rtl", 'Persian text but no dir="rtl" anywhere in this file')
     return issues

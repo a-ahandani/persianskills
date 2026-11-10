@@ -15,7 +15,7 @@ Single owner of the keep-English / write-Persian split.
 `scientific-style.md` owns register and orthography, `glossary.md` holds
 the house lists (document chrome, keep-English classes, recurring
 infrastructure nouns), and `term-pairs.tsv` is the machine-readable half
-that `scripts/check-fa.py` enforces. Do not restate this policy anywhere
+that `scripts/check_fa.py` enforces. Do not restate this policy anywhere
 else.
 
 There is no per-field glossary in this skill. It covers **any** scientific
@@ -237,7 +237,7 @@ levels. The checker reads the whole file. Add a row there in the same
 commit as any new Keep-English note in `glossary.md`, then confirm with:
 
 ```bash
-scripts/check-fa.py path/to/doc.tex --level system-docs --terms terms.tsv --manifest manifest.txt --strict
+scripts/check_fa.py path/to/doc.tex --level system-docs --terms terms.tsv --manifest manifest.txt --strict
 ```
 
 House `system-docs` rows today: `node`, `deployment`, `configuration`,

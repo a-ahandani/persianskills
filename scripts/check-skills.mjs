@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync, existsSync } from "node:fs";
+import { readFileSync, readdirSync, existsSync, statSync } from "node:fs";
 import { dirname, join, basename, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -36,7 +36,33 @@ const prose = (body) => {
   return out;
 };
 
-const files = readdirSync(skillsDir, { recursive: true }).filter((f) => basename(f) === "SKILL.md").map((f) => join(skillsDir, f));
+const TOP = new Set(["SKILL.md", "LICENSE", "NOTICE", "references", "scripts", "assets", "evals", "tests"]);
+const TOOL_FILES = new Set(["package.json", "tsconfig.json", "remotion.config.ts", "__init__.py"]);
+const kebab = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+const IGNORED = new Set([".DS_Store", "__pycache__", "node_modules", ".venv", "venv", "out", "work"]);
+const fileName = (path) => {
+  const parts = path.split(/[\\/]/);
+  const f = parts.at(-1);
+  if (parts.length === 1 && TOP.has(f)) return true;
+  if (parts.includes("fonts") || TOOL_FILES.has(f)) return true;
+  if (f.endsWith(".py")) return /^[a-z0-9]+(_[a-z0-9]+)*\.py$/.test(f);
+  return /^[a-z0-9]+(-[a-z0-9]+)*\.[a-z0-9]+$/.test(f);
+};
+const layout = (dir) => {
+  const problems = [];
+  for (const top of readdirSync(dir)) if (!TOP.has(top) && !IGNORED.has(top)) problems.push(`not in the skill layout: ${top}`);
+  for (const path of readdirSync(dir, { recursive: true })) {
+    if (path.split(/[\\/]/).some((p) => IGNORED.has(p))) continue;
+    const full = join(dir, path);
+    const isDir = statSync(full).isDirectory();
+    if (isDir ? !path.split(/[\\/]/).every((d) => kebab.test(d) || d === "fonts") : !fileName(path)) problems.push(`name breaks the rule: ${path}`);
+    if (!isDir && path !== "SKILL.md" && basename(path) === "SKILL.md") problems.push(`nested skill: ${path}`);
+  }
+  return problems;
+};
+
+const files = readdirSync(skillsDir, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => join(skillsDir, d.name, "SKILL.md"));
+const strays = readdirSync(skillsDir, { recursive: true }).filter((f) => basename(f) === "SKILL.md" && f.split(/[\\/]/).length !== 2);
 const names = new Map();
 let failures = 0;
 
@@ -44,6 +70,7 @@ for (const file of files.sort()) {
   const dir = dirname(file);
   const rel = relative(root, dir);
   const problems = [];
+  if (!existsSync(file)) { console.log(`✗ ${rel}: no SKILL.md`); failures++; continue; }
   const s = parse(readFileSync(file, "utf8"));
   if (!s) { console.log(`✗ ${rel}: no frontmatter`); failures++; continue; }
 
@@ -72,7 +99,8 @@ for (const file of files.sort()) {
   if (share(text.join(" ")) > 0.35) problems.push(`instructions look Persian (${Math.round(share(text.join(" ")) * 100)}% Persian letters outside examples)`);
   if (headings.some((l) => /\p{Extended_Pictographic}/u.test(l))) problems.push("emoji in headings");
 
-  const refs = [...s.body.matchAll(/(?:\]\(|`)((?:references|scripts|assets)\/[^)`\s#]+)/g)].map((m) => m[1]);
+  problems.push(...layout(dir));
+  const refs = [...s.body.matchAll(/(?:\]\(|`)((?:references|scripts|assets|evals|tests)\/[^)`\s#]+)/g)].map((m) => m[1]);
   for (const ref of new Set(refs)) if (!existsSync(join(dir, ref))) problems.push(`missing file ${ref}`);
 
   if (problems.length) {
@@ -81,5 +109,6 @@ for (const file of files.sort()) {
   }
 }
 
+for (const stray of strays) { console.log(`✗ skills/${stray}: a skill must sit directly in skills/<name>/`); failures++; }
 console.log(`\n${files.length} skills checked, ${failures} with problems.`);
 process.exit(failures ? 1 : 0);

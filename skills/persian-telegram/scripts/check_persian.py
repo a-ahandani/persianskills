@@ -236,7 +236,7 @@ def main():
             state_home = os.environ.get("XDG_STATE_HOME") or os.path.expanduser(
                 "~/.local/state"
             )
-            state_dir = os.path.join(state_home, "telegram-persian-enforcer")
+            state_dir = os.path.join(state_home, "persian-telegram")
             try:
                 os.makedirs(state_dir, exist_ok=True)
                 probe = os.path.join(state_dir, ".write-probe")

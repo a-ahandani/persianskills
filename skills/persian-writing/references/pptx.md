@@ -92,7 +92,7 @@ row: bold + fill; keep rows short — pptx tables don't paginate.
 - Use bundled Sahel (+ `"Sahel Black"` for title slides) — see fonts.md pairings.
 - PowerPoint font embedding is flaky cross-platform (and python-pptx can't do
   it). If the deck travels beyond machines with the fonts installed, ALWAYS
-  ship a PDF export alongside: install fonts (`bash scripts/install_fonts.sh`),
+  ship a PDF export alongside: install fonts (`bash scripts/install-fonts.sh`),
   then `soffice --headless --convert-to pdf deck.pptx`, then
   `python3 scripts/verify_pdf.py deck.pdf --expect-font Sahel`.
 - No letter-spacing on Persian, real bold weights only, line spacing ≥1.3

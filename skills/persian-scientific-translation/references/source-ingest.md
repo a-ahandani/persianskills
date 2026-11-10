@@ -82,7 +82,7 @@ figure**, not the whole source page around it.
    1.1`) appears — do not guess an offset from printed page numbers.
 
    ```bash
-   scripts/crop-source-figures.py source/doc.pdf --out figures/artwork \
+   scripts/crop_source_figures.py source/doc.pdf --out figures/artwork \
        --map figures-map.tsv --cover --author-page 18
    ```
 
@@ -94,7 +94,7 @@ figure**, not the whole source page around it.
 5. **Flatten before the print build:**
 
    ```bash
-   scripts/prepare-figures.py figures/artwork --check
+   scripts/prepare_figures.py figures/artwork --check
    ```
 
    `--check` fails on leftover alpha (WeasyPrint/Cairo and xepersian paint
@@ -102,15 +102,15 @@ figure**, not the whole source page around it.
    source page that a dark dump is inverted, not a real dark photograph:
 
    ```bash
-   scripts/prepare-figures.py figures/artwork --invert-dark
+   scripts/prepare_figures.py figures/artwork --invert-dark
    ```
 
 ```bash
 pdfimages -png -p source/doc.pdf figures/img      # last-resort rasters
 pdftoppm -png -r 150 -f 12 -l 12 source/doc.pdf /tmp/page-12  # check only
-scripts/crop-source-figures.py source/doc.pdf --out figures/artwork --map figures-map.tsv
-scripts/prepare-figures.py figures/artwork
-scripts/prepare-figures.py figures/artwork --check
+scripts/crop_source_figures.py source/doc.pdf --out figures/artwork --map figures-map.tsv
+scripts/prepare_figures.py figures/artwork
+scripts/prepare_figures.py figures/artwork --check
 ```
 
 The checker fails (`full-page-figure`) if the translation still references
@@ -128,7 +128,7 @@ is a missing section. It costs a minute and it is the only way to answer
 
 ```bash
 ls figures/ | sed 's/.*\///' > manifest.txt
-scripts/check-fa.py doc.tex --level <level> --terms terms.tsv --manifest manifest.txt --strict
+scripts/check_fa.py doc.tex --level <level> --terms terms.tsv --manifest manifest.txt --strict
 ```
 
 The checker reports any manifest image that never made it into the

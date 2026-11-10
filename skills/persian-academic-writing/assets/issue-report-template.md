@@ -1,4 +1,4 @@
-# Virastar Manuscript Audit
+# Manuscript audit
 
 ## Scope
 

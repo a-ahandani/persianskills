@@ -113,7 +113,7 @@ def _resolve_dictionary():
         from persian_cleanup import resolve_dictionary_path
         return resolve_dictionary_path()
     except Exception:
-        path = os.path.join(os.path.dirname(here), 'assets', 'persian_words.txt')
+        path = os.path.join(os.path.dirname(here), 'assets', 'persian-words.txt')
         return path if os.path.isfile(path) else None
 
 

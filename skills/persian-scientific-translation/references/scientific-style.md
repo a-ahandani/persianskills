@@ -183,7 +183,7 @@ is technically accurate and still unreadable.
 - Decimal point stays `.`; Persian `٫` is not used.
 - SI units stay SI (`km`, `ms`, `°C`). Do not convert unit systems.
 
-`scripts/check-fa.py` fails the build on the letters, ZWNJ verbs and
+`scripts/check_fa.py` fails the build on the letters, ZWNJ verbs and
 plurals, Latin comma/semicolon/question mark, Eastern digits, and Arabic
 decimal separators in this section. Register fluency is a model
 judgement (`ensemble.md` fluency reader), not a pattern match. SI unit
@@ -235,9 +235,9 @@ The translation must *show* the same figures the source shows.
   redraw, screenshot-replace, or generate a substitute.
 - A full `pdftoppm` of the source page is not a figure. It contains
   English headers, body, captions, and page numbers. Crop with
-  `scripts/crop-source-figures.py` to the diagram, screenshot, or photo.
+  `scripts/crop_source_figures.py` to the diagram, screenshot, or photo.
   Cover: illustration only. Author: headshot only.
-- Run `scripts/prepare-figures.py figures/artwork --check` after ingest.
+- Run `scripts/prepare_figures.py figures/artwork --check` after ingest.
   Flatten PNG alpha onto white. If a file is a near-black dump, compare it
   with a `pdftoppm` of the source page; invert only when that page is
   light (`--invert-dark`).

@@ -113,7 +113,7 @@ Two traps the template already handles, worth knowing why:
   `tabular`. Port lists and requirement matrices always hit this.
 - `\includegraphics` in an RTL context is painted black or mirrored by
   `xepersian` unless it sits in `LTR` (or `latin`). The template's figure
-  example wraps it. Flatten PNG alpha with `scripts/prepare-figures.py`
+  example wraps it. Flatten PNG alpha with `scripts/prepare_figures.py`
   before compiling — leftover transparency composites onto black.
 
 ## HTML engines: measured behaviour
@@ -154,7 +154,7 @@ often paste visual/reversed Persian — including mixed lines with English
 isolates — from **both** HTML and XeLaTeX PDFs. Selecting a line in those
 viewers can also advance left-to-right.
 
-`scripts/check-pdf-text-order.py` compares Persian phrases from the print
+`scripts/check_pdf_text_order.py` compares Persian phrases from the print
 source with `pdftotext -raw` (content-stream order). `--verify` fails a
 visual-order HTML PDF when XeLaTeX is installed — rebuild from the
 `.tex` (or pass `--allow-visual-order` for a draft). Every successful
@@ -240,7 +240,7 @@ pdftoppm -png -r 110 -f 1 -l 2 out.pdf /tmp/check-p
 
 Then **look at the PNG**. Do not treat default `pdftotext` as visual
 truth on an RTL PDF; it reorders. Use `pdftotext -raw` only to check
-*extraction* order (`scripts/check-pdf-text-order.py`). What to look for
+*extraction* order (`scripts/check_pdf_text_order.py`). What to look for
 on the raster is in `review.md`. Figures must match
 the **artwork** on the source page — a black rectangle is a failed extract
 or unflattened alpha; a whole English book page (header, body, folio) is
@@ -255,7 +255,7 @@ The full build is the source of truth. A “pages 1–20” or “this chapter�
 PDF is an extract of that file, not a second translation.
 
 ```bash
-scripts/extract-pdf-pages.py doc.pdf /home/$USER/Documents/books/<slug>-1-20.pdf 1-20
+scripts/extract_pdf_pages.py doc.pdf /home/$USER/Documents/books/<slug>-1-20.pdf 1-20
 ```
 
 Extract a **contiguous range in one call**. Looping `insert_pdf` (or

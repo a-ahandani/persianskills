@@ -80,7 +80,7 @@ from typing import Callable, Iterable, List, Optional, Sequence, Union
 # Constants
 # ---------------------------------------------------------------------------
 
-__version__ = "1.4.0"  # keep in sync with SKILL.md and .claude-plugin/plugin.json
+__version__ = "1.4.0"
 
 # Zero-Width Non-Joiner (نیم‌فاصله) — the heart of Persian typography
 ZWNJ = "\u200c"
@@ -335,7 +335,7 @@ _COMMON_MISSPELLINGS = {
 # Bundle dictionary loading (optional, for dictionary-aware collapse + spellcheck)
 # ---------------------------------------------------------------------------
 
-DICT_FILENAME = "persian_words.txt"
+DICT_FILENAME = "persian-words.txt"
 DICT_ENV_VAR = "PERSIAN_WORDS"
 
 
@@ -784,7 +784,7 @@ def normalize_persian(
     If `use_dictionary=True`, the repeated-letter collapse becomes
     dictionary-aware: legitimate doubled letters in words like الله, موسسه,
     تردد are preserved. The dictionary is loaded from the bundled
-    `assets/persian_words.txt` (or override with `dictionary=set(...)`).
+    `assets/persian-words.txt` (or override with `dictionary=set(...)`).
     """
     if not isinstance(text, str):
         return text

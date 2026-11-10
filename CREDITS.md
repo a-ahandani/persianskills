@@ -7,15 +7,21 @@ from upstream and change its commit below.
 
 **Font:** we switched every bundled or recommended Persian font to
 [Sahel](https://github.com/rastikerdar/sahel-font) v3.4.0 by Saber Rastikerdar
-(SIL Open Font License 1.1). Each change is listed below. Skills that ship NOTICE files keep them, and the
-two modified Apache-2.0 skills (persian-rtl-design, persian-typography) also carry a
-`MODIFIED.md` stating what changed, as that license asks.
+(SIL Open Font License 1.1). Each change is listed below. The modified
+Apache-2.0 skills (persian-rtl-design, persian-finglish and the four
+persian-typography skills) keep their upstream NOTICE text, and their NOTICE
+file lists what we changed, as that license asks.
 
 ## Copied skills
 
-Every copied skill was also brought to the repo's skill standard (see
-CONTRIBUTING.md): English instructions with Persian examples, a third-person
-description, standard frontmatter with author, source and upstream commit.
+Every copied skill was also brought to the repo's standard
+([`persian-skill-standard`](skills/persian-skill-standard/SKILL.md)): a name
+that says what it does, the standard folder layout and file names, English
+instructions with Persian examples, a third-person description, and standard
+frontmatter with author, source and upstream commit. Upstream repo files that
+agents don't load (READMEs, changelogs, install notes, host plugin manifests,
+packaging files, README screenshots and copies of SKILL.md for other hosts)
+were removed.
 
 | Skill | Source | Path upstream | Commit | License | What we changed |
 |---|---|---|---|---|---|
@@ -32,9 +38,9 @@ description, standard frontmatter with author, source and upstream commit.
 | [`persian-telegram`](skills/persian-telegram) | [ehsanghaffar/skills](https://github.com/ehsanghaffar/skills) | `skills/telegram-persian-enforcer` | `bac8138` | MIT | Renamed from `telegram-persian-enforcer`; instructions, headings, description, checker messages and list-file comments translated from Persian into English with every Persian example kept; version moved into metadata. |
 | [`persian-translation`](skills/persian-translation) | [Mojtaba-Alehosseini/persian-skill](https://github.com/Mojtaba-Alehosseini/persian-skill) | `.` | `4264f6e` | MIT | Renamed from `persian` (name clash); default document font changed from Arial to Sahel with Arial as fallback; English title, fuller description, contents lists, metadata added. |
 | [`persian-academic-writing`](skills/persian-academic-writing) | [mhyrzt/virastar](https://github.com/mhyrzt/virastar) | `.` | `04937f4` | MIT | Renamed from `virastar`; description in the third person, the audit command uses the skill's own folder, contents lists added to all 12 references, metadata added. |
-| [`persian-finglish`](skills/persian-finglish) | [thesamehosuh/xratu](https://github.com/thesamehosuh/xratu) | `assets/skills/finglish-normalize` | `c88daf5` | Apache-2.0 | Renamed from `finglish-normalize`; description in the third person, pointers to the removed `natural-farsi` now point to `persian-conversational`, upstream app reference removed (see MODIFIED.md). |
-| [`persian-rtl-design`](skills/persian-rtl-design) | [Baghlani/rtl-design](https://github.com/Baghlani/rtl-design) | `skills/rtl-design` | `b7c5229` | Apache-2.0 | Renamed from `rtl-design`; default Persian font changed from Vazirmatn to Sahel in the font table and recipes (Vazirmatn and Estedad kept as alternatives); description in the third person, metadata added, contents lists in long references (see MODIFIED.md). |
-| [`persian-typography`](skills/persian-typography) | [landco-llc/kumihan](https://github.com/landco-llc/kumihan) | `plugins/kumihan-fa` | `1b27c93` | Apache-2.0 | Renamed from `kumihan-fa`; suggested font changed from Vazirmatn to Sahel in `references/web.md` and copies; prebuilt release zips removed; the four skills' descriptions and instructions made English only, how to run `runtime/check_source.py` added, inventory checksums updated (see MODIFIED.md). |
+| [`persian-finglish`](skills/persian-finglish) | [thesamehosuh/xratu](https://github.com/thesamehosuh/xratu) | `assets/skills/finglish-normalize` | `c88daf5` | Apache-2.0 | Renamed from `finglish-normalize`; description in the third person, pointers to the removed `natural-farsi` now point to `persian-conversational`, upstream app reference removed (see NOTICE). |
+| [`persian-rtl-design`](skills/persian-rtl-design) | [Baghlani/rtl-design](https://github.com/Baghlani/rtl-design) | `skills/rtl-design` | `b7c5229` | Apache-2.0 | Renamed from `rtl-design`; default Persian font changed from Vazirmatn to Sahel in the font table and recipes (Vazirmatn and Estedad kept as alternatives); description in the third person, metadata added, contents lists in long references (see NOTICE). |
+| [`persian-typography`](skills/persian-typography), [`persian-typography-web`](skills/persian-typography-web), [`persian-typography-documents`](skills/persian-typography-documents), [`persian-typography-review`](skills/persian-typography-review) | [landco-llc/kumihan](https://github.com/landco-llc/kumihan) | `plugins/kumihan-fa` | `1b27c93` | Apache-2.0 | Renamed from `kumihan-fa`; suggested font changed from Vazirmatn to Sahel in `references/web.md` and copies; prebuilt release zips removed; the four skills' descriptions and instructions made English only, how to run `runtime/check_source.py` added, inventory checksums updated (see NOTICE). |
 | [`persian-motion-design`](skills/persian-motion-design) | [atmirrr/persian-motion-director](https://github.com/atmirrr/persian-motion-director) | `.` | `5499640` | MIT | Renamed from `persian-motion-director`; bundled font changed from Vazirmatn to Sahel (the pre-shaped letter outlines and preview GIFs were made with Vazirmatn and not regenerated); frontmatter standardized, description in the third person, script usage added. |
 | [`persian-native-words`](skills/persian-native-words) | [pooooooriya/salsi](https://github.com/pooooooriya/salsi) | `skills/salsi` | `303ebc8` | MIT | Renamed from `salsi`; install instructions corrected (the engine isn't bundled; `pip install git+https://github.com/pooooooriya/salsi`), `reference/` renamed to `references/`, contents lists added, metadata added. |
 
@@ -53,6 +59,7 @@ copying any text, and credit those authors for the idea.
 | [`persian-translation-review`](skills/persian-translation-review) | Inspired by jwiegley/claude-prompts (persian). |
 | [`persian-orthography`](skills/persian-orthography) | Built from the Academy of Persian Language and Literature's «دستور خطّ فارسی (ویراست جدید)», 1401 ([PDF](https://apll.ir/wp-content/uploads/2023/07/Dastour-e-Khat-17.04.1402.pdf)): rules summarized in our own words with page references; the book's text and full word lists are not copied. Inspired by Byte-Magazine/skills (byte-virastari). |
 | [`persian-book-translation`](skills/persian-book-translation) | Inspired by m4tinbeigi-official/hermes-literary-translation-mastery. |
+| [`persian-skill-standard`](skills/persian-skill-standard) | The repo's skill standard, written as a skill. |
 | [`persian-skill-evaluation`](skills/persian-skill-evaluation) | Built from this repo's reviews of Persian skills, with the Academy's «دستور خطّ فارسی» and Unicode CLDR as references. |
 
 ## Listed but not copied

@@ -5,7 +5,7 @@
 #                [--engine ENGINE]
 #                [--level system-docs|journal] [--terms FILE] [--manifest FILE]
 #
-# Lints with check-fa.py --strict before any engine runs, and will not copy
+# Lints with check_fa.py --strict before any engine runs, and will not copy
 # a PDF to Documents/books if lint, figure check, compile, or --verify fail.
 #
 # Engine order for .tex: XeLaTeX (via latexmk when present). For .html:
@@ -98,15 +98,15 @@ if [[ ! -f $manifest ]]; then
   exit 1
 fi
 
-python3 "$here/check-fa.py" "${src_dir}/${src_base}" \
+python3 "$here/check_fa.py" "${src_dir}/${src_base}" \
   --level "$level" --terms "$terms" --manifest "$manifest" --strict || {
   log "lint failed; not writing ${dest}"
   exit 1
 }
 
 if [[ -d ${src_dir}/figures ]]; then
-  python3 "$here/prepare-figures.py" "${src_dir}/figures" --check || {
-    log "figure check failed; flatten with prepare-figures.py, then retry"
+  python3 "$here/prepare_figures.py" "${src_dir}/figures" --check || {
+    log "figure check failed; flatten with prepare_figures.py, then retry"
     exit 1
   }
 fi
@@ -303,7 +303,7 @@ verify_pdf() {
 
   local order_rc=0 order_out="" visual=0 logical=0
   if command -v pdftotext >/dev/null 2>&1; then
-    order_out=$(python3 "$here/check-pdf-text-order.py" "$pdf" \
+    order_out=$(python3 "$here/check_pdf_text_order.py" "$pdf" \
       --source "${src_dir}/${src_base}" 2>&1) || order_rc=$?
     if [[ -n $order_out ]]; then
       while IFS= read -r line; do
@@ -346,7 +346,7 @@ write_copy_txt() {
     return 0
   fi
   # Default pdftotext (not -raw) matches Evince-style bidi reconstruction.
-  python3 "$here/write-copy-txt.py" "$pdf" "$txt" >/dev/null || {
+  python3 "$here/write_copy_txt.py" "$pdf" "$txt" >/dev/null || {
     log "copy-txt sidecar failed"
     return 1
   }

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Regression tests for scripts/check-fa.py, check-pdf-text-order.py, and
+# Regression tests for scripts/check_fa.py, check_pdf_text_order.py, and
 # the build-pdf lint gate.
 #
 # The `good` fixtures must lint clean; the `bad` fixtures must report every
@@ -8,7 +8,7 @@
 set -uo pipefail
 
 here=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
-lint="$here/../scripts/check-fa.py"
+lint="$here/../scripts/check_fa.py"
 fixtures="$here/fixtures"
 fail=0
 
@@ -196,7 +196,7 @@ else
   fail=1
 fi
 
-# prepare-figures.py: flatten alpha onto white so the print PDF matches the source.
+# prepare_figures.py: flatten alpha onto white so the print PDF matches the source.
 if python3 -c "import PIL.Image" 2>/dev/null; then
   mkdir -p "$fixtures/figures"
   alpha="$fixtures/figures/alpha.png"
@@ -226,7 +226,7 @@ path.write_bytes(
     + chunk(b"IEND", b"")
 )
 PY
-  prep="$here/../scripts/prepare-figures.py"
+  prep="$here/../scripts/prepare_figures.py"
   check_out=$(python3 "$prep" "$alpha" --check 2>&1) || check_rc=$?
   if [[ ${check_rc:-0} -ne 0 ]] && grep -q alpha <<<"$check_out"; then
     echo "ok   prepare-figures --check reports alpha"
@@ -274,25 +274,25 @@ else
   fail=1
 fi
 
-help_out=$(python3 "$here/../scripts/crop-source-figures.py" --help 2>&1) || help_rc=$?
+help_out=$(python3 "$here/../scripts/crop_source_figures.py" --help 2>&1) || help_rc=$?
 if [[ ${help_rc:-0} -eq 0 ]] && grep -q crop-source-figures <<<"$help_out"; then
-  echo "ok   crop-source-figures.py --help"
+  echo "ok   crop_source_figures.py --help"
 else
-  echo "FAIL crop-source-figures.py --help"
+  echo "FAIL crop_source_figures.py --help"
   echo "$help_out" | sed 's/^/    /'
   fail=1
 fi
 
-help_out=$(python3 "$here/../scripts/extract-pdf-pages.py" --help 2>&1) || help_rc=$?
+help_out=$(python3 "$here/../scripts/extract_pdf_pages.py" --help 2>&1) || help_rc=$?
 if [[ ${help_rc:-0} -eq 0 ]] && grep -q extract-pdf-pages <<<"$help_out"; then
-  echo "ok   extract-pdf-pages.py --help"
+  echo "ok   extract_pdf_pages.py --help"
 else
-  echo "FAIL extract-pdf-pages.py --help"
+  echo "FAIL extract_pdf_pages.py --help"
   echo "$help_out" | sed 's/^/    /'
   fail=1
 fi
 
-order="$here/../scripts/check-pdf-text-order.py"
+order="$here/../scripts/check_pdf_text_order.py"
 order_rc=0
 order_out=$(python3 "$order" --extracted "$fixtures/pdf-text-logical.txt" \
   --source "$fixtures/good.tex" 2>&1) || order_rc=$?

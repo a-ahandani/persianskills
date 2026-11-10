@@ -133,5 +133,5 @@ lexicon belong there, with a required `forbidden_fa` calque for the checker.
 That file is discarded with the job. Never copy it into this skill.
 
 ```bash
-scripts/check-fa.py doc.tex --level system-docs --terms terms.tsv --manifest manifest.txt --strict
+scripts/check_fa.py doc.tex --level system-docs --terms terms.tsv --manifest manifest.txt --strict
 ```

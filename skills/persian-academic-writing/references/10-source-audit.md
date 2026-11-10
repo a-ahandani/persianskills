@@ -232,4 +232,4 @@ Do not add unattributed style folklore to the skill.
 
 ### Scope and authority correction
 
-IPL entries have `reference` status. They do not automatically override a project glossary, supervisor-approved terminology, established disciplinary sense distinctions, or venue requirements. The first displayed Persian equivalent is not silently promoted to a preferred project term. The provided PDF contains no license statement; the repository records that fact and attributes the derived register without claiming that IPL or Sharif University endorses Virastar.
+IPL entries have `reference` status. They do not automatically override a project glossary, supervisor-approved terminology, established disciplinary sense distinctions, or venue requirements. The first displayed Persian equivalent is not silently promoted to a preferred project term. The provided PDF contains no license statement; the repository records that fact and attributes the derived register without claiming that IPL or Sharif University endorses this skill.

@@ -2,7 +2,7 @@
 name: persian-academic-writing
 description: Audits, edits, translates, looks up English-to-Persian scholarly terminology for, and structurally reviews Persian academic writing, especially theses, dissertations, papers, research reports, and LaTeX/XePersian projects. Use for Persian/Farsi scholarly prose, academic translation into Persian, bilingual terminology lookup or consistency, thesis chapter review, scientific-claim calibration, or manuscript/LaTeX submission checks, and when the user mentions «ویراستاری علمی», «پایان‌نامه», «رساله», «مقاله» or «معادل فارسی اصطلاح». Not for casual Persian writing, marketing copy, literary rewriting, or translation whose target is not academic Persian. Defaults to report-first review and preserves scientific meaning, evidence strength, citations, numbers, equations, notation, and author voice.
 license: MIT
-compatibility: Helper scripts need Python 3.11+ (standard library only) and are run with uv; the optional glossary importer needs pdfplumber and tomlkit.
+compatibility: Helper scripts need Python 3.11+ (standard library only); the optional glossary importer needs pdfplumber and tomlkit (pip install pdfplumber tomlkit).
 metadata:
   author: Mahyar (mhyrzt)
   source: https://github.com/mhyrzt/virastar
@@ -11,9 +11,9 @@ metadata:
   changes: Description in the third person with Persian trigger words, the audit command uses the skill directory instead of a fixed .agents path, contents lists added to long references, and metadata added.
 ---
 
-# Virastar
+# Persian academic writing
 
-Act as Virastar: an expert scholarly editor, scientific reviewer, and—when relevant—LaTeX/XePersian manuscript auditor. Treat language correctness, scientific validity, and file integrity as distinct layers. Never disguise a stylistic preference as an obligatory Persian rule.
+Act as an expert scholarly editor, scientific reviewer, and—when relevant—LaTeX/XePersian manuscript auditor. Treat language correctness, scientific validity, and file integrity as distinct layers. Never disguise a stylistic preference as an obligatory Persian rule.
 
 ## Non-negotiable principles
 
@@ -49,11 +49,11 @@ When both workspace and prose review apply, run `workspace-audit` first.
 Use a project TOML glossary when present; an exact custom match overrides the bundled IPL reference candidates. Run the repository-local tool as follows:
 
 ```bash
-uv run python scripts/terminology.py "signed-KL policy guidance" \
+python3 scripts/terminology.py "signed-KL policy guidance" \
   --glossary editorial/terminology-register.toml
 ```
 
-When the skill is installed elsewhere, use `uv run --project <skill-directory>` and the installed `scripts/terminology.py` path. Report the entry status and authority. Treat `reference` entries as candidates, never as permission for automatic replacement. On no exact normalized match, report suggestions separately from translations.
+When the skill is installed elsewhere, use the installed `scripts/terminology.py` path. Report the entry status and authority. Treat `reference` entries as candidates, never as permission for automatic replacement. On no exact normalized match, report suggestions separately from translations.
 
 ## Load only the references needed
 
@@ -69,7 +69,7 @@ When the skill is installed elsewhere, use `uv run --project <skill-directory>` 
 - Quality rubric and completion gates: `references/09-quality-rubric.md`
 - Source provenance and what was deliberately rejected: `references/10-source-audit.md`
 - Optional tooling and discipline-specific reporting standards: `references/11-tooling-and-reporting-standards.md`
-- For a University of Tehran project: `overlays/university-of-tehran.md`
+- For a University of Tehran project: `references/university-of-tehran.md`
 
 ## Phase 0 — Establish scope and authority
 
@@ -106,7 +106,7 @@ For a repository or LaTeX manuscript:
 The helper script can perform a deterministic first pass:
 
 ```bash
-uv run --project <skill-directory> python <skill-directory>/scripts/audit_virastar.py \
+python3 <skill-directory>/scripts/audit.py \
   --root main.tex \
   --profile editorial/project-profile.toml \
   --terms editorial/terminology-register.toml \

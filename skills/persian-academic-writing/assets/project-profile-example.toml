@@ -1,0 +1,105 @@
+# Project profile
+# Copy to editorial/project-profile.toml and replace provisional values.
+
+[project]
+title = ""
+artifact = "thesis"                 # thesis | dissertation | paper | report | proposal
+degree = "MSc"
+discipline = "Electrical and Computer Engineering"
+primary_language = "fa"
+source_language = "en"              # used for translation-audit projects
+status = "draft"                     # draft | pre-submission | final
+
+[authority]
+institution = ""
+faculty = ""
+department = ""
+venue = ""
+official_guide_title = ""
+official_guide_version = ""
+official_guide_date = ""
+official_guide_path = ""             # Prefer a repository-local copy or stable URL record.
+supervisor_decisions_path = "editorial/decisions.md"
+# Highest authority first. The skill already places the current user request first.
+precedence = ["institution", "faculty", "venue", "supervisor", "project", "academy", "irandoc", "editorial"]
+
+[files]
+root = "main.tex"
+compiled_pdf = "main.pdf"
+terminology_register = "editorial/terminology-register.toml"
+decision_log = "editorial/decisions.md"
+audit_directory = "editorial/audits"
+include_globs = ["**/*.tex", "**/*.bib", "**/*.md"]
+exclude_globs = ["build/**", "out/**", ".git/**", "**/*.aux", "**/*.bbl", "**/*.blg", "**/*.toc"]
+
+[build]
+command = "latexmk -xelatex -interaction=nonstopmode -file-line-error main.tex"
+clean_command = "latexmk -C"
+engine = "xelatex"
+bibliography_backend = "biber"       # biber | bibtex | none
+glossary_backend = "xindy"           # xindy | makeindex | none
+require_pdf_review = true
+
+[orthography]
+academy_orthography = true
+persian_yeh_kaf = true
+zwnj_policy = "academy-and-lexical"   # never use blanket compound normalization
+plural_ha = "zwnj-preferred"         # zwnj-preferred | infer | institution-specific
+ezafe_after_heh = "infer"             # hamza-above | heh-yeh | yeh-form | infer
+digit_policy = "contextual"           # contextual | persian-prose | latin | institution-specific
+quotation_marks = "guillemets"        # guillemets | double | institution-specific
+statistical_significance_term = "معنادار"
+normalize_arabic_quotes = false
+use_diacritics = "ambiguity-only"
+
+[language]
+register = "formal-academic"
+first_person = "allowed-when-clear"    # allowed | avoid | allowed-when-clear | institution-specific
+passive_voice = "functional"           # functional | prefer-active | institution-specific
+preserve_author_voice = true
+prefer_concise_prose = true
+anti_ai_heuristics = false
+
+[terminology]
+first_use = "fa-en-acronym"             # e.g. Persian (English; ACRONYM)
+repeat_english = false
+academy_terms_are = "candidate-not-automatic"
+allow_latin_term_when_more_precise = true
+require_abstract_reintroduction = true
+require_caption_reintroduction = false
+
+[citations]
+style = "unknown"                       # numeric | author-date | footnote | venue-specific | unknown
+package = "unknown"                     # biblatex | natbib | custom | unknown
+verify_source_support = true
+allow_citations_in_abstract = false
+preserve_bibliographic_titles = true
+
+[numbers_and_units]
+unit_standard = "SI"
+space_between_number_and_unit = true
+preserve_identifiers = true
+preserve_equation_digits = true
+report_mixed_digit_tokens = true
+
+[structure]
+model = "functional"                    # do not force a five-chapter structure
+results_discussion = "infer"            # separate | combined | infer
+roadmap_required = false
+contribution_list_required = false
+abstract_word_limit = 0                  # 0 means use controlling guide or do not enforce
+
+[protected_latex]
+commands = [
+  "cite", "parencite", "textcite", "autocite", "ref", "eqref", "cref", "Cref",
+  "label", "gls", "Gls", "acrshort", "acrlong", "url", "href", "path",
+  "includegraphics", "input", "include", "subfile", "bibliography", "addbibresource"
+]
+environments = ["equation", "equation*", "align", "align*", "gather", "gather*", "verbatim", "lstlisting", "minted"]
+
+[review]
+default_mode = "audit"
+default_severity = ["BLOCKER", "MAJOR", "MINOR"]
+include_style_findings = true
+require_stable_ids = true
+require_hash_before_apply = true

@@ -67,17 +67,17 @@ echo "Source extraction and verification"
 for t in pdftotext pdfimages pdftoppm pdfinfo pdffonts curl unzip; do
   have "$t" && ok "$t" || no "$t"
 done
-have python3 && ok "python3" "required by scripts/check-fa.py" \
-             || no "python3" "check-fa.py will not run"
+have python3 && ok "python3" "required by scripts/check_fa.py" \
+             || no "python3" "check_fa.py will not run"
 if python3 -c "import PIL.Image" >/dev/null 2>&1; then
-  ok "Pillow" "scripts/prepare-figures.py"
+  ok "Pillow" "scripts/prepare_figures.py"
 elif have magick || have convert; then
-  ok "ImageMagick" "scripts/prepare-figures.py fallback"
+  ok "ImageMagick" "scripts/prepare_figures.py fallback"
 else
   no "Pillow/ImageMagick" "figures cannot be flattened; pip install pillow"
 fi
 if python3 -c "import pymupdf" >/dev/null 2>&1; then
-  ok "PyMuPDF" "scripts/crop-source-figures.py"
+  ok "PyMuPDF" "scripts/crop_source_figures.py"
 else
   no "PyMuPDF" "cannot crop PDF artwork; pip install pymupdf"
 fi

@@ -1,0 +1,14 @@
+
+
+## Modifications
+
+This skill is one of four copied from landco-llc/kumihan (plugins/kumihan-fa)
+and changed on 2026-11-10 by https://github.com/edyt-app/persianskills:
+
+- Suggested Persian font changed from Vazirmatn to Sahel in references/web.md.
+- SKILL.md made English only: the Persian half of the bilingual description and lead line removed, frontmatter metadata added (author, source, upstream commit, version, changes), file paths marked as code, how to run the source check added, and the entry skill names the other three skills.
+- Renamed to match the repo's naming rule: kumihan-fa, kumihan-fa-web, kumihan-fa-documents and kumihan-fa-review became persian-typography, persian-typography-web, persian-typography-documents and persian-typography-review, each in its own top-level folder.
+- Files moved to the repo's skill layout: scripts/check_source.py to scripts/check_source.py; assets/rule-catalog.json, assets/report-schema.json, assets/sources.json and locales/ to assets/ (as rule-catalog.json, report-schema.json, assets/sources.json and lowercase locale files); evals/acceptance.json to evals/acceptance.json. THIRD_PARTY_NOTICES.md became this NOTICE file.
+- The plugin bundle around the four skills was removed: host manifests, release inventories and checksums, entrypoint copies of each SKILL.md, the install and update notes, the README and the logo image. The prebuilt release zips had already been removed.
+
+See CREDITS.md at the repo root for the source commit.

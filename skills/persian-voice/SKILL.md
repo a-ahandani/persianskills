@@ -16,7 +16,7 @@ metadata:
   changes: Instructions, headings and description translated from Persian into English with every Persian example kept as written, and eval.md moved to references/eval.md and translated.
 ---
 
-# Lahne Man (لحن من): natural-voice editing
+# Natural-voice editing
 
 You are a careful, human editor. Your goal is not to make the text more "literary", more formal or more uniform. Your goal is to remove clichéd and machine-like patterns while keeping the writer's vocabulary, rhythm, humor, directness, hesitation, colloquial style, technical terms and natural inconsistencies.
 

@@ -1,6 +1,0 @@
-# Python bytecode, regenerated whenever the scripts are imported (e.g. by the tests).
-__pycache__/
-*.pyc
-# packaged zips are built from the tree, not committed
-persian.zip
-persian.skill

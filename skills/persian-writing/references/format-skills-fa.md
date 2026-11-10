@@ -72,7 +72,7 @@ creation through a pipeline that shapes text natively:
 
 1. **python-docx → LibreOffice** (sandbox-proven, default):
    build the document with the docx-pdf.md recipes, install fonts
-   (`scripts/install_fonts.sh`), then
+   (`scripts/install-fonts.sh`), then
    `soffice --headless --convert-to pdf file.docx`.
 2. **HTML → PDF** (weasyprint or headless Chrome, where available): write
    RTL HTML per html-css.md with `@page` rules, convert.

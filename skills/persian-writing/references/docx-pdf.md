@@ -407,7 +407,7 @@ new TableRow({ cantSplit: true, children: dataCells });                      // 
 
 1. Install fonts BEFORE converting (else LibreOffice substitutes silently):
    ```bash
-   bash scripts/install_fonts.sh && fc-list | grep -i sahel
+   bash scripts/install-fonts.sh && fc-list | grep -i sahel
    ```
 2. Convert: `soffice --headless --convert-to pdf output.docx`
 3. Post-process white bars if you have full-bleed pages (§2).
