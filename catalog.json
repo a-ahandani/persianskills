@@ -1,5 +1,5 @@
 {
-  "repo": "edyt-app/persianskills",
+  "repo": "a-ahandani/persianskills",
   "site": "https://persianskills.com",
   "checked": "2026-11-10",
   "skills": [
@@ -18,7 +18,7 @@
     {
       "name": "persian-localization",
       "author": "persianskills",
-      "url": "https://github.com/edyt-app/persianskills",
+      "url": "https://github.com/a-ahandani/persianskills",
       "path": "skills/persian-localization",
       "here": true,
       "draft": true,
@@ -30,7 +30,7 @@
     {
       "name": "dari-writing",
       "author": "persianskills",
-      "url": "https://github.com/edyt-app/persianskills",
+      "url": "https://github.com/a-ahandani/persianskills",
       "path": "skills/dari-writing",
       "here": true,
       "draft": true,
@@ -42,7 +42,7 @@
     {
       "name": "tajik-writing",
       "author": "persianskills",
-      "url": "https://github.com/edyt-app/persianskills",
+      "url": "https://github.com/a-ahandani/persianskills",
       "path": "skills/tajik-writing",
       "here": true,
       "draft": true,
@@ -57,7 +57,7 @@
       "variety": "all",
       "category": "localization",
       "author": "persianskills",
-      "url": "https://github.com/edyt-app/persianskills",
+      "url": "https://github.com/a-ahandani/persianskills",
       "path": "skills/persian-locales",
       "here": true,
       "draft": true,
@@ -69,7 +69,7 @@
       "variety": "all",
       "category": "translation",
       "author": "persianskills",
-      "url": "https://github.com/edyt-app/persianskills",
+      "url": "https://github.com/a-ahandani/persianskills",
       "path": "skills/persian-translation-review",
       "here": true,
       "draft": true,
@@ -81,7 +81,7 @@
       "variety": "iran",
       "category": "writing",
       "author": "persianskills",
-      "url": "https://github.com/edyt-app/persianskills",
+      "url": "https://github.com/a-ahandani/persianskills",
       "path": "skills/persian-orthography",
       "here": true,
       "draft": true,
@@ -93,7 +93,7 @@
       "variety": "iran",
       "category": "translation",
       "author": "persianskills",
-      "url": "https://github.com/edyt-app/persianskills",
+      "url": "https://github.com/a-ahandani/persianskills",
       "path": "skills/persian-book-translation",
       "here": true,
       "draft": true,
@@ -102,7 +102,7 @@
     {
       "name": "persian-skill-standard",
       "author": "persianskills",
-      "url": "https://github.com/edyt-app/persianskills",
+      "url": "https://github.com/a-ahandani/persianskills",
       "path": "skills/persian-skill-standard",
       "here": true,
       "variety": "all",
@@ -113,7 +113,7 @@
     {
       "name": "persian-skill-evaluation",
       "author": "persianskills",
-      "url": "https://github.com/edyt-app/persianskills",
+      "url": "https://github.com/a-ahandani/persianskills",
       "path": "skills/persian-skill-evaluation",
       "here": true,
       "draft": true,

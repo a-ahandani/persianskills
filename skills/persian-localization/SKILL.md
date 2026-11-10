@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: persianskills (Edyt)
-  source: https://github.com/edyt-app/persianskills
+  source: https://github.com/a-ahandani/persianskills
   version: 0.1.0
   based-on: Lessons from shipping edyt.app in Persian, reviewed by a native Persian speaker
 ---

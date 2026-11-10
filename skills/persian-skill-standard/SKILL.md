@@ -13,7 +13,7 @@ description: >-
 license: MIT
 metadata:
   author: persianskills (Edyt)
-  source: https://github.com/edyt-app/persianskills
+  source: https://github.com/a-ahandani/persianskills
   version: 0.1.0
 ---
 
@@ -188,7 +188,7 @@ metadata:
 - Paths are relative to the skill folder, such as scripts/audit.py, never to
   an upstream repo layout such as skills/old-name/scripts/audit.py.
 - Install instructions point at this repo: `npx skills add
-  edyt-app/persianskills --skill <name>`.
+  a-ahandani/persianskills --skill <name>`.
 
 ## 8. Credit and licenses
 

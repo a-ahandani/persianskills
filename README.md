@@ -39,14 +39,14 @@ say so in CREDITS.md.
 ## Install
 
 ```bash
-npx skills add edyt-app/persianskills                         # every skill
-npx skills add edyt-app/persianskills --skill dari-writing    # one skill
+npx skills add a-ahandani/persianskills                         # every skill
+npx skills add a-ahandani/persianskills --skill dari-writing    # one skill
 ```
 
 Claude Code plugin:
 
 ```
-/plugin marketplace add edyt-app/persianskills
+/plugin marketplace add a-ahandani/persianskills
 /plugin install persian-skills@persianskills
 ```
 

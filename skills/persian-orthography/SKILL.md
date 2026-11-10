@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: persianskills (Edyt)
-  source: https://github.com/edyt-app/persianskills
+  source: https://github.com/a-ahandani/persianskills
   version: 1.0.0
   based-on: "فرهنگستان زبان و ادب فارسی، «دستور خطّ فارسی (ویراست جدید)»، چاپ اوّل ۱۴۰۱، ISBN 978-622-5305-22-9"
   based-on-url: https://apll.ir/wp-content/uploads/2023/07/Dastour-e-Khat-17.04.1402.pdf
