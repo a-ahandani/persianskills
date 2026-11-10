@@ -107,16 +107,12 @@ const page = `<!doctype html>
 <section class="hero">
   <div class="wrap">
     <h1>Persian Skills</h1>
-    <p class="sub">Agent skills that write Persian the way its readers do: Farsi for Iran, Dari for Afghanistan, Tajik in Cyrillic.</p>
+    <p class="sub">Agent skills that write Persian the way its readers do.</p>
     <div class="install"><code><span class="p">$ </span>npx skills add ${repo}</code><button class="copy" type="button" aria-label="Copy" data-copy="npx skills add ${repo}">${icon.copy}</button></div>
-    <p class="more">${num(skillFiles)} skills in one repo, each credited to its author · <a href="#install">other ways to install</a></p>
   </div>
-</section>
-
-<section class="section wrap" id="varieties">
-  <h2>One sentence, three standards.</h2>
-  <p class="lede">“The student took the bus to the hospital.” The marked words change from country to country, so your agent has to know who it's writing for.</p>
-  <div class="cards">
+  <div class="wrap" id="varieties">
+    <p class="hero-label">One sentence, three standards</p>
+    <div class="cards">
     ${varieties
       .map(
         (v, i) => `<article class="card">
@@ -127,6 +123,7 @@ const page = `<!doctype html>
     </article>`,
       )
       .join("\n    ")}
+  </div>
   </div>
 </section>
 

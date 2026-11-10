@@ -74,11 +74,15 @@ header.top .btn.fill { background: var(--ink); }
 .copy:hover { background: var(--wash); color: var(--ink); }
 .copy svg { width: 16px; height: 16px; }
 
-.hero { padding-bottom: 80px; }
+.hero { padding-bottom: 72px; }
+.hero-label { margin: 56px 0 0; font: 400 13px/1 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; }
+.hero .cards { margin-top: 22px; text-align: start; }
+.hero .card > p { color: rgba(20, 20, 20, 0.72); }
+.hero .card .num { color: rgba(20, 20, 20, 0.6); }
 
 .cards { margin-top: 36px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
 @media (min-width: 820px) { .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; } }
-.card .art { height: 210px; border-radius: 14px; background: var(--warm); display: grid; place-items: center; padding: 20px; }
+.card .art { height: 190px; border-radius: 14px; background: var(--warm); display: grid; place-items: center; padding: 20px; }
 .card .mini { width: 100%; max-width: 300px; background: var(--page); border-radius: 12px; padding: 12px 14px 14px; box-shadow: 0 8px 24px rgba(96, 55, 0, 0.12), 0 1px 2px rgba(96, 55, 0, 0.08); }
 .card .mini-top { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--soft); margin-bottom: 8px; }
 .card .mini-top code { font-size: 11px; padding: 2px 6px; border-radius: 5px; background: var(--wash); color: var(--ink); }

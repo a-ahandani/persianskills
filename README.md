@@ -87,9 +87,9 @@ node site/build.mjs     # writes site/dist once (what Cloudflare Pages runs)
 
 No dependencies, Node 20 or later. Page copy lives in `site/build.mjs`,
 styles in `site/style.css`, the skill list in `catalog.json`, and the logos
-in `site/logo.svg` (the mark), `site/favicon.svg` (the mark in its box, used
-as the favicon), `site/edyt-mark.svg` (header) and `site/agents/` (agent
-logos). Set `PORT` to use another port.
+in `site/favicon.svg` (the Edyt logo on gold), `site/edyt-mark.svg` (header),
+`site/agents/` (agent logos) and `site/logo.svg` (the پ mark, not used on the
+page). Set `PORT` to use another port.
 
 ## License
 
