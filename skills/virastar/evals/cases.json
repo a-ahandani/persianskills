@@ -1,0 +1,138 @@
+[
+  {
+    "id": "audit-pasted-persian-paragraph",
+    "prompt": "Proofread this Persian methodology paragraph and list problems before changing it.",
+    "should_trigger": true,
+    "expected_mode": "audit",
+    "must": ["report first", "stable IDs", "preserve scientific meaning"],
+    "must_not": ["rewrite immediately", "invent citations"]
+  },
+  {
+    "id": "workspace-xepersian",
+    "prompt": "Audit main.tex and the generated PDF of my Persian thesis, including all inputs and bibliography files.",
+    "should_trigger": true,
+    "expected_mode": "workspace-audit",
+    "must": ["recursive dependency graph", "compiled PDF", "labels and citations"],
+    "must_not": ["review root file only", "claim PDF inspection without access"]
+  },
+  {
+    "id": "apply-selected",
+    "prompt": "Apply ORTH-ABC1234 and TERM-DEF5678 only, then compile.",
+    "should_trigger": true,
+    "expected_mode": "apply-approved",
+    "must": ["stale-file check", "only selected IDs", "verification"],
+    "must_not": ["apply adjacent style edits"]
+  },
+  {
+    "id": "direct-copyedit",
+    "prompt": "Directly copyedit this Persian abstract; keep all numbers, claims, and citations unchanged.",
+    "should_trigger": true,
+    "expected_mode": "direct-copyedit",
+    "must": ["low-risk local edits", "compact change log"],
+    "must_not": ["strengthen claims", "change values"]
+  },
+  {
+    "id": "substantive-thesis-review",
+    "prompt": "Review whether my Persian introduction, literature review, and conclusion form a coherent PhD-level argument.",
+    "should_trigger": true,
+    "expected_mode": "substantive-review",
+    "must": ["problem-gap-RQ-contribution traceability", "literature synthesis", "conclusion alignment"],
+    "must_not": ["force five chapters", "use page-count folklore"]
+  },
+  {
+    "id": "translate-english-to-persian",
+    "prompt": "Translate this results section into formal academic Persian and preserve every hedge, p-value, equation, and citation.",
+    "should_trigger": true,
+    "expected_mode": "translate-fa",
+    "must": ["semantic invariants", "terminology register", "natural Persian syntax"],
+    "must_not": ["word-for-word calque", "remove uncertainty"]
+  },
+  {
+    "id": "translation-equivalence",
+    "prompt": "Compare the English and Persian versions of Chapter 4 for omissions and claim drift.",
+    "should_trigger": true,
+    "expected_mode": "translation-audit",
+    "must": ["alignment table", "scope and modality", "number and citation consistency"],
+    "must_not": ["judge by sentence count only"]
+  },
+  {
+    "id": "final-submission-check",
+    "prompt": "Run final QC on my Persian dissertation before submission.",
+    "should_trigger": true,
+    "expected_mode": "final-qc",
+    "must": ["current institution guide", "build", "rendered PDF", "zero unresolved blockers"],
+    "must_not": ["declare readiness without build evidence"]
+  },
+  {
+    "id": "ut-template-conflict",
+    "prompt": "Use sinamomken/tehran-thesis to edit my current University of Tehran thesis.",
+    "should_trigger": true,
+    "expected_mode": "workspace-audit",
+    "must": ["current Aban 1403 guide takes precedence", "retain useful chapter functions", "identify faculty supplement"],
+    "must_not": ["treat 2013 template as current authority", "enforce fixed page counts"]
+  },
+  {
+    "id": "causal-overclaim",
+    "prompt": "Check the Persian results and discussion for causal overclaiming and misuse of معنادار.",
+    "should_trigger": true,
+    "expected_mode": "substantive-review",
+    "must": ["study design", "causal versus associative wording", "statistical versus practical importance"],
+    "must_not": ["replace every معنادار blindly"]
+  },
+  {
+    "id": "terminology-register",
+    "prompt": "Audit the thesis for inconsistent Persian translations of reinforcement learning, policy, and precision.",
+    "should_trigger": true,
+    "expected_mode": "audit",
+    "must": ["concept-level disambiguation", "preferred-term register", "first-use policy"],
+    "must_not": ["global string replacement"]
+  },
+  {
+    "id": "terminology-lookup-custom-first",
+    "prompt": "Look up the Persian equivalent of signed-KL policy guidance using my project terminology.toml, then fall back to Virastar's bundled glossary only if it is absent.",
+    "should_trigger": true,
+    "expected_mode": "terminology-lookup",
+    "must": ["custom glossary precedence", "exact normalized match", "status and authority"],
+    "must_not": ["override an approved project entry", "present a suggestion as an exact translation"]
+  },
+  {
+    "id": "academy-scope",
+    "prompt": "Normalize every Persian compound with a half-space according to the Academy.",
+    "should_trigger": true,
+    "expected_mode": "audit",
+    "must": ["reject blanket premise", "lexical and project decisions", "report candidates"],
+    "must_not": ["auto-normalize all compounds"]
+  },
+  {
+    "id": "casual-persian-message",
+    "prompt": "Make this casual Persian Telegram message funnier.",
+    "should_trigger": false,
+    "expected_mode": "do-not-trigger",
+    "must": [],
+    "must_not": ["invoke academic thesis workflow"]
+  },
+  {
+    "id": "english-paper-only",
+    "prompt": "Proofread my English-only conference paper.",
+    "should_trigger": false,
+    "expected_mode": "do-not-trigger",
+    "must": [],
+    "must_not": ["apply Persian orthography"]
+  },
+  {
+    "id": "marketing-copy",
+    "prompt": "Rewrite our Persian product landing page to increase conversion.",
+    "should_trigger": false,
+    "expected_mode": "do-not-trigger",
+    "must": [],
+    "must_not": ["use academic claim rubric as the main workflow"]
+  },
+  {
+    "id": "literary-translation",
+    "prompt": "Translate this poem into literary Persian.",
+    "should_trigger": false,
+    "expected_mode": "do-not-trigger",
+    "must": [],
+    "must_not": ["force academic register"]
+  }
+]

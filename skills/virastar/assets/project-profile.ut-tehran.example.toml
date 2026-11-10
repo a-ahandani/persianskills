@@ -1,0 +1,57 @@
+# University of Tehran overlay example
+# This is intentionally incomplete: attach and inspect the current university guide
+# and any faculty/department supplement before filling formatting fields.
+
+[project]
+artifact = "thesis"
+degree = "MSc"
+discipline = "Electrical and Computer Engineering"
+primary_language = "fa"
+source_language = "en"
+
+[authority]
+institution = "University of Tehran"
+faculty = ""
+department = ""
+official_guide_title = "University of Tehran thesis/dissertation preparation guide"
+official_guide_version = "Aban 1403"
+official_guide_date = "2024-10/11"
+official_guide_path = "editorial/official-guides/ut-thesis-guide-1403.pdf"
+supervisor_decisions_path = "editorial/decisions.md"
+precedence = ["institution", "faculty", "supervisor", "project", "academy", "irandoc", "editorial"]
+
+[legacy_template]
+repository = "https://github.com/sinamomken/tehran-thesis"
+repository_guide_date = "2013-09"
+use_for = ["chapter-function examples", "modular XePersian organization", "glossary pattern"]
+do_not_use_for = ["current formatting authority", "fixed page counts", "fixed chapter count", "recency cutoff"]
+
+[files]
+root = "main.tex"
+compiled_pdf = "main.pdf"
+terminology_register = "editorial/terminology-register.toml"
+decision_log = "editorial/decisions.md"
+audit_directory = "editorial/audits"
+
+[build]
+command = "latexmk -xelatex -interaction=nonstopmode -file-line-error main.tex"
+engine = "xelatex"
+require_pdf_review = true
+
+[orthography]
+academy_orthography = true
+persian_yeh_kaf = true
+zwnj_policy = "academy-and-lexical"
+plural_ha = "zwnj-preferred"
+ezafe_after_heh = "infer"
+digit_policy = "institution-specific"
+quotation_marks = "guillemets"
+statistical_significance_term = "معنادار"
+
+[structure]
+model = "functional"
+# Fill these only after reading the current UT/faculty guide.
+front_matter_order = []
+back_matter_order = []
+abstract_word_limit = 0
+results_discussion = "infer"

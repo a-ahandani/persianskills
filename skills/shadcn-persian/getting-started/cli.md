@@ -1,0 +1,153 @@
+---
+title: "CLI"
+description: "The persianlabsui CLI - scaffold projects, apply presets, and add RTL-first Persian components from the terminal."
+---
+
+The `persianlabsui` CLI scaffolds ready-to-run projects, applies presets to existing ones, and installs components from the Persian Labs registry. It wraps the [shadcn CLI](https://ui.shadcn.com/docs/cli), so everything it produces is a normal shadcn project you fully own.
+
+```bash
+npx persianlabsui@latest [command]
+```
+
+## init
+
+Create a new project from zero and apply a preset. Installs dependencies, sets up the Persian-first font stack (it scaffolds Vazirmatn; switch it to Sahel as shown in [Fonts](/docs/fonts), or to Estedad in [/create](/create)), Farsi digit handling, RTL (`dir="rtl"`), and the theming tokens.
+
+```bash
+npx persianlabsui@latest init
+```
+
+**Options**
+
+```bash
+Usage: persianlabsui init [options]
+
+create a new project from zero and apply a preset
+
+Options:
+  -p, --preset [name]   use a preset configuration
+  -t, --template <template>  the template to use. (next, vite, next-monorepo, vite-monorepo)
+  -n, --name <name>     project name — the directory to create. skips the prompt
+  -c, --cwd <cwd>       base directory to create the project in. defaults to the current directory.
+  -f, --force           overwrite the target directory if it is not empty.
+  -s, --silent          mute output. requires --template and --name.
+  -h, --help            display help for command
+```
+
+The preset is a short code from [/create](/create) (e.g. `c0`) that encodes your theme, radius, and font picks:
+
+```bash
+npx persianlabsui@latest init -p c0 -t next -n my-app
+```
+
+Run without options to get interactive prompts for the template and preset.
+
+## apply
+
+Apply a preset to an **existing** project — re-theme it or swap the fonts without reinstalling UI components.
+
+```bash
+npx persianlabsui@latest apply c0
+```
+
+You can apply only the theme or only the fonts:
+
+```bash
+npx persianlabsui@latest apply c0 --only theme
+npx persianlabsui@latest apply c0 --only font
+```
+
+**Options**
+
+```bash
+Usage: persianlabsui apply [options] [preset]
+
+apply a preset to an existing project
+
+Arguments:
+  preset             the preset to apply
+
+Options:
+  --preset <preset>  preset configuration to apply
+  --only [parts]     apply only parts of a preset: theme, font
+  -c, --cwd <cwd>    the working directory. defaults to the current directory.
+  -s, --silent       mute output.
+  -h, --help         display help for command
+```
+
+## add
+
+Add components from the Persian Labs registry to your project. Bare names resolve against this registry; URLs and `@namespaced` names pass through to the shadcn CLI untouched — so `@persianlabsui/tabs` and plain `tabs` both work.
+
+```bash
+npx persianlabsui@latest add tabs button dialog
+```
+
+Multiple components, URLs, and overwrite in one go:
+
+```bash
+npx persianlabsui@latest add tabs https://ui.persian-labs.ir/r/button.json -o
+```
+
+**Options**
+
+```bash
+Usage: persianlabsui add [options] <items...>
+
+add components from the Persian Labs registry
+
+Arguments:
+  items            component names, URLs or @namespaced items
+
+Options:
+  -o, --overwrite  overwrite existing files.
+  -c, --cwd <cwd>  the working directory. defaults to the current directory.
+  -s, --silent     mute output.
+  -h, --help       display help for command
+```
+
+The [shadcn CLI](https://ui.shadcn.com/docs/cli) works too — `npx shadcn@latest add @persianlabsui/tabs` installs the same component.
+
+## preset
+
+Inspect a preset code: decode it, get its [/create](/create) URL, or open the page in your browser.
+
+### preset decode
+
+Print the design-system values encoded in a preset code. Add `--json` for machine-readable output.
+
+```bash
+npx persianlabsui@latest preset decode c0
+```
+
+### preset url
+
+Print the [/create](/create) URL for a preset code.
+
+```bash
+npx persianlabsui@latest preset url c0
+```
+
+### preset open
+
+Open the preset in [/create](/create) in your default browser.
+
+```bash
+npx persianlabsui@latest preset open c0
+```
+
+**Options**
+
+```bash
+Usage: persianlabsui preset [options] <action> [code]
+
+manage presets
+
+Arguments:
+  action      decode | url | open
+  code        the preset code
+
+Options:
+  --json      output as JSON.
+  -h, --help  display help for command
+```

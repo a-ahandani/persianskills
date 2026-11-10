@@ -1,0 +1,7 @@
+# Windsurf Rules for Persian (Farsi) & RTL
+
+1. Natural Persian: Avoid "می‌باشد", use "است". Never use filler openings like "لازم به ذکر است".
+2. BiDi Safety: Isolate English tokens with backticks, `<bdi>`, or `<span class="en-font" dir="ltr">`.
+3. Typography: Strict ZWNJ (نیم‌فاصله). Persian quotes (« »), Persian decimal separator (٫), Persian punctuation (، ؟ ؛).
+4. CSS & Frontend: Prohibit `letter-spacing` on Persian text. Enforce logical CSS properties (`margin-inline-start`). Force `dir="ltr"` on numeric/phone/IBAN/password inputs.
+5. Office Files: Save Persian CSVs with UTF-8 BOM (`utf-8-sig`).

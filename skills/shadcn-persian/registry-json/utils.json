@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "utils",
+  "title": "Utils",
+  "description": "The cn() class-merging helper, powered by the cn package (a drop-in clsx + tailwind-merge engine).",
+  "dependencies": [
+    "cn"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/base/lib/utils.ts",
+      "content": "export { cn } from \"cn\"\n",
+      "type": "registry:lib"
+    }
+  ],
+  "type": "registry:lib"
+}
