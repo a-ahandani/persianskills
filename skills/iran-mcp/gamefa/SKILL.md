@@ -1,6 +1,12 @@
 ---
 name: gamefa
 description: "Read-only Gamefa (gamefa.com) Persian game and film site: news, scored reviews, profiles, releases. Use when the user asks about Gamefa (gamefa.com) or wants game and film news, reviews or release dates in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Gamefa

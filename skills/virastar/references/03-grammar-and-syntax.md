@@ -1,5 +1,7 @@
 # Persian Grammar and Syntax
 
+Contents: Editorial goal; Subject–verb agreement; Pronouns, clitics, and reference; Verb valency and prepositions; Word order and information structure; Ezafe chains and overloaded noun phrases; Relative and complement clauses with `که`; Coordination and parallelism; Tense, aspect, and time reference; Active, passive, and first person; Nominalization and light-verb constructions; Sentence boundaries; Ambiguity tests; Grammar review output.
+
 ## Editorial goal
 
 Correct grammar is necessary but not sufficient. A grammatical sentence may still be ambiguous, overloaded, badly ordered, or misleading in an academic argument. Review grammar at three levels:

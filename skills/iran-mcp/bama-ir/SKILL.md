@@ -1,6 +1,12 @@
 ---
 name: bama-ir
 description: "Read-only Bama (bama.ir) Iran car marketplace: ad search, ad details, market prices, new-car prices. Use when the user asks about Bama Cars (bama.ir) or wants used or new car ads and prices in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Bama Cars

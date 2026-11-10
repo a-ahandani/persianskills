@@ -1,6 +1,20 @@
 ---
 name: finglish-normalize
-description: Use when the user writes Persian in Latin script (Finglish — e.g. "chetori mishe in error ro fix kard") or mixes Finglish words/romanizations into English (e.g. "use ro instead of raa", "hamoon", "mikhai") — recognize it as Persian, not as malformed English, and respond in the language and script the user is actually most comfortable with.
+description: >-
+  Recognizes Persian written in Latin script (Finglish, e.g. "chetori mishe in
+  error ro fix kard") and Finglish words or romanizations mixed into English
+  (e.g. "use ro instead of raa", "hamoon", "mikhai") as Persian, not as
+  malformed English, and replies in the language and script the user is
+  actually most comfortable with. Use when a message carries Persian function
+  words in Latin letters (mishe, ro, ke, mi-, na-, kardam, biar, benevis), when
+  the user mentions «فینگلیش» or «پینگلیش», or when the user discusses Persian
+  spellings without a Persian keyboard.
+license: Apache-2.0
+metadata:
+  author: thesamehosuh
+  source: https://github.com/thesamehosuh/xratu
+  upstream-commit: c88daf5
+  changes: Description rewritten in the third person, pointers to the removed natural-farsi skill now point to persian-conversational, and the i18n note no longer refers to the upstream app's webview.
 ---
 
 # Finglish recognition
@@ -52,14 +66,12 @@ briefly rather than guessing wrong in a way that derails the response.
      Finglish fragments as Persian content (spell them correctly in Persian
      script when quoting or normalizing them).
    - Persian-script message → Persian script back.
-3. **Every Persian-script reply follows `natural-farsi`** — colloquial
-   register (رو not را, همون not همان, میخوای not میخواهی), its orthography
-   rules, and its technical-vocabulary list. This skill decides *which
-   language/script*; `natural-farsi` decides *how it is written*.
+3. **Every Persian-script reply follows `persian-conversational`**: colloquial
+   register (رو not را, همون not همان, میخوای not میخواهی) and its
+   orthography rules. This skill decides *which language/script*;
+   `persian-conversational` decides *how it is written*.
 4. If the user mixes English technical nouns into Persian sentences, keep
-   those nouns in English in your reply too (see the technical vocabulary
-   section of the `natural-farsi` skill for which terms to leave
-   untranslated).
+   those nouns in English in your reply too.
 
 ## Quick glossary (recognition + normalization map)
 
@@ -78,9 +90,9 @@ briefly rather than guessing wrong in a way that derails the response.
 | in / oon | این / اون | "this / that" |
 | dige / dg | دیگه | "anymore / other" |
 
-## Relationship to existing i18n system
+## Relationship to the UI locale
 
 This is about interpreting the user's *input* and matching their *reply
-language*, not about the UI's locale switch - the webview's `fa`/`en`
-strings are a separate, existing system. A user can be on the `en` UI
+language*, not about the UI's locale switch - an app's `fa`/`en` UI
+strings are a separate system. A user can be on the `en` UI
 locale and still type Finglish in chat; this skill covers that case.

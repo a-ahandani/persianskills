@@ -1,6 +1,12 @@
 ---
 name: iran-jobs
 description: "Read-only Iran jobs: IranTalent, Jobinja, Jobvision side by side. Ads, companies, reviews, pay. Use when the user asks about Iran Jobs (IranTalent + Jobinja + Jobvision) (irantalent.com) or wants job ads, employers or salaries in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Iran Jobs (IranTalent + Jobinja + Jobvision)

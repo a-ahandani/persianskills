@@ -1,5 +1,15 @@
 # Persian writing style: registers and de-AI-ing
 
+## Contents
+
+- Part 1: Register detection
+- Part 2: Persian AI tells — find and rewrite
+- Part 3: What NOT to flag
+- Part 3.5: Why machine prose reads flat — the underlying mechanism
+- Part 3.6: About AI detectors — what to tell a client, and what not to chase
+- Part 4: Signs of human Persian (preserve these)
+- Part 5: Process
+
 AI Persian fails in a specific way: it is *too correct*. Too formal, too کتابی,
 inflated with ceremony that no working Iranian writer uses. The fix is not
 "be casual everywhere" — a slangy proposal is as wrong as a bureaucratic
@@ -43,7 +53,7 @@ Cues that flip toward casual: کپشن، استوری، پست اینستا، ت
 گروه دوستان، فان. Cues that flip toward formal: مشتری، سازمان، اداره، مدیر،
 قرارداد، رسمی، مناقصه، دانشگاه، استاد، مقام.
 
-### نامه اداری conventions (Formal-اداری)
+### Official letter conventions (نامه اداری, formal-اداری)
 
 Persian administrative letters have fixed furniture — using it correctly IS
 the register:
@@ -188,7 +198,7 @@ Openers: در دنیای امروز، در عصر دیجیتال، امروزه 
 fingerprint in Persian exactly as in English. Two items, or four, or one
 developed idea.
 
-### T8. نه تنها ... بلکه (negative parallelism)
+### T8. Negative parallelism (نه تنها ... بلکه)
 Overused. Also the clipped tail: «بدون هیچ دردسری»، «بدون نگرانی» stapled to
 sentence ends. State the positive claim plainly.
 

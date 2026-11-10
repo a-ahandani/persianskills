@@ -1,6 +1,12 @@
 ---
 name: tgju
 description: "Unofficial read-only TGJU: live Iranian gold, coin, currency and crypto prices with daily history. Use when the user asks about TGJU Prices (tgju.org) or wants live gold, coin, currency or crypto prices in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # TGJU Prices

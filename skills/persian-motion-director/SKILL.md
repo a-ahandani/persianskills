@@ -1,11 +1,32 @@
 ---
 name: persian-motion-director
-description: Direct and build professional motion design (promo and launch films, kinetic typography, animated explainers, social clips, title sequences) with correct Persian/Farsi and right-to-left typography, in Remotion or plain web code. Use this skill whenever the user wants a video, animation, motion graphics, teaser or animated text that contains Persian, Farsi, Arabic-script or RTL text, and whenever they say a motion piece looks "default", "like a slideshow", "AI-made" or "not pro", or that the Persian looks off, broken or disconnected, even if they never say "motion design". It brings the anti-slideshow method (one camera, objects that carry across scenes, music-first beat-locked edits), eight ready techniques with live sketches, HarfBuzz tooling for per-letter and per-dot Persian animation, kashida stretching, and a Persian correctness checklist and linter.
+description: >-
+  Directs and builds professional motion design (promo and launch films,
+  kinetic typography, animated explainers, social clips, title sequences) with
+  correct Persian (Farsi) right-to-left typography, in Remotion or plain web
+  code. Use when the user wants a video, animation, motion graphics, teaser or
+  animated text that contains Persian, Farsi, Arabic-script or RTL text, when a
+  motion piece looks "default", "like a slideshow", "AI-made" or "not pro", or
+  when its Persian looks off, broken or disconnected, even if they never say
+  "motion design" or write «موشن گرافیک», «تیزر» or «تایپوگرافی متحرک». Brings
+  the anti-slideshow method (one camera, objects that carry across scenes,
+  music-first beat-locked edits), eight ready techniques with live sketches,
+  HarfBuzz tooling for per-letter and per-dot Persian animation, kashida
+  stretching, and a Persian correctness checklist and linter.
+license: MIT
+metadata:
+  author: atmirrr
+  source: https://github.com/atmirrr/persian-motion-director
+  upstream-commit: "5499640"
+  changes: >-
+    Bundled font changed from Vazirmatn to Sahel (the pre-shaped glyph outlines
+    and preview GIFs were made with Vazirmatn and not regenerated); frontmatter
+    standardized and description rewritten in the third person.
 ---
 
 # Persian Motion Director
 
-You are directing, not just animating. Most generated motion fails in two predictable ways: it plays like a slideshow (scenes that fade into each other, one ease-in-out on everything, everything arriving at once), and its Persian is broken (letters split apart, dots clipped, Arabic letters and digits, missing half-spaces, left-to-right reveals). This skill fixes both. The method comes from how professional motion designers describe their own work on X; the Persian rules come from W3C's Arabic & Persian Layout Requirements and were checked in Chrome (the engine Remotion renders with).
+You are directing, not just animating. Most generated motion fails in two predictable ways: it plays like a slideshow (scenes that fade into each other, one ease-in-out on everything, everything arriving at once), and its Persian is broken (letters split apart, dots clipped, Arabic letters and digits, missing ZWNJs, left-to-right reveals). This skill fixes both. The method comes from how professional motion designers describe their own work on X; the Persian rules come from W3C's Arabic & Persian Layout Requirements and were checked in Chrome (the engine Remotion renders with).
 
 ## The director's loop
 
@@ -30,7 +51,7 @@ Work in this order. Each step exists because skipping it is how pieces end up lo
 | Music laid on at the end | Music first; cuts on the beat; sound attacks placed on the visual hits. |
 | Centered text on a gradient, logo at the end | Show the real product doing a real task in the first 10 seconds. |
 | Freezes, or motion that never pauses | Hold long enough to read; only the camera breathes (zoom 1.00 → 1.04 per scene). |
-| Grain, halftone or ASCII as a finish | Texture only with a physical reason (paper, print, light). These finishes are now the AI default. |
+| Grain, halftone or ASCII as a finish | Texture only with a physical reason (paper, print, light). These finishes read as the AI default. |
 
 More numbers and the sources behind them: `references/anti-slideshow.md`.
 
@@ -42,7 +63,7 @@ Read `references/persian-typography.md` before writing any Persian into a frame.
 2. **Fade words, not letters.** Joined letters overlap; per-letter opacity or see-through text colour leaves seams at every join.
 3. **Masks need slack.** Persian reaches far above and below Latin: pad clip masks by about 0.5em top and bottom, use line-height ≥ 1.6 (≥ 2.4 for Nastaliq), or the dots and the top of گ get cut.
 4. **Direction.** `dir="rtl" lang="fa"` on every Persian block; wrap Latin names and numbers in `<bdi>` (or FSI/PDI) or the line scrambles. Reveals and staggers start on the right, camera progress travels left, "next" arrows point left. Play buttons, clocks and numbers are never mirrored.
-5. **Characters.** Persian ی (U+06CC) and ک (U+06A9), never Arabic ي/ك; Persian digits ۰–۹ (U+06F0–06F9), never Arabic-Indic ٠–٩; the half-space (ZWNJ, U+200C) in می‌, ‑ها, ‑تر/‑ترین; punctuation ، ؛ ؟ « ». `scripts/lint_persian.py` catches these.
+5. **Characters.** Persian ی (U+06CC) and ک (U+06A9), never Arabic ي/ك; Persian digits ۰–۹ (U+06F0–06F9), never Arabic-Indic ٠–٩; ZWNJ (نیم‌فاصله, U+200C) in می‌, ‑ها, ‑تر/‑ترین; punctuation ، ؛ ؟ « ». `scripts/lint_persian.py` catches these.
 6. **No letter-spacing.** Chrome ignores it inside Persian words (since version 137) and other tools break the joins. Stretch with kashida instead, only after a letter that joins forward, at most one per word.
 7. **Load the font, every time.** If the Persian font (or its Arabic-script subset) isn't loaded, Chrome silently falls back to a system font. In Remotion use `FontFace` + `delayRender` (see `assets/remotion/src/fonts.ts`).
 8. **Copy.** Write natural Persian in one register; no word-for-word English idioms. A native reader signs off on every line before render (`references/persian-copy.md`).
@@ -66,9 +87,9 @@ Pick by the brief, not by novelty: one or two signature techniques used consiste
 
 ## Tools in this skill
 
-- `scripts/shape_persian.py` — shapes Persian with HarfBuzz and exports SVG outlines split into letter bodies, dots and connected letter groups (`pip install uharfbuzz fonttools`). This is what makes per-letter, per-dot and kashida animation possible without breaking the script.
-- `scripts/split_fa.js` — splits a Persian word into letters that keep their joined forms (zero-width joiners), for when outlines are overkill.
-- `scripts/lint_persian.py` — checks copy (Arabic letters and digits, missing half-spaces, English punctuation, misplaced kashida) and code (letter-spacing, per-letter boxes, missing `dir`).
+- `scripts/shape_persian.py` — shapes Persian with HarfBuzz and exports SVG outlines split into letter bodies, dots and connected letter groups (`pip install uharfbuzz fonttools`). This is what makes per-letter, per-dot and kashida animation possible without breaking the script. Run `python3 scripts/shape_persian.py assets/sketches/fonts/Sahel-VF.ttf "کارگردان موشن فارسی" --wght 800`, or `--lines lines.txt --js glyphs.js` for many lines.
+- `scripts/split_fa.js` — splits a Persian word into letters that keep their joined forms (zero-width joiners), for when outlines are overkill. Import `splitFa` from it; `node scripts/split_fa.js --test` prints sample splits.
+- `scripts/lint_persian.py` — checks copy (Arabic letters and digits, missing ZWNJs, English punctuation, misplaced kashida) and code (letter-spacing, per-letter boxes, missing `dir`). Run `python3 scripts/lint_persian.py copy FILE` and `python3 scripts/lint_persian.py code src/`; it exits 1 when it finds something.
 - `assets/sketches/` — the motion engine (`engine.js`), the eight sketches, shaped glyph data, styles and `gallery.html` (serve the folder with any static server).
 - `assets/remotion/` — `SketchPlayer` (drives a sketch from the frame number), one clip composition per technique, the full intro film as a worked example, and scripts to render clips and stills.
 - `assets/music/compose_shur_pulse.py` — an original 120 BPM track in Dastgah Shur written in code, with a beat map; shows how to make the edit lock to the music.

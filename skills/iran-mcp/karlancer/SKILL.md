@@ -1,6 +1,12 @@
 ---
 name: karlancer
 description: "Read-only Karlancer (karlancer.com) freelance projects, freelancers and services in Iran. Use when the user asks about Karlancer Freelance (karlancer.com) or wants freelance projects, freelancers or services in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Karlancer Freelance

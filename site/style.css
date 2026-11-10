@@ -42,6 +42,8 @@ header.top .bar { display: flex; align-items: center; gap: 12px; padding: 12px 1
 @media (min-width: 1024px) { header.top .bar { padding: 16px 32px; } }
 .brand { display: flex; align-items: center; gap: 12px; font: 600 22px/1 var(--sans); letter-spacing: -0.015em; white-space: nowrap; }
 .brand .edyt { width: 34px; height: 34px; }
+.brand-name { display: inline-flex; align-items: center; gap: 12px; transition: opacity 0.2s, transform 0.2s; }
+header.top:not(.named) .brand-name { opacity: 0; transform: translateY(4px); pointer-events: none; }
 .brand .slash { color: var(--faint); font-weight: 300; }
 nav.links { display: none; align-items: center; gap: 2px; margin-inline-start: 24px; }
 nav.links a { padding: 8px 12px; border-radius: 999px; font: 500 15px/1 var(--sans); }

@@ -1,17 +1,32 @@
 ---
 name: kumihan-fa-documents
-description: "ساخت و بازبینی اسناد و ارائه‌های فارسی با حفظ متن و بررسی خروجی | Compose Persian documents and presentations with source preservation and output checks."
+description: >-
+  Composes and reviews Persian documents and presentations (Word,
+  PowerPoint, PDF, print and graphics) while preserving the source text and
+  checking the output: shaping, reading order, ZWNJ («نیم‌فاصله») and
+  copy-paste round trips. Part of KUMIHAN (تراز). Use when creating,
+  formatting or exporting a Persian document, slide deck, PDF or print
+  piece, or when the user writes «سند فارسی», «ارائه فارسی» or
+  «حروف‌چینی».
+license: Apache-2.0
+metadata:
+  author: L&Co. LLC
+  source: https://github.com/landco-llc/kumihan
+  upstream-commit: 1b27c93
+  version: "0.1.0"
+  changes: Description and instructions made English only (the Persian half of the bilingual text removed), file paths marked as code, and how to run the static checker added.
 ---
-# KUMIHAN｜تراز — -documents
 
-ساخت و بازبینی اسناد و ارائه‌های فارسی با حفظ متن و بررسی خروجی | Compose Persian documents and presentations with source preservation and output checks.
+# KUMIHAN (تراز): Persian documents and presentations
 
-1. Read references/contract.md and references/documents.md, then rules/catalog.json and sources.json. Select medium by the actual purpose and audience.
-2. Default proposal for new Iranian Persian content: fa-IR. Do not infer Persian language from Arabic-script glyphs alone. fa-AF and Tajik are separate.
-3. Choose study, build, refine or read-only audit. Preserve source bytes, metadata, ZWNJ, ZWJ, Persian Kaf ک and Yeh ی, combining marks, numbers, names and version strings.
-4. Do not insert automatic Tatweel, reverse logical strings, split joining text into letter spans, force decorative calligraphy or output uniform templates. Make context-led design choices.
-5. Apply applicable FA rules and locale guidance. For LTR URLs, email, codes and version strings inside RTL, isolate appropriate markup without rewriting original content.
-6. Use runtime/check_source.py for bounded static evidence only. Run rendered/copy/native evidence separately when available. Fixture examples are scenarios, not proven passes.
-7. Use schemas/report.schema.json to report observed results with explicit unverified checks. For audit never edit target files.
+Composes Persian documents and presentations with source preservation and output checks.
 
-Provider import, real host invocation and native-language certification are not checked by package creation.
+1. Read `references/contract.md` and `references/documents.md`, then `rules/catalog.json` and `sources.json`. Choose the medium from the actual purpose and audience.
+2. For new Iranian Persian content, propose fa-IR as the default locale. Do not infer the Persian language from Arabic-script glyphs alone. fa-AF (Dari) and Tajik are separate.
+3. Choose the mode: study, build, refine or read-only audit. Preserve source bytes, metadata, ZWNJ (نیم‌فاصله), ZWJ, Persian Kaf ک and Yeh ی, combining marks, numbers, names and version strings.
+4. Do not insert automatic Tatweel, reverse logical strings, split joined text into per-letter spans, force decorative calligraphy or output uniform templates. Make design choices from the context.
+5. Apply the FA rules and locale guidance that fit. For LTR URLs, emails, codes and version strings inside RTL text, isolate them with markup without rewriting the original content.
+6. Use `runtime/check_source.py` for bounded static evidence only: `python3 runtime/check_source.py page.html` checks one HTML file, and adding `--candidate edited.html` compares the candidate's bytes with the source. Run rendered, copy and native evidence separately when available. The scenarios in `fixtures/acceptance.json` are examples, not proven passes.
+7. Report observed results with `schemas/report.schema.json`, listing unverified checks explicitly. In an audit, never edit the target files.
+
+Package creation does not check provider import, real host invocation or native-language certification.

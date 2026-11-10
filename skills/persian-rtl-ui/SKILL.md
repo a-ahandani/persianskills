@@ -1,13 +1,20 @@
 ---
 name: persian-rtl-ui
-description: >
-  Build right-to-left Persian (Farsi) UI in React and Tailwind the way an
+description: >-
+  Builds right-to-left Persian (Farsi) UI in React and Tailwind the way an
   Iranian product team would: logical CSS only, Persian fonts without
   letter-spacing, Persian digits and «تومان», Jalali dates, Iranian form
   fields, colors from theme tokens. Use for any UI work in a Persian or
-  Iranian project (راست‌چین، فارسی، RTL، رابط فارسی، Next.js فارسی), before
-  writing the first component. These are the VibeFarsi design rules in skill
-  form, for projects without the MCP server.
+  Iranian project, before writing the first component, or when the user
+  writes «راست‌چین», «فارسی», «RTL», «رابط فارسی» or «Next.js فارسی». These
+  are the VibeFarsi design rules in skill form, for projects without the MCP
+  server.
+license: MIT
+metadata:
+  author: VibeFarsi (TronIsHere)
+  source: https://github.com/TronIsHere/vibefarsiui
+  upstream-commit: 7d56b50
+  changes: Suggested Persian UI font changed from Vazirmatn to Sahel, frontmatter brought to the repo standard, and related skills named.
 ---
 
 # Persian RTL UI (رابط راست‌چین)
@@ -68,6 +75,7 @@ rules below to every component, then run the checklist in section 10.
 - Form values, URLs, JSON and API payloads keep Latin digits.
 - Calendar is Jalali (شمسی); week starts Saturday; Friday is the weekend.
   Use a real converter (`lib/jalali.ts`), not `toLocaleDateString` alone.
+  `jalali-calendar` has the formats, ranges and holiday rules.
 - Relative time in Persian: «۲ ساعت پیش», «دیروز».
 - Numeric table columns: `tabular-nums` so digits line up, aligned to the
   start (right) like the rest of the RTL table. Do not `text-right` them.
@@ -119,7 +127,8 @@ exists (`npx vibefarsi add …`) instead of re-implementing.
 
 - Phone «۰۹…», national ID (کد ملی, 10 digits with checksum), Sheba/IBAN
   (`IR` + 24 digits), bank card (16 digits, Luhn, BIN → bank), postal code
-  (10 digits), plate («۱۲ ب ۳۴۵ ایران ۱۱»).
+  (10 digits), plate («۱۲ ب ۳۴۵ ایران ۱۱»). `iran-validation` has the exact
+  checks and error copy.
 - Address fields: استان، شهر، خیابان، پلاک، واحد، کد پستی.
 - Shipping: پست، تیپاکس، پیک. Payment result states: موفق، در انتظار، ناموفق.
 - Working week Saturday–Thursday (often half-day Thursday); Friday off.

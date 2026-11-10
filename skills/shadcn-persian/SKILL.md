@@ -1,134 +1,152 @@
 ---
 name: shadcn-persian
-description: Comprehensive guide for building React, Next.js, and Vite UIs using shadcn/ui and PersianLabs/ui (shadcn-persian) with RTL-first Persian components, Jalali calendar/date-pickers, Iranian bank card & IBAN inputs, national ID validation, price inputs with live Toman words, Iranian city/map selectors, plate inputs, and offline source code. Enforces CLI installation (npx shadcn@latest add @persianlabsui/<name>) with offline source fallback.
+description: >-
+  Builds React, Next.js and Vite interfaces with shadcn/ui and PersianLabs/ui
+  (shadcn-persian): RTL-first Persian components, Jalali calendars and date
+  pickers, Iranian bank card and IBAN (Sheba) inputs, national ID
+  validation, price inputs that spell the amount in Toman, Iranian province,
+  city and map selectors, plate inputs, and bundled offline source code.
+  Installs components with the registry CLI (npx shadcn@latest add
+  @persianlabsui/<name>) and falls back to the bundled source when offline.
+  Use when building or reviewing a Persian or Iranian web UI with shadcn/ui
+  or Tailwind, or when the user mentions PersianLabs, shadcn-persian,
+  «تقویم شمسی», «تاریخ شمسی», «کد ملی», «شماره کارت» or «شبا».
+license: MIT
+compatibility: Node.js with the shadcn CLI; the registry install needs network access, the bundled source does not.
+metadata:
+  author: Abulfadl Ahmadi
+  source: https://github.com/Abulfadl-Ahmadi/shadcn-persian
+  upstream-commit: ac1d0c8
+  changes: Default Persian font changed from Vazirmatn to Sahel (Farsi digits from the Sahel FD build), and SKILL.md translated from Persian to English with emoji removed and the folder map corrected.
 ---
 
-# PersianLabs/ui & shadcn/ui Complete Persian Integration Guide
+# PersianLabs/ui and shadcn/ui for Persian interfaces
 
-A unified, production-grade guide for building accessible, RTL-first web interfaces in **React, Next.js, Vite, Tailwind CSS (v3 & v4), and shadcn/ui**, with native support for Iranian and Persian UI patterns.
+Builds accessible, RTL-first web interfaces in React, Next.js, Vite, Tailwind
+CSS (v3 and v4) and shadcn/ui, with native support for Iranian and Persian UI
+patterns. For the rules behind these components, see `persian-rtl-ui`,
+`iran-validation` and `jalali-calendar`.
 
----
+## Core rules
 
-## ⛔ Core Operating Principles
+1. **Do not build custom implementations from scratch.** When a UI component
+   is needed (Jalali date picker, bank card input, national ID input, city
+   selector, modal, table and so on), use the prebuilt PersianLabs/ui and
+   shadcn registry components instead of writing new ones by hand.
 
-1. **NEVER BUILD CUSTOM IMPLEMENTATIONS FROM SCRATCH**:  
-   When any UI component is needed (Jalali date picker, bank card input, national code input, city selector, modal, table, etc.), **NEVER invent new components manually**. Use the pre-built PersianLabs/ui & shadcn registry components.
-
-2. **ALWAYS INSTALL VIA TERMINAL CLI COMMAND FIRST**:  
-   Execute the official registry command inside your frontend directory:
+2. **Install through the CLI first.** Run the registry command in the
+   frontend directory:
    ```bash
    npx shadcn@latest add @persianlabsui/<component-name>
    ```
-   *(For standard base components: `npx shadcn@latest add <component-name>`)*
+   For standard base components: `npx shadcn@latest add <component-name>`.
 
-3. **OFFLINE FALLBACK**:  
-   If CLI installation fails (e.g. offline/network restrictions), copy the exact pre-downloaded source code from the skill directory:
+3. **Fall back to the bundled source.** If the CLI install fails (offline or
+   network restrictions), copy the exact source from this skill's folder:
    - Components: `source-code/components/<component-name>.tsx` → `src/components/ui/<component-name>.tsx`
    - Hooks: `source-code/hooks/<hook-name>.ts` → `src/hooks/<hook-name>.ts`
-   - Lib Utilities: `source-code/lib/<util-name>.ts` → `src/lib/<util-name>.ts`
+   - Lib utilities: `source-code/lib/<util-name>.ts` → `src/lib/<util-name>.ts`
 
-4. **CONSULT LOCAL OFFLINE DOCS & EXAMPLES**:  
-   Inspect the local markdown documentation in `components/`, `utilities/`, `getting-started/`, and `rules/` before coding to get exact props, TypeScript interfaces, Zod schemas, and examples.
+4. **Read the local docs and examples before coding.** The markdown files in
+   `components/`, `utilities/`, `getting-started/` and `rules/` give the exact
+   props, TypeScript interfaces, Zod schemas and examples.
 
----
-
-## 📁 Skill Directory Hierarchy
+## Folder layout
 
 ```text
 shadcn-persian/
-├── SKILL.md                  # Master roadmap & cheat-sheet (< 500 lines)
-├── README.md                 # Full Persian catalog and documentation index
-├── getting-started/          # 9 Core architectural guides
+├── SKILL.md                  # This guide
+├── README.md                 # Upstream README (Persian): install notes and the same catalog
+├── getting-started/          # 9 core guides
 │   ├── introduction.md       # PersianLabs UI overview
-│   ├── installation.md       # Setup for Next.js, Vite, and Monorepos
-│   ├── theming.md            # HSL & OKLCH CSS variables, Dark mode
+│   ├── installation.md       # Setup for Next.js, Vite and monorepos
+│   ├── theming.md            # HSL and OKLCH CSS variables, dark mode
 │   ├── rtl.md                # RTL layout rules, logical properties (start/end)
-│   ├── fonts.md              # Sahel, Estedad, local & web fonts
-│   ├── persian-conventions.md# Persian UI conventions, digits, dates, currency
+│   ├── fonts.md              # Sahel, Estedad, local and web fonts
+│   ├── persian-conventions.md# Persian UI conventions: digits, dates, currency
 │   ├── cli.md                # CLI options, presets, registry commands
-│   ├── ai.md                 # Prompting & agent workflows
-│   └── icons.md              # @persianlabs/icons (820+ Iranian logos)
-├── rules/                    # 6 Modern shadcn v4 composition rules
-│   ├── styling.md            # Tailwind rules: use gap instead of space-x/y, size-*, etc.
+│   ├── ai.md                 # Prompting and agent workflows
+│   └── faq.md                # Common questions and troubleshooting
+├── rules/                    # 6 shadcn v4 composition rules
+│   ├── styling.md            # Tailwind rules: gap instead of space-x/y, size-*, etc.
 │   ├── forms.md              # Form layout with FieldGroup + Field + InputGroup
-│   ├── composition.md        # Slot/asChild, Title requirements, Grouping
+│   ├── composition.md        # Slot/asChild, Title requirements, grouping
 │   ├── icons.md              # data-icon usage and sizing
 │   ├── chat.md               # Chat primitives (MessageScroller, Bubble, Attachment)
 │   └── base-vs-radix.md      # Base UI vs Radix UI conventions
-├── components/               # 89 Component documentation files with props & examples
-├── utilities/                # 20 Iranian utility & algorithm docs (Zod, checksums, etc.)
-├── source-code/              # 131 Complete offline TypeScript source files
-│   ├── components/*.tsx      # 87 component source codes
-│   ├── hooks/*.ts            # 13 hook source codes
-│   ├── lib/*.ts              # 29 lib utility algorithms
-│   └── styles/globals.css    # Full theme tokens & CSS variables
-├── registry-json/            # 106 official shadcn registry item JSONs
-└── examples/                 # 482 ready-to-use TypeScript demo examples
+├── components/               # 89 component docs with props and examples
+├── utilities/                # 20 docs for Iranian utilities and algorithms (Zod, checksums, etc.)
+├── source-code/              # Offline TypeScript source
+│   ├── components/*.tsx      # 86 components
+│   ├── hooks/*.ts            # 12 hooks
+│   ├── lib/*.ts              # 28 lib utilities and algorithms
+│   ├── types/*.d.ts          # Type declarations
+│   └── styles/globals.css    # Full theme tokens and CSS variables
+├── registry-json/            # 106 shadcn registry item JSONs
+└── examples/                 # 482 ready-to-use TypeScript demos
 ```
 
----
+## Iranian and Persian components
 
-## 🇮🇷 Iranian & Persian Components Quick Reference
-
-| Feature | Component / Utility | Local Doc Path | Terminal CLI Command |
+| Feature | Component / utility | Local doc | CLI command |
 | :--- | :--- | :--- | :--- |
-| **کارت بانکی و شبا** | `BankInput`, `CardNumberInput`, `ShabaInput` | `components/bank-input.md` | `npx shadcn@latest add @persianlabsui/bank-input` |
-| **کد ملی با اعتبارسنجی** | `NationalIdInput`, `isValidNationalId` | `components/national-id-input.md` | `npx shadcn@latest add @persianlabsui/national-id-input` |
-| **شماره موبایل ایران** | `MobileNumberInput` | `components/mobile-number-input.md` | `npx shadcn@latest add @persianlabsui/mobile-number-input` |
-| **پلاک ملی خودرو** | `PlateInput` | `components/plate-input.md` | `npx shadcn@latest add @persianlabsui/plate-input` |
-| **انتخاب استان و شهر** | `CitySelector` | `components/city-selector.md` | `npx shadcn@latest add @persianlabsui/city-selector` |
-| **نقشه تعاملی ایران** | `IranMapPicker` | `components/iran-map-picker.md` | `npx shadcn@latest add @persianlabsui/iran-map-picker` |
-| **تقویم شمسی** | `Calendar` | `components/calendar.md` | `npx shadcn@latest add @persianlabsui/calendar` |
-| **دیتپیکر شمسی** | `DatePicker` | `components/date-picker.md` | `npx shadcn@latest add @persianlabsui/date-picker` |
-| **دیتپیکر چرخشی موبایل** | `DateWheelPicker`, `WheelPicker` | `components/date-wheel-picker.md` | `npx shadcn@latest add @persianlabsui/date-wheel-picker` |
-| **تایمپیکر فارسی** | `TimePicker`, `DurationPicker` | `components/time-picker.md` | `npx shadcn@latest add @persianlabsui/time-picker` |
-| **ورودی مبلغ با حروف** | `PriceInput` | `components/price-input.md` | `npx shadcn@latest add @persianlabsui/price-input` |
-| **نماد رسمی تومان** | `TomanIcon` | `components/toman-icon.md` | `npx shadcn@latest add @persianlabsui/toman-icon` |
-| **چاپ فاکتور و رسید** | `ReceiptPrinter` | `components/receipt-printer.md` | `npx shadcn@latest add @persianlabsui/receipt-printer` |
-| **لوگوهای بانکی و برندها** | `@persianlabs/icons` (820+ لوگو) | `getting-started/icons.md` | `npm install @persianlabs/icons` |
-| **ورودی رمز عبور فارسی** | `PasswordInput` | `components/password-input.md` | `npx shadcn@latest add @persianlabsui/password-input` |
-| **ورودی کد تایید OTP** | `InputOtp`, `useCountdown` | `components/input-otp.md` | `npx shadcn@latest add @persianlabsui/input-otp` |
-| **چت و پیامرسان** | `MessageScroller`, `Message`, `Bubble` | `components/message-scroller.md` | `npx shadcn@latest add @persianlabsui/message-scroller` |
+| **Bank card and Sheba (IBAN)** | `BankInput`, `CardNumberInput`, `ShabaInput` | `components/bank-input.md` | `npx shadcn@latest add @persianlabsui/bank-input` |
+| **National ID (کد ملی) with validation** | `NationalIdInput`, `isValidNationalId` | `components/national-id-input.md` | `npx shadcn@latest add @persianlabsui/national-id-input` |
+| **Iranian mobile number** | `MobileNumberInput` | `components/mobile-number-input.md` | `npx shadcn@latest add @persianlabsui/mobile-number-input` |
+| **National vehicle plate (پلاک)** | `PlateInput` | `components/plate-input.md` | `npx shadcn@latest add @persianlabsui/plate-input` |
+| **Province and city picker** | `CitySelector` | `components/city-selector.md` | `npx shadcn@latest add @persianlabsui/city-selector` |
+| **Interactive Iran map** | `IranMapPicker` | `components/iran-map-picker.md` | `npx shadcn@latest add @persianlabsui/iran-map-picker` |
+| **Jalali calendar** | `Calendar` | `components/calendar.md` | `npx shadcn@latest add @persianlabsui/calendar` |
+| **Jalali date picker** | `DatePicker` | `components/date-picker.md` | `npx shadcn@latest add @persianlabsui/date-picker` |
+| **Mobile wheel date picker** | `DateWheelPicker`, `WheelPicker` | `components/date-wheel-picker.md` | `npx shadcn@latest add @persianlabsui/date-wheel-picker` |
+| **Persian time picker** | `TimePicker`, `DurationPicker` | `components/time-picker.md` | `npx shadcn@latest add @persianlabsui/time-picker` |
+| **Amount input with the amount in words** | `PriceInput` | `components/price-input.md` | `npx shadcn@latest add @persianlabsui/price-input` |
+| **Official Toman symbol** | `TomanIcon` | `components/toman-icon.md` | `npx shadcn@latest add @persianlabsui/toman-icon` |
+| **Invoice and receipt printing** | `ReceiptPrinter` | `components/receipt-printer.md` | `npx shadcn@latest add @persianlabsui/receipt-printer` |
+| **Bank and brand logos** | `@persianlabs/icons` (820+ logos) | Not bundled | `npm install @persianlabs/icons` |
+| **Persian password input** | `PasswordInput` | `components/password-input.md` | `npx shadcn@latest add @persianlabsui/password-input` |
+| **OTP verification code input** | `InputOtp`, `useCountdown` | `components/input-otp.md` | `npx shadcn@latest add @persianlabsui/input-otp` |
+| **Chat and messaging** | `MessageScroller`, `Message`, `Bubble` | `components/message-scroller.md` | `npx shadcn@latest add @persianlabsui/message-scroller` |
 
----
+## Iranian utilities and algorithms
 
-## 🧮 Iranian Utilities & Algorithmic Helpers
-
-| Utility | Description | Local Doc | CLI Command / Import |
+| Utility | Description | Local doc | CLI command |
 | :--- | :--- | :--- | :--- |
-| `national-id` | فرمول اعتبارسنجی چکسام کد ملی ۱۰ رقمی | `utilities/national-id.md` | `npx shadcn@latest add @persianlabsui/national-id` |
-| `iranian-bank` | تشخیص نام و لوگوی بانک از پیششماره کارت و شبا | `utilities/iranian-bank.md` | `npx shadcn@latest add @persianlabsui/iranian-bank` |
-| `normalize-persian-digits` | تبدیل اعداد فارسی/عربی به انگلیسی و برعکس | `utilities/normalize-persian-digits.md` | `npx shadcn@latest add @persianlabsui/normalize-persian-digits` |
-| `normalize-persian-text` | استانداردسازی حروف ی، ک و نیمفاصلهها | `utilities/normalize-persian-text.md` | `npx shadcn@latest add @persianlabsui/normalize-persian-text` |
-| `number-to-persian-words` | تبدیل عدد و مبالغ به حروف فارسی (تومان/ریال) | `utilities/number-to-persian-words.md` | `npx shadcn@latest add @persianlabsui/number-to-persian-words` |
-| `persian-date` | تبدیل و قالببندی تاریخهای شمسی / میلادی | `utilities/persian-date.md` | `npx shadcn@latest add @persianlabsui/persian-date` |
-| `persian-date-zod` | اعتبارسنجی تاریخ شمسی در اسکیماهای Zod | `utilities/persian-date-zod.md` | `npx shadcn@latest add @persianlabsui/persian-date-zod` |
-| `persian-holidays` | بررسی تعطیلات رسمی تقویم ایران | `utilities/persian-holidays.md` | `npx shadcn@latest add @persianlabsui/persian-holidays` |
-| `postal-code` | اعتبارسنجی کد پستی ۱۰ رقمی ایران | `utilities/postal-code.md` | `npx shadcn@latest add @persianlabsui/postal-code` |
-| `use-countdown` | هوک تایمر شمارش معکوس ارسال مجدد پیامک OTP | `utilities/use-countdown.md` | `npx shadcn@latest add @persianlabsui/use-countdown` |
+| `national-id` | Checksum validation for the 10-digit national ID | `utilities/national-id.md` | `npx shadcn@latest add @persianlabsui/national-id` |
+| `iranian-bank` | Detects the bank name and logo from the card prefix and the Sheba number | `utilities/iranian-bank.md` | `npx shadcn@latest add @persianlabsui/iranian-bank` |
+| `normalize-persian-digits` | Converts Persian and Arabic digits to Latin and back | `utilities/normalize-persian-digits.md` | `npx shadcn@latest add @persianlabsui/normalize-persian-digits` |
+| `normalize-persian-text` | Normalizes ی, ک and ZWNJ (نیم‌فاصله) | `utilities/normalize-persian-text.md` | `npx shadcn@latest add @persianlabsui/normalize-persian-text` |
+| `number-to-persian-words` | Spells numbers and amounts in Persian words (Toman/Rial) | `utilities/number-to-persian-words.md` | `npx shadcn@latest add @persianlabsui/number-to-persian-words` |
+| `persian-date` | Converts and formats Jalali and Gregorian dates | `utilities/persian-date.md` | `npx shadcn@latest add @persianlabsui/persian-date` |
+| `persian-date-zod` | Validates Jalali dates in Zod schemas | `utilities/persian-date-zod.md` | `npx shadcn@latest add @persianlabsui/persian-date-zod` |
+| `persian-holidays` | Checks official Iranian calendar holidays | `utilities/persian-holidays.md` | `npx shadcn@latest add @persianlabsui/persian-holidays` |
+| `postal-code` | Validates the 10-digit Iranian postal code | `utilities/postal-code.md` | `npx shadcn@latest add @persianlabsui/postal-code` |
+| `use-countdown` | Countdown hook for the OTP SMS resend timer | `utilities/use-countdown.md` | `npx shadcn@latest add @persianlabsui/use-countdown` |
 
----
+## RTL layout and typography
 
-## 🎨 RTL Layout & Typography Best Practices
-
-1. **جهتگیری سند (`dir="rtl"`)**:
-   در فایل ریشه (`app/layout.tsx` یا `index.html`):
+1. **Document direction (`dir="rtl"`).** Set it in the root file
+   (`app/layout.tsx` or `index.html`):
    ```tsx
    <html lang="fa" dir="rtl">
    ```
-2. **پرهیز از ویژگیهای جهتدار فیزیکی (`left`/`right`)**:
-   - به جای `pl-*` یا `pr-*` از کلاسهای منطقی استفاده کنید: `ps-*` (padding-inline-start) و `pe-*` (padding-inline-end) یا `gap-*` در Flex/Grid.
-   - به جای `space-x-*` همیشه از `flex gap-*` استفاده کنید تا در RTL برعکس نشود.
-   - به جای `text-left` / `text-right` از `text-start` / `text-end` استفاده کنید.
-3. **فونتهای فارسی**:
-   - فونت پیشنهادی: `Sahel` (جایگزین: `Estedad`).
-   - اعداد فارسی در Sahel از نسخهٔ `Sahel FD` می‌آیند، نه از `font-feature-settings: "ss01"`.
-4. **تراز فیلدهای شماره کارت و شبا**:
-   - فیلدهای کارت بانکی و شبا ماهیت عددی دارند و باید با `dir="ltr"` و `text-start` یا `text-center` نمایش داده شوند تا خوانایی ارقام حفظ شود. کامپوننتهای `@persianlabsui/bank-input` این را به صورت خودکار مدیریت میکنند.
+2. **Avoid physical direction properties (`left`/`right`).**
+   - Instead of `pl-*` or `pr-*`, use logical classes: `ps-*`
+     (padding-inline-start) and `pe-*` (padding-inline-end), or `gap-*` in
+     flex and grid.
+   - Instead of `space-x-*`, always use `flex gap-*` so spacing does not flip
+     in RTL.
+   - Instead of `text-left` / `text-right`, use `text-start` / `text-end`.
+3. **Persian fonts.**
+   - Recommended font: `Sahel` (alternative: `Estedad`).
+   - Persian digits in Sahel come from the `Sahel FD` build, not from
+     `font-feature-settings: "ss01"`.
+4. **Card number and Sheba field alignment.** Bank card and Sheba fields are
+   numeric: show them with `dir="ltr"` and `text-start` or `text-center` so
+   the digits stay readable. The `@persianlabsui/bank-input` components do
+   this automatically.
 
----
-
-## 📝 Example: Complete Form with Persian Validation
+## Example: complete form with Persian validation
 
 ```tsx
 "use client"
@@ -196,11 +214,9 @@ export function PaymentForm() {
 }
 ```
 
----
+## Reading the offline resources
 
-## 🔍 How to Read Offline Resources
-
-- برای مطالعه داکیومنت دقیق یک کامپوننت: `read_file(path="components/<name>.md")`
-- برای کپی سورس کامپوننت به صورت آفلاین: `read_file(path="source-code/components/<name>.tsx")`
-- برای مشاهده دموها و مثالهای آماده: `search_files(path="examples", pattern="<name>*")`
-- برای خواندن اصول دیزاین و قوانین شادسن: `read_file(path="rules/<rule-name>.md")`
+- Exact docs for a component: read `components/<name>.md`.
+- Offline source for a component: read `source-code/components/<name>.tsx`.
+- Ready demos and examples: search `examples/` for `<name>*`.
+- shadcn design principles and rules: read `rules/<rule-name>.md`.

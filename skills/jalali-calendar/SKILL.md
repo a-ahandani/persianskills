@@ -1,12 +1,19 @@
 ---
 name: jalali-calendar
-description: >
-  Handle dates and times for Iranian users: the Jalali / Solar Hijri calendar
-  (تقویم شمسی، هجری خورشیدی), Saturday-first weeks, Tehran time (+03:30, no
-  DST), Persian month and weekday names, formatting, storage, ranges, reports
-  and holidays. Use whenever a date, time, calendar, date picker, deadline,
-  booking, report period or age appears in a Persian (Farsi) product, or the
-  user says تاریخ شمسی، تقویم فارسی، jalali، شنبه، نوروز.
+description: >-
+  Handles dates and times for Iranian users: the Jalali / Solar Hijri
+  calendar («تقویم شمسی», «هجری خورشیدی»), Saturday-first weeks, Tehran time
+  (+03:30, no DST), Persian month and weekday names, formatting, storage,
+  ranges, reports and holidays. Use whenever a date, time, calendar, date
+  picker, deadline, booking, report period or age appears in a Persian
+  (Farsi) product, or the user writes «تاریخ شمسی», «تقویم فارسی», «jalali»,
+  «شنبه» or «نوروز».
+license: MIT
+metadata:
+  author: VibeFarsi (TronIsHere)
+  source: https://github.com/TronIsHere/vibefarsiui
+  upstream-commit: 7d56b50
+  changes: Frontmatter brought to the repo standard (third-person description, Persian triggers in «», metadata) and the conversion skills named.
 ---
 
 # Jalali calendar (تقویم شمسی)
@@ -103,6 +110,8 @@ new Intl.DateTimeFormat("fa-IR-u-ca-persian-nu-latn", { dateStyle: "short" }).fo
 Limits: `Intl` formats but does not give you year/month/day integers for
 arithmetic, month grids or validation. For a date picker, ranges, "add one
 month", leap checks and age, use a converter (`toJalali` / `toGregorian`).
+For a one-off conversion or the current date, `convert-persian-dates` (Python
+`persiantools`) and `local-time` (system clock) do it without code.
 
 ## 7. Date pickers and ranges
 

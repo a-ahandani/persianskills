@@ -1,5 +1,7 @@
 # Tooling and Discipline-Specific Reporting Standards
 
+Contents: Tools are detectors, not authorities; Safe integration pattern; Evaluating a normalizer or checker; Unicode inspection; TeX validation stack; Citation metadata tools; Reporting guidelines by study design; Computer science and machine learning checks; Maintenance rule.
+
 ## Tools are detectors, not authorities
 
 Persian NLP and normalization tools can accelerate candidate discovery, but their output is not automatically correct scholarly editing. They are optimized for different tasks: corpus normalization, tokenization, search, spell-checking, speech preprocessing, or generic prose—not preservation of quotations, terminology, equations, citation keys, and TeX semantics.

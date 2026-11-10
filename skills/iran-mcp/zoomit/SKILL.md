@@ -1,6 +1,12 @@
 ---
 name: zoomit
 description: "Read-only Zoomit (zoobin) product database: specs, shop prices in Toman, price history, comparisons. Use when the user asks about Zoomit Products (zoomit.ir) or wants electronics, appliances or other goods in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Zoomit Products

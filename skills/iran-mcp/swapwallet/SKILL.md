@@ -1,6 +1,12 @@
 ---
 name: swapwallet
 description: "Crypto wallet: balances, P&L, history. Swaps, transfers and withdrawals need Telegram approval. Use when the user asks about SwapWallet (swapwallet.app) or wants to check or use their own SwapWallet crypto wallet in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # SwapWallet

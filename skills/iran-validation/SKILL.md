@@ -1,14 +1,20 @@
 ---
 name: iran-validation
-description: >
-  Validate and format Iranian identifiers correctly: national ID (کد ملی)
-  checksum, mobile numbers (۰۹…), landlines with area codes, IBAN / Sheba
-  (شبا) mod-97, bank card numbers with Luhn and BIN-to-bank lookup, postal
-  code (کد پستی), vehicle plates (پلاک), and Persian/Arabic digit
-  normalization. Use for any signup, KYC, checkout, address or payment form in
-  an Iranian product, or when the user mentions اعتبارسنجی، کد ملی، شبا،
-  شماره کارت، شماره موبایل، کد پستی، پلاک. Replaces US-style patterns (SSN,
-  ZIP, 10-digit phones) that models reach for by default.
+description: >-
+  Validates and formats Iranian identifiers correctly: national ID («کد ملی»)
+  checksum, mobile numbers («۰۹…»), landlines with area codes, IBAN / Sheba
+  («شبا») mod-97, bank card numbers with Luhn and BIN-to-bank lookup, postal
+  code («کد پستی»), vehicle plates («پلاک»), and Persian/Arabic digit
+  normalization. Use for any signup, KYC, checkout, address or payment form
+  in an Iranian product, or when the user writes «اعتبارسنجی», «کد ملی»,
+  «شبا», «شماره کارت», «شماره موبایل», «کد پستی» or «پلاک». Replaces US-style
+  patterns (SSN, ZIP, 10-digit phones) that models reach for by default.
+license: MIT
+metadata:
+  author: VibeFarsi (TronIsHere)
+  source: https://github.com/TronIsHere/vibefarsiui
+  upstream-commit: 7d56b50
+  changes: Frontmatter brought to the repo standard (third-person description, Persian triggers in «», metadata).
 ---
 
 # Iranian validation (اعتبارسنجی ایرانی)

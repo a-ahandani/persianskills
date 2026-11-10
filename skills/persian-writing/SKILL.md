@@ -1,33 +1,42 @@
 ---
 name: persian-writing
-description: >
-  Write natural, human-sounding Persian (Farsi) and build correct right-to-left
-  Persian deliverables. Use for ANY task involving Persian text or an Iranian
-  audience: writing, editing, translating, humanizing, SEO content and
-  copywriting (سئو، کپی‌رایتینگ، لندینگ), academic papers/theses, and Persian
-  output in Word/.docx, PDF, PowerPoint, HTML, Excel, images/posters, emails,
-  social posts. Covers register detection (رسمی/اداری/محاوره/علمی — errors here
-  are costly), Persian AI-tell removal, orthography (نیم‌فاصله/ZWNJ، اعداد
-  فارسی، «گیومه»), cleanup and spell-check (ویرایش، پاکسازی — bundled
-  paknevis+davat toolkit), RTL layout/pagination fixes, and Persian fonts
-  (Sahel bundled). Trigger whenever you see Persian/Arabic script or words
-  like فارسی, Farsi, Persian, Iran, RTL, راست‌چین, نیم‌فاصله, ویرایش, مقاله,
-  پایان‌نامه, سئو, کپشن, Sahel — even if the user never mentions this skill.
-metadata:
-  version: 1.4.0
+description: >-
+  Writes natural, human-sounding Iranian Persian (Farsi) and builds correct
+  right-to-left Persian deliverables. Use for any task with Persian text or an
+  Iranian audience: writing, editing, translating, humanizing, SEO and
+  copywriting, landing pages, academic papers and theses, and Persian output in
+  Word/.docx, PDF, PowerPoint, HTML, Excel, images and posters, emails and
+  social posts. Covers register detection (formal, official, colloquial,
+  academic), Persian AI-tell removal, orthography (ZWNJ, Persian digits,
+  guillemets), cleanup and spell-check with the bundled paknevis and davat
+  toolkit, RTL layout and pagination fixes, and Persian fonts (Sahel bundled).
+  Use it whenever Persian script appears or the user writes Farsi, Persian,
+  Iran, RTL, Sahel, «فارسی», «راست‌چین», «نیم‌فاصله», «ویرایش», «پاکسازی»,
+  «مقاله», «پایان‌نامه», «سئو», «کپی‌رایتینگ», «لندینگ», «کپشن», «رسمی»,
+  «اداری» or «محاوره», even without naming this skill.
 license: MIT (bundled fonts under SIL OFL)
-compatibility: >
-  Any agent that reads Markdown skills (Claude, Claude Code, Cursor, Codex,
-  custom harnesses; chat-only AIs via universal/persian-writing-universal.md).
-  Scripts: Python 3.8+ stdlib only. docx/pptx→PDF conversion: LibreOffice +
-  installed fonts. PDF checks: poppler-utils, pypdf, or PyMuPDF (any one).
+compatibility: >-
+  Any agent that reads Markdown skills; chat-only AIs can use
+  universal/persian-writing-universal.md. Scripts: Python 3.8+ stdlib only.
+  docx/pptx to PDF conversion: LibreOffice and installed fonts. PDF checks:
+  poppler-utils, pypdf or PyMuPDF (any one).
+metadata:
+  author: ali2000hos
+  source: https://github.com/ali2000hos/persian-writing
+  upstream-commit: 75fcdf3
+  version: 1.4.0
+  changes: >-
+    Bundled and recommended font changed from Vazirmatn and Lalezar to Sahel
+    (Sahel Black for display); frontmatter standardized, description rewritten
+    in English, Persian-only phrasing in the instructions put in English, and
+    long references given a contents list.
 ---
 
 # Persian Writing & RTL Documents
 
 Two failure modes make Persian output look machine-made, and they are independent:
 
-1. **The prose sounds like AI.** Technically correct, but stiff, کتابی, inflated —
+1. **The prose sounds like AI.** Technically correct, but stiff, bookish (کتابی), inflated —
    no Iranian would write it that way.
 2. **The layout betrays the text.** Persian rendered left-aligned, Arabic ي/ك glyphs,
    Latin digits breaking RTL flow, headings orphaned at page bottoms, fonts falling
@@ -84,22 +93,22 @@ Full guide in `references/writing-style.md`. The core moves:
    proposal); when the text goes to a third party and signals conflict, ask
    ONE short question instead of guessing; no signal at all → formal-but-human.
    - Proposal, invoice, report, official email, website copy → **formal-but-human**:
-     full written forms (می‌شود نه میشه), شما, zero slang — but است نه می‌باشد,
-     short sentences, concrete claims. Human ≠ خودمونی: proposals/contracts keep
+     full written forms («می‌شود», not «میشه»), «شما», zero slang — but «است», not «می‌باشد»,
+     short sentences, concrete claims. Human does not mean chummy (خودمونی): proposals/contracts keep
      formal vocabulary (no «جور است»-style idioms); warmth comes from clarity,
      numbers, and one warm closing line (writing-style.md, "warmth trap").
-   - نامه اداری → formal + letter conventions (honorifics, «با سلام و احترام؛»
+   - Official letter (نامه اداری) → formal + letter conventions (honorifics, «با سلام و احترام؛»
      — writing-style.md).
    - Instagram/Telegram, chat, friendly email → **colloquial written Persian**
-     (محاوره‌نویسی): میشه، می‌خوام، رو، particles like دیگه/که/مگه.
+     (محاوره‌نویسی): «میشه»، «می‌خوام»، «رو»، particles like «دیگه»/«که»/«مگه».
    - Blog, newsletter → between: written forms, warm direct voice.
    - Paper, thesis, university report → **academic** (نگارش علمی): measured,
-     hedged, passive acceptable, zero تعارف — read `references/academic.md`.
+     hedged, passive acceptable, no ceremonial courtesy (تعارف) — read `references/academic.md`.
    - SEO/sales copy → register per artifact as above, plus `references/seo-copywriting.md`.
 2. **Ban the bureaucratic tells:** می‌باشد، لازم به ذکر است، در راستای،
    از اهمیت ویژه‌ای برخوردار است، نقش بسزایی ایفا می‌کند.
 3. **Ban the AI tells:** em dashes (—), rule-of-three triads (سریع، آسان و مطمئن),
-   نه تنها ... بلکه, tacked-on «که نشان‌دهنده‌ی ... است», vague «کارشناسان معتقدند»,
+   «نه تنها ... بلکه» (not only ... but also), tacked-on «که نشان‌دهنده‌ی ... است», vague «کارشناسان معتقدند»,
    generic «در دنیای امروز» openers, «در نهایت می‌توان گفت» closers.
 4. **Hold one point of view.** Explain facts impersonally, address the reader
    directly (the verb carries it — don't repeat «شما»), and use «ما» only for
@@ -110,8 +119,8 @@ Full guide in `references/writing-style.md`. The core moves:
    without buying anything: state the problem before the product, never hide
    the main answer, tie each feature to a checkable result, and never delete
    limitations or prerequisites — they are what make the rest believable.
-6. **Claim only what the source supports.** Distinguish واقعیت / نظر /
-   پیش‌بینی / ادعا; never invent a statistic, version, price, or quote to fill
+6. **Claim only what the source supports.** Distinguish fact, opinion,
+   prediction and claim (واقعیت / نظر / پیش‌بینی / ادعا); never invent a statistic, version, price, or quote to fill
    a section; surface contradictions instead of silently resolving them; ask
    one question rather than guessing (content-structures.md §3).
    When paraphrasing a paper (thesis chapters especially), change only wording
@@ -134,14 +143,14 @@ Full guide in `references/writing-style.md`. The core moves:
 
 Full rules in `references/orthography.md`. These apply to every deliverable:
 
-1. **ZWNJ (نیم‌فاصله, U+200C)** — می‌شود نه می شود؛ کتاب‌ها نه کتاب ها؛
-   بزرگ‌تر، خانه‌ام، به‌عنوان. In code: `‌` or HTML `&zwnj;`.
-2. **Persian characters only:** ی (U+06CC) not ي، ک (U+06A9) not ك.
+1. **ZWNJ (نیم‌فاصله, U+200C)** — «می‌شود», not «می شود»; «کتاب‌ها», not «کتاب ها»;
+   «بزرگ‌تر»، «خانه‌ام»، «به‌عنوان». In code: `‌` or HTML `&zwnj;`.
+2. **Persian characters only:** ی (U+06CC), not ي; ک (U+06A9), not ك.
 3. **Persian digits** ۰۱۲۳۴۵۶۷۸۹ inside Persian text. Latin digits stay in URLs,
    emails, codes, version numbers. Never Arabic-Indic ٤٥٦ forms.
 4. **Persian punctuation:** ، ؛ ؟ and «گیومه» for quotes. No space before, one after.
-4b. **هکسره** — never write the ezafe kasre as «ـه»: «کتابِ من»، not «کتابه من».
-   The «ـه» ending is only the colloquial «است» («این کتابه» = این کتاب است).
+4b. **The «ـه» ezafe error (هکسره)** — never write the ezafe kasre as «ـه»: «کتابِ من»، not «کتابه من».
+   The «ـه» ending is only the colloquial «است» («این کتابه» = «این کتاب است»).
    Test by substituting «است»; if the sentence breaks, you need a kasre.
    Iranians treat this error as a mark of carelessness — orthography.md §5.1.
 5. **No em/en dashes** in Persian prose — use «،» or restructure.

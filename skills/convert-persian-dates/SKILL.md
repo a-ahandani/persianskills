@@ -1,6 +1,24 @@
 ---
 name: convert-persian-dates
-description: Convert dates and datetimes between the Persian Solar Hijri calendar (Shamsi, Jalali, Iranian, Khorshidi) and the Gregorian (Miladi) calendar — including current and relative dates, Persian or Arabic-Indic digits, named Persian months and weekdays, ISO strings, timezone-aware values, formatting, and batch or in-code conversion. Use this skill whenever the user supplies or asks for a Persian/Shamsi/Jalali date, or wants a Gregorian date expressed in the Persian calendar, even if they do not say "convert" or name the calendar (for example "1403/01/01", "today in Shamsi", or "when is Nowruz 1404"). Do not use for Islamic or lunar (Qamari) Hijri dates, a different calendar this skill cannot convert.
+description: >-
+  Converts dates and datetimes between the Persian Solar Hijri calendar
+  (Shamsi, Jalali, Iranian, Khorshidi) and the Gregorian (Miladi) calendar by
+  calling the PersianTools Python package, including current and relative
+  dates, Persian or Arabic-Indic digits, named Persian months and weekdays,
+  ISO strings, timezone-aware values, formatting, and batch or in-code
+  conversion. Use whenever the user supplies or asks for a
+  Persian/Shamsi/Jalali date, or wants a Gregorian date expressed in the
+  Persian calendar, even if they do not say "convert" or name the calendar
+  (for example "1403/01/01", "today in Shamsi", "when is Nowruz 1404",
+  «تاریخ شمسی», «به میلادی» or «امروز چندمه»). Not for Islamic or lunar
+  (Qamari) Hijri dates, which this skill cannot convert.
+license: MIT
+compatibility: Python with the persiantools package (pip install persiantools).
+metadata:
+  author: Majid Hajiloo (majiidd)
+  source: https://github.com/majiidd/persiantools
+  upstream-commit: f210eef
+  changes: Frontmatter brought to the repo standard (third-person description, Persian triggers in «», metadata).
 ---
 
 # Convert Persian Dates

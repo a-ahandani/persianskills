@@ -53,7 +53,7 @@ Card numbers use spaces by default (1234 1234 1234 1234). Pass separator to use 
 <ComponentPreview name="bank-input-separator" />
 ### Supported Banks [#supported-banks]
 
-هر ورودی یک شماره کارت معتبر نمونه دارد؛ لوگوی انتهایی نشان می‌دهد که تشخیص بانک برای همه بانک‌های پشتیبانی‌شده فعال است.
+Each input holds a valid sample card number; the logo at the end shows that bank detection works for every supported bank.
 
 <ComponentPreview name="bank-input-supported-banks" />
 ### RTL [#rtl]

@@ -1,5 +1,17 @@
 # Persian orthography: the mechanical layer
 
+## Contents
+
+- 1\. ZWNJ (نیم‌فاصله, U+200C)
+- 2\. Persian characters, not Arabic
+- 3\. Digits
+- 4\. Punctuation
+- 5\. Ezafe (کسره‌ی اضافه)
+- 6\. Spacing hygiene
+- 7\. Numbers as words
+- 8\. Common corrections table
+- 9\. Mixed Persian–English text: direction (bidi)
+
 Correct orthography is what separates a professional Persian document from a
 typed-in-a-hurry one. Readers may not name the rule, but they feel it. All of
 this is enforceable: `scripts/persian_cleanup.py --edit` fixes the mechanical
@@ -20,7 +32,7 @@ tables below do — suppress the linter on it rather than softening the example:
 `--fix` puts suppressed lines back after the fix pass, so a deliberate error
 survives. Codepoint notation such as `U+06CC` is never rewritten.
 
-## 1. ZWNJ — نیم‌فاصله (U+200C)
+## 1. ZWNJ (نیم‌فاصله, U+200C)
 
 The zero-width non-joiner separates morphemes *without* a visual gap while
 preventing letter joining. Writing a full space (or nothing) instead is the
@@ -111,7 +123,7 @@ Write it explicitly only where the host word demands it:
 - After ا and و: صدای بلند، عموی من (the ی is mandatory)
 - Diacritic کسره (ِ) only for disambiguation in formal/educational text.
 
-### 5.1 هکسره — the error Iranians mock most
+### 5.1 The «ـه» ezafe error (هکسره): the error Iranians mock most
 
 Two different things sound identical at the end of a word, so writers swap them.
 Getting this wrong in public copy is the single fastest way to look careless:

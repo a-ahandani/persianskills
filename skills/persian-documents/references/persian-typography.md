@@ -1,5 +1,17 @@
 # Persian Typography Rules
 
+## Contents
+
+- Character forms
+- Common character confusions
+- ZWNJ (Zero-Width Non-Joiner)
+- ZWNJ vs. ZWSP
+- Numbers and digits
+- Punctuation marks
+- Font guidance
+- URL and technical content in Persian text
+- Common rendering problems and prevention
+
 ## Character forms
 
 Persian uses different character forms depending on position in a word:

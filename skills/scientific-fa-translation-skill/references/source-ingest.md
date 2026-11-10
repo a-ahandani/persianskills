@@ -1,5 +1,15 @@
 # Getting the source in
 
+## Contents
+
+- Working tree
+- Fetching
+- Extracting a PDF source
+- Extracting figures
+- Structure inventory
+- Several sources, one document
+- Licence and provenance
+
 Every real invocation of this skill starts from a URL, not from pasted text,
 and the first thing that goes wrong is ingestion — a page times out, a PDF
 loses its figures, a multi-page guide is silently truncated. Do this before

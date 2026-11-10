@@ -1,12 +1,33 @@
 ---
 name: persian-documents
-description: Generate production-quality Persian documents with correct RTL layout, bidirectional text handling, and professional typography. Use this skill whenever the user asks to create Persian documents — reports, letters, articles, technical documentation, PDFs, Word documents, or any document containing Persian text mixed with English, numbers, code, URLs, or other LTR content. Also trigger when the user asks to "fix RTL" or "fix direction" in a Persian document, or when a document needs to be regenerated because Persian text rendered incorrectly. This skill is NOT just for writing Persian prose — it is for producing documents where the final rendered output is typographically correct, structurally sound, and ready for real-world use.
-version: 0.1.2
+description: >-
+  Generates production-quality Persian documents with correct RTL layout,
+  bidirectional text handling and professional typography. Use when the user
+  asks for a Persian document (report, letter, article, technical
+  documentation, PDF, Word/DOCX) or any document that mixes Persian with
+  English, numbers, code, URLs or other LTR content. Also use when the user
+  asks to fix RTL or text direction in a Persian document («راست‌چین»,
+  «جهت متن»), or when a document must be regenerated because Persian rendered
+  reversed, scrambled or disconnected. The goal is a rendered document that is
+  typographically correct, structurally sound and ready for real use, not
+  just Persian prose.
+license: MIT
+compatibility: >-
+  Python 3 with python-docx for DOCX, and weasyprint or reportlab for PDF.
+metadata:
+  author: ehsanghaffar
+  source: https://github.com/ehsanghaffar/skills
+  upstream-commit: bac8138
+  version: "0.1.2"
+  changes: >-
+    Default font changed from B Nazanin to Sahel in the DOCX and PDF
+    generators; frontmatter standardized, description rewritten in the third
+    person, script usage added, and long references given a contents list.
 ---
 
 # Persian Document Generator
 
-Generate professional Persian documents that render correctly as RTL, not just Persian text inserted into an LTR layout.
+Generate professional Persian documents that render correctly as RTL, not just Persian text inserted into an LTR layout. For the wording itself, load `persian-writing`; for resumes and CVs, use `persian-resume`.
 
 ## When to use this skill
 
@@ -166,3 +187,11 @@ Before finalizing any document, verify:
 - `scripts/generate_docx.py` — Generate RTL-aware Word documents with mixed-direction support
 - `scripts/generate_pdf.py` — Generate PDFs with correct Persian text shaping and RTL layout
 - `scripts/validate_doc.py` — Validate rendered documents for RTL correctness and common issues
+
+```bash
+python3 scripts/generate_docx.py --config doc.json --output report.docx   # or --sample for a demo
+python3 scripts/generate_pdf.py --config doc.json --output report.pdf
+python3 scripts/validate_doc.py --file report.docx                        # also .pdf, .txt, or --text "..."
+```
+
+The config is JSON: `{"title": "...", "output": "...", "sections": [...]}`. Each section has a `type`: `heading` (`text`, `level`), `paragraph` (`text`, optional `mixed_parts`, `alignment`), `table` (`headers`, `rows`, optional `mixed_columns`), `list` (`items`, `ordered`), `code` (`code`, `language`), `quote` (`text`, `attribution`) or `page_break`. `--title` sets the title; `validate_doc.py --strict` treats warnings as issues and `--json` prints machine-readable results.

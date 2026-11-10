@@ -1,13 +1,20 @@
 ---
 name: persian-seo
-description: >
-  Technical and on-page SEO for Persian (Farsi) websites: lang and hreflang
-  for fa-IR, RTL-safe metadata, Persian titles and descriptions, slug and URL
-  strategy for Persian content, ZWNJ and keyword variants, Open Graph and
-  JSON-LD in Persian, sitemaps, fonts and Core Web Vitals for Persian pages.
-  Use when writing metadata, structured data, blog content or URL structure
-  for an Iranian site, or when the user says سئو، سئوی فارسی، متادیتا، عنوان
-  صفحه، اسلاگ، گوگل. Examples target Next.js but the rules are generic.
+description: >-
+  Covers technical and on-page SEO for Persian (Farsi) websites: lang and
+  hreflang for fa-IR, RTL-safe metadata, Persian titles and descriptions,
+  slug and URL strategy for Persian content, ZWNJ and keyword variants, Open
+  Graph and JSON-LD in Persian, sitemaps, fonts and Core Web Vitals for
+  Persian pages. Use when writing metadata, structured data, blog content or
+  URL structure for an Iranian site, or when the user writes «سئو»,
+  «سئوی فارسی», «متادیتا», «عنوان صفحه», «اسلاگ» or «گوگل». Examples target
+  Next.js but the rules are generic.
+license: MIT
+metadata:
+  author: VibeFarsi (TronIsHere)
+  source: https://github.com/TronIsHere/vibefarsiui
+  upstream-commit: 7d56b50
+  changes: Frontmatter brought to the repo standard (third-person description, Persian triggers in «», metadata).
 ---
 
 # Persian SEO (سئوی فارسی)

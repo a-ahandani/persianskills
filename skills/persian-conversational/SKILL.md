@@ -1,12 +1,18 @@
 ---
 name: persian-conversational
-description: >
-  Write colloquial written Persian (محاوره‌نویسی): the Farsi people actually type
-  in chat, Instagram captions, Telegram posts, consumer-app onboarding and
-  friendly support replies. Use whenever the user asks for فارسی محاوره‌ای،
-  خودمونی، عامیانه، لحن دوستانه، کپشن، استوری، پیام چت, or when the product
-  voice is casual. Not for contracts, invoices, official letters or academic
-  text (use persian-formal for those).
+description: >-
+  Writes colloquial written Persian (محاوره‌نویسی): the Farsi people actually
+  type in chat, Instagram captions, Telegram posts, consumer-app onboarding and
+  friendly support replies. Use whenever the user asks for «فارسی محاوره‌ای»،
+  «خودمونی»، «عامیانه»، «لحن دوستانه»، «کپشن»، «استوری»، «پیام چت», or when
+  the product voice is casual. Not for contracts, invoices, official letters or
+  academic text (use persian-formal for those).
+license: MIT
+metadata:
+  author: VibeFarsi (TronIsHere)
+  source: https://github.com/TronIsHere/vibefarsiui
+  upstream-commit: 7d56b50
+  changes: Description in the third person with Persian trigger words in «», one heading put in English, and metadata added.
 ---
 
 # Conversational Persian (فارسی محاوره‌ای)
@@ -76,7 +82,7 @@ Colloquial is a register, not a licence to be sloppy. All of this still applies:
 - **Register consistency**: never «میشه» in one sentence and «می‌شود» in the
   next. One artifact, one register.
 
-## 5. The هکسره trap
+## 5. The heh-kasre trap (هکسره)
 
 Colloquial is exactly where the «ـه» clitic (= است) lives, so it is also where
 writers collide it with the ezafe kasre. This single error gets screenshotted.

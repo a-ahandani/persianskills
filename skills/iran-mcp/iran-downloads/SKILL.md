@@ -1,6 +1,12 @@
 ---
 name: iran-downloads
 description: "Unofficial read-only metadata search of Soft98, P30Download, Downloadly and VGDL. Links only. Use when the user asks about Iran Software Downloads (soft98.ir) or wants Android apps or software and game download listings in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Iran Software Downloads

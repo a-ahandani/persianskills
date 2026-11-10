@@ -1,6 +1,12 @@
 ---
 name: cbi
 description: "Read-only Central Bank of Iran (cbi.ir): official FX rates, inflation, policy rates, news. Use when the user asks about Central Bank of Iran (cbi.ir) or wants official exchange rates, inflation, unemployment or other economic statistics in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Central Bank of Iran

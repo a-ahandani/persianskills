@@ -1,5 +1,16 @@
 # Terminology policy
 
+## Contents
+
+- Level
+- Concept-oriented `terms.tsv`
+- Infer jobs and subjects
+- Decision procedure
+- The field-term test
+- Isolation and morphology
+- First mention and consistency
+- Forbidden output
+
 Single owner of the keep-English / write-Persian split.
 `scientific-style.md` owns register and orthography, `glossary.md` holds
 the house lists (document chrome, keep-English classes, recurring

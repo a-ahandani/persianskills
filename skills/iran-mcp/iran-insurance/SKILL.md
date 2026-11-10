@@ -1,6 +1,12 @@
 ---
 name: iran-insurance
 description: "Read-only Iran insurance: BimeBazar and Azki side by side. Quotes, ratings, travel prices, guides. Use when the user asks about Iran Insurance (BimeBazar + Azki) (bimebazar.com) or wants insurance quotes, insurer ratings or how an insurance line works in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Iran Insurance (BimeBazar + Azki)

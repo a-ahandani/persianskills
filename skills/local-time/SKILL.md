@@ -1,80 +1,65 @@
 ---
 name: local-time
-description: "دریافت زمان و تاریخ فعلی سیستم. برای get time, get date, تاریخ جلالی، روز هفته، و time-sensitive reasoning استفاده کن."
+description: >-
+  Returns the current system date and time as JSON from a local Python
+  script, including the Jalali (Solar Hijri) date, the weekday in English
+  and Persian, Unix timestamps, any IANA timezone, and Gregorian to Jalali
+  conversion both ways. Use before any time-sensitive reasoning, when the
+  user asks for the time, today's date, the Jalali date or the day of the
+  week, or writes «ساعت چنده», «امروز چندمه», «تاریخ جلالی» or «روز هفته».
+license: MIT
+compatibility: Python 3.11+; the Jalali fields need the jdatetime package.
 allowed-tools: Bash(python *local_time.py*)
+metadata:
+  author: karimi-mohammad
+  source: https://github.com/karimi-mohammad/local-time-mcp
+  upstream-commit: 821afce
+  changes: Only the skill/ folder copied, without the MCP server; instructions translated from Persian to English, emoji removed, and local_time.py moved into scripts/.
 ---
 
-# 🕐 Local Time Skill
+# Local Time
 
-یک ابزار خط فرمان برای دریافت دقیق زمان و تاریخ سیستم — شامل تقویم جلالی (هجری شمسی).
+A command-line tool that returns the exact system date and time, including
+the Jalali (Solar Hijri) calendar. Run it instead of guessing the date from
+memory. Paths below are relative to this skill's folder.
 
-## 📋 فهرست
-
-- [پیش‌نیازها](#پیش‌نیازها)
-- [نصب](#نصب)
-- [دستورات](#دستورات)
-  - [now — زمان فعلی](#now--زمان-فعلی)
-  - [jalali — تاریخ جلالی](#jalali--تاریخ-جلالی)
-  - [weekday — روز هفته](#weekday--روز-هفته)
-  - [to-jalali — تبدیل میلادی به جلالی](#to-jalali--تبدیل-میلادی-به-جلالی)
-  - [to-gregorian — تبدیل جلالی به میلادی](#to-gregorian--تبدیل-جلالی-به-میلادی)
-  - [timestamp — Unix timestamp](#timestamp--unix-timestamp)
-  - [timezones — لیست timezoneها](#timezones--لیست-timezoneها)
-- [ساختار خروجی JSON](#ساختار-خروجی-json)
-- [timezoneهای پشتیبانی شده](#timezoneهای-پشتیبانی-شده)
-- [نکات مهم](#نکات-مهم)
-- [عیب‌یابی](#عیب‌یابی)
-
----
-
-## پیش‌نیازها
+## Prerequisites
 
 - Python 3.11+
-- کتابخانه `jdatetime` برای پشتیبانی از تاریخ جلالی
+- The `jdatetime` package for Jalali dates. Without it `now` leaves out the
+  Jalali fields, `jalali` returns them as `null`, and `to-jalali` and
+  `to-gregorian` return an error.
 
 ```bash
 pip install jdatetime
 ```
 
-## نصب
+## Commands
+
+### `now`: current time
+
+Returns the full current date and time, Gregorian and Jalali.
+
+Usage:
 
 ```bash
-# کپی فایل‌ها به دایرکتوری skills
-cp -r skill/ ~/.claude/skills/local-time/
+# system local time
+python scripts/local_time.py now
 
-# یا به صورت دستی
-mkdir -p ~/.claude/skills/local-time/
-cp skill/SKILL.md skill/local_time.py ~/.claude/skills/local-time/
+# a given timezone
+python scripts/local_time.py now --tz Asia/Tehran
+python scripts/local_time.py now --tz UTC
+python scripts/local_time.py now --tz Europe/Berlin
+python scripts/local_time.py now --tz America/New_York
 ```
 
----
+Parameters:
 
-## دستورات
-
-### `now` — زمان فعلی
-
-زمان و تاریخ کامل فعلی رو برمی‌گردونه (میلادی + جلالی).
-
-**نحوه استفاده:**
-
-```bash
-# زمان محلی سیستم
-python ~/.claude/skills/local-time/local_time.py now
-
-# زمان با timezone مشخص
-python ~/.claude/skills/local-time/local_time.py now --tz Asia/Tehran
-python ~/.claude/skills/local-time/local_time.py now --tz UTC
-python ~/.claude/skills/local-time/local_time.py now --tz Europe/Berlin
-python ~/.claude/skills/local-time/local_time.py now --tz America/New_York
-```
-
-**پارامترها:**
-
-| پارامتر | نوع | ضروری | پیش‌فرض | توضیح |
+| Parameter | Type | Required | Default | Description |
 |----------|------|--------|----------|-------|
-| `--tz` | `string` | ❌ | ساعت محلی | نام timezone IANA |
+| `--tz` | `string` | No | System local time | IANA timezone name |
 
-**نمونه خروجی:**
+Sample output:
 
 ```json
 {
@@ -95,20 +80,18 @@ python ~/.claude/skills/local-time/local_time.py now --tz America/New_York
 }
 ```
 
----
+### `jalali`: Jalali date
 
-### `jalali` — تاریخ جلالی
+Returns only the current Jalali date.
 
-فقط تاریخ جلالی فعلی رو برمی‌گردونه.
-
-**نحوه استفاده:**
+Usage:
 
 ```bash
-python ~/.claude/skills/local-time/local_time.py jalali
-python ~/.claude/skills/local-time/local_time.py jalali --tz Asia/Tehran
+python scripts/local_time.py jalali
+python scripts/local_time.py jalali --tz Asia/Tehran
 ```
 
-**نمونه خروجی:**
+Sample output:
 
 ```json
 {
@@ -123,20 +106,18 @@ python ~/.claude/skills/local-time/local_time.py jalali --tz Asia/Tehran
 }
 ```
 
----
+### `weekday`: day of the week
 
-### `weekday` — روز هفته
+Returns the day of the week in English and Persian.
 
-روز هفته رو به انگلیسی و فارسی برمی‌گردونه.
-
-**نحوه استفاده:**
+Usage:
 
 ```bash
-python ~/.claude/skills/local-time/local_time.py weekday
-python ~/.claude/skills/local-time/local_time.py weekday --tz Asia/Tehran
+python scripts/local_time.py weekday
+python scripts/local_time.py weekday --tz Asia/Tehran
 ```
 
-**نمونه خروجی:**
+Sample output:
 
 ```json
 {
@@ -147,23 +128,21 @@ python ~/.claude/skills/local-time/local_time.py weekday --tz Asia/Tehran
 }
 ```
 
----
+### `to-jalali`: Gregorian to Jalali
 
-### `to-jalali` — تبدیل میلادی به جلالی
+Converts a Gregorian date to Jalali.
 
-یک تاریخ میلادی رو به جلالی تبدیل می‌کنه.
-
-**نحوه استفاده:**
+Usage:
 
 ```bash
-python ~/.claude/skills/local-time/local_time.py to-jalali 2026-08-10
-python ~/.claude/skills/local-time/local_time.py to-jalali 2026/08/10
-python ~/.claude/skills/local-time/local_time.py to-jalali 2026.08.10
+python scripts/local_time.py to-jalali 2026-08-10
+python scripts/local_time.py to-jalali 2026/08/10
+python scripts/local_time.py to-jalali 2026.08.10
 ```
 
-**ورودی:** تاریخ میلادی با فرمت `YYYY-MM-DD` یا `YYYY/MM/DD` یا `YYYY.MM.DD`
+Input: a Gregorian date as `YYYY-MM-DD`, `YYYY/MM/DD` or `YYYY.MM.DD`.
 
-**نمونه خروجی:**
+Sample output:
 
 ```json
 {
@@ -177,10 +156,10 @@ python ~/.claude/skills/local-time/local_time.py to-jalali 2026.08.10
 }
 ```
 
-**نمونه برای نوروز:**
+Nowruz example:
 
 ```bash
-python ~/.claude/skills/local-time/local_time.py to-jalali 2026-03-21
+python scripts/local_time.py to-jalali 2026-03-21
 ```
 
 ```json
@@ -195,22 +174,20 @@ python ~/.claude/skills/local-time/local_time.py to-jalali 2026-03-21
 }
 ```
 
----
+### `to-gregorian`: Jalali to Gregorian
 
-### `to-gregorian` — تبدیل جلالی به میلادی
+Converts a Jalali date to Gregorian.
 
-یک تاریخ جلالی رو به میلادی تبدیل می‌کنه.
-
-**نحوه استفاده:**
+Usage:
 
 ```bash
-python ~/.claude/skills/local-time/local_time.py to-gregorian 1405/05/19
-python ~/.claude/skills/local-time/local_time.py to-gregorian 1405-05-19
+python scripts/local_time.py to-gregorian 1405/05/19
+python scripts/local_time.py to-gregorian 1405-05-19
 ```
 
-**ورودی:** تاریخ جلالی با فرمت `YYYY/MM/DD` یا `YYYY-MM-DD`
+Input: a Jalali date as `YYYY/MM/DD` or `YYYY-MM-DD`.
 
-**نمونه خروجی:**
+Sample output:
 
 ```json
 {
@@ -222,20 +199,18 @@ python ~/.claude/skills/local-time/local_time.py to-gregorian 1405-05-19
 }
 ```
 
----
+### `timestamp`: Unix timestamp
 
-### `timestamp` — Unix timestamp
+Returns the current Unix timestamp.
 
-Unix timestamp فعلی رو برمی‌گردونه.
-
-**نحوه استفاده:**
+Usage:
 
 ```bash
-python ~/.claude/skills/local-time/local_time.py timestamp
-python ~/.claude/skills/local-time/local_time.py timestamp --tz UTC
+python scripts/local_time.py timestamp
+python scripts/local_time.py timestamp --tz UTC
 ```
 
-**نمونه خروجی:**
+Sample output:
 
 ```json
 {
@@ -245,19 +220,17 @@ python ~/.claude/skills/local-time/local_time.py timestamp --tz UTC
 }
 ```
 
----
+### `timezones`: common timezones
 
-### `timezones` — لیست timezoneها
+Lists common timezones.
 
-لیست timezoneهای رایج رو نمایش میده.
-
-**نحوه استفاده:**
+Usage:
 
 ```bash
-python ~/.claude/skills/local-time/local_time.py timezones
+python scripts/local_time.py timezones
 ```
 
-**نمونه خروجی:**
+Sample output:
 
 ```json
 {
@@ -277,132 +250,122 @@ python ~/.claude/skills/local-time/local_time.py timezones
 }
 ```
 
----
+## JSON output
 
-## ساختار خروجی JSON
+Every command prints JSON. The main fields:
 
-تمام دستورات خروجی JSON تولید می‌کنن. فیلدهای اصلی:
-
-| فیلد | نوع | توضیح |
+| Field | Type | Description |
 |------|------|-------|
-| `datetime` | `string` | تاریخ و ساعت ISO 8601 با offset |
-| `date` | `string` | تاریخ میلادی (YYYY-MM-DD) |
-| `time` | `string` | ساعت (HH:MM:SS) |
-| `day_of_week` | `string` | نام روز به انگلیسی |
-| `day_of_week_fa` | `string` | نام روز به فارسی |
-| `timezone` | `string` | نام timezone IANA |
-| `utc_offset` | `string` | اختلاف با UTC (±HH:MM) |
+| `datetime` | `string` | ISO 8601 date and time with offset |
+| `date` | `string` | Gregorian date (YYYY-MM-DD) |
+| `time` | `string` | Time (HH:MM:SS) |
+| `day_of_week` | `string` | Day name in English |
+| `day_of_week_fa` | `string` | Day name in Persian |
+| `timezone` | `string` | IANA timezone name |
+| `utc_offset` | `string` | Offset from UTC (±HH:MM) |
 | `unix_timestamp` | `integer` | Unix epoch timestamp |
-| `jalali_date` | `string` | تاریخ جلالی عددی (YYYY/MM/DD) |
-| `jalali_date_fa` | `string` | تاریخ جلالی به فارسی |
-| `jalali_year` | `integer` | سال جلالی |
-| `jalali_month` | `integer` | ماه جلالی (1-12) |
-| `jalali_month_name` | `string` | نام ماه فارسی |
-| `jalali_day` | `integer` | روز جلالی (1-31) |
+| `jalali_date` | `string` | Numeric Jalali date (YYYY/MM/DD) |
+| `jalali_date_fa` | `string` | Jalali date with the Persian month name |
+| `jalali_year` | `integer` | Jalali year |
+| `jalali_month` | `integer` | Jalali month (1-12) |
+| `jalali_month_name` | `string` | Persian month name |
+| `jalali_day` | `integer` | Jalali day (1-31) |
 
----
+## Supported timezones
 
-## timezoneهای پشتیبانی شده
+Any valid IANA timezone name works:
 
-هر نام timezone IANA معتبر کار می‌کنه:
-
-| Timezone | شهر | UTC Offset |
+| Timezone | City | UTC Offset |
 |----------|------|------------|
-| `UTC` | جهانی | +00:00 |
-| `Asia/Tehran` | تهران | +03:30 |
-| `Europe/Berlin` | برلین | +01:00 / +02:00 (DST) |
-| `America/New_York` | نیویورک | -05:00 / -04:00 (DST) |
-| `America/Los_Angeles` | لس‌آنجلس | -08:00 / -07:00 (DST) |
-| `Asia/Tokyo` | توکیو | +09:00 |
-| `Europe/London` | لندن | +00:00 / +01:00 (DST) |
-| `Asia/Dubai` | دبی | +04:00 |
-| `Asia/Kolkata` | هند | +05:30 |
-| `Australia/Sydney` | سیدنی | +10:00 / +11:00 (DST) |
+| `UTC` | Universal | +00:00 |
+| `Asia/Tehran` | Tehran | +03:30 |
+| `Europe/Berlin` | Berlin | +01:00 / +02:00 (DST) |
+| `America/New_York` | New York | -05:00 / -04:00 (DST) |
+| `America/Los_Angeles` | Los Angeles | -08:00 / -07:00 (DST) |
+| `Asia/Tokyo` | Tokyo | +09:00 |
+| `Europe/London` | London | +00:00 / +01:00 (DST) |
+| `Asia/Dubai` | Dubai | +04:00 |
+| `Asia/Kolkata` | India | +05:30 |
+| `Australia/Sydney` | Sydney | +10:00 / +11:00 (DST) |
 
----
+## Notes
 
-## نکات مهم
+- **Live time:** every run returns the exact time at that moment.
+- **Automatic DST:** daylight saving time is handled automatically.
+- **Jalali calendar:** computed with the `jdatetime` package.
+- **Offline:** uses only the system clock, no internet connection.
+- **JSON output:** all output is JSON, for automated processing.
+- **Windows:** UTF-8 output encoding is set automatically.
 
-- ⏰ **زمان لحظه‌ای**: هر بار که دستور اجرا میشه، زمان دقیق اون لحظه برگردونده میشه
-- 🌍 **DST خودکار**: Daylight Saving Time به صورت خودکار مدیریت میشه
-- 📅 **تقویم جلالی**: از کتابخانه `jdatetime` استفاده میشه
-- 🔌 **آفلاین**: فقط از ساعت سیستم استفاده میشه، بدون اتصال اینترنت
-- 📄 **خروجی JSON**: تمام خروجی‌ها JSON هستن برای پردازش خودکار
-- 🪟 **ویندوز**: رمزگذاری UTF-8 به صورت خودکار تنظیم میشه
+## Troubleshooting
 
----
-
-## عیب‌یابی
-
-### خطای `jdatetime not installed`
+### `jdatetime not installed` error
 
 ```bash
 pip install jdatetime
 ```
 
-### خطای `Invalid timezone`
+### `Invalid timezone` error
 
-از نام‌های timezone IANA معتبر استفاده کنید:
+Use valid IANA timezone names:
 
-| ❌ غلط | ✅ درست |
+| Wrong | Right |
 |--------|---------|
 | `Tehran` | `Asia/Tehran` |
 | `CET` | `Europe/Berlin` |
 | `EST` | `America/New_York` |
 | `GMT` | `UTC` |
 
-### خطای `Invalid date format`
+### `Invalid date format` error
 
-فرمت تاریخ رو چک کنید:
+Check the date format:
 
-- میلادی: `YYYY-MM-DD` یا `YYYY/MM/DD`
-- جلالی: `YYYY/MM/DD` یا `YYYY-MM-DD`
+- Gregorian: `YYYY-MM-DD` or `YYYY/MM/DD`
+- Jalali: `YYYY/MM/DD` or `YYYY-MM-DD`
 
-### مشکل رمزگذاری فارسی در ویندوز
+### Persian text garbled on Windows
 
-اسکریپت به صورت خودکار UTF-8 رو تنظیم می‌کنه. اگه مشکل داشتید:
+The script sets UTF-8 automatically. If the problem persists:
 
 ```bash
-# تنظیم متغیر محیطی
+# set the environment variable
 set PYTHONIOENCODING=utf-8
-python ~/.claude/skills/local-time/local_time.py now
+python scripts/local_time.py now
 ```
 
----
+## Examples
 
-## مثال‌های کاربردی
-
-### پرسیدن زمان فعلی
+### Asking the current time
 
 ```
-کاربر: ساعت چنده؟
-Claude: python local_time.py now --tz Asia/Tehran
+User: ساعت چنده؟
+Claude: python scripts/local_time.py now --tz Asia/Tehran
 ```
 
-### پرسیدن تاریخ جلالی
+### Asking the Jalali date
 
 ```
-کاربر: امروز چندمه به تقویم جلالی؟
-Claude: python local_time.py jalali
+User: امروز چندمه به تقویم جلالی؟
+Claude: python scripts/local_time.py jalali
 ```
 
-### پرسیدن روز هفته
+### Asking the day of the week
 
 ```
-کاربر: امروز چه روزیه؟
-Claude: python local_time.py weekday
+User: امروز چه روزیه؟
+Claude: python scripts/local_time.py weekday
 ```
 
-### تبدیل تاریخ
+### Converting a date
 
 ```
-کاربر: ۱۰ آگوست ۲۰۲۶ چندمه به جلالی؟
-Claude: python local_time.py to-jalali 2026-08-10
+User: ۱۰ آگوست ۲۰۲۶ چندمه به جلالی؟
+Claude: python scripts/local_time.py to-jalali 2026-08-10
 ```
 
-### محاسبه روز باقی‌مانده
+### Counting the days left
 
 ```
-کاربر: چند روز تا جمعه مونده؟
-Claude: python local_time.py weekday → سه‌شنبه → ۳ روز
+User: چند روز تا جمعه مونده؟
+Claude: python scripts/local_time.py weekday → سه‌شنبه → ۳ روز
 ```

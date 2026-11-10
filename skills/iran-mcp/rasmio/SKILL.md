@@ -1,6 +1,12 @@
 ---
 name: rasmio
 description: "Read-only Rasmio (rasmio.com): Iranian companies, board members, gazette ads, products, brands. Use when the user asks about Rasmio Company Registry (rasmio.com) or wants registered companies, their board members, gazette ads, products or brands in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Rasmio Company Registry

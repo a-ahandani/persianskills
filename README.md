@@ -10,8 +10,8 @@ authors, is at **[persianskills.com](https://persianskills.com)**.
 ## Skills in this repo
 
 Every Persian skill we could find with a license that allows copying lives
-here, in `skills/`, with its author's license file and credit: 116 skills
-from 26 authors plus 8 of our own (77 of them are the
+here, in `skills/`, with its author's license file and credit: 106 skills
+from 19 authors plus 7 of our own (77 of them are the
 [iran-mcp](https://github.com/sepehr071/iran-mcp) service skills in
 `skills/iran-mcp/`). The site lists them all;
 [CREDITS.md](CREDITS.md) gives each one's source repo, commit, license and
@@ -25,9 +25,8 @@ Our own skills:
 | [`dari-writing`](skills/dari-writing) | Dari for Afghanistan, Hazaragi, Persian speakers in Pakistan | Draft, needs native Dari review |
 | [`tajik-writing`](skills/tajik-writing) | Tajik in Cyrillic, for Tajikistan, Uzbekistan and Russia | Draft, needs native Tajik review |
 | [`persian-locales`](skills/persian-locales) | CLDR data for fa-IR, fa-AF and tg | Draft |
-| [`persian-text-editor`](skills/persian-text-editor) | Editing a Persian draft in four passes | Draft |
 | [`persian-translation-review`](skills/persian-translation-review) | Translator plus independent reviewer | Draft |
-| [`farhangestan-orthography`](skills/farhangestan-orthography) | Copyediting to the Academy's spelling rules | Draft |
+| [`farhangestan-orthography`](skills/farhangestan-orthography) | Copyediting by the Academy's «دستور خطّ فارسی» (1401), with page references | Draft |
 | [`persian-book-translation`](skills/persian-book-translation) | Whole-book translation and RTL EPUB | Draft |
 
 **Font:** every skill that bundles or recommends a Persian font uses
@@ -70,6 +69,17 @@ knowledge.
 - **Link only:** nutq and persian-writing-mcp are MCP servers with no skill
   file, and the openaccountants tax skills use a license that doesn't
   allow redistribution here, so the site links to them.
+
+## Skill standard
+
+Every skill follows one standard: English instructions with Persian examples,
+a third-person description of what it does and when to use it, the same
+frontmatter fields, and a `SKILL.md` under 500 lines with details in
+`references/`. See [CONTRIBUTING.md](CONTRIBUTING.md), and check with:
+
+```bash
+node scripts/check-skills.mjs
+```
 
 ## Add a skill to the directory
 

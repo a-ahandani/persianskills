@@ -1,6 +1,12 @@
 ---
 name: ponisha
 description: "Read-only Ponisha (ponisha.ir) freelance market: projects, bids, freelancers, skill demand. Use when the user asks about Ponisha Freelance (ponisha.ir) or wants freelance projects, freelancers or services in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Ponisha Freelance

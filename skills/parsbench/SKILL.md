@@ -1,12 +1,24 @@
 ---
 name: parsbench
 description: >-
-  Write evaluations for Persian (Farsi) chatbots and AI agents, or benchmark
-  LLMs on Persian tasks, using the parsbench Python library. Use when the user
-  wants to test a Persian bot, write goldens/evals, check Persian text
-  equivalence (rial/toman amounts, Jalali/Gregorian dates, Persian digits,
-  ZWNJ), simulate Iranian users, run Persian evals in CI, or rank models on
-  Persian benchmarks like ParsiNLU or Persian MMLU.
+  Writes evaluations for Persian (Farsi) chatbots and AI agents, and
+  benchmarks LLMs on Persian tasks, with the parsbench Python library. Use
+  when the user wants to test a Persian bot, write goldens or evals, check
+  Persian text equivalence (rial and toman amounts, Jalali and Gregorian
+  dates, Persian digits, ZWNJ), simulate Iranian users, run Persian evals in
+  CI, or rank models on Persian benchmarks such as ParsiNLU or Persian MMLU
+  («ارزیابی چت‌بات فارسی», «بنچمارک فارسی»).
+license: Apache-2.0
+compatibility: >-
+  Python and the parsbench package (pip install parsbench); app evaluation
+  needs Python 3.12+. Judged checks need an OpenAI-compatible API.
+metadata:
+  author: ParsBench
+  source: https://github.com/ParsBench/ParsBench
+  upstream-commit: bf1ba79
+  changes: >-
+    Frontmatter standardized and description rewritten in the third person;
+    the longest reference given a contents list.
 ---
 
 # ParsBench

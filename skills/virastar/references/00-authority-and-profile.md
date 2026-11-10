@@ -1,5 +1,7 @@
 # Authority Resolution and Project Profile
 
+Contents: Why authority must be resolved first; Precedence; Project profile; Infer house style from evidence; Authority labels for findings; What not to do.
+
 ## Why authority must be resolved first
 
 Editing Persian scholarly writing combines rules from different domains. They are not interchangeable:

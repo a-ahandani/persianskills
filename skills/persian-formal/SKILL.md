@@ -1,12 +1,19 @@
 ---
 name: persian-formal
-description: >
-  Write formal Persian that still sounds human: proposals, contracts, invoices,
-  official letters (نامه اداری), formal email, company website copy, terms and
-  policies. Use whenever the user asks for فارسی رسمی، اداری، نامه، پروپوزال،
-  قرارداد، فاکتور، متن حقوقی, or when the text goes to a client, organization,
-  university or government office. Bans the bureaucratic tells (می‌باشد، لازم به
-  ذکر است) that make Persian sound machine-written.
+description: >-
+  Writes formal Persian that still sounds human: proposals, contracts,
+  invoices, official letters (نامه اداری), formal email, company website copy,
+  terms and policies. Use whenever the user asks for «فارسی رسمی»، «اداری»،
+  «نامه»، «پروپوزال»، «قرارداد»، «فاکتور»، «متن حقوقی», or when the text goes
+  to a client, organization, university or government office. Bans the
+  bureaucratic tells («می‌باشد»، «لازم به ذکر است») that make Persian sound
+  machine-written.
+license: MIT
+metadata:
+  author: VibeFarsi (TronIsHere)
+  source: https://github.com/TronIsHere/vibefarsiui
+  upstream-commit: 7d56b50
+  changes: Description in the third person with Persian trigger words in «», the letter heading put in English, emoji markers replaced with words, and metadata added.
 ---
 
 # Formal Persian (فارسی رسمی و اداری)
@@ -62,7 +69,7 @@ Cut on sight; say the thing instead.
 Also: no «همچنین» opening three sentences in a row, no bold-header bullet lists
 («**سرعت:** توضیح») in prose, no «امیدوارم مفید بوده باشد» closers.
 
-## 4. نامه اداری (letter to an organization)
+## 4. Administrative letter (نامه اداری)
 
 The fixed furniture *is* the register. Use it once, correctly.
 
@@ -142,10 +149,14 @@ One warm line is enough. Sign with name and, if relevant, role.
 
 Prompt: «متن معرفی شرکت برای صفحه‌ی درباره‌ی ما»
 
-> ❌ شرکت ما در راستای ارائه‌ی خدمات نوین، با بهره‌گیری از تیمی مجرب و
+Wrong:
+
+> شرکت ما در راستای ارائه‌ی خدمات نوین، با بهره‌گیری از تیمی مجرب و
 > متخصص، همواره در تلاش می‌باشد تا تجربه‌ای بی‌نظیر برای مشتریان خود رقم بزند.
 
-> ✅ از ۱۳۹۸ برای فروشگاه‌های آنلاین سایت می‌سازیم. تا امروز ۴۰ فروشگاه تحویل
+Right:
+
+> از ۱۳۹۸ برای فروشگاه‌های آنلاین سایت می‌سازیم. تا امروز ۴۰ فروشگاه تحویل
 > داده‌ایم و سه‌تای آن‌ها روزی بیش از هزار سفارش دارند. تیم ما هفت نفر است و
 > هر پروژه یک مدیر مشخص دارد که پاسخگوی شماست.
 

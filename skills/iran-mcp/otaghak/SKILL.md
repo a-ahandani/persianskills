@@ -1,6 +1,12 @@
 ---
 name: otaghak
 description: "Unofficial read-only Otaghak: search Iranian villas, availability, exact stay prices, reviews. Use when the user asks about Otaghak (otaghak.com) or wants flights, trains, buses, hotels, villas or tours in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Otaghak

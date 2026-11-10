@@ -1,6 +1,12 @@
 ---
 name: maktabkhooneh
 description: "Unofficial read-only Maktabkhooneh: search Persian online courses, compare prices, find free ones. Use when the user asks about Maktabkhooneh (maktabkhooneh.org) or wants online courses, lessons or certificates in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Maktabkhooneh

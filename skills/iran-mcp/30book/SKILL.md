@@ -1,6 +1,12 @@
 ---
 name: 30book
 description: "Unofficial read-only 30book: search Iranian printed books, compare editions and prices. Use when the user asks about 30book (30book.com) or wants ebooks, audiobooks or printed books in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # 30book

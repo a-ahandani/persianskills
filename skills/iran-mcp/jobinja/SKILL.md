@@ -1,6 +1,12 @@
 ---
 name: jobinja
 description: "Read-only Jobinja (jobinja.ir) job search, ad details, companies and top-50 scores for Iran. Use when the user asks about Jobinja Jobs (jobinja.ir) or wants job ads, employers or salaries in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Jobinja Jobs

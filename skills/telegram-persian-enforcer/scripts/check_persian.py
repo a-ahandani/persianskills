@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-check_persian.py — Automated enforcement pass for the telegram-persian-language skill.
+check_persian.py — Automated enforcement pass for the telegram-persian-enforcer skill.
 
 This is NOT a translator. It is a last-line-of-defense linter meant to be run
 on EVERY drafted Telegram message, not just long ones. It flags:
@@ -15,8 +15,8 @@ Three ways this is meant to be used:
 1. Interactively, while drafting:
        python check_persian.py --file draft.txt
 
-2. As a hard gate in an enforcement loop (see SKILL.md "اجرای خودکار و
-   اجباری"): draft -> run this script -> if exit code is 1, revise the
+2. As a hard gate in an enforcement loop (see SKILL.md "Automatic,
+   required check"): draft -> run this script -> if exit code is 1, revise the
    draft and run again -> only send once exit code is 0 (or remaining
    flags have been explicitly reviewed and are genuine exceptions).
 
@@ -64,7 +64,7 @@ LATIN_WORD_RE = re.compile(r"[A-Za-z][A-Za-z\-']{1,}")
 WESTERN_DIGIT_RE = re.compile(r"[0-9]+")
 
 # Digit-bearing tokens that are content, not prose, and must keep ASCII
-# digits per SKILL.md rule ۱: version numbers (v2.4.1, 1.0.2) and
+# digits per SKILL.md rule 1: version numbers (v2.4.1, 1.0.2) and
 # identifiers mixing letters and digits (INV-2024-001, utf8, sha256).
 # These are masked out before the Western-digit scan.
 VERSION_RE = re.compile(r"\b[vV]?\d+(?:\.\d+)+\b")
@@ -82,7 +82,7 @@ def load_allowlist(path):
     A line may carry an inline `# reason` comment documenting *why* the term
     is allowed to stay in Latin, e.g.:
 
-        Telegram  # نام رسمی پلتفرم
+        Telegram  # official platform name
 
     The comment is stripped before the term is stored, so documenting the
     reason never changes matching behaviour.
@@ -100,7 +100,7 @@ def load_allowlist(path):
 def mask_protected_spans(text: str):
     """Replace code blocks, inline code, URLs, version numbers, and
     alphanumeric identifiers with placeholders so they are never flagged —
-    per SKILL.md rule ۱ these are content, not prose."""
+    per SKILL.md rule 1 these are content, not prose."""
 
     def _mask(pattern, s):
         def repl(m):
@@ -146,32 +146,32 @@ def find_issues(text: str, allowlist):
 def report(text: str, issues):
     if not issues:
         print(
-            "✅ چیزی برای پرچم‌گذاری پیدا نشد — متن از نظر زبان و اعداد تمیز به نظر می‌رسد."
+            "Nothing to flag: the text looks clean for language and digits."
         )
         print("RESULT: CLEAN")
         return 0
 
-    print(f"⚠️  {len(issues)} مورد برای بازبینی پیدا شد:\n")
+    print(f"{len(issues)} item(s) to review:\n")
     for kind, snippet, pos in issues:
         context = text[max(0, pos - 20) : pos + len(snippet) + 20].replace("\n", " ")
         label = (
-            "متن لاتین خارج از کد/لینک/پرانتز"
+            "Latin text outside code/link/parentheses"
             if kind == "latin_text"
-            else "رقم لاتین در نثر (احتمالاً باید فارسی شود)"
+            else "Latin digit in prose (probably should be Persian)"
         )
         print(f"- [{label}] «{snippet}»  …{context}…")
 
     print(
-        "\nنکته: پرانتز، کد و لینک از قبل مستثنا شده‌اند و اصطلاحات فهرست‌شده در "
-        "allowlist.txt هم پرچم نمی‌خورند. اگر با این حال چیزی این‌جا پرچم خورده، "
-        "معمولاً واقعاً باید فارسی شود — پیش‌نویس را اصلاح و دوباره اجرا کنید."
+        "\nNote: parentheses, code and links are already exempt, and terms listed in "
+        "allowlist.txt are not flagged either. If something is still flagged here, "
+        "it usually really should be Persian: fix the draft and run again."
     )
     print(
-        "\nیادآوری: این اسکریپت مترجم نیست؛ فقط پرچم می‌زند. تصمیم نهایی با شماست.\n"
-        "  • برای ثبت یک استثنای واقعی: `--pending` (آن را به صف پیش‌نویس می‌فرستد،\n"
-        "    نه مستقیم به allowlist.txt — پس تا وقتی تأیید نکرده‌اید، اثر نمی‌گذارد).\n"
-        "  • برای بازبینی نهایی پیش از ارسال: `--strict` (allowlist را کامل نادیده می‌گیرد\n"
-        "    تا مطمئن شوید هیچ کلمه‌ی لاتینی بی‌دلیل از پرچم گذشته است)."
+        "\nReminder: this script is not a translator; it only flags. The final decision is yours.\n"
+        "  - To record a genuine exception: `--pending` (sends it to the draft queue,\n"
+        "    not straight to allowlist.txt, so it has no effect until you approve it).\n"
+        "  - For the final review before sending: `--strict` (ignores the allowlist entirely\n"
+        "    so you can be sure no Latin word slipped past the flags without a reason)."
     )
     print(f"RESULT: ISSUES={len(issues)}")
     return 1
@@ -255,7 +255,7 @@ def main():
                 seen.add(snippet)
 
         if not seen:
-            print("✅ هیچ متن لاتینیِ تأییدنشده‌ای برای پیشنهاد وجود ندارد.")
+            print("No unapproved Latin text to propose.")
             print("RESULT: CLEAN")
             sys.exit(0)
 
@@ -274,17 +274,17 @@ def main():
                     f.write(term + "\n")
 
         print(
-            "📝 موارد زیر به‌عنوان پیشنهاد ثبت شد (هنوز allowlist.txt را تغییر نداده‌اند):"
+            "Recorded these items as proposals (allowlist.txt has not been changed):"
         )
         for term in sorted(seen):
-            mark = "جدید" if term.lower() not in existing else "قبلاً در صف انتظار"
+            mark = "new" if term.lower() not in existing else "already queued"
             print(f"- {term}  ({mark})")
-        print(f"\n صف پیش‌نویس: {pending_path}")
-        print(" هر مورد را جداگانه بررسی کنید؛ فقط موارد واقعاً ضروری را دستی به")
+        print(f"\n Draft queue: {pending_path}")
+        print(" Review each item separately; move only the truly necessary ones to")
         print(
-            " allowlist.txt منتقل کنید و برای هرکدام دلیلش را به‌صورت کامنت کنار خط بنویسید."
+            " allowlist.txt by hand, with the reason as a comment next to each line."
         )
-        print(" یادتان باشد در پایان کار، `--strict` همه‌چیز را دوباره پرچم می‌زند.")
+        print(" Remember: at the end, `--strict` flags everything again.")
         print(f"RESULT: ISSUES={len(seen)}")
         sys.exit(1)
 

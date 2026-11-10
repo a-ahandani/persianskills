@@ -1,6 +1,12 @@
 ---
 name: irantalent
 description: "Read-only IranTalent (irantalent.com) job portal: search jobs, ad details, companies, reviews. Use when the user asks about IranTalent Jobs (irantalent.com) or wants job ads, employers or salaries in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # IranTalent Jobs

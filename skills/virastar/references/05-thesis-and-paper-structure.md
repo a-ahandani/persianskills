@@ -1,5 +1,7 @@
 # Thesis and Paper Structure
 
+Contents: Principle: function before template; Traceability backbone; Title; Abstract; Introduction; Literature review / related work; Conceptual/theoretical framework; Methodology / materials and methods; Results; Discussion; Conclusion; Recommendations; Appendices and supplementary material; Paragraph and section architecture; Engineering and computer-science adaptation; Structural issue severity.
+
 ## Principle: function before template
 
 A thesis or paper is not correct merely because it has conventional chapter names. Review whether each part performs its rhetorical and scientific function. Institution or venue rules control required order, front matter, length, and naming.

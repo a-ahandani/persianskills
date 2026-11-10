@@ -1,9 +1,24 @@
 ---
 name: persian-skill
-description: "Translate English↔Persian (Farsi) so it reads like a human translator, and fix Persian text mechanics: RTL, ZWNJ (نیم‌فاصله), ی/ک vs ي/ك, digits, punctuation. Use for any Persian text task."
+description: >-
+  Translates English to Persian (Farsi) and Persian to English so the result
+  reads like a human translator's work, removes the fingerprints of
+  machine-written Persian, and fixes Persian text mechanics: RTL, ZWNJ
+  (نیم‌فاصله), ی/ک vs ي/ك, digits, punctuation. Use for any Persian text
+  task: translating to or from Persian, writing or reviewing Persian, making
+  Persian "not sound like ChatGPT", cleaning up «نیم‌فاصله» or Arabic letters,
+  finding the natural Persian for an idiom, or rendering Persian in docx, PDF
+  or HTML. Triggers include «ترجمه به فارسی», «ترجمه‌ی ماشینی», «نیم‌فاصله».
+license: MIT
+compatibility: Scripts need Python 3 (standard library only).
+metadata:
+  author: Mojtaba Alehosseini
+  source: https://github.com/Mojtaba-Alehosseini/persian-skill
+  upstream-commit: 4264f6e
+  changes: Renamed from persian (name clash), default document font changed from Arial to Sahel with Arial as the fallback, English title, fuller description, and metadata added.
 ---
 
-# persian
+# Persian translation and text mechanics
 
 Use this skill whenever the user wants text translated to or from Persian (Farsi), asks for a
 Persian version of anything, wants Persian that doesn't sound machine-translated or "like
@@ -145,5 +160,5 @@ Read on demand, not all up front.
 | `references/lexicon.md` | idioms, collocations, never-soften list, opt-in house-style coinages |
 
 Paths are relative to the skill root (the folder holding this file); run scripts from there.
-Scripts: `scripts/persian_lint.py`, `scripts/lookup.py`. Data: `scripts/data/{idioms,glossary}.tsv`,
-never loaded into context. Tests: `python scripts/test_scripts.py`.
+Scripts: `scripts/persian_lint.py`, `scripts/lookup.py`. Data: `scripts/data/idioms.tsv` and
+`scripts/data/glossary.tsv`, never loaded into context. Tests: `python scripts/test_scripts.py`.

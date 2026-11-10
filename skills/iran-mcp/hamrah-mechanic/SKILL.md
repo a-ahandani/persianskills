@@ -1,6 +1,12 @@
 ---
 name: hamrah-mechanic
 description: "Read-only Hamrah Mechanic (hamrah-mechanic.com) car prices, used cars for sale, inspection fees. Use when the user asks about Hamrah Mechanic Cars (hamrah-mechanic.com) or wants used or new car ads and prices in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Hamrah Mechanic Cars

@@ -1,5 +1,7 @@
 # Terminology, Bilingual Text, and Academic Translation
 
+Contents: Terminology is a controlled system; TOML terminology register; Choosing a Persian technical term; Concept consistency, not string consistency alone; First-use policy; Acronyms and abbreviations; Names, titles, and transliteration; Mixed-direction text; Translation modes; Literalness versus naturalness; English-source hazards; Persian-to-English back-check; Terminology consistency report; Glossary and index integration; Editing safety.
+
 ## Terminology is a controlled system
 
 A technical manuscript should not vary terminology merely to avoid repetition. Establish a terminology register and use one preferred Persian form for one concept unless the manuscript intentionally distinguishes senses.

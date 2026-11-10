@@ -1,5 +1,12 @@
 # Review mode
 
+## Contents
+
+- Inputs
+- Order of work
+- Report shape
+- After the report
+
 Second entry point of this skill: judging an existing translation instead of
 producing one. Trigger it when the user asks whether the skill was applied
 correctly, asks for a review or ویرایش of a finished PDF, or hands back an

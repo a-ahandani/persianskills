@@ -1,5 +1,12 @@
 # Persian fonts: catalog, pairing, embedding
 
+## Contents
+
+- Catalog
+- Pairings that work
+- Typography rules for Persian
+- Embedding per format
+
 All fonts here are SIL OFL — free for commercial use, embedding allowed.
 The bundled family (Sahel, five static weights) lives in `assets/fonts/`.
 The rest need `scripts/download_fonts.py` (requires GitHub access — will NOT

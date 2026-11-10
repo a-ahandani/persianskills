@@ -1,6 +1,12 @@
 ---
 name: tapsifood
 description: "Unofficial read-only Tapsi Food: search dishes and restaurants, menus, reviews, flash deals. Use when the user asks about Tapsi Food (tapsi.food) or wants food or groceries delivered in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Tapsi Food

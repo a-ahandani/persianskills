@@ -1,5 +1,14 @@
 # Persian HTML/CSS: RTL web pages, emails, and HTML→PDF
 
+## Contents
+
+- The foundation
+- CSS rules
+- Persian web fonts
+- HTML email
+- HTML→PDF (weasyprint / headless Chrome)
+- Pre-delivery checklist
+
 ## The foundation
 
 ```html

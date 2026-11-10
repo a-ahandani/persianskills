@@ -1,6 +1,12 @@
 ---
 name: divar
 description: "Unofficial read-only Divar: search Iran's classified ads, cheapest and best-value ads, price checks. Use when the user asks about Divar (divar.ir) or wants classified ads for homes, cars, phones and more in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Divar

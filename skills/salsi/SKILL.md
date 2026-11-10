@@ -1,10 +1,23 @@
 ---
 name: salsi
-description: Write Persian with Persian words. Use when writing, editing, translating or reviewing Persian (Farsi) prose — articles, documentation, posts, essays, UI copy — to replace loanwords with Persian equivalents while leaving technical terminology, proper nouns and code untouched. Also use when the user asks for پارسی سره, سره‌نویسی, فارسی‌سازی, or "make this text more Persian".
+description: >-
+  Writes Persian with Persian words. Use when writing, editing, translating or
+  reviewing Persian (Farsi) prose (articles, documentation, posts, essays, UI
+  copy) to replace loanwords with Persian equivalents while leaving technical
+  terminology, proper nouns and code untouched. Also use when the user asks
+  for «پارسی سره»، «سره‌نویسی»، «فارسی‌سازی», or "make this text more
+  Persian".
 license: MIT
+compatibility: The full lexicon needs the salsi CLI (Python 3.10+, no dependencies) installed from the upstream repository; without a shell the skill falls back to a 119-word table.
+metadata:
+  author: salsi contributors (pooooooriya)
+  source: https://github.com/pooooooriya/salsi
+  upstream-commit: 303ebc8
+  version: "1.0.0"
+  changes: Install instructions corrected because this copy does not bundle the bin/salsi engine and salsi is not on PyPI, reference/ renamed to references/, contents lists added to long references, and metadata added.
 ---
 
-# سالسی — Write Persian with Persian words
+# Salsi (سالسی): write Persian with Persian words
 
 Persian prose is full of borrowed words that have perfectly good Persian
 equivalents. Replacing them makes writing clearer and more native. Replacing
@@ -27,9 +40,11 @@ reader would recognise the Persian equivalent, keep the original.
    salsi scan article.md --format json
    ```
 
-   If `salsi` is not on PATH, this skill ships its own copy — run
-   `./bin/salsi` from this skill's directory instead. It needs nothing
-   installed beyond Python 3.10 and carries the full 20,129-word lexicon.
+   If `salsi` is not on PATH, install it from the upstream repository with
+   `pip install git+https://github.com/pooooooriya/salsi` (or, from a clone,
+   `pip install -e .`). It needs nothing beyond Python 3.10 and carries the
+   full 20,129-word lexicon. `python3 -m salsi` works the same as `salsi`.
+   This copy of the skill does not bundle the engine.
 
    Add `--domain tech` (or `medical`, `legal`, `science`, `business`) so the
    terminology of that field is protected. Add `--topic <subject>` to help the
@@ -46,8 +61,8 @@ reader would recognise the Persian equivalent, keep the original.
 4. **Show the user a diff and the reasoning** before finalising. Never rewrite
    someone's text wholesale without showing what changed.
 
-Only if you cannot run commands at all — no shell available — work from
-`reference/core-words.md`, which holds the settled replacements as a plain
+Only if you cannot run commands at all (no shell available) or cannot install
+the CLI, work from `references/core-words.md`, which holds the settled replacements as a plain
 table. It is ~119 words against the lexicon's 20,129, so say plainly that you
 are working without the full dictionary and be correspondingly conservative.
 
@@ -146,9 +161,9 @@ Exit code with `--strict` is non-zero when anything is found, which makes
 
 ## Reference
 
-- `reference/judgement.md` — worked examples of accepting and rejecting findings
-- `reference/core-words.md` — the settled replacements, usable without the CLI
-- `reference/install.md` — installing `salsi` and this skill elsewhere
+- `references/judgement.md` — worked examples of accepting and rejecting findings
+- `references/core-words.md` — the settled replacements, usable without the CLI
+- `references/install.md` — installing `salsi` and this skill elsewhere
 
 ## Credit
 

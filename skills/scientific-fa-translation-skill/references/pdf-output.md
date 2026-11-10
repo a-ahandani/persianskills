@@ -1,5 +1,19 @@
 # Printable PDF output
 
+## Contents
+
+- Destination (locked)
+- Preflight
+- Engine order
+- XeLaTeX + xepersian
+- HTML engines: measured behaviour
+- HTML font
+- Chromium
+- WeasyPrint
+- Verify the artifact
+- Page ranges and file size
+- Chat after success
+
 Cursor chat is **not** the RTL surface. Do not spend effort right-aligning
 the conversation. The deliverable is a printable PDF with maximum bidi
 precision.

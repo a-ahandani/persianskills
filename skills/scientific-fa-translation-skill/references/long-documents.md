@@ -1,5 +1,14 @@
 # Long documents
 
+## Contents
+
+- Terminology first
+- Sectioning
+- Progress ledger
+- Ambiguity queue
+- Context budget
+- Assembly and verification
+
 Applies from roughly fifteen pages or six thousand words up — install
 guides, specifications, books. The failures at this size are not translation
 failures: terminology drifts between chapter three and chapter nine, a

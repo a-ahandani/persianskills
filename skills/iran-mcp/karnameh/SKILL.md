@@ -1,6 +1,12 @@
 ---
 name: karnameh
 description: "Read-only Karnameh (karnameh.com) Iran car data: used ads, new-car prices, specs, comparisons, blog. Use when the user asks about Karnameh Cars (karnameh.com) or wants used or new car ads and prices in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Karnameh Cars

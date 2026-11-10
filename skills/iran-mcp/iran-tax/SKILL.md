@@ -1,6 +1,12 @@
 ---
 name: iran-tax
 description: "Unofficial read-only Iranian tax: goods IDs and VAT, activity codes, property values, tax laws. Use when the user asks about Iran Tax (tax.gov.ir) or wants e-invoice goods IDs, VAT rates, activity codes, property values or tax laws and circulars in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Iran Tax
