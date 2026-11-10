@@ -35,7 +35,7 @@ python3 scripts/shape_persian.py Sahel-VF.ttf --lines lines.tsv --js glyphs.js
 
 Glyphs come out in visual order (index 0 is leftmost). Each entry is `[x, y, advance, cluster, bodyPath, [dotPaths], [dotBounds], group]` in font units (y up). Use it for: dots dropping in after the letters (`nuqta`), kashida stretching (`kashida`), paper pieces per connected group (`cutout`), any per-glyph move.
 
-**Zero-width joiners (lighter).** Put U+200D on each side of a letter that joins its neighbour, so each letter box still takes its joined form. `scripts/split_fa.js` does it and keeps لا together, vowel marks and half-spaces attached. Limits: kerning between boxes is lost (words come out a few px wider at display sizes) and Nastaliq loses its cascade, so animate Nastaliq by whole word or line only.
+**Zero-width joiners (lighter).** Put U+200D on each side of a letter that joins its neighbour, so each letter box still takes its joined form. `scripts/split-fa.js` does it and keeps لا together, vowel marks and half-spaces attached. Limits: kerning between boxes is lost (words come out a few px wider at display sizes) and Nastaliq loses its cascade, so animate Nastaliq by whole word or line only.
 
 ## 3. Masks, line height and clipping
 

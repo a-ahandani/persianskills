@@ -8,7 +8,7 @@ description: >-
   existing Persian translation against the same rules. Use when the user asks
   to translate a paper, article, book or docs into Persian, mentions
   «ترجمه», «ترجمه علمی», «راست‌چین», RTL, PDF or «چاپ», or invokes
-  scientific-fa-translation or persian-scientific-translation. Not for
+  persian-scientific-translation. Not for
   coding, explaining code, commit messages, UI copy, literary translation or
   casual Persian chat.
 license: MIT
@@ -61,7 +61,7 @@ Override only when the user says so.
 | Digits | Western (`3.14`, not `۳٫۱۴`) |
 | Dates | Source calendar and format, one isolate. No Jalali conversion unless asked. |
 | Figures/tables | `شکل 3`, `جدول 2` — label translated, number unchanged |
-| Images | Same pixels as the **artwork** on the source page (diagram, screenshot, photo), not the whole page. Flatten alpha. `dir="ltr"` / `LTR`, centered (`margin-inline: auto`). Never mirror, redraw, drop, or ship a pdfimages negative. Never embed a full source page (headers, body text, page numbers, English caption) as a figure — crop to the artwork with `scripts/crop-source-figures.py`. |
+| Images | Same pixels as the **artwork** on the source page (diagram, screenshot, photo), not the whole page. Flatten alpha. `dir="ltr"` / `LTR`, centered (`margin-inline: auto`). Never mirror, redraw, drop, or ship a pdfimages negative. Never embed a full source page (headers, body text, page numbers, English caption) as a figure — crop to the artwork with `scripts/crop_source_figures.py`. |
 | Code blocks | Always LTR and left-aligned |
 | Abstract/footnotes | Translate |
 | Bibliography | Do not translate (authors, titles, journals, DOIs, URLs) |
@@ -75,9 +75,9 @@ Override only when the user says so.
    Jobs and subjects are inferred from the source in step 3, not chosen
    from a list.
 2. **Ingest.** `references/source-ingest.md`: fetch the source, extract
-   figures, run `scripts/crop-source-figures.py`, flatten with
-   `scripts/prepare-figures.py figures/`, then
-   `scripts/prepare-figures.py figures/ --check`. Write
+   figures, run `scripts/crop_source_figures.py`, flatten with
+   `scripts/prepare_figures.py figures/`, then
+   `scripts/prepare_figures.py figures/ --check`. Write
    `inventory.md` and `manifest.txt` in the working tree.
    Never translate from memory when a fetch fails. Never ship a black
    pdfimages dump. Never ship a full source-page raster as a figure.
@@ -110,7 +110,7 @@ Override only when the user says so.
    preserve hedges (`may`, `might`, `suggest`, `remain unknown`).
 6. **Isolate** every LTR run in the print source — whole clusters, one
    isolate each (`references/rtl-bidi.md`).
-7. **Lint.** `scripts/check-fa.py doc.tex --level <level> --terms terms.tsv
+7. **Lint.** `scripts/check_fa.py doc.tex --level <level> --terms terms.tsv
    --manifest manifest.txt --strict` and clear every error. `--strict`
    will not run without those two files. Lint each part as you finish it,
    not at the end. `--pairs FILE` *adds* rows; it does not replace
@@ -206,12 +206,12 @@ page count, and the engine used.
    Say that Chrome/Edge PDF viewers often reverse copy from either
    engine — use Evince/Okular/Adobe/Firefox or the `.txt` sidecar the
    build writes beside the PDF. A page-range PDF is
-   `scripts/extract-pdf-pages.py in.pdf out.pdf 1-20` — one range, never
+   `scripts/extract_pdf_pages.py in.pdf out.pdf 1-20` — one range, never
    a per-page loop (`references/pdf-output.md`).
 
 ## Quality gate
 
-**Machine-checked** — `scripts/check-fa.py --level <level> --terms terms.tsv
+**Machine-checked** — `scripts/check_fa.py --level <level> --terms terms.tsv
 --manifest manifest.txt --strict` must exit 0. It covers orthography
 (`ک`/`ی`, ZWNJ on listed verbs/plurals,
 Western digits, Persian punctuation), forbidden calques at that level,

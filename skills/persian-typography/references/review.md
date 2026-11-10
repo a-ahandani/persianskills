@@ -4,4 +4,4 @@ Audit mode never writes to inspected source files. Establish medium, region, pro
 
 Review document lang/dir, intentional local isolation of LTR spans, logical DOM and focus, joined glyphs, combining marks, font coverage, clipping/forced wrapping, actual copy-paste and locale-dependent dates. For graphics evaluate purpose-driven hierarchy, spacing, information quality and visual clarity instead of forcing one Persian style.
 
-Record static checks as static only, rendered tests with host/viewport/font as observed, and native register/copy findings with named reviewer. Use statuses in schemas/report.schema.json. If not tested, write not-checked. End with prioritized proposed remediations; no automatic source text rewriting.
+Record static checks as static only, rendered tests with host/viewport/font as observed, and native register/copy findings with named reviewer. Use statuses in assets/report-schema.json. If not tested, write not-checked. End with prioritized proposed remediations; no automatic source text rewriting.

@@ -127,7 +127,7 @@ p { orphans: 2; widows: 2; }                   /* no lonely lines */
 
 - weasyprint honors `break-*` well and embeds @font-face fonts — good default.
 - Headless Chrome (`--print-to-pdf`) also works; ensure fonts are installed
-  (`bash scripts/install_fonts.sh`) or referenced via @font-face with absolute
+  (`bash scripts/install-fonts.sh`) or referenced via @font-face with absolute
   paths.
 - Verify the output exactly like a docx-derived PDF:
   `python3 scripts/verify_pdf.py out.pdf --expect-font Sahel`.

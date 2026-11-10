@@ -3,7 +3,7 @@
 ## Full thesis audit
 
 ```text
-Use Virastar in workspace-audit mode on main.tex.
+Use persian-academic-writing in workspace-audit mode on main.tex.
 Read all recursive inputs, bibliography and glossary files, the project profile,
 and the compiled PDF. Do not edit. Report workspace, orthography, grammar,
 terminology, scientific-claim, structure, citation, figure/table/equation, and

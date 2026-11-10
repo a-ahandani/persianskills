@@ -16,8 +16,7 @@ description: >-
   «اداری» or «محاوره», even without naming this skill.
 license: MIT (bundled fonts under SIL OFL)
 compatibility: >-
-  Any agent that reads Markdown skills; chat-only AIs can use
-  universal/persian-writing-universal.md. Scripts: Python 3.8+ stdlib only.
+  Any agent that reads Markdown skills. Scripts: Python 3.8+ stdlib only.
   docx/pptx to PDF conversion: LibreOffice and installed fonts. PDF checks:
   poppler-utils, pypdf or PyMuPDF (any one).
 metadata:
@@ -208,7 +207,7 @@ Other families (Shabnam, Samim, Parastoo, Tanha, Gandom) and pairing advice:
 **Before any docx→PDF or pptx→PDF conversion, install the fonts:**
 
 ```bash
-bash scripts/install_fonts.sh   # copies assets/fonts → ~/.fonts, runs fc-cache
+bash scripts/install-fonts.sh   # copies assets/fonts → ~/.fonts, runs fc-cache
 fc-list | grep -i sahel         # verify — else LibreOffice silently falls back
 ```
 
@@ -298,10 +297,9 @@ persian-writing/
 │   ├── fa_lint.py              ← LINT: report issues needing contextual judgment
 │   ├── verify_docx.py          ← DOCX RTL checks (+ --fix for section bidi)
 │   ├── verify_pdf.py           ← post-generation PDF checks
-│   ├── check_version.py        ← verify the version matches in all four places
-│   ├── install_fonts.sh        ← bundled fonts → ~/.fonts (run before PDF export)
+│   ├── install-fonts.sh        ← bundled fonts → ~/.fonts (run before PDF export)
 │   └── download_fonts.py       ← fetch extra families (needs GitHub access)
 └── assets/
     ├── fonts/                  ← Sahel TTFs (5 weights) + OFL
-    └── persian_words.txt       ← 453K-word frequency dictionary (spell-check)
+    └── persian-words.txt       ← ~500-word dictionary for spell-check (see references/cleanup/usage-patterns.md for the full list)
 ```

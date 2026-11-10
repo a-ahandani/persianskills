@@ -1,3 +1,10 @@
 site/dist/
 .DS_Store
 __pycache__/
+*.pyc
+node_modules/
+.venv/
+venv/
+*.log
+skills/persian-motion-design/assets/remotion/out/
+skills/persian-scientific-translation/work/

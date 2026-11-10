@@ -17,7 +17,7 @@ metadata:
   changes: Install instructions corrected because this copy does not bundle the bin/salsi engine and salsi is not on PyPI, reference/ renamed to references/, contents lists added to long references, and metadata added.
 ---
 
-# Salsi (سالسی): write Persian with Persian words
+# Write Persian with Persian words
 
 Persian prose is full of borrowed words that have perfectly good Persian
 equivalents. Replacing them makes writing clearer and more native. Replacing

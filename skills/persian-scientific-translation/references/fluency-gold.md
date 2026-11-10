@@ -4,7 +4,7 @@ Regression targets for the Canonical manner in `scientific-style.md`.
 When changing register rules or the fluency-reader brief, re-read these
 and confirm a good draft still matches them. They are **voice examples
 across software/science genres**, not a product-specific style guide and
-not a checklist for `check-fa.py`.
+not a checklist for `check_fa.py`.
 
 The skill applies to any scientific or technical book (especially
 software): libraries, databases, distributed systems, ML, compilers,

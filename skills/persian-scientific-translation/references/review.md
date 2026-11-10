@@ -30,7 +30,7 @@ silently rewrite until the report is accepted.
 Run the checker over every source file:
 
 ```bash
-scripts/check-fa.py parts/*.tex --level system-docs --terms terms.tsv --manifest manifest.txt --strict
+scripts/check_fa.py parts/*.tex --level system-docs --terms terms.tsv --manifest manifest.txt --strict
 ```
 
 This settles orthography, forbidden / deprecated calques, half-translated

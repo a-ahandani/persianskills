@@ -81,7 +81,7 @@ because “the PDF outline is enough”; the printed page is the deliverable.
 Lint each part as it is finished, not at the end:
 
 ```bash
-scripts/check-fa.py parts/03-*.tex --level system-docs --terms terms.tsv --manifest manifest.txt --strict
+scripts/check_fa.py parts/03-*.tex --level system-docs --terms terms.tsv --manifest manifest.txt --strict
 ```
 
 A part that lints clean stays clean. A 174-page document linted once at the
@@ -131,7 +131,7 @@ part, look it up in `terms.tsv` first; that is what the file is for.
 
 1. Lint every part, then the assembled document.
 2. Build with `scripts/build-pdf.sh doc.tex <slug> --verify`. It lints
-   first, runs `prepare-figures.py --check` when `figures/` exists, and
+   first, runs `prepare_figures.py --check` when `figures/` exists, and
    will not copy a PDF if lint, figure check, or `--verify` fail.
    `--verify` fails closed: missing poppler tools, no embedded font, or
    a raster that was not written. Compare page count to `inventory.md`
@@ -140,7 +140,7 @@ part, look it up in `terms.tsv` first; that is what the file is for.
 4. Report the path, the page count, and the queued questions.
 
 If the user asked for a page range, not the whole PDF, extract it with
-`scripts/extract-pdf-pages.py in.pdf out.pdf 1-20` after the build. That
+`scripts/extract_pdf_pages.py in.pdf out.pdf 1-20` after the build. That
 script copies a contiguous range in **one** operation so fonts and images
 stay shared. Never loop `insert_pdf` (or equivalent) one page at a time —
 each iteration duplicates every XObject and a 2 MB file becomes 40 MB.

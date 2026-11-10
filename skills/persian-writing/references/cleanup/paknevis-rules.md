@@ -232,7 +232,7 @@ Curated common misspellings (subset):
 | `بهرحال` | `به‌هرحال` |
 
 For better coverage, replace the bundled mini-dictionary
-(`assets/persian_words.txt`, ~500 words) with the full 453K-word list from
+(`assets/persian-words.txt`, ~500 words) with the full 453K-word list from
 <https://github.com/shahind/Persian-Words-Database>.
 
 ---

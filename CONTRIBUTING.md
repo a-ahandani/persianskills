@@ -1,94 +1,35 @@
 # Contributing
 
-Every skill in `skills/` follows the standard below, whether we wrote it or
-copied it from its author. `node scripts/check-skills.mjs` checks the parts a
-script can check; run it before opening a pull request.
+Every skill in `skills/` follows one standard, whether we wrote it or copied
+it from its author. The standard is itself a skill:
+[`persian-skill-standard`](skills/persian-skill-standard/SKILL.md).
 
-## Adding a skill
+## Adding or changing a skill
 
-1. Open a pull request that adds the skill folder under `skills/<name>/` and a
-   row to `catalog.json`.
-2. A copied skill keeps its author's license file in its folder, and gets a row
-   in `CREDITS.md` with the source repo, path, commit, license and what was
-   changed. Apache-2.0 skills that we modify also carry a `MODIFIED.md`.
-3. Only skills about the Persian language belong here: writing, register,
-   translation, orthography, Dari, Tajik, typography, right-to-left layout,
-   calendar and locale. Integrations with Iranian services and general tools
-   are listed in `catalog.json` as links, not copied.
-4. Don't add a skill that duplicates one already here. Improve the existing
-   skill instead, or explain in the pull request what the new one covers that
-   the existing one doesn't.
+1. **Prepare it with `persian-skill-standard`.** Load the skill in your agent
+   and ask it to prepare or normalize the new skill. It covers the gates
+   (scope, duplicates, license), the name, the folder layout, file names,
+   frontmatter, body, content, credit and registration.
+2. **Check it:**
 
-## The skill standard
+   ```bash
+   node scripts/check-skills.mjs
+   ```
 
-The standard follows the [Agent Skills specification](https://agentskills.io)
-and Anthropic's skill-authoring best practices.
+   It must report 0 problems.
+3. **Evaluate it with `persian-skill-evaluation`.** Run the evaluation and
+   paste its report into the pull request. A skill joins with the verdict
+   Keep, or Fix once the listed fixes are made.
+4. **Open a pull request** that adds the skill folder, its `catalog.json` row,
+   its path in `.claude-plugin/marketplace.json`, and for a copied skill its
+   CREDITS.md row.
 
-### Folder
+Only skills about the Persian language are copied into the repo.
+Integrations with Iranian services and general tools are added to
+`catalog.json` as link-only rows.
 
-```
-skills/<name>/
-├── SKILL.md          required
-├── references/       optional, loaded only when SKILL.md points to them
-├── scripts/          optional, run rather than read
-├── assets/           optional, templates and fonts
-└── LICENSE           for copied skills, the author's license
-```
+## Listing a skill without copying it
 
-- The folder name equals the skill's `name`.
-- Reference files sit one level below `SKILL.md`; a reference doesn't send the
-  agent on to another reference.
-- Paths use forward slashes.
-
-### Frontmatter
-
-```yaml
----
-name: persian-example
-description: >-
-  Does X for Persian text. Use when the user asks for Y, mentions Z, or
-  writes «…».
-license: MIT
-compatibility: Optional. What the skill needs to run (tools, network).
-allowed-tools: Optional, only when the skill runs specific tools.
-metadata:
-  author: who wrote it
-  source: https://github.com/owner/repo
-  version: "1.0.0"
----
-```
-
-- Allowed fields: `name`, `description`, `license`, `compatibility`,
-  `allowed-tools`, `metadata`. Anything else goes under `metadata` or is
-  dropped.
-- `name`: lowercase letters, digits and hyphens; at most 64 characters; unique
-  in the repo. It starts with the variety, `persian-`, `dari-` or `tajik-`,
-  followed by the topic in plain English (`persian-calendar`,
-  `tajik-proofreading`). No project or brand names and no `-skill` suffix. A
-  copied skill gets a name that follows this rule, and its CREDITS.md row
-  records the upstream name.
-- `description`: English, at most 1,024 characters, third person. It says
-  what the skill does and when to use it, and includes the words a user would
-  type, Persian ones in «» where they help matching.
-- `metadata.author` and `metadata.source` are required for copied skills.
-
-### Body
-
-- Instructions are in English. Persian appears only as examples, quoted terms,
-  sample output and word lists.
-- One `#` title in English, then sections that start with what the agent has
-  to do.
-- Under 500 lines. Move long tables, catalogs and examples into `references/`
-  and say in `SKILL.md` when to read each file. A reference longer than 100
-  lines starts with a short contents list.
-- Concise: assume the agent is capable, and keep only what it wouldn't know.
-- One term per concept. Use "ZWNJ (نیم‌فاصله)" for the half-space, "register"
-  for formality level, "Iranian Persian", "Dari" and "Tajik" for the three
-  standards.
-- Name other skills in backticks (`persian-writing`) when the agent should
-  load them too.
-- No time-sensitive statements ("as of this year"), no marketing, no emoji.
-- Scripts the skill mentions exist in its `scripts/` folder, with how to run
-  them.
-- The bundled and recommended Persian font is Sahel
-  (https://github.com/rastikerdar/sahel-font, SIL OFL).
+Add a row to `catalog.json` with `here: false` and the skill's URL, author,
+variety, category, license and a one-line description, then open a pull
+request.

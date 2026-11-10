@@ -100,6 +100,17 @@
       "license": "MIT"
     },
     {
+      "name": "persian-skill-standard",
+      "author": "persianskills",
+      "url": "https://github.com/edyt-app/persianskills",
+      "path": "skills/persian-skill-standard",
+      "here": true,
+      "variety": "all",
+      "category": "evals",
+      "license": "MIT",
+      "description": "The rules every skill here follows: names, folder layout, file names, frontmatter, body, content, credit and licenses. Use it to prepare or normalize a Persian skill before a pull request."
+    },
+    {
       "name": "persian-skill-evaluation",
       "author": "persianskills",
       "url": "https://github.com/edyt-app/persianskills",
@@ -495,7 +506,43 @@
       "category": "typography",
       "license": "Apache-2.0",
       "commit": "1b27c93",
-      "description": "Persian typography rules for websites and documents, with a source checker."
+      "description": "Starts Persian typography and design work: purpose, medium, locale and editing scope, then routes to the web, documents or review skill."
+    },
+    {
+      "name": "persian-typography-web",
+      "author": "landco-llc",
+      "url": "https://github.com/landco-llc/kumihan",
+      "path": "skills/persian-typography-web",
+      "here": true,
+      "variety": "iran",
+      "category": "typography",
+      "license": "Apache-2.0",
+      "commit": "1b27c93",
+      "description": "Persian web pages and app interfaces with correct RTL direction, isolated LTR runs, ZWNJ preserved and no letter-spacing, with a source checker."
+    },
+    {
+      "name": "persian-typography-documents",
+      "author": "landco-llc",
+      "url": "https://github.com/landco-llc/kumihan",
+      "path": "skills/persian-typography-documents",
+      "here": true,
+      "variety": "iran",
+      "category": "typography",
+      "license": "Apache-2.0",
+      "commit": "1b27c93",
+      "description": "Persian documents, slides, PDFs and print that keep the source text exact: shaping, reading order, ZWNJ and Persian ک and ی, with a source checker."
+    },
+    {
+      "name": "persian-typography-review",
+      "author": "landco-llc",
+      "url": "https://github.com/landco-llc/kumihan",
+      "path": "skills/persian-typography-review",
+      "here": true,
+      "variety": "iran",
+      "category": "typography",
+      "license": "Apache-2.0",
+      "commit": "1b27c93",
+      "description": "Read-only review of Persian typography and design with evidence: Unicode preservation, look-alike letters, ZWNJ, bidi isolation and font coverage."
     },
     {
       "name": "persian-unslop",

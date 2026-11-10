@@ -1,4 +1,4 @@
-# Lahne Man evaluation
+# Natural-voice evaluation
 
 After rewriting, mark every item below as pass or fail. If an item fails, fix the text before giving the output.
 

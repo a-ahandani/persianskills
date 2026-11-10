@@ -37,7 +37,7 @@ Work in this order. Each step exists because skipping it is how pieces end up lo
 3. **Music first.** Lock the track and its tempo before animating. Build a bar map: which section lives on which bars. If there's no track, compose one (`assets/music/compose_shur_pulse.py` is a working example that writes `beats.json`) or ask for one. At 120 BPM one beat is 0.5 s and one bar 2 s; at 60 fps a beat is 30 frames.
 4. **Write the shot list on the bar grid** (template in `references/workflow.md`). Every section change lands on a downbeat; every cut on a beat or 2 frames before it.
 5. **Style frames.** Render 4–6 stills (`assets/remotion/render-stills.mjs`) and get a yes before animating everything.
-6. **Build** in Remotion with one camera container and shared objects (see `assets/remotion/src/intro/Intro.tsx` for a complete worked example).
+6. **Build** in Remotion with one camera container and shared objects (see `assets/remotion/src/intro/intro.tsx` for a complete worked example).
 7. **Check**, then render: run `scripts/lint_persian.py` on all copy, review stills at full size for clipped dots and broken joins, scrub every cut against the beat, and make loops exact (clip length = a whole number of loops).
 
 ## What separates pro motion from a slideshow
@@ -59,7 +59,7 @@ More numbers and the sources behind them: `references/anti-slideshow.md`.
 
 Read `references/persian-typography.md` before writing any Persian into a frame. The short version:
 
-1. **Never put Persian letters in their own boxes.** `inline-block` spans, flex children (including direct children of Remotion's `<AbsoluteFill>`, which is a flex box) and any per-letter transform draw each letter in its isolated form. Animate whole words or lines. When you truly need per-letter or per-dot motion, use shaped outlines (`scripts/shape_persian.py`) or zero-width-joiner splitting (`scripts/split_fa.js`).
+1. **Never put Persian letters in their own boxes.** `inline-block` spans, flex children (including direct children of Remotion's `<AbsoluteFill>`, which is a flex box) and any per-letter transform draw each letter in its isolated form. Animate whole words or lines. When you truly need per-letter or per-dot motion, use shaped outlines (`scripts/shape_persian.py`) or zero-width-joiner splitting (`scripts/split-fa.js`).
 2. **Fade words, not letters.** Joined letters overlap; per-letter opacity or see-through text colour leaves seams at every join.
 3. **Masks need slack.** Persian reaches far above and below Latin: pad clip masks by about 0.5em top and bottom, use line-height ≥ 1.6 (≥ 2.4 for Nastaliq), or the dots and the top of گ get cut.
 4. **Direction.** `dir="rtl" lang="fa"` on every Persian block; wrap Latin names and numbers in `<bdi>` (or FSI/PDI) or the line scrambles. Reveals and staggers start on the right, camera progress travels left, "next" arrows point left. Play buttons, clocks and numbers are never mirrored.
@@ -88,7 +88,7 @@ Pick by the brief, not by novelty: one or two signature techniques used consiste
 ## Tools in this skill
 
 - `scripts/shape_persian.py` — shapes Persian with HarfBuzz and exports SVG outlines split into letter bodies, dots and connected letter groups (`pip install uharfbuzz fonttools`). This is what makes per-letter, per-dot and kashida animation possible without breaking the script. Run `python3 scripts/shape_persian.py assets/sketches/fonts/Sahel-VF.ttf "کارگردان موشن فارسی" --wght 800`, or `--lines lines.txt --js glyphs.js` for many lines.
-- `scripts/split_fa.js` — splits a Persian word into letters that keep their joined forms (zero-width joiners), for when outlines are overkill. Import `splitFa` from it; `node scripts/split_fa.js --test` prints sample splits.
+- `scripts/split-fa.js` — splits a Persian word into letters that keep their joined forms (zero-width joiners), for when outlines are overkill. Import `splitFa` from it; `node scripts/split-fa.js --test` prints sample splits.
 - `scripts/lint_persian.py` — checks copy (Arabic letters and digits, missing ZWNJs, English punctuation, misplaced kashida) and code (letter-spacing, per-letter boxes, missing `dir`). Run `python3 scripts/lint_persian.py copy FILE` and `python3 scripts/lint_persian.py code src/`; it exits 1 when it finds something.
 - `assets/sketches/` — the motion engine (`engine.js`), the eight sketches, shaped glyph data, styles and `gallery.html` (serve the folder with any static server).
 - `assets/remotion/` — `SketchPlayer` (drives a sketch from the frame number), one clip composition per technique, the full intro film as a worked example, and scripts to render clips and stills.

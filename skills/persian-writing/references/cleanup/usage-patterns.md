@@ -149,12 +149,12 @@ python3 persian_cleanup.py --edit --spellcheck "متن با غلط املایی"
 ```
 
 **Note:** The bundled dictionary has only ~500 words. For serious
-spell-checking, replace `assets/persian_words.txt` with the full 453K-word
+spell-checking, replace `assets/persian-words.txt` with the full 453K-word
 list:
 
 ```bash
 curl -L https://raw.githubusercontent.com/shahind/Persian-Words-Database/master/words.txt \
-  -o skills/persian-text-cleanup/assets/persian_words.txt
+  -o assets/persian-words.txt
 ```
 
 ---

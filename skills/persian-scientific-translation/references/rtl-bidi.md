@@ -27,7 +27,7 @@ The HTML rules below apply to an explicit HTML ask or the Chromium /
 WeasyPrint print fallback (`assets/rtl-document.html`).
 
 Most of this file is machine-checked. Run
-`scripts/check-fa.py doc.tex --level <level> --terms terms.tsv --manifest manifest.txt --strict` before reading
+`scripts/check_fa.py doc.tex --level <level> --terms terms.tsv --manifest manifest.txt --strict` before reading
 further — it reports un-isolated Latin runs, un-isolated number clusters,
 split clusters, RTL listings, mirrored artwork, English `-s` plurals of
 kept terms, and leftover Persian ezafe on English tokens, so the reading
@@ -258,7 +258,7 @@ RLM only for a leftover end-of-sentence period.
   (`transform: scaleX(-1)` is forbidden). Center it on the page
   (`margin-inline: auto`); a block-level LTR image otherwise sits on the
   physical left. Width/height follow the artwork aspect. Flatten PNG alpha
-  onto white before the print build (`scripts/prepare-figures.py`);
+  onto white before the print build (`scripts/prepare_figures.py`);
   engines composite leftover alpha onto black. Never embed a full source
   page as the figure.
 
@@ -298,7 +298,7 @@ Never reverse English letter order by hand. Never rewrite `(Adam)` as
 
 ## Self-check
 
-0. Run `scripts/check-fa.py --level <level> --terms terms.tsv --manifest manifest.txt --strict` on the source file
+0. Run `scripts/check_fa.py --level <level> --terms terms.tsv --manifest manifest.txt --strict` on the source file
    and clear every error. Steps 1–6 are the part it cannot see.
 1. Open the HTML file or a rasterized PDF page, not the chat transcript
    and not `pdftotext` alone.

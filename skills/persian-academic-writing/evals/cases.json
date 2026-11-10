@@ -89,7 +89,7 @@
   },
   {
     "id": "terminology-lookup-custom-first",
-    "prompt": "Look up the Persian equivalent of signed-KL policy guidance using my project terminology.toml, then fall back to Virastar's bundled glossary only if it is absent.",
+    "prompt": "Look up the Persian equivalent of signed-KL policy guidance using my project terminology.toml, then fall back to the skill's bundled glossary only if it is absent.",
     "should_trigger": true,
     "expected_mode": "terminology-lookup",
     "must": ["custom glossary precedence", "exact normalized match", "status and authority"],

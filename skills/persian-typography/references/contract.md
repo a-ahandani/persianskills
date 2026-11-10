@@ -1,6 +1,6 @@
 # Persian source, scope and evidence contract
 
-Product: KUMIHAN｜تراز, version 0.1.0. The research baseline is the Drive document in sources.json. Scope: modern Iranian standard Persian fa-IR as the proposed default for newly created Iranian content. fa-AF (Dari), Arabic and Tajik Cyrillic are not interchangeable. Explicit user selection takes precedence over metadata and inference.
+Based on KUMIHAN v0.1.0 by L&Co. LLC. The research baseline is the Drive document in assets/sources.json. Scope: modern Iranian standard Persian fa-IR as the proposed default for newly created Iranian content. fa-AF (Dari), Arabic and Tajik Cyrillic are not interchangeable. Explicit user selection takes precedence over metadata and inference.
 
 Modes: study investigates options; build/refine change only permitted materials; audit is strictly read-only. Choose medium (web, copy, document, presentation, print, logo, social), reader, brand and protected text spans before design. Preserve original UTF-8 bytes, source metadata, logical order and formatting intent. NFC/NFKC normalization, Arabic Kaf/Yeh substitution, digit conversion, locale, calendar and currency adjustments require explicit editing authority and contextual checking; never rewrite original by default.
 

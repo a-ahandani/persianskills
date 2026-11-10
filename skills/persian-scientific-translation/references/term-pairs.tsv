@@ -1,7 +1,7 @@
 # Machine-readable half of the terminology policy.
 #
 # Each row: a source term that stays English, and the Persian calque that
-# must never appear in its place. `scripts/check-fa.py` reads this file and
+# must never appear in its place. `scripts/check_fa.py` reads this file and
 # fails the build when the forbidden form shows up in a translation.
 #
 # Columns (tab-separated):

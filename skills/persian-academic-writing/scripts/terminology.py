@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Load and query Virastar TOML terminology registers."""
+"""Load and query TOML terminology registers."""
 
 from __future__ import annotations
 
@@ -307,7 +307,7 @@ def render_text(response: LookupResponse) -> str:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Look up English terms in Virastar TOML glossaries.")
+    parser = argparse.ArgumentParser(description="Look up English terms in TOML terminology glossaries.")
     parser.add_argument("query", nargs="+", help="English term or acronym to look up.")
     parser.add_argument("--glossary", type=Path, help="Custom TOML glossary; matching entries override IPL data.")
     parser.add_argument("--no-builtin", action="store_true", help="Do not fall back to the bundled IPL glossary.")

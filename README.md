@@ -12,7 +12,7 @@ authors, is at **[persianskills.com](https://persianskills.com)**.
 Every skill here is about the Persian language: writing and register,
 translation, orthography, Dari and Tajik, typography and right-to-left
 layout, and calendar and locale. Each copied skill keeps its author's license
-file and credit: 21 skills from 13 authors, plus 8 of our own.
+file and credit: 21 skills from 13 authors, plus 9 of our own.
 Integrations with Iranian services and general tools are listed on the site
 as links only. [CREDITS.md](CREDITS.md) gives each skill's source repo,
 commit, license and what we changed.
@@ -28,6 +28,7 @@ Our own skills:
 | [`persian-translation-review`](skills/persian-translation-review) | Translator plus independent reviewer | Draft |
 | [`persian-orthography`](skills/persian-orthography) | Copyediting by the Academy's «دستور خطّ فارسی» (1401), with page references | Draft |
 | [`persian-book-translation`](skills/persian-book-translation) | Whole-book translation and RTL EPUB | Draft |
+| [`persian-skill-standard`](skills/persian-skill-standard) | The rules every skill here follows, for preparing or normalizing a skill | Draft |
 | [`persian-skill-evaluation`](skills/persian-skill-evaluation) | Evaluating a Persian skill: gates, accuracy, a with/without test, a verdict | Draft |
 
 **Font:** every skill that bundles or recommends a Persian font uses
@@ -73,10 +74,12 @@ knowledge.
 
 ## Skill standard
 
-Every skill follows one standard: English instructions with Persian examples,
-a third-person description of what it does and when to use it, the same
-frontmatter fields, and a `SKILL.md` under 500 lines with details in
-`references/`. See [CONTRIBUTING.md](CONTRIBUTING.md), and check with:
+Every skill follows one standard, written as a skill:
+[`persian-skill-standard`](skills/persian-skill-standard/SKILL.md). It sets the
+name (`persian-`, `dari-` or `tajik-` plus a plain topic), the folder layout,
+file names, frontmatter, body and credit. New skills are prepared with it and
+evaluated with `persian-skill-evaluation`; see [CONTRIBUTING.md](CONTRIBUTING.md).
+Check with:
 
 ```bash
 node scripts/check-skills.mjs

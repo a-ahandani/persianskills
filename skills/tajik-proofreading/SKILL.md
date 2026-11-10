@@ -100,7 +100,7 @@ See [delivery.md](references/delivery.md) for the full checklist and verificatio
 
 ## Scripts
 
-Run each as `python3 scripts/<name>.py` from the skill folder; `--help` prints its arguments, and [ocr-pipeline.md](references/ocr-pipeline.md) has tested invocations. Run the regression suite with `python3 scripts/tests/run_tests.py`.
+Run each as `python3 scripts/<name>.py` from the skill folder; `--help` prints its arguments, and [ocr-pipeline.md](references/ocr-pipeline.md) has tested invocations. Run the regression suite with `python3 tests/run_tests.py`.
 
 | Script | Purpose |
 |---|---|
@@ -109,4 +109,4 @@ Run each as `python3 scripts/<name>.py` from the skill folder; `--help` prints i
 | `scripts/djvu_to_pdf.py` | Converts DJVU to PDF (via DjVuLibre's `ddjvu`) so it enters the same pipeline as any PDF source |
 | `scripts/verify_docx.py` | Automates the delivery/formatting checklist against a generated DOCX — forbidden strings, real footnotes, fonts, headings, RTL markers, literal-`\n`-in-TextRun bug |
 | `scripts/check_consistency.py` | Scans a generated DOCX for the same proper name spelled two different ways across the document (letter-confusion and near-duplicate detection) |
-| `scripts/tests/run_tests.py` | Regression test suite for the two scripts above, against synthetic fixtures (no Node/docx-js needed) — run after editing either script |
+| `tests/run_tests.py` | Regression test suite for the two scripts above, against synthetic fixtures (no Node/docx-js needed) — run after editing either script |

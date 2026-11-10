@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Convert the provided IPL Signal Processing Glossary PDF to Virastar TOML."""
+"""Convert the provided IPL Signal Processing Glossary PDF to a terminology TOML register."""
 
 from __future__ import annotations
 
