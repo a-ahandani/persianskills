@@ -11,7 +11,11 @@ script can check; run it before opening a pull request.
 2. A copied skill keeps its author's license file in its folder, and gets a row
    in `CREDITS.md` with the source repo, path, commit, license and what was
    changed. Apache-2.0 skills that we modify also carry a `MODIFIED.md`.
-3. Don't add a skill that duplicates one already here. Improve the existing
+3. Only skills about the Persian language belong here: writing, register,
+   translation, orthography, Dari, Tajik, typography, right-to-left layout,
+   calendar and locale. Integrations with Iranian services and general tools
+   are listed in `catalog.json` as links, not copied.
+4. Don't add a skill that duplicates one already here. Improve the existing
    skill instead, or explain in the pull request what the new one covers that
    the existing one doesn't.
 

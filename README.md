@@ -9,13 +9,13 @@ authors, is at **[persianskills.com](https://persianskills.com)**.
 
 ## Skills in this repo
 
-Every Persian skill we could find with a license that allows copying lives
-here, in `skills/`, with its author's license file and credit: 106 skills
-from 19 authors plus 7 of our own (77 of them are the
-[iran-mcp](https://github.com/sepehr071/iran-mcp) service skills in
-`skills/iran-mcp/`). The site lists them all;
-[CREDITS.md](CREDITS.md) gives each one's source repo, commit, license and
-what we changed.
+Every skill here is about the Persian language: writing and register,
+translation, orthography, Dari and Tajik, typography and right-to-left
+layout, and calendar and locale. Each copied skill keeps its author's license
+file and credit: 21 skills from 13 authors, plus 7 of our own.
+Integrations with Iranian services and general tools are listed on the site
+as links only. [CREDITS.md](CREDITS.md) gives each skill's source repo,
+commit, license and what we changed.
 
 Our own skills:
 

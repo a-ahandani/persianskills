@@ -127,8 +127,8 @@ exists (`npx vibefarsi add …`) instead of re-implementing.
 
 - Phone «۰۹…», national ID (کد ملی, 10 digits with checksum), Sheba/IBAN
   (`IR` + 24 digits), bank card (16 digits, Luhn, BIN → bank), postal code
-  (10 digits), plate («۱۲ ب ۳۴۵ ایران ۱۱»). `iran-validation` has the exact
-  checks and error copy.
+  (10 digits), plate («۱۲ ب ۳۴۵ ایران ۱۱»). Validate each with its
+  checksum (national ID mod 11, Sheba mod 97, bank card Luhn).
 - Address fields: استان، شهر، خیابان، پلاک، واحد، کد پستی.
 - Shipping: پست، تیپاکس، پیک. Payment result states: موفق، در انتظار، ناموفق.
 - Working week Saturday–Thursday (often half-day Thursday); Friday off.

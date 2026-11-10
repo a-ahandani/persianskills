@@ -206,41 +206,35 @@
       "name": "iran-validation",
       "author": "TronIsHere",
       "url": "https://github.com/TronIsHere/vibefarsiui",
-      "path": "skills/iran-validation",
-      "here": true,
+      "here": false,
       "variety": "iran",
       "category": "ui",
       "license": "MIT",
       "stars": 263,
-      "commit": "7d56b50",
-      "description": "Validates Iranian identifiers: national ID checksum, mobile numbers, Sheba IBAN, bank cards and postal codes."
+      "description": "Validates Iranian identifiers: national ID checksum, mobile numbers, Sheba IBAN, bank cards and postal codes. Listed as a link only: validation of Iranian identifiers, not about the Persian language."
     },
     {
       "name": "iran-mcp (77 skills)",
       "author": "sepehr071",
       "url": "https://github.com/sepehr071/iran-mcp",
-      "path": "skills/iran-mcp",
-      "here": true,
+      "here": false,
       "kind": "mcp",
       "variety": "iran",
       "category": "domain",
       "license": "MIT",
       "stars": 244,
-      "commit": "51ba858",
-      "description": "77 skills for Iranian web services, from marketplaces to the stock exchange. Each one explains how to install its MCP server."
+      "description": "77 skills for Iranian web services, from marketplaces to the stock exchange. Each one explains how to install its MCP server. Listed as a link only: connectors for Iranian web services, not about the Persian language."
     },
     {
       "name": "convert-persian-dates",
       "author": "majiidd",
       "url": "https://github.com/majiidd/persiantools",
-      "path": "skills/convert-persian-dates",
-      "here": true,
+      "here": false,
       "variety": "iran",
       "category": "dates",
       "license": "MIT",
       "stars": 227,
-      "commit": "f210eef",
-      "description": "Jalali and Gregorian date conversion with Persian digits, built on the persiantools library, with a verify step."
+      "description": "Jalali and Gregorian date conversion with Persian digits, built on the persiantools library, with a verify step. Listed as a link only: a wrapper for one Python library; the calendar is covered by `jalali-calendar` and `persian-locales`."
     },
     {
       "name": "persian-motion-director",
@@ -272,14 +266,12 @@
       "name": "parsbench",
       "author": "ParsBench",
       "url": "https://github.com/ParsBench/ParsBench",
-      "path": "skills/parsbench",
-      "here": true,
+      "here": false,
       "variety": "iran",
       "category": "evals",
       "license": "Apache-2.0",
       "stars": 88,
-      "commit": "bf1ba79",
-      "description": "Writing Persian LLM evals: toman and rial, Jalali dates and ZWNJ treated as equivalent answers."
+      "description": "Writing Persian LLM evals: toman and rial, Jalali dates and ZWNJ treated as equivalent answers. Listed as a link only: usage notes for a benchmarking framework, not about the Persian language."
     },
     {
       "name": "scientific-fa-translation-skill",
@@ -322,27 +314,23 @@
       "name": "persian-documents",
       "author": "ehsanghaffar",
       "url": "https://github.com/ehsanghaffar/skills",
-      "path": "skills/persian-documents",
-      "here": true,
+      "here": false,
       "variety": "iran",
       "category": "documents",
       "license": "MIT",
       "stars": 10,
-      "commit": "bac8138",
-      "description": "Persian documents with correct RTL layout, bidirectional text and typography."
+      "description": "Persian documents with correct RTL layout, bidirectional text and typography. Listed as a link only: its RTL document rules are covered by `persian-writing`, which also checks Word and PDF output."
     },
     {
       "name": "persian-resume",
       "author": "ehsanghaffar",
       "url": "https://github.com/ehsanghaffar/skills",
-      "path": "skills/persian-resume",
-      "here": true,
+      "here": false,
       "variety": "iran",
       "category": "documents",
       "license": "MIT",
       "stars": 10,
-      "commit": "bac8138",
-      "description": "Persian résumés and CVs that render correctly with mixed Persian and English."
+      "description": "Persian résumés and CVs that render correctly with mixed Persian and English. Listed as a link only: mostly generic resume advice; Persian document rendering is covered by `persian-writing`."
     },
     {
       "name": "telegram-persian-enforcer",
@@ -446,28 +434,24 @@
       "name": "local-time",
       "author": "karimi-mohammad",
       "url": "https://github.com/karimi-mohammad/local-time-mcp",
-      "path": "skills/local-time",
-      "here": true,
+      "here": false,
       "variety": "iran",
       "category": "dates",
       "license": "MIT",
       "stars": 1,
-      "commit": "821afce",
-      "description": "Tells the agent today's date in the Jalali calendar, so it stops guessing.",
+      "description": "Tells the agent today's date in the Jalali calendar, so it stops guessing. Listed as a link only: a clock tool, not about the Persian language.",
       "kind": "mcp"
     },
     {
       "name": "shadcn-persian",
       "author": "Abulfadl-Ahmadi",
       "url": "https://github.com/Abulfadl-Ahmadi/shadcn-persian",
-      "path": "skills/shadcn-persian",
-      "here": true,
+      "here": false,
       "variety": "iran",
       "category": "ui",
       "license": "MIT",
       "stars": 1,
-      "commit": "ac1d0c8",
-      "description": "Persian and RTL setup for shadcn/ui components."
+      "description": "Persian and RTL setup for shadcn/ui components. Listed as a link only: a UI component kit; its RTL parts are covered by `persian-rtl-ui` and `rtl-design`."
     },
     {
       "name": "rtl-and-persian-localization",
@@ -484,14 +468,12 @@
       "name": "iranian-payment-gateways",
       "author": "sadrmanesh",
       "url": "https://github.com/sadrmanesh/commerce-agent-skills",
-      "path": "skills/iranian-payment-gateways",
-      "here": true,
+      "here": false,
       "variety": "iran",
       "category": "domain",
       "license": "MIT",
       "stars": 1,
-      "commit": "308c909",
-      "description": "Zarinpal and other Shaparak gateways with server-side verify and Rial and Toman amounts."
+      "description": "Zarinpal and other Shaparak gateways with server-side verify and Rial and Toman amounts. Listed as a link only: a payment integration, not about the Persian language."
     },
     {
       "name": "persian-formatting",
