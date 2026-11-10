@@ -19,14 +19,14 @@ authors, is at **[persianskills.com](https://persianskills.com)**.
 ## Install
 
 ```bash
-npx skills add a-ahandani/persianskills                         # every skill
-npx skills add a-ahandani/persianskills --skill dari-writing    # one skill
+npx skills add edyt-app/persianskills                         # every skill
+npx skills add edyt-app/persianskills --skill dari-writing    # one skill
 ```
 
 Claude Code plugin:
 
 ```
-/plugin marketplace add a-ahandani/persianskills
+/plugin marketplace add edyt-app/persianskills
 /plugin install persian-skills@persianskills
 ```
 
@@ -50,15 +50,21 @@ knowledge.
 
 The site lists every entry in [`catalog.json`](catalog.json). Add a row with
 the skill's name, author, URL, variety (`iran`, `afghanistan`, `tajikistan`
-or `all`), category, license and a one-line description in English and
-Persian, then open a pull request. Dari, Hazaragi and Tajik skills are the
-scarcest.
+or `all`), category, license and a one-line description, then open a pull
+request. Dari, Hazaragi and Tajik skills are the scarcest.
 
 ## Site
 
 ```bash
-node site/build.mjs     # writes site/dist (no dependencies)
+node site/dev.mjs       # http://localhost:4823, rebuilds and reloads on every save
+node site/build.mjs     # writes site/dist once (what Cloudflare Pages runs)
 ```
+
+No dependencies, Node 20 or later. Page copy lives in `site/build.mjs`,
+styles in `site/style.css`, the skill list in `catalog.json`, and the logos
+in `site/logo.svg` (the mark), `site/favicon.svg` (the mark in its box, used
+as the favicon), `site/edyt-mark.svg` (header) and `site/agents/` (agent
+logos). Set `PORT` to use another port.
 
 ## License
 
