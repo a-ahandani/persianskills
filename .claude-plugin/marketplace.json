@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace-manifest.json",
+  "name": "persianskills",
+  "owner": {
+    "name": "persianskills",
+    "url": "https://persianskills.com"
+  },
+  "description": "Agent skills for Persian in every variety: Iranian Persian, Dari and Tajik.",
+  "plugins": [
+    {
+      "name": "persian-skills",
+      "source": "./",
+      "strict": false,
+      "description": "Persian writing, localization, Dari and Tajik skills.",
+      "license": "MIT",
+      "homepage": "https://persianskills.com",
+      "keywords": ["persian", "farsi", "dari", "tajik", "rtl", "localization", "writing"],
+      "skills": [
+        "./skills/persian-writing",
+        "./skills/persian-localization",
+        "./skills/dari-writing",
+        "./skills/tajik-writing"
+      ]
+    }
+  ]
+}
