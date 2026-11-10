@@ -63,7 +63,6 @@ const row = (s, i) => {
   <div><b>${esc(s.name)}</b><span class="src">${esc(source(s))}</span>${tags ? `<span class="tags">${tags}</span>` : ""}<p class="desc">${esc(s.description)}</p></div>
   <span class="col"><span class="tag">${VARIETIES[s.variety]}</span></span>
   <span class="col">${esc(licenseLabel(s.license))}</span>
-  <span class="stars">${s.stars === undefined ? "" : num(s.stars)}</span>
 </a>`;
 };
 
@@ -141,13 +140,13 @@ const page = `<!doctype html>
         <label class="search"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="m11 11 3.5 3.5"/></svg><input type="search" placeholder="Search skills" aria-label="Search skills"><kbd>/</kbd></label>
       </div>
     </div>
-    <div class="thead"><span class="n">#</span><span>Skill</span><span class="col">Variety</span><span class="col">License</span><span class="stars">Stars</span></div>
+    <div class="thead"><span class="n">#</span><span>Skill</span><span class="col">Variety</span><span class="col">License</span></div>
     <div class="list">
 ${skills.map(row).join("\n")}
     </div>
     <p class="empty" hidden>No skills match.</p>
   </div>
-  <p class="note">Checked on ${checked}. Stars are the author's repo stars.</p>
+  <p class="note">Checked on ${checked}.</p>
 </section>
 
 <section class="section wrap" id="install">

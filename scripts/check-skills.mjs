@@ -50,6 +50,7 @@ for (const file of files.sort()) {
   const extra = s.keys.filter((k) => !ALLOWED.has(k));
   if (extra.length) problems.push(`frontmatter fields not allowed: ${extra.join(", ")}`);
   if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(s.name) || s.name.length > 64) problems.push(`bad name "${s.name}"`);
+  if (!/^(persian|dari|tajik)-/.test(s.name) || /-(skill|skills|toolkit)$/.test(s.name)) problems.push(`name "${s.name}" must start with persian-, dari- or tajik- and name a topic`);
   if (s.name !== basename(dir)) problems.push(`name "${s.name}" differs from folder "${basename(dir)}"`);
   if (names.has(s.name)) problems.push(`name also used by ${names.get(s.name)}`);
   names.set(s.name, rel);

@@ -32,10 +32,11 @@ script. Use `dari-writing` for them.
 **Status:** drafted from the sources at the end and checked against Unicode
 CLDR data. It has not had a native Tajik review yet.
 
-Related tools by other authors:
-- `firdavsi-tech/tajik-toolkit`: a Tajik proofreading, OCR and document
-  skill with scripts and tests. Use it for proofreading and scanned texts.
-- `BAHROMTJ/nutq`: MCP server for Cyrillic↔Perso-Arabic conversion,
+Related tools:
+- `tajik-proofreading` (by firdavsi-tech): Tajik proofreading, OCR and
+  document restoration with scripts and tests. Use it for proofreading and
+  scanned texts.
+- `BAHROMTJ/nutq` (not in this repo): MCP server for Cyrillic↔Perso-Arabic conversion,
   number-to-words and text cleanup.
 
 ## Alphabet
