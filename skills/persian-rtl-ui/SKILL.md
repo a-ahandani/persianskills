@@ -75,7 +75,7 @@ rules below to every component, then run the checklist in section 10.
 - Form values, URLs, JSON and API payloads keep Latin digits.
 - Calendar is Jalali (شمسی); week starts Saturday; Friday is the weekend.
   Use a real converter (`lib/jalali.ts`), not `toLocaleDateString` alone.
-  `jalali-calendar` has the formats, ranges and holiday rules.
+  `persian-calendar` has the formats, ranges and holiday rules.
 - Relative time in Persian: «۲ ساعت پیش», «دیروز».
 - Numeric table columns: `tabular-nums` so digits line up, aligned to the
   start (right) like the rest of the RTL table. Do not `text-right` them.

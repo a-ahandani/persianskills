@@ -62,7 +62,11 @@ metadata:
   `allowed-tools`, `metadata`. Anything else goes under `metadata` or is
   dropped.
 - `name`: lowercase letters, digits and hyphens; at most 64 characters; unique
-  in the repo.
+  in the repo. It starts with the variety, `persian-`, `dari-` or `tajik-`,
+  followed by the topic in plain English (`persian-calendar`,
+  `tajik-proofreading`). No project or brand names and no `-skill` suffix. A
+  copied skill gets a name that follows this rule, and its CREDITS.md row
+  records the upstream name.
 - `description`: English, at most 1,024 characters, third person. It says
   what the skill does and when to use it, and includes the words a user would
   type, Persian ones in «» where they help matching.

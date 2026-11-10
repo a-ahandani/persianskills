@@ -12,7 +12,6 @@
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
-      "stars": 422,
       "description": "Natural Persian prose, orthography (ZWNJ, Persian digits), AI-tell removal, cleanup scripts and correct RTL Word, PDF and slides. Copied from v1.4.0 with its font switched to Sahel.",
       "commit": "75fcdf3"
     },
@@ -77,13 +76,13 @@
       "license": "MIT"
     },
     {
-      "name": "farhangestan-orthography",
+      "name": "persian-orthography",
       "description": "Copyediting by the Academy of Persian Language's official «دستور خطّ فارسی» (new edition, 1401), with the book's page for every rule: spacing, affixes, ezafe, hamza, Arabic forms, compounds and preferred spellings. Inspired by Byte-Magazine's byte-virastari.",
       "variety": "iran",
       "category": "writing",
       "author": "persianskills",
       "url": "https://github.com/edyt-app/persianskills",
-      "path": "skills/farhangestan-orthography",
+      "path": "skills/persian-orthography",
       "here": true,
       "draft": true,
       "license": "MIT"
@@ -101,15 +100,26 @@
       "license": "MIT"
     },
     {
-      "name": "tajik-toolkit",
+      "name": "persian-skill-evaluation",
+      "author": "persianskills",
+      "url": "https://github.com/edyt-app/persianskills",
+      "path": "skills/persian-skill-evaluation",
+      "here": true,
+      "draft": true,
+      "variety": "all",
+      "category": "evals",
+      "license": "MIT",
+      "description": "Evaluates a Persian skill before you install or copy it: scope, license, safety, overlap, the standard, the accuracy of its Persian rules against the Academy and CLDR, and a with/without test on Persian prompts. Ends in keep, fix, link only or reject."
+    },
+    {
+      "name": "tajik-proofreading",
       "author": "firdavsi-tech",
       "url": "https://github.com/firdavsi-tech/tajik-toolkit",
-      "path": "skills/tajik-toolkit",
+      "path": "skills/tajik-proofreading",
       "here": true,
       "variety": "tajikistan",
       "category": "documents",
       "license": "MIT",
-      "stars": 0,
       "commit": "975cd6e",
       "description": "Tajik proofreading, OCR of scanned books and DOCX restoration, with orthography references and tested scripts."
     },
@@ -121,7 +131,6 @@
       "variety": "all",
       "category": "localization",
       "license": "MIT",
-      "stars": 7,
       "description": "Long Persian localization guide with a real Iran vs Afghanistan section: afghani, Afghan months, weekend and vocabulary. Overlaps `persian-localization` here, so it isn't copied; install it from its author's repo."
     },
     {
@@ -133,7 +142,6 @@
       "variety": "iran",
       "category": "ui",
       "license": "MIT",
-      "stars": 263,
       "commit": "7d56b50",
       "description": "Technical and on-page SEO for Persian sites: hreflang, Persian titles and descriptions, slugs and search intent."
     },
@@ -146,7 +154,6 @@
       "variety": "iran",
       "category": "ui",
       "license": "MIT",
-      "stars": 263,
       "commit": "7d56b50",
       "description": "Right-to-left Persian UI in React and Tailwind: logical CSS, Persian fonts, digits and bidi."
     },
@@ -159,7 +166,6 @@
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
-      "stars": 263,
       "commit": "7d56b50",
       "description": "Colloquial written Persian for chat, captions, Telegram posts and friendly support replies."
     },
@@ -172,7 +178,6 @@
       "variety": "iran",
       "category": "ui",
       "license": "MIT",
-      "stars": 263,
       "commit": "7d56b50",
       "description": "Persian UI microcopy: buttons, labels, errors, empty states, toasts and confirmations."
     },
@@ -185,20 +190,18 @@
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
-      "stars": 263,
       "commit": "7d56b50",
       "description": "Formal Persian that still sounds human: proposals, contracts, official letters and policies."
     },
     {
-      "name": "jalali-calendar",
+      "name": "persian-calendar",
       "author": "TronIsHere",
       "url": "https://github.com/TronIsHere/vibefarsiui",
-      "path": "skills/jalali-calendar",
+      "path": "skills/persian-calendar",
       "here": true,
       "variety": "iran",
       "category": "dates",
       "license": "MIT",
-      "stars": 263,
       "commit": "7d56b50",
       "description": "Jalali dates and Tehran time for Iranian users: Saturday-first weeks, month names and conversions."
     },
@@ -210,7 +213,6 @@
       "variety": "iran",
       "category": "ui",
       "license": "MIT",
-      "stars": 263,
       "description": "Validates Iranian identifiers: national ID checksum, mobile numbers, Sheba IBAN, bank cards and postal codes. Listed as a link only: validation of Iranian identifiers, not about the Persian language."
     },
     {
@@ -222,7 +224,6 @@
       "variety": "iran",
       "category": "domain",
       "license": "MIT",
-      "stars": 244,
       "description": "77 skills for Iranian web services, from marketplaces to the stock exchange. Each one explains how to install its MCP server. Listed as a link only: connectors for Iranian web services, not about the Persian language."
     },
     {
@@ -233,32 +234,29 @@
       "variety": "iran",
       "category": "dates",
       "license": "MIT",
-      "stars": 227,
-      "description": "Jalali and Gregorian date conversion with Persian digits, built on the persiantools library, with a verify step. Listed as a link only: a wrapper for one Python library; the calendar is covered by `jalali-calendar` and `persian-locales`."
+      "description": "Jalali and Gregorian date conversion with Persian digits, built on the persiantools library, with a verify step. Listed as a link only: a wrapper for one Python library; the calendar is covered by `persian-calendar` and `persian-locales`."
     },
     {
-      "name": "persian-motion-director",
+      "name": "persian-motion-design",
       "author": "atmirrr",
       "url": "https://github.com/atmirrr/persian-motion-director",
-      "path": "skills/persian-motion-director",
+      "path": "skills/persian-motion-design",
       "here": true,
       "variety": "iran",
       "category": "typography",
       "license": "MIT",
-      "stars": 152,
       "commit": "5499640",
       "description": "Motion design with correct Persian typography for Remotion and the web."
     },
     {
-      "name": "salsi",
+      "name": "persian-native-words",
       "author": "pooooooriya",
       "url": "https://github.com/pooooooriya/salsi",
-      "path": "skills/salsi",
+      "path": "skills/persian-native-words",
       "here": true,
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
-      "stars": 91,
       "commit": "303ebc8",
       "description": "Replaces loanwords with Persian equivalents, with a scanner and adjustable strictness."
     },
@@ -270,32 +268,29 @@
       "variety": "iran",
       "category": "evals",
       "license": "Apache-2.0",
-      "stars": 88,
       "description": "Writing Persian LLM evals: toman and rial, Jalali dates and ZWNJ treated as equivalent answers. Listed as a link only: usage notes for a benchmarking framework, not about the Persian language."
     },
     {
-      "name": "scientific-fa-translation-skill",
+      "name": "persian-scientific-translation",
       "author": "isArman",
       "url": "https://github.com/isArman/scientific-fa-translation-skill",
-      "path": "skills/scientific-fa-translation-skill",
+      "path": "skills/persian-scientific-translation",
       "here": true,
       "variety": "iran",
       "category": "translation",
       "license": "MIT",
-      "stars": 43,
       "commit": "27cad0f",
       "description": "Academic English to scientific Persian, with print-ready RTL PDFs through XeLaTeX."
     },
     {
-      "name": "lahne-man",
+      "name": "persian-voice",
       "author": "RezaEsmailGol",
       "url": "https://github.com/RezaEsmailGol/lahne-man",
-      "path": "skills/lahne-man",
+      "path": "skills/persian-voice",
       "here": true,
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
-      "stars": 41,
       "commit": "168e2a6",
       "description": "Edits Persian and English text so it stops sounding machine-written, with edit and detect modes."
     },
@@ -307,7 +302,6 @@
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
-      "stars": 20,
       "description": "Natural, informal conversational Persian. Also on ClawHub. Overlaps `persian-conversational` here, so it isn't copied; install it from its author's repo."
     },
     {
@@ -318,7 +312,6 @@
       "variety": "iran",
       "category": "documents",
       "license": "MIT",
-      "stars": 10,
       "description": "Persian documents with correct RTL layout, bidirectional text and typography. Listed as a link only: its RTL document rules are covered by `persian-writing`, which also checks Word and PDF output."
     },
     {
@@ -329,32 +322,29 @@
       "variety": "iran",
       "category": "documents",
       "license": "MIT",
-      "stars": 10,
       "description": "Persian résumés and CVs that render correctly with mixed Persian and English. Listed as a link only: mostly generic resume advice; Persian document rendering is covered by `persian-writing`."
     },
     {
-      "name": "telegram-persian-enforcer",
+      "name": "persian-telegram",
       "author": "ehsanghaffar",
       "url": "https://github.com/ehsanghaffar/skills",
-      "path": "skills/telegram-persian-enforcer",
+      "path": "skills/persian-telegram",
       "here": true,
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
-      "stars": 10,
       "commit": "bac8138",
       "description": "Keeps every Telegram reply, post and report in fluent, correctly written Persian, with a checker script."
     },
     {
-      "name": "persian-skill",
+      "name": "persian-translation",
       "author": "Mojtaba-Alehosseini",
       "url": "https://github.com/Mojtaba-Alehosseini/persian-skill",
-      "path": "skills/persian-skill",
+      "path": "skills/persian-translation",
       "here": true,
       "variety": "iran",
       "category": "translation",
       "license": "MIT",
-      "stars": 7,
       "commit": "4264f6e",
       "description": "English to Persian and back: idiomatic translation that strips machine-translation phrasing."
     },
@@ -366,45 +356,41 @@
       "variety": "iran",
       "category": "writing",
       "license": "Apache-2.0",
-      "stars": 4,
       "description": "Informal Persian the way people type it in chat, with the colloquial forms spelled out. Overlaps `persian-conversational` here, so it isn't copied; install it from its author's repo."
     },
     {
-      "name": "finglish-normalize",
+      "name": "persian-finglish",
       "author": "thesamehosuh",
       "url": "https://github.com/thesamehosuh/xratu",
-      "path": "skills/finglish-normalize",
+      "path": "skills/persian-finglish",
       "here": true,
       "variety": "iran",
       "category": "writing",
       "license": "Apache-2.0",
-      "stars": 4,
       "commit": "c88daf5",
       "description": "Reads Finglish (Persian in Latin letters) and turns it back into Persian script."
     },
     {
-      "name": "virastar",
+      "name": "persian-academic-writing",
       "author": "mhyrzt",
       "url": "https://github.com/mhyrzt/virastar",
-      "path": "skills/virastar",
+      "path": "skills/persian-academic-writing",
       "here": true,
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
-      "stars": 3,
       "commit": "04937f4",
       "description": "Academic Persian writing in phases, with terminology and XePersian typesetting."
     },
     {
-      "name": "rtl-design",
+      "name": "persian-rtl-design",
       "author": "Baghlani",
       "url": "https://github.com/Baghlani/rtl-design",
-      "path": "skills/rtl-design",
+      "path": "skills/persian-rtl-design",
       "here": true,
       "variety": "all",
       "category": "ui",
       "license": "Apache-2.0",
-      "stars": 1,
       "commit": "b7c5229",
       "description": "Right-to-left interface design and audits for Persian and other RTL languages."
     },
@@ -416,7 +402,6 @@
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
-      "stars": 1,
       "description": "Native-sounding Persian in every register, with a final verification step. Overlaps `persian-writing` here, so it isn't copied; install it from its author's repo."
     },
     {
@@ -427,7 +412,6 @@
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
-      "stars": 0,
       "description": "Persian writing, translation and dates in one skill. Popular on ClawHub. Overlaps `persian-writing` here, so it isn't copied; install it from its author's repo."
     },
     {
@@ -438,7 +422,6 @@
       "variety": "iran",
       "category": "dates",
       "license": "MIT",
-      "stars": 1,
       "description": "Tells the agent today's date in the Jalali calendar, so it stops guessing. Listed as a link only: a clock tool, not about the Persian language.",
       "kind": "mcp"
     },
@@ -450,8 +433,7 @@
       "variety": "iran",
       "category": "ui",
       "license": "MIT",
-      "stars": 1,
-      "description": "Persian and RTL setup for shadcn/ui components. Listed as a link only: a UI component kit; its RTL parts are covered by `persian-rtl-ui` and `rtl-design`."
+      "description": "Persian and RTL setup for shadcn/ui components. Listed as a link only: a UI component kit; its RTL parts are covered by `persian-rtl-ui` and `persian-rtl-design`."
     },
     {
       "name": "rtl-and-persian-localization",
@@ -461,7 +443,6 @@
       "variety": "iran",
       "category": "localization",
       "license": "MIT",
-      "stars": 1,
       "description": "Storefront localization for fa-IR: logical CSS, digits, Yeh and Kaf, ZWNJ and currency display. Overlaps `persian-rtl-ui` here, so it isn't copied; install it from its author's repo."
     },
     {
@@ -472,7 +453,6 @@
       "variety": "iran",
       "category": "domain",
       "license": "MIT",
-      "stars": 1,
       "description": "Zarinpal and other Shaparak gateways with server-side verify and Rial and Toman amounts. Listed as a link only: a payment integration, not about the Persian language."
     },
     {
@@ -483,7 +463,6 @@
       "variety": "iran",
       "category": "typography",
       "license": "MIT",
-      "stars": 0,
       "description": "Persian formatting rules and RTL that holds up in chat, terminals and HTML. Overlaps `persian-writing` here, so it isn't copied; install it from its author's repo."
     },
     {
@@ -494,7 +473,6 @@
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
-      "stars": 0,
       "description": "Rules for formal and official Persian: administrative letters, reports, technical docs and contracts. Overlaps `persian-formal` here, so it isn't copied; install it from its author's repo."
     },
     {
@@ -505,19 +483,17 @@
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
-      "stars": 0,
       "description": "Natural, friendly informal Persian for messaging, social posts and casual email. Overlaps `persian-conversational` here, so it isn't copied; install it from its author's repo."
     },
     {
-      "name": "kumihan-fa",
+      "name": "persian-typography",
       "author": "landco-llc",
       "url": "https://github.com/landco-llc/kumihan",
-      "path": "skills/kumihan-fa",
+      "path": "skills/persian-typography",
       "here": true,
       "variety": "iran",
       "category": "typography",
       "license": "Apache-2.0",
-      "stars": 0,
       "commit": "1b27c93",
       "description": "Persian typography rules for websites and documents, with a source checker."
     },
@@ -529,8 +505,7 @@
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
-      "stars": 0,
-      "description": "Removes the stock phrases that make Persian text read as machine-written. Overlaps `lahne-man` here, so it isn't copied; install it from its author's repo."
+      "description": "Removes the stock phrases that make Persian text read as machine-written. Overlaps `persian-voice` here, so it isn't copied; install it from its author's repo."
     },
     {
       "name": "nutq",
@@ -540,7 +515,6 @@
       "variety": "all",
       "category": "tools",
       "license": "MIT",
-      "stars": 0,
       "description": "MCP server: Tajik Cyrillic to Perso-Arabic and back, number to words, and cleanup of look-alike letters and ZWNJ."
     },
     {
@@ -550,7 +524,6 @@
       "variety": "afghanistan",
       "category": "domain",
       "license": "AGPL-3.0",
-      "stars": 482,
       "description": "Afghanistan tax drafts in English: income tax, company formation, payroll. Marked unverified by the authors."
     },
     {
@@ -560,7 +533,6 @@
       "variety": "tajikistan",
       "category": "domain",
       "license": "AGPL-3.0",
-      "stars": 482,
       "description": "Tajikistan tax drafts in English: income tax, VAT, payroll. Marked unverified by the authors."
     },
     {
@@ -571,7 +543,6 @@
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
-      "stars": 0,
       "description": "MCP server with 1,577 editing notes, from grammar and orthography to tone and structure."
     }
   ]

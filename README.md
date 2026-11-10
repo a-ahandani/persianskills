@@ -12,7 +12,7 @@ authors, is at **[persianskills.com](https://persianskills.com)**.
 Every skill here is about the Persian language: writing and register,
 translation, orthography, Dari and Tajik, typography and right-to-left
 layout, and calendar and locale. Each copied skill keeps its author's license
-file and credit: 21 skills from 13 authors, plus 7 of our own.
+file and credit: 21 skills from 13 authors, plus 8 of our own.
 Integrations with Iranian services and general tools are listed on the site
 as links only. [CREDITS.md](CREDITS.md) gives each skill's source repo,
 commit, license and what we changed.
@@ -26,8 +26,9 @@ Our own skills:
 | [`tajik-writing`](skills/tajik-writing) | Tajik in Cyrillic, for Tajikistan, Uzbekistan and Russia | Draft, needs native Tajik review |
 | [`persian-locales`](skills/persian-locales) | CLDR data for fa-IR, fa-AF and tg | Draft |
 | [`persian-translation-review`](skills/persian-translation-review) | Translator plus independent reviewer | Draft |
-| [`farhangestan-orthography`](skills/farhangestan-orthography) | Copyediting by the Academy's «دستور خطّ فارسی» (1401), with page references | Draft |
+| [`persian-orthography`](skills/persian-orthography) | Copyediting by the Academy's «دستور خطّ فارسی» (1401), with page references | Draft |
 | [`persian-book-translation`](skills/persian-book-translation) | Whole-book translation and RTL EPUB | Draft |
+| [`persian-skill-evaluation`](skills/persian-skill-evaluation) | Evaluating a Persian skill: gates, accuracy, a with/without test, a verdict | Draft |
 
 **Font:** every skill that bundles or recommends a Persian font uses
 [Sahel](https://github.com/rastikerdar/sahel-font) by Saber Rastikerdar

@@ -1,6 +1,0 @@
-interface:
-  display_name: "Virastar"
-  short_description: "Audit, translate, and manage Persian terminology."
-  default_prompt: "Use $virastar to audit this Persian scholarly manuscript in report-first mode while preserving meaning, evidence, terminology, citations, numbers, equations, notation, and LaTeX structure."
-policy:
-  allow_implicit_invocation: true
