@@ -1,6 +1,12 @@
 ---
 name: amar
 description: "Read-only Statistical Centre of Iran (amar.org.ir): CPI inflation, unemployment, census, any table. Use when the user asks about Statistical Centre of Iran (amar.org.ir) or wants official exchange rates, inflation, unemployment or other economic statistics in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Statistical Centre of Iran

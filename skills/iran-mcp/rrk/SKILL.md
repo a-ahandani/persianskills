@@ -1,6 +1,12 @@
 ---
 name: rrk
 description: "Read-only Official Gazette of Iran (rrk.ir): search laws and rulings, read their text. Use when the user asks about Official Gazette of Iran (rrk.ir) or wants laws, regulations, court votes, legal opinions or Official Gazette texts in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Official Gazette of Iran

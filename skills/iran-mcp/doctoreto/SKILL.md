@@ -1,6 +1,12 @@
 ---
 name: doctoreto
 description: "Unofficial read-only Doctoreto: Iranian doctors, visit fees, free appointment times, clinics, labs. Use when the user asks about Doctoreto (doctoreto.com) or wants doctors, clinics, labs, appointments or pharmacy products in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Doctoreto

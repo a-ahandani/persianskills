@@ -1,6 +1,12 @@
 ---
 name: pasavard
 description: "Pasavard: hourly-tracked Digikala/Snappshop price lists by category and budget, with cashback links. Read-only. Use when the user asks about Pasavard (pasavard.ir) or wants electronics, appliances or other goods in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Pasavard

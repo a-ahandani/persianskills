@@ -1,5 +1,22 @@
 # Usage Patterns for AI Agents
 
+## Contents
+
+- Pattern 1: User pastes Persian text and asks to "ویرایش" / "fix" / "edit"
+- Pattern 2: User wants to clean text for NLP / ML / search indexing
+- Pattern 3: User wants Persian text ready for an LLM prompt
+- Pattern 4: User wants to convert only digits to Persian
+- Pattern 5: User wants to convert only punctuation to Persian
+- Pattern 6: User wants to fix ZWNJ only
+- Pattern 7: User wants to remove noise (links/mentions/emojis) but keep Persian text intact
+- Pattern 8: User wants to spell-check Persian text
+- Pattern 9: User wants to preserve legitimate doubled letters (الله, موسسه, تردد)
+- Pattern 10: User pastes a tweet and asks for "ویرایش"
+- Pattern 11: Batch processing multiple files
+- Pattern 12: JSON output for programmatic use
+- Anti-patterns to avoid
+- Decision flowchart
+
 This file collects common usage patterns for AI agents working with Persian
 text. Each pattern includes: when to use it, the recommended command, and
 expected behavior.

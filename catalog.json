@@ -65,18 +65,6 @@
       "license": "MIT"
     },
     {
-      "name": "persian-text-editor",
-      "description": "Edits a Persian draft like a human editor in four passes (meaning, sentences, words, mechanics) and lists what changed. Inspired by SamanQasempour/persian-skills.",
-      "variety": "iran",
-      "category": "writing",
-      "author": "persianskills",
-      "url": "https://github.com/edyt-app/persianskills",
-      "path": "skills/persian-text-editor",
-      "here": true,
-      "draft": true,
-      "license": "MIT"
-    },
-    {
       "name": "persian-translation-review",
       "description": "Translator and independent reviewer roles for Persian, with a line-by-line checklist and an approval table. Inspired by jwiegley's persian skill.",
       "variety": "all",
@@ -129,14 +117,12 @@
       "name": "localize-fa",
       "author": "i18n-agent",
       "url": "https://github.com/i18n-agent/i18nstack",
-      "path": "skills/localize-fa",
-      "here": true,
+      "here": false,
       "variety": "all",
       "category": "localization",
       "license": "MIT",
       "stars": 7,
-      "commit": "6bf6587",
-      "description": "Long Persian localization guide with a real Iran vs Afghanistan section: afghani, Afghan months, weekend and vocabulary."
+      "description": "Long Persian localization guide with a real Iran vs Afghanistan section: afghani, Afghan months, weekend and vocabulary. Overlaps `persian-localization` here, so it isn't copied; install it from its author's repo."
     },
     {
       "name": "persian-seo",
@@ -325,14 +311,12 @@
       "name": "persian",
       "author": "clawic",
       "url": "https://github.com/clawic/skills",
-      "path": "skills/persian",
-      "here": true,
+      "here": false,
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
       "stars": 20,
-      "commit": "f825206",
-      "description": "Natural, informal conversational Persian. Also on ClawHub."
+      "description": "Natural, informal conversational Persian. Also on ClawHub. Overlaps `persian-conversational` here, so it isn't copied; install it from its author's repo."
     },
     {
       "name": "persian-documents",
@@ -390,14 +374,12 @@
       "name": "natural-farsi",
       "author": "thesamehosuh",
       "url": "https://github.com/thesamehosuh/xratu",
-      "path": "skills/natural-farsi",
-      "here": true,
+      "here": false,
       "variety": "iran",
       "category": "writing",
       "license": "Apache-2.0",
       "stars": 4,
-      "commit": "c88daf5",
-      "description": "Informal Persian the way people type it in chat, with the colloquial forms spelled out."
+      "description": "Informal Persian the way people type it in chat, with the colloquial forms spelled out. Overlaps `persian-conversational` here, so it isn't copied; install it from its author's repo."
     },
     {
       "name": "finglish-normalize",
@@ -442,27 +424,23 @@
       "name": "persian-writer",
       "author": "Ariiima",
       "url": "https://github.com/Ariiima/persian-writer",
-      "path": "skills/persian-writer",
-      "here": true,
+      "here": false,
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
       "stars": 1,
-      "commit": "5792f72",
-      "description": "Native-sounding Persian in every register, with a final verification step."
+      "description": "Native-sounding Persian in every register, with a final verification step. Overlaps `persian-writing` here, so it isn't copied; install it from its author's repo."
     },
     {
       "name": "persian-language",
       "author": "nimaansari",
       "url": "https://github.com/nimaansari/persian-language",
-      "path": "skills/persian-language",
-      "here": true,
+      "here": false,
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
       "stars": 0,
-      "commit": "8c228b3",
-      "description": "Persian writing, translation and dates in one skill. Popular on ClawHub."
+      "description": "Persian writing, translation and dates in one skill. Popular on ClawHub. Overlaps `persian-writing` here, so it isn't copied; install it from its author's repo."
     },
     {
       "name": "local-time",
@@ -495,14 +473,12 @@
       "name": "rtl-and-persian-localization",
       "author": "sadrmanesh",
       "url": "https://github.com/sadrmanesh/commerce-agent-skills",
-      "path": "skills/rtl-and-persian-localization",
-      "here": true,
+      "here": false,
       "variety": "iran",
       "category": "localization",
       "license": "MIT",
       "stars": 1,
-      "commit": "308c909",
-      "description": "Storefront localization for fa-IR: logical CSS, digits, Yeh and Kaf, ZWNJ and currency display."
+      "description": "Storefront localization for fa-IR: logical CSS, digits, Yeh and Kaf, ZWNJ and currency display. Overlaps `persian-rtl-ui` here, so it isn't copied; install it from its author's repo."
     },
     {
       "name": "iranian-payment-gateways",
@@ -521,40 +497,34 @@
       "name": "persian-formatting",
       "author": "PouyaRN",
       "url": "https://github.com/PouyaRN/persian-formatting-skill",
-      "path": "skills/persian-formatting",
-      "here": true,
+      "here": false,
       "variety": "iran",
       "category": "typography",
       "license": "MIT",
       "stars": 0,
-      "commit": "a271bf3",
-      "description": "Persian formatting rules and RTL that holds up in chat, terminals and HTML."
+      "description": "Persian formatting rules and RTL that holds up in chat, terminals and HTML. Overlaps `persian-writing` here, so it isn't copied; install it from its author's repo."
     },
     {
       "name": "persian-formal-mmgghh",
       "author": "mmgghh",
       "url": "https://github.com/mmgghh/persian-writing-skills",
-      "path": "skills/persian-formal-mmgghh",
-      "here": true,
+      "here": false,
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
       "stars": 0,
-      "commit": "028f0b2",
-      "description": "Rules for formal and official Persian: administrative letters, reports, technical docs and contracts."
+      "description": "Rules for formal and official Persian: administrative letters, reports, technical docs and contracts. Overlaps `persian-formal` here, so it isn't copied; install it from its author's repo."
     },
     {
       "name": "persian-informal",
       "author": "mmgghh",
       "url": "https://github.com/mmgghh/persian-writing-skills",
-      "path": "skills/persian-informal",
-      "here": true,
+      "here": false,
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
       "stars": 0,
-      "commit": "028f0b2",
-      "description": "Natural, friendly informal Persian for messaging, social posts and casual email."
+      "description": "Natural, friendly informal Persian for messaging, social posts and casual email. Overlaps `persian-conversational` here, so it isn't copied; install it from its author's repo."
     },
     {
       "name": "kumihan-fa",
@@ -573,14 +543,12 @@
       "name": "persian-unslop",
       "author": "siawash1991",
       "url": "https://github.com/siawash1991/persian-agent-skills",
-      "path": "skills/persian-unslop",
-      "here": true,
+      "here": false,
       "variety": "iran",
       "category": "writing",
       "license": "MIT",
       "stars": 0,
-      "commit": "d287521",
-      "description": "Removes the stock phrases that make Persian text read as machine-written."
+      "description": "Removes the stock phrases that make Persian text read as machine-written. Overlaps `lahne-man` here, so it isn't copied; install it from its author's repo."
     },
     {
       "name": "nutq",

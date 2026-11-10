@@ -1,5 +1,7 @@
 # Source Audit: Retained, Adapted, and Rejected Ideas
 
+Contents: Method; 1. Academy of Persian Language and Literature; 2. IranDoc thesis/dissertation writing guide (`راه`); 3. University of Tehran official guidance; 4. `sinamomken/tehran-thesis`; 5. `LimHyungTae/awesome-claudecode-paper-proofreading`; 6. `ali2000hos/persian-writing`; 7. `0xRadikal/Academic-Paper-Writer-Skill`; 8. Other proofreading/agent-skill examples; 9. Persian NLP and proofreading tools; 10. Unicode and TeX standards/resources; 11. Deliberate design decisions in this skill; 12. Source-use rule for future maintenance; 13. IPL Signal Processing Glossary.
+
 ## Method
 
 This skill does not treat any single repository as a comprehensive authority. Sources were classified by role:

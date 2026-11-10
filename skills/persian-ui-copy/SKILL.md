@@ -1,13 +1,19 @@
 ---
 name: persian-ui-copy
-description: >
-  Write Persian (Farsi) UI microcopy: button labels, field labels and
+description: >-
+  Writes Persian (Farsi) UI microcopy: button labels, field labels and
   placeholders, validation and error messages, empty states, loading and
   success toasts, confirmations, notifications. Use whenever generating or
-  translating any user-facing string for an Iranian product (متن دکمه، پیام
-  خطا، لیبل فرم، ترجمه‌ی رابط کاربری، فارسی‌سازی). Includes an English→Persian
-  UI glossary so «Login» becomes «ورود» and «Submit» becomes «ثبت», never a
-  literal translation.
+  translating any user-facing string for an Iranian product («متن دکمه»،
+  «پیام خطا»، «لیبل فرم»، «ترجمه‌ی رابط کاربری»، «فارسی‌سازی»). Includes an
+  English-to-Persian UI glossary so «Login» becomes «ورود» and «Submit» becomes
+  «ثبت», never a literal translation.
+license: MIT
+metadata:
+  author: VibeFarsi (TronIsHere)
+  source: https://github.com/TronIsHere/vibefarsiui
+  upstream-commit: 7d56b50
+  changes: Description in the third person with Persian trigger words in «», emoji column headers replaced with words, and metadata added.
 ---
 
 # Persian UI copy (متن رابط کاربری)
@@ -134,7 +140,7 @@ Never «مشکلی پیش آمد» alone; say which thing and what next.
 
 ## 9. Before / after
 
-| Prompt | ❌ | ✅ |
+| Prompt | Wrong | Right |
 |---|---|---|
 | Submit button on a signup form | ارسال نمایید | ثبت‌نام |
 | Invalid phone | شماره تلفن وارد شده نامعتبر می‌باشد | شماره موبایل باید ۱۱ رقم باشد و با ۰۹ شروع شود. |

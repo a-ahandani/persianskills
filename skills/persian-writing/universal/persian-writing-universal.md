@@ -33,7 +33,7 @@ party and signals conflict, ask one short question instead of guessing.
 
 Two failure modes make Persian output look machine-made, and they are independent:
 
-1. **The prose sounds like AI.** Technically correct, but stiff, کتابی, inflated —
+1. **The prose sounds like AI.** Technically correct, but stiff, bookish (کتابی), inflated —
    no Iranian would write it that way.
 2. **The layout betrays the text.** Persian rendered left-aligned, Arabic ي/ك glyphs,
    Latin digits breaking RTL flow, headings orphaned at page bottoms, fonts falling
@@ -90,22 +90,22 @@ Full guide in the «Writing style: registers & de-AI-ing» part below. The core 
    proposal); when the text goes to a third party and signals conflict, ask
    ONE short question instead of guessing; no signal at all → formal-but-human.
    - Proposal, invoice, report, official email, website copy → **formal-but-human**:
-     full written forms (می‌شود نه میشه), شما, zero slang — but است نه می‌باشد,
-     short sentences, concrete claims. Human ≠ خودمونی: proposals/contracts keep
+     full written forms («می‌شود», not «میشه»), «شما», zero slang — but «است», not «می‌باشد»,
+     short sentences, concrete claims. Human does not mean chummy (خودمونی): proposals/contracts keep
      formal vocabulary (no «جور است»-style idioms); warmth comes from clarity,
      numbers, and one warm closing line (writing-style.md, "warmth trap").
-   - نامه اداری → formal + letter conventions (honorifics, «با سلام و احترام؛»
+   - Official letter (نامه اداری) → formal + letter conventions (honorifics, «با سلام و احترام؛»
      — writing-style.md).
    - Instagram/Telegram, chat, friendly email → **colloquial written Persian**
-     (محاوره‌نویسی): میشه، می‌خوام، رو، particles like دیگه/که/مگه.
+     (محاوره‌نویسی): «میشه»، «می‌خوام»، «رو»، particles like «دیگه»/«که»/«مگه».
    - Blog, newsletter → between: written forms, warm direct voice.
    - Paper, thesis, university report → **academic** (نگارش علمی): measured,
-     hedged, passive acceptable, zero تعارف — read the «Academic writing (نگارش علمی)» part below.
+     hedged, passive acceptable, no ceremonial courtesy (تعارف) — read the «Academic writing (نگارش علمی)» part below.
    - SEO/sales copy → register per artifact as above, plus the «SEO writing & copywriting» part below.
 2. **Ban the bureaucratic tells:** می‌باشد، لازم به ذکر است، در راستای،
    از اهمیت ویژه‌ای برخوردار است، نقش بسزایی ایفا می‌کند.
 3. **Ban the AI tells:** em dashes (—), rule-of-three triads (سریع، آسان و مطمئن),
-   نه تنها ... بلکه, tacked-on «که نشان‌دهنده‌ی ... است», vague «کارشناسان معتقدند»,
+   «نه تنها ... بلکه» (not only ... but also), tacked-on «که نشان‌دهنده‌ی ... است», vague «کارشناسان معتقدند»,
    generic «در دنیای امروز» openers, «در نهایت می‌توان گفت» closers.
 4. **Hold one point of view.** Explain facts impersonally, address the reader
    directly (the verb carries it — don't repeat «شما»), and use «ما» only for
@@ -116,8 +116,8 @@ Full guide in the «Writing style: registers & de-AI-ing» part below. The core 
    without buying anything: state the problem before the product, never hide
    the main answer, tie each feature to a checkable result, and never delete
    limitations or prerequisites — they are what make the rest believable.
-6. **Claim only what the source supports.** Distinguish واقعیت / نظر /
-   پیش‌بینی / ادعا; never invent a statistic, version, price, or quote to fill
+6. **Claim only what the source supports.** Distinguish fact, opinion,
+   prediction and claim (واقعیت / نظر / پیش‌بینی / ادعا); never invent a statistic, version, price, or quote to fill
    a section; surface contradictions instead of silently resolving them; ask
    one question rather than guessing (content-structures.md §3).
    When paraphrasing a paper (thesis chapters especially), change only wording
@@ -140,14 +140,14 @@ Full guide in the «Writing style: registers & de-AI-ing» part below. The core 
 
 Full rules in the «Orthography (نگارش و رسم‌الخط)» part below. These apply to every deliverable:
 
-1. **ZWNJ (نیم‌فاصله, U+200C)** — می‌شود نه می شود؛ کتاب‌ها نه کتاب ها؛
-   بزرگ‌تر، خانه‌ام، به‌عنوان. In code: `‌` or HTML `&zwnj;`.
-2. **Persian characters only:** ی (U+06CC) not ي، ک (U+06A9) not ك.
+1. **ZWNJ (نیم‌فاصله, U+200C)** — «می‌شود», not «می شود»; «کتاب‌ها», not «کتاب ها»;
+   «بزرگ‌تر»، «خانه‌ام»، «به‌عنوان». In code: `‌` or HTML `&zwnj;`.
+2. **Persian characters only:** ی (U+06CC), not ي; ک (U+06A9), not ك.
 3. **Persian digits** ۰۱۲۳۴۵۶۷۸۹ inside Persian text. Latin digits stay in URLs,
    emails, codes, version numbers. Never Arabic-Indic ٤٥٦ forms.
 4. **Persian punctuation:** ، ؛ ؟ and «گیومه» for quotes. No space before, one after.
-4b. **هکسره** — never write the ezafe kasre as «ـه»: «کتابِ من»، not «کتابه من».
-   The «ـه» ending is only the colloquial «است» («این کتابه» = این کتاب است).
+4b. **The «ـه» ezafe error (هکسره)** — never write the ezafe kasre as «ـه»: «کتابِ من»، not «کتابه من».
+   The «ـه» ending is only the colloquial «است» («این کتابه» = «این کتاب است»).
    Test by substituting «است»; if the sentence breaks, you need a kasre.
    Iranians treat this error as a mark of carelessness — orthography.md §5.1.
 5. **No em/en dashes** in Persian prose — use «،» or restructure.
@@ -280,6 +280,16 @@ catches most disasters.
 
 # Persian writing style: registers and de-AI-ing
 
+## Contents
+
+- Part 1: Register detection
+- Part 2: Persian AI tells — find and rewrite
+- Part 3: What NOT to flag
+- Part 3.5: Why machine prose reads flat — the underlying mechanism
+- Part 3.6: About AI detectors — what to tell a client, and what not to chase
+- Part 4: Signs of human Persian (preserve these)
+- Part 5: Process
+
 AI Persian fails in a specific way: it is *too correct*. Too formal, too کتابی,
 inflated with ceremony that no working Iranian writer uses. The fix is not
 "be casual everywhere" — a slangy proposal is as wrong as a bureaucratic
@@ -323,7 +333,7 @@ Cues that flip toward casual: کپشن، استوری، پست اینستا، ت
 گروه دوستان، فان. Cues that flip toward formal: مشتری، سازمان، اداره، مدیر،
 قرارداد، رسمی، مناقصه، دانشگاه، استاد، مقام.
 
-### نامه اداری conventions (Formal-اداری)
+### Official letter conventions (نامه اداری, formal-اداری)
 
 Persian administrative letters have fixed furniture — using it correctly IS
 the register:
@@ -468,7 +478,7 @@ Openers: در دنیای امروز، در عصر دیجیتال، امروزه 
 fingerprint in Persian exactly as in English. Two items, or four, or one
 developed idea.
 
-### T8. نه تنها ... بلکه (negative parallelism)
+### T8. Negative parallelism (نه تنها ... بلکه)
 Overused. Also the clipped tail: «بدون هیچ دردسری»، «بدون نگرانی» stapled to
 sentence ends. State the positive claim plainly.
 
@@ -664,6 +674,18 @@ exactly why the audit step exists.)
 
 # Persian orthography: the mechanical layer
 
+## Contents
+
+- 1\. ZWNJ (نیم‌فاصله, U+200C)
+- 2\. Persian characters, not Arabic
+- 3\. Digits
+- 4\. Punctuation
+- 5\. Ezafe (کسره‌ی اضافه)
+- 6\. Spacing hygiene
+- 7\. Numbers as words
+- 8\. Common corrections table
+- 9\. Mixed Persian–English text: direction (bidi)
+
 Correct orthography is what separates a professional Persian document from a
 typed-in-a-hurry one. Readers may not name the rule, but they feel it. All of
 this is enforceable: the persian_cleanup script (full package; chat-only AIs apply the equivalent rules manually) --edit` fixes the mechanical
@@ -684,7 +706,7 @@ tables below do — suppress the linter on it rather than softening the example:
 `--fix` puts suppressed lines back after the fix pass, so a deliberate error
 survives. Codepoint notation such as `U+06CC` is never rewritten.
 
-## 1. ZWNJ — نیم‌فاصله (U+200C)
+## 1. ZWNJ (نیم‌فاصله, U+200C)
 
 The zero-width non-joiner separates morphemes *without* a visual gap while
 preventing letter joining. Writing a full space (or nothing) instead is the
@@ -775,7 +797,7 @@ Write it explicitly only where the host word demands it:
 - After ا and و: صدای بلند، عموی من (the ی is mandatory)
 - Diacritic کسره (ِ) only for disambiguation in formal/educational text.
 
-### 5.1 هکسره — the error Iranians mock most
+### 5.1 The «ـه» ezafe error (هکسره): the error Iranians mock most
 
 Two different things sound identical at the end of a word, so writers swap them.
 Getting this wrong in public copy is the single fastest way to look careless:
@@ -938,6 +960,20 @@ needs RLM.
 # PART 3 — Content craft: POV, structure, honesty
 
 # Persian content craft: point of view, structure, and honesty
+
+## Contents
+
+- 1\. Point of view — the most-broken rule in Persian content
+- 2\. Education, product, and promotion
+- 3\. Source fidelity and the four kinds of statement
+- 4\. General structure for educational content
+- 5\. Six body patterns
+- 6\. Specialist terminology and proper names
+- 7\. Clarity mechanics
+- 8\. Formatting discipline
+- 9\. Notes, warnings, and limits
+- 10\. Conclusion and call to action
+- 11\. Pre-delivery checklist
 
 Register (writing-style.md) decides *how formal* the text is. This file decides
 *who is speaking*, *in what order the ideas arrive*, and *what you are allowed
@@ -1196,6 +1232,22 @@ engineering, design, cooking — not just technology.
 # PART 4 — Academic writing (نگارش علمی)
 
 # Persian academic writing (نگارش علمی فارسی)
+
+## Contents
+
+- 1\. Two genre families — decide first
+- 2\. The academic register
+- 3\. AI tells specific to academic text
+- 4\. Terminology and Latin material
+- 5\. Citations and references
+- 5\.5 Rewriting from a source: fidelity and the strength of every claim
+- 6\. Numbers, statistics, formulas
+- 7\. Structure conventions (journal/thesis format)
+- 7\.5 House style (شیوه‌نامه) and advisor preferences
+- 8\. First-person calibration (by document type)
+- 9\. Worked example
+- 9\.5 AI assistance, disclosure, and detector accusations
+- 10\. Checklist before delivering academic text
 
 For theses (پایان‌نامه), journal papers (مقاله علمی-پژوهشی), student reports,
 technical analyses, research reviews (مرور پژوهش), and case studies
@@ -1545,6 +1597,15 @@ evidence of having done the work — rather than trying to satisfy the tool.
 
 # Persian social channels: Telegram, Instagram, and repurposing
 
+## Contents
+
+- 1\. Rules shared by every channel
+- 2\. Telegram
+- 3\. Instagram
+- 4\. Announcements and product introductions
+- 5\. Repurposing between formats
+- 6\. Pre-publish checks
+
 Channel craft, not channel decoration. Register comes from writing-style.md,
 structure and honesty from content-structures.md; this file adds what changes
 when the text is consumed on a phone, in a feed, in seconds.
@@ -1811,6 +1872,12 @@ the fa_lint script (full package; chat-only AIs apply the equivalent rules manua
 
 # Persian SEO writing & copywriting
 
+## Contents
+
+- Part A: SEO writing (سئو)
+- Part B: Copywriting (کپی‌رایتینگ)
+- Part C: Content quality standards (E-E-A-T for Persian sites)
+
 Two crafts, one file, because in practice they overlap: SEO content that reads
 like a robot doesn't rank long, and copy that ignores search never gets seen.
 Everything in writing-style.md still applies — register detection first, AI
@@ -2025,6 +2092,13 @@ carry genuinely unique content (no doorway clones)?
 
 # Persian fonts: catalog, pairing, embedding
 
+## Contents
+
+- Catalog
+- Pairings that work
+- Typography rules for Persian
+- Embedding per format
+
 All fonts here are SIL OFL — free for commercial use, embedding allowed.
 The bundled family (Sahel, five static weights) lives in `assets/fonts/`.
 The rest need the download_fonts script (full package; chat-only AIs apply the equivalent rules manually) (requires GitHub access — will NOT
@@ -2136,6 +2210,17 @@ after the fact, but checking first is cheaper.
 # PART 8 — Word/DOCX + PDF
 
 # Persian DOCX + PDF: RTL and pagination recipes
+
+## Contents
+
+- Table of contents
+- 1\. RTL correctness
+- 2\. Divider / full-bleed pages (OPTIONAL — only if the design calls for them)
+- 3\. Pagination
+- 4\. Fonts and PDF conversion
+- 4\.5 Package integrity — "Word says the file is corrupt"
+- 5\. Verification checklist (run every time)
+- 6\. python-docx equivalents
 
 Battle-tested fixes from real Persian proposal production. The docx-js (npm `docx`)
 examples are the reference implementation; python-docx equivalents follow at the
@@ -2806,6 +2891,16 @@ the verify_pdf script (full package; chat-only AIs apply the equivalent rules ma
 
 # Persian PowerPoint: RTL slides with python-pptx
 
+## Contents
+
+- Core helpers (python-pptx)
+- Layout mirroring
+- Bullets and numbering
+- Tables
+- Fonts and delivery
+- If building via the pptx skill's HTML pipeline (html2pptx)
+- Checklist
+
 PowerPoint has no document-level RTL switch — direction is set per paragraph
 and per run, which is why half-fixed Persian decks are so common. Every text
 frame needs the treatment below.
@@ -2917,6 +3012,15 @@ bidi bugs in HTML pipelines show up as scrambled punctuation at line edges.
 # PART 10 — HTML / CSS / email
 
 # Persian HTML/CSS: RTL web pages, emails, and HTML→PDF
+
+## Contents
+
+- The foundation
+- CSS rules
+- Persian web fonts
+- HTML email
+- HTML→PDF (weasyprint / headless Chrome)
+- Pre-delivery checklist
 
 ## The foundation
 
@@ -3060,6 +3164,13 @@ p { orphans: 2; widows: 2; }                   /* no lonely lines */
 # PART 11 — Images, reportlab PDFs, Excel
 
 # Persian patches for format-skill toolchains
+
+## Contents
+
+- 1\. Images & posters (canvas-design skill, PIL/Pillow)
+- 2\. Creating PDFs (pdf skill, reportlab)
+- 3\. Excel (xlsx skill, openpyxl / pandas)
+- 4\. Quick router
 
 The general docx/pptx/pdf/xlsx/canvas skills assume Latin text. Their default
 toolpaths silently mangle Persian: disconnected letters, reversed order,

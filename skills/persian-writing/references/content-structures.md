@@ -1,5 +1,19 @@
 # Persian content craft: point of view, structure, and honesty
 
+## Contents
+
+- 1\. Point of view — the most-broken rule in Persian content
+- 2\. Education, product, and promotion
+- 3\. Source fidelity and the four kinds of statement
+- 4\. General structure for educational content
+- 5\. Six body patterns
+- 6\. Specialist terminology and proper names
+- 7\. Clarity mechanics
+- 8\. Formatting discipline
+- 9\. Notes, warnings, and limits
+- 10\. Conclusion and call to action
+- 11\. Pre-delivery checklist
+
 Register (writing-style.md) decides *how formal* the text is. This file decides
 *who is speaking*, *in what order the ideas arrive*, and *what you are allowed
 to claim*. These are the disciplines that separate content a professional

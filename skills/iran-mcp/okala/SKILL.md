@@ -1,6 +1,12 @@
 ---
 name: okala
 description: "Unofficial read-only Okala: grocery stores that deliver to you, compare prices across stores. Use when the user asks about Okala (okala.com) or wants food or groceries delivered in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Okala

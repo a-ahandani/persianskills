@@ -1,10 +1,26 @@
 ---
 name: rtl-design
-description: Use when designing, building, reviewing, or fixing any right-to-left (RTL) user interface — Persian/Farsi (فارسی), Arabic, Hebrew, Urdu — on web (React, Next.js, Vue, Tailwind, plain CSS) or Flutter, even if the user only says the app is Persian/Iranian without mentioning RTL. Covers layout direction and mirroring, which icons flip and which never do, bidirectional (bidi) text with LTR islands (URLs, emails, phone numbers, code), Persian vs Arabic-Indic vs Latin digits, Jalali (Shamsi) dates, Persian typography (font pairing, line-height, the letter-spacing trap, ZWNJ نیم‌فاصله), font licensing, logical CSS properties, form input direction, and long-text overflow. Also use when Persian/Arabic text renders wrong or "off", when localizing an LTR app to RTL, or to audit existing code for RTL violations with the bundled zero-dependency detector. Not for backend-only or non-UI tasks.
+description: >-
+  Designs, builds, reviews and fixes right-to-left (RTL) user interfaces for
+  Persian/Farsi («فارسی»), Arabic, Hebrew and Urdu on the web (React,
+  Next.js, Vue, Tailwind, plain CSS) or Flutter. Covers layout direction and
+  mirroring, which icons flip and which never do, bidirectional (bidi) text
+  with LTR islands (URLs, emails, phone numbers, code), Persian vs
+  Arabic-Indic vs Latin digits, Jalali (Shamsi) dates, Persian typography
+  (font pairing, line-height, the letter-spacing trap, ZWNJ «نیم‌فاصله»),
+  font licensing, logical CSS properties, form input direction and long-text
+  overflow, and audits existing code for RTL violations with a bundled
+  zero-dependency detector. Use for any RTL UI work, even when the user only
+  says the app is Persian or Iranian without mentioning RTL, when
+  Persian/Arabic text renders wrong or "off", or when localizing an LTR app
+  to RTL. Not for backend-only or non-UI tasks.
 license: Apache-2.0
 metadata:
-  author: abolfazl-baghlani
+  author: Abolfazl Baghlani
+  source: https://github.com/Baghlani/rtl-design
+  upstream-commit: b7c5229
   version: "0.1.0"
+  changes: Default Persian font changed from Vazirmatn to Sahel (Vazirmatn and Estedad kept as alternatives), frontmatter brought to the repo standard, and contents lists added to the long references.
 ---
 
 # RTL Design

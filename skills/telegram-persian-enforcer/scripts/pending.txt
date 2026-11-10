@@ -1,13 +1,14 @@
-# صف پیش‌نویس اصطلاحات لاتین — منتظر تأیید
+# Draft queue of Latin terms awaiting approval
 #
-# این فایل توسط `check_persian.py --pending` پر می‌شود و عمداً هیچ اثری روی
-# بررسی پیام‌ها ندارد. یعنی یک اصطلاح تا وقتی خودتان آن را دستی به
-# allowlist.txt منتقل نکنید، در هیچ پیامی پذیرفته نمی‌شود.
+# `check_persian.py --pending` fills this file, and it deliberately has no
+# effect on checking messages. A term is not accepted in any message until
+# you move it to allowlist.txt by hand.
 #
-# روش تأیید: برای هر خط تصمیم بگیرید که آیا واقعاً باید لاتین بماند یا
-# می‌توان نویسه‌گردانی/توضیح فارسی داد. موارد تأییدشده را به allowlist.txt
-# منتقل کنید و کنار هرکدام دلیلش را کامنت بگذارید. بقیه را اینجا حذف کنید.
+# How to approve: for each line, decide whether it really has to stay in
+# Latin or whether a Persian transliteration or explanation would do. Move
+# the approved items to allowlist.txt with the reason as a comment next to
+# each one. Delete the rest from here.
 #
-# هشدار: allowlist.txt راه دور زدن بررسی است. هرچه طولانی‌تر شود، احتمال
-# اینکه یک کلمه‌ی لاتین غیرضروری بی‌سروصدا از پرچم بگذرد بیشتر می‌شود.
-# به همین دلیل `--strict` در مرحله‌ی نهایی اجباری است.
+# Warning: allowlist.txt is a way around the check. The longer it gets, the
+# more likely an unnecessary Latin word slips past the flags unnoticed.
+# That is why `--strict` is required in the final step.

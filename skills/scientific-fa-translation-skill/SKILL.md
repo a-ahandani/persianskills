@@ -1,15 +1,31 @@
 ---
 name: scientific-fa-translation-skill
-description: >
-  Translate scientific documents, papers, articles, books, and technical
-  docs (any software/science stack—not tied to one product) into academic
-  Persian (Farsi) with strict RTL/bidi and untranslated English technical
-  terms. Also reviews an existing Persian translation against these rules.
-  Use when the user asks to ترجمه, translate a paper/article/book/docs,
-  راست‌چین, RTL, PDF, چاپ, Persian scientific translation, or invokes
-  scientific-fa-translation / scientific-fa-translation-skill.
-  Do NOT use for coding, explaining code, commit messages, UI copy,
-  literary translation, or casual Persian chat.
+description: >-
+  Translates scientific documents, papers, articles, books and technical docs
+  (any software or science stack, not tied to one product) into academic
+  Persian (Farsi) with strict RTL and bidi handling and English technical
+  terms left untranslated, and delivers a printable PDF. Also reviews an
+  existing Persian translation against the same rules. Use when the user asks
+  to translate a paper, article, book or docs into Persian, mentions
+  «ترجمه», «ترجمه علمی», «راست‌چین», RTL, PDF or «چاپ», or invokes
+  scientific-fa-translation or scientific-fa-translation-skill. Not for
+  coding, explaining code, commit messages, UI copy, literary translation or
+  casual Persian chat.
+license: MIT
+compatibility: >-
+  Python 3 and Bash. Printing prefers XeLaTeX with xepersian and falls back to
+  Chromium or WeasyPrint; scripts/preflight.sh reports what is installed.
+  Fetching sources needs network access.
+metadata:
+  author: isArman
+  source: https://github.com/isArman/scientific-fa-translation-skill
+  upstream-commit: 27cad0f
+  changes: >-
+    Preferred Persian font changed from Vazirmatn to Sahel
+    (scripts/fetch-vazirmatn.sh became scripts/fetch-sahel.sh); frontmatter
+    standardized, description rewritten in the third person, Persian-only
+    phrasing in the instructions put in English, and long references given a
+    contents list.
 ---
 
 # Scientific Persian translation
@@ -24,7 +40,7 @@ literary fluency. Cursor chat is not the RTL surface.
 - Translate a scientific or technical document into Persian.
 - Review a finished Persian translation against these rules
   (`references/review.md`).
-- User mentions ترجمه علمی, راست‌چین, RTL, PDF, چاپ, paper, article, book.
+- User mentions «ترجمه علمی», «راست‌چین», RTL, PDF, «چاپ», paper, article, book.
 
 Not for: writing or explaining code, commit messages, PRs, UI copy, literary
 or marketing translation, casual Persian conversation.
@@ -35,8 +51,8 @@ Override only when the user says so.
 
 | Decision | Default |
 | --- | --- |
-| Direction | English → فارسی علمی |
-| Register | Formal فارسی معیار in the Canonical manner (`references/scientific-style.md`): short everyday scholarly verbs, split long sentences, field terms kept English; not ornate, not translationese, no colloquial forms. |
+| Direction | English → academic Persian (فارسی علمی) |
+| Register | Formal standard Persian (فارسی معیار) in the Canonical manner (`references/scientific-style.md`): short everyday scholarly verbs, split long sentences, field terms kept English; not ornate, not translationese, no colloquial forms. |
 | Terminology | `journal` for papers, theses, review articles; `system-docs` (default) for books, install guides, specs, RFCs, runbooks. Announce level, **jobs**, **subjects** (counts from the source), and **genre** (`tutorial` / `reference` / `paper`). Concept-oriented `terms.tsv`. Checker `--level` must match. |
 | First mention | No gloss for English terms unless the level says otherwise |
 | Output | Printable PDF at `/home/$USER/Documents/books/<slug>.pdf`. Chat is a short pointer, not RTL. |
@@ -149,8 +165,8 @@ Example (`journal`): «این پیاده‌سازی از \en{gradient descent} �
 ## Persian mechanics
 
 Full rules: `references/scientific-style.md`. UTF-8; `ک` not `ك`, `ی` not
-`ي`; نیم‌فاصله in `می‌شود`, `می‌توان`, `نمی‌کند`, `داده‌ها`; punctuation
-`،` `؛` `؟` `«»`. Clear فارسی معیار, judged by the ensemble fluency
+`ي`; ZWNJ (نیم‌فاصله) in `می‌شود`, `می‌توان`, `نمی‌کند`, `داده‌ها`; punctuation
+`،` `؛` `؟` `«»`. Clear standard Persian (فارسی معیار), judged by the ensemble fluency
 reader (not a word-list grep). Letters, ZWNJ on the listed verbs and
 plurals, Western digits, Latin punct, and unisolated number clusters are
 machine-checked.
@@ -197,7 +213,7 @@ page count, and the engine used.
 
 **Machine-checked** — `scripts/check-fa.py --level <level> --terms terms.tsv
 --manifest manifest.txt --strict` must exit 0. It covers orthography
-(`ک`/`ی`, نیم‌فاصله on listed verbs/plurals,
+(`ک`/`ی`, ZWNJ on listed verbs/plurals,
 Western digits, Persian punctuation), forbidden calques at that level,
 half-translated noun phrases, English `-s` plurals of kept terms, leftover
 Latin ezafe (`Goی`), split

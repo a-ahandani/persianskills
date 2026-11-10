@@ -1,5 +1,7 @@
 # Persian Orthography, Unicode, and Punctuation
 
+Contents: Scope and authority; Character normalization; Three spacing states; High-confidence morpheme rules; Compounds; Ezafe; Diacritics, hamza, and tashdid; Punctuation policy; Digits and mixed-script text; Quotations and foreign text; Automation boundary.
+
 ## Scope and authority
 
 The Academy’s *Dastur-e Xatt-e Fārsi* is the primary general authority for Persian orthography and spelling. Its own scope is important:

@@ -1,6 +1,12 @@
 ---
 name: alibaba-ir
 description: "Read-only Alibaba (alibaba.ir) Iran travel: trains, buses, flights, hotels, villas and tours. Use when the user asks about Alibaba Travel (alibaba.ir) or wants flights, trains, buses, hotels, villas or tours in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Alibaba Travel

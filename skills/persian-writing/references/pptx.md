@@ -1,5 +1,15 @@
 # Persian PowerPoint: RTL slides with python-pptx
 
+## Contents
+
+- Core helpers (python-pptx)
+- Layout mirroring
+- Bullets and numbering
+- Tables
+- Fonts and delivery
+- If building via the pptx skill's HTML pipeline (html2pptx)
+- Checklist
+
 PowerPoint has no document-level RTL switch — direction is set per paragraph
 and per run, which is why half-fixed Persian decks are so common. Every text
 frame needs the treatment below.

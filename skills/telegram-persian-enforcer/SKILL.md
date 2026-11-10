@@ -1,123 +1,143 @@
 ---
 name: telegram-persian-enforcer
-description: الزام تولید خروجی متنی به فارسی روان، درست‌نویسی‌شده و کاملاً بومی برای همه تعاملات تلگرامی (پاسخ‌های چت در گروه‌ها، کانال‌ها و پیام‌های مستقیم، خروجی‌های خودکار، گزارش‌ها، خلاصه‌ها، پیام‌های خطا و نتایج اجرای وظایف). این مهارت فراتر از یک دستورالعمل ذهنی است و شامل یک اسکریپت اجباری («scripts/check_persian.py») می‌شود که هر پیش‌نویس را قبل از ارسال به‌صورت خودکار برای کلمات و ارقام لاتینِ جامانده بررسی می‌کند و باید واقعاً (با ابزار اجرای کد) اجرا شود، نه فقط تصور شود. این مهارت را هر بار که پاسخ برای ارسال در تلگرام آماده می‌شود فعال کنید، حتی اگر پیام ورودی کاربر به زبان دیگری (مثل انگلیسی یا فینگلیش) باشد، حتی اگر گفتگو تا این لحظه به‌طور کامل به زبان دیگری پیش رفته باشد، و حتی اگر کاربر صراحتاً درخواست فارسی نکرده باشد — تشخیص «این پاسخ برای تلگرام است» به‌تنهایی برای فعال‌سازی کافی است. همچنین برای پیام‌های کوتاه، اعلان‌ها، پیام‌های خطا و دکمه‌های اینلاین هم باید اعمال شود، نه فقط پاسخ‌های بلند.
-version: 1.1.1
+description: >-
+  Makes every text sent in Telegram fluent, correctly spelled, fully native
+  Persian: chat replies in groups, channels and direct messages, automated
+  output, reports, summaries, error messages and task results. Goes beyond a
+  mental guideline with a required script, scripts/check_persian.py, that
+  checks each draft for leftover Latin words and digits before sending and
+  must actually be run with a code tool, not imagined. Use every time a reply
+  is being prepared for Telegram, even if the user's message is in another
+  language such as English or Finglish, even if the whole conversation so far
+  was in another language, and even if the user did not ask for Persian:
+  knowing that the reply is for Telegram is enough. Also applies to short
+  messages, notifications, error messages and inline buttons, not only long
+  replies. Triggers include «تلگرام», «کانال تلگرام», «گروه تلگرام» and
+  «ربات تلگرام».
+license: MIT
+compatibility: The checker needs Python 3 and a code-execution tool; without one, the skill falls back to a manual review.
+metadata:
+  author: Ehsan Ghaffar (ehsanghaffar)
+  source: https://github.com/ehsanghaffar/skills
+  upstream-commit: bac8138
+  version: "1.1.1"
+  changes: Instructions, headings, description, script messages and comments translated from Persian into English with every Persian example kept as written, and version moved into metadata.
 ---
 
-# الزام زبان فارسی در تلگرام (نسخه‌ی پیشرفته)
+# Persian-only output for Telegram (advanced)
 
-هدف این مهارت فقط «فارسی بودن کلمات» نیست؛ هدف این است که پیام طوری باشد که انگار از ابتدا توسط یک فارسی‌زبان بومی و برای مخاطب تلگرامی نوشته شده — نه یک متن انگلیسی که کلمه‌به‌کلمه ترجمه شده باشد. این تفاوت مهم است چون کاربر تلگرام قرار است این پیام را طبیعی، خوانا و درست بخواند؛ ترجمه‌ی ماشینیِ کلمه‌به‌کلمه (calque) حتی وقتی از نظر واژگانی «فارسی» است، به چشم می‌آید و اعتماد را کم می‌کند.
+The goal of this skill is not just "Persian words". The goal is a message that reads as if a native Persian speaker wrote it from the start, for a Telegram audience, and not an English text translated word for word. This matters because the Telegram user should read the message as natural, readable and correct; a word-for-word machine translation (calque) stands out and lowers trust, even when its vocabulary is "Persian".
 
-## زمان استفاده
+## When to use
 
-این مهارت را هنگام پاسخ‌گویی در گروه‌ها، کانال‌ها یا پیام‌های مستقیم تلگرام فعال کنید. شامل موارد زیر است:
+Use this skill when replying in Telegram groups, channels or direct messages. This includes:
 
-- پاسخ‌های چت (کوتاه یا بلند)
-- خروجی‌های خودکار و اعلان‌ها (notifications)
-- گزارش‌ها و خلاصه‌ها
-- نتایج اجرای وظایف، پیام‌های موفقیت/خطا
-- متن دکمه‌های اینلاین (inline keyboard) و کپشن رسانه‌ها
+- chat replies (short or long)
+- automated output and notifications
+- reports and summaries
+- task results and success or error messages
+- inline keyboard button text and media captions
 
-## قانون هسته‌ای
+## Core rule
 
-**تمام متنی که مستقیماً خطاب به کاربر تلگرام نوشته می‌شود، باید فارسی روان و طبیعی باشد** — صرف‌نظر از زبان ورودی، زبان قبلی گفتگو، یا زبان منابعی که محتوا از آن‌ها استخراج شده. اگر ورودی به زبان دیگری است، می‌توانید آن را در صورت نیاز کوتاه تأیید کنید، اما پاسخ نهایی فقط فارسی است — مگر اینکه کاربر صراحتاً زبان دیگری بخواهد؛ در آن صورت درخواستش را دقیقاً برآورده کنید و این مهارت را برای همان پیام کنار بگذارید.
+**All text addressed directly to the Telegram user must be fluent, natural Persian**, whatever the input language, the earlier language of the conversation, or the language of the sources the content came from. If the input is in another language, you may briefly acknowledge it if needed, but the final reply is Persian only, unless the user explicitly asks for another language; in that case do exactly what they asked and set this skill aside for that message.
 
-## سطح پیشرفته: جزئیاتی که فارسی «طبیعی» را از فارسی «ترجمه‌شده» جدا می‌کند
+## Advanced level: details that separate "natural" Persian from "translated" Persian
 
-### ۱. اعداد و ارقام
+### 1. Numbers and digits
 
-پیش‌فرض، استفاده از ارقام فارسی (۰۱۲۳۴۵۶۷۸۹) در متن روان فارسی است — نه ارقام لاتین و نه ارقام عربی (٠١٢...). این قانون فقط برای عددهایی صدق می‌کند که بخشی از نثر فارسی‌اند (تعداد، درصد، تاریخ شمسی، مبلغ). اعداد داخل کد، شناسه‌ها (ID)، شماره نسخه (v2.4.1)، لینک‌ها و بلوک‌های کد دست‌نخورده می‌مانند، چون تغییر آن‌ها محتوا را خراب می‌کند.
+The default is Persian digits (۰۱۲۳۴۵۶۷۸۹) in fluent Persian text, not Latin digits and not Arabic digits (٠١٢...). This rule applies only to numbers that are part of Persian prose (counts, percentages, Jalali dates, amounts). Numbers inside code, IDs, version numbers (v2.4.1), links and code blocks stay untouched, because changing them breaks the content.
 
-### ۲. نیم‌فاصله و رسم‌الخط
+### 2. ZWNJ (نیم‌فاصله) and orthography
 
-از نیم‌فاصله (ZWNJ) در جای درست استفاده کنید: «می‌خواهم» نه «میخواهم» یا «می خواهم»، «کتاب‌ها» نه «کتابها». این یک ظرافت تایپوگرافی است که تفاوت متن حرفه‌ای و متن عجولانه را نشان می‌دهد.
+Use ZWNJ in the right places: «می‌خواهم» not «میخواهم» or «می خواهم», «کتاب‌ها» not «کتابها». This typographic detail shows the difference between professional text and hasty text.
 
-### ۳. لحن و ثبت زبانی
+### 3. Tone and register
 
-لحن را با فضای گفتگو تطبیق دهید:
+Match the tone to the conversation:
 
-- در چت خصوصی یا گروه‌های غیررسمی، فارسی محاوره‌ای طبیعی (نه شکسته‌نویسی افراطی) مناسب‌تر از فارسی رسمی و کتابی است.
-- در کانال‌ها یا گزارش‌های رسمی، ثبت رسمی‌تر و بدون کلمات عامیانه به‌کار ببرید.
-- اگر مطمئن نیستید، به لحن پیام‌های قبلی همان کاربر یا گروه نگاه کنید و همان را آینه کنید.
+- In a private chat or an informal group, natural colloquial Persian (not extreme broken spelling) fits better than formal, bookish Persian.
+- In channels or formal reports, use a more formal register with no slang.
+- If you are not sure, look at the tone of earlier messages from the same user or group and mirror it.
 
-### ۴. محتوای چندزبانه‌ی ورودی (نقل‌قول، منابع، خروجی جستجو)
+### 4. Multilingual input (quotes, sources, search output)
 
-وقتی محتوایی که خلاصه یا گزارش می‌کنید به زبان دیگری است (مثلاً یک مقاله‌ی انگلیسی یا نتیجه‌ی جست‌وجوی وب)، آن را کامل به فارسی بازنویسی/خلاصه کنید؛ جمله‌های انگلیسی را داخل پاسخ فارسی رها نکنید. اگر عین یک عبارت خارجی برای دقت لازم است (مثلاً یک نقل‌قول رسمی یا نام دقیق یک قانون)، آن را کوتاه بیاورید و بلافاصله معادل یا توضیح فارسی‌اش را هم بدهید.
+When the content you summarize or report is in another language (an English article or a web search result, for example), rewrite or summarize it fully in Persian; do not leave English sentences inside the Persian reply. If an exact foreign phrase is needed for accuracy (an official quote or the exact name of a law, for example), keep it short and give its Persian equivalent or an explanation right after it.
 
-### ۵. اصطلاحات فنی، اسامی خاص و برندها
+### 5. Technical terms, proper nouns and brands
 
-- کد، دستورات ترمینال، نام فایل، شناسه‌ها، URLها و متغیرهای برنامه‌نویسی دست‌نخورده و به همان زبان اصلی می‌مانند؛ توضیح دور و برشان فارسی است.
-- برای اصطلاحات فنی رایج بدون معادل جا‌افتاده‌ی فارسی (API، سرور، دیتابیس)، همان کلمه را با نویسه‌گردانی فارسی بیاورید («سرور» نه «Server») مگر در بلوک کد.
-- برای نام افراد، شرکت‌ها یا محصولات خارجی که کاربر تلگرام لزوماً نویسه‌ی لاتینش را نمی‌شناسد، بار اول می‌توانید هم نویسه‌گردانی فارسی و هم نام اصلی را در پرانتز بیاورید: «اوپن‌ای‌آی (OpenAI)».
+- Code, terminal commands, file names, identifiers, URLs and programming variables stay untouched in their original language; the explanation around them is Persian.
+- For common technical terms with no established Persian equivalent (API, «سرور», «دیتابیس»), write the word in Persian transliteration («سرور» not «Server»), except in code blocks.
+- For names of foreign people, companies or products whose Latin spelling the Telegram user may not know, the first time you may give both the Persian transliteration and the original name in parentheses: «اوپن‌ای‌آی (OpenAI)».
 
-### ۶. قالب‌بندی تلگرام
+### 6. Telegram formatting
 
-تلگرام از Markdown محدود پشتیبانی می‌کند (پررنگ با `*متن*`، کد با backtick، لینک‌ها). چون فارسی راست‌به‌چپ است، مطمئن شوید نشانه‌های قالب‌بندی و لینک‌ها در جای درست قرار می‌گیرند و جهت متن را به‌هم نمی‌ریزند — مثلاً پرانتز یا لینک انگلیسی وسط جمله‌ی فارسی را طوری بگذارید که هنگام رندر به‌هم‌ریخته دیده نشود.
+Telegram supports limited Markdown (bold with `*متن*`, code with backticks, links). Because Persian is right-to-left, make sure formatting marks and links sit in the right place and do not scramble the text direction; for example, place an English parenthesis or link in the middle of a Persian sentence so that it does not render jumbled.
 
-### ۷. فینگلیش (فارسی به حروف لاتین)
+### 7. Finglish (Persian in Latin letters)
 
-اگر کاربر با فینگلیش می‌نویسد («salam khoobi?»)، این زبان دیگری نیست — فارسی است که فقط با الفبای لاتین تایپ شده. پاسخ همچنان باید با خط فارسی («سلام، خوبی؟») باشد، نه اینکه چون ورودی حروف لاتین داشت، خروجی هم لاتین یا انگلیسی شود.
+If the user writes in Finglish («salam khoobi?»), that is not another language; it is Persian typed in the Latin alphabet. The reply must still be in Persian script («سلام، خوبی؟»), not Latin or English just because the input had Latin letters.
 
-### ۸. پیام‌های فوروارد‌شده و نقل‌قول از دیگران
+### 8. Forwarded messages and quotes from others
 
-وقتی متنی از یک کاربر دیگر یا یک پیام فوروارد‌شده نقل می‌کنید که به زبان دیگری است، آن را در پاسخ خودتان خلاصه یا ترجمه کنید؛ عین جمله‌ی خارجی را به‌عنوان بخشی از پاسخ خودتان رها نکنید (مگر وقتی خودِ متن دقیق نقل‌شده موضوع بحث است، که آن‌وقت می‌توانید نقل مستقیم را بیاورید و بلافاصله فارسی‌اش را هم بدهید).
+When you quote text in another language from another user or from a forwarded message, summarize or translate it in your own reply; do not leave the foreign sentence as part of your reply (unless the exact quoted text is itself the topic, in which case you may quote it directly and give the Persian right after it).
 
-## بازبینی نهایی پیش از ارسال (self-check)
+## Final review before sending (self-check)
 
-قبل از فرستادن هر پیام، یک بار پیام را مرور کنید و این‌ها را چک کنید:
+Before sending any message, review it once and check:
 
-- آیا جمله‌ای انگلیسی یا زبان دیگر (غیر از کد/URL/شناسه) در متن باقی مانده؟
-- آیا اعداد نثر فارسی هستند (نه لاتین)، و اعداد داخل کد/شناسه دست‌نخورده مانده‌اند؟
-- آیا ساختار جمله بوی ترجمه‌ی کلمه‌به‌کلمه می‌دهد؟ اگر بله، آن را طوری بازنویسی کنید که یک فارسی‌زبان بومی همین‌طور می‌نوشت.
-- آیا نیم‌فاصله‌ها درست‌اند؟
-- آیا لحن با فضای گفتگو (رسمی/محاوره‌ای) هم‌خوان است؟
+- Is any English or other-language sentence left in the text (other than code, URLs or IDs)?
+- Are the prose numbers Persian (not Latin), and are numbers inside code or IDs untouched?
+- Does the sentence structure smell of word-for-word translation? If yes, rewrite it the way a native Persian speaker would write it.
+- Are the ZWNJs right?
+- Does the tone match the conversation (formal or colloquial)?
 
-این بازبینی چشمی خوب است اما کافی نیست — چشم به‌راحتی از کنار یک کلمه‌ی انگلیسیِ جاافتاده رد می‌شود، مخصوصاً در متن‌های بلند. به همین دلیل مرحله‌ی بعد **اختیاری نیست**.
+This visual review is good but not enough: the eye easily skips a leftover English word, especially in long texts. That is why the next step is **not optional**.
 
-## اجرای خودکار و اجباری (hard gate)
+## Automatic, required check (hard gate)
 
-اگر ابزار اجرای دستور (bash/کد) در دسترس است، اجرای `scripts/check_persian.py` روی هر پیامی که قرار است در تلگرام فرستاده شود اجباری است — نه فقط برای پیام‌های بلند یا گزارش‌ها، بلکه برای همه‌ی پیام‌ها، حتی یک‌خطی‌ها. این را واقعاً اجرا کنید؛ صرفاً در ذهن تصور نکنید که «احتمالاً تمیز است».
+If a command tool (bash or code execution) is available, running `scripts/check_persian.py` on every message to be sent in Telegram is required: not only for long messages or reports but for every message, even one-liners. Actually run it; do not just imagine that it is "probably clean".
 
-**حلقه‌ی اجرا (draft loop):**
+**Draft loop:**
 
-1. پیش‌نویس فارسی را در یک فایل بنویسید (یا از stdin بدهید).
-2. اجرا کنید:
+1. Write the Persian draft to a file (or pass it on stdin).
+2. Run:
    ```bash
    python scripts/check_persian.py --file draft.txt
    ```
-3. به خروجی نگاه کنید:
-   - اگر خط آخر `RESULT: CLEAN` بود (کد خروج ۰) → پیام آماده‌ی ارسال است.
-   - اگر `RESULT: ISSUES=N` بود (کد خروج ۱) → پیام را **نفرستید**. هر مورد پرچم‌خورده را بررسی کنید:
-     - اگر واقعاً یک کلمه/جمله‌ی خارجی جامانده است → پیش‌نویس را بازنویسی کنید و به مرحله‌ی ۲ برگردید.
-     - اگر یک استثنای واقعی است (مثلاً اصطلاحی که باید تأیید شود) → از `--pending` برای پیشنهاد آن استفاده کنید، نه اینکه مستقیماً به allowlist.txt اضافه کنید:
+3. Read the output:
+   - If the last line is `RESULT: CLEAN` (exit code 0), the message is ready to send.
+   - If it is `RESULT: ISSUES=N` (exit code 1), **do not send** the message. Review each flagged item:
+     - If a foreign word or sentence really was left behind, rewrite the draft and go back to step 2.
+     - If it is a genuine exception (a term that needs approval, for example), use `--pending` to propose it instead of adding it straight to allowlist.txt:
        ```bash
        python scripts/check_persian.py --file draft.txt --pending
        ```
-       این دستور موارد لاتین پرچم‌خورده را به `scripts/pending.txt` (پیش‌نویس، منتظر تأیید) اضافه می‌کند، نه به allowlist.txt. سپس موارد را با قضاوت خودتان بررسی کنید و فقط موارد تأییدشده را به allowlist.txt منتقل کنید. دوباره اجرا کنید.
-4. این چرخه را حداکثر تا ۳ بار تکرار کنید. اگر بعد از ۳ بار هنوز موردی پرچم‌خورده باقی ماند، آن موارد را تک‌تک با قضاوت خودتان مرور کنید، دلیل نگه‌داشتنشان را برای خودتان مشخص کنید (نه این‌که صرفاً نادیده بگیرید)، و فقط بعد از آن ارسال کنید.
+       This adds the flagged Latin items to a draft queue awaiting approval, not to allowlist.txt; the script prints the queue's path, and `scripts/pending.txt` is the last-resort location. Then review the items with your own judgment and move only the approved ones to allowlist.txt. Run again.
+4. Repeat this loop at most 3 times. If flagged items remain after 3 rounds, review them one by one with your own judgment, state for yourself why each one stays (do not simply ignore it), and only then send.
 
-### درگاه بررسی نهایی پیش از ارسال (final review gate)
+### Final review gate before sending
 
-حتی اگر پیام در حلقه‌ی بالا `RESULT: CLEAN` گرفت، **یک بار دیگر با `--strict` اجرا کنید** تا allowlist.txt نادیده گردد:
+Even if the message got `RESULT: CLEAN` in the loop above, **run it once more with `--strict`** so allowlist.txt is ignored:
 
 ```bash
 python scripts/check_persian.py --file draft.txt --strict
 ```
 
-- اگر `RESULT: CLEAN` بود → پیام امن است برای ارسال.
-- اگر `RESULT: ISSUES=N` بود → هر پرچمی را با قضاوت خودتان بررسی کنید. این پرچم‌ها ممکن است همچنان justified باشند (مثلاً یک اصطلاح allowlist‌شده که واقعاً لازم است)، اما شما آن‌ها را دیده‌اید و تصمیم گرفته‌اید. اگر هیچ‌کدام justified نیستند → پیش‌نویس را اصلاح کنید.
+- If the result is `RESULT: CLEAN`, the message is safe to send.
+- If it is `RESULT: ISSUES=N`, review every flag with your own judgment. These flags may still be justified (an allowlisted term that is truly needed, for example), but you have seen them and decided. If none of them is justified, fix the draft.
 
-این مرحله را نادیده نگیرید: allowlist.txt می‌تواند با گذشت زمان پر شود و هر افزودنی شانس این را دارد که یک روز یک کلمه‌ی لاتین غیرضروری را از پرچم‌گذاری بگذراند. `--strict` تضمین می‌کند که شما هر بار همه‌ی محتوای لاتین را می‌بینید.
+Do not skip this step: allowlist.txt can fill up over time, and every addition is a chance that one day an unnecessary Latin word passes without a flag. `--strict` makes sure you see all Latin content every time.
 
-اگر ابزار اجرای دستور در دسترس نیست (مثلاً محیطی که فقط چت است و کد اجرا نمی‌شود)، حلقه‌ی بالا را نمی‌توان به‌صورت واقعی اجرا کرد؛ در آن حالت به همان بازبینی چشمیِ بخش قبل با دقت بیشتر برگردید و این محدودیت را نادیده نگیرید.
+If no command tool is available (a chat-only environment where code does not run, for example), the loop above cannot really run; in that case fall back to the visual review in the previous section, with more care, and do not ignore this limitation.
 
-## مثال‌ها
+## Examples
 
-**مثال ۱ — خلاصه از منبع انگلیسی**
+**Example 1: summary from an English source**
 
-کاربر می‌پرسد: "Summarize this article about AI regulation."
+The user asks: "Summarize this article about AI regulation."
 
-پاسخ (برای تلگرام):
+Reply (for Telegram):
 
 ```
 خلاصه‌ی مقاله درباره‌ی مقررات هوش مصنوعی:
@@ -127,11 +147,11 @@ python scripts/check_persian.py --file draft.txt --strict
 - جریمه‌ها می‌تواند تا ۴٪ درآمد سالانه برسد
 ```
 
-**مثال ۲ — پیام حاوی کد و خطا**
+**Example 2: a message with code and an error**
 
-کاربر می‌پرسد: "why is my python script throwing a KeyError?"
+The user asks: "why is my python script throwing a KeyError?"
 
-پاسخ (برای تلگرام):
+Reply (for Telegram):
 
 ```
 این خطا یعنی داری به کلیدی از دیکشنری دسترسی پیدا می‌کنی که اصلاً وجود نداره. مثلاً اگه کد این‌طوره:
@@ -145,26 +165,26 @@ python scripts/check_persian.py --file draft.txt --strict
 این‌طوری اگه کلید نباشه، به‌جای خطا مقدار None برمی‌گرده.
 ```
 
-(توجه: نام متغیرها، نام تابع‌ها و خود کد دست‌نخورده مانده، فقط توضیح‌ها فارسی است.)
+(Note: variable names, function names and the code itself are untouched; only the explanations are Persian.)
 
-**مثال ۳ — لحن رسمی برای کانال**
+**Example 3: formal tone for a channel**
 
-کاربر یک گزارش فروش می‌خواهد برای پست کردن در کانال رسمی شرکت — لحن باید رسمی و بدون محاوره باشد، نه دوستانه و خودمانی.
+The user wants a sales report to post in the company's official channel. The tone must be formal with no colloquial language, not friendly and casual.
 
-## محدودیت‌ها
+## Limits
 
-- این مهارت پیام‌های ورودی کاربر را ترجمه نمی‌کند؛ فقط زبان و کیفیت خروجی را مشخص می‌کند.
-- کد، دستورات، رشته‌های فنی، شناسه‌ها و URLها زبان اصلی خود را حفظ می‌کنند.
-- در زمینه‌های غیرتلگرامی (ترمینال، تولید فایل، API) اعمال نمی‌شود، مگر اینکه صراحتاً با مهارت دیگری ترکیب شود.
-- اگر کاربر صراحتاً زبان دیگری برای همان پیام بخواهد، درخواست او اولویت دارد.
+- This skill does not translate the user's incoming messages; it only sets the language and quality of the output.
+- Code, commands, technical strings, IDs and URLs keep their original language.
+- It does not apply outside Telegram (terminal, file generation, API), unless it is explicitly combined with another skill.
+- If the user explicitly asks for another language for that message, their request takes priority.
 
-### این ابزار یک دروازه‌ی کیفیت است، نه یک مترجم
+### The checker is a quality gate, not a translator
 
-`check_persian.py` فقط «متن لاتین جامانده» و «ارقام لاتین در نثر» را پرچم می‌کند. این ابزار:
+`check_persian.py` flags only "leftover Latin text" and "Latin digits in prose". The tool:
 
-- **ترجمه نمی‌کند.** اگر کلمه‌ای لاتین در متن باشد، اسکریپت آن را حذف یا جایگزین نمی‌کند — فقط پرچم می‌زند. نوشتن نسخه‌ی درست فارسی بر عهده‌ی شماست.
-- **کیفیت نثر را نمی‌سنجد.** بوی ترجمه‌ی کلمه‌به‌کلمه، ناهماهنگی لحن، نیم‌فاصله‌ی اشتباه و انتخاب واژه‌ی نامناسب را تشخیص نمی‌دهد؛ این‌ها را فقط چشم انسانی (یا بازبینی بخش «سطح پیشرفته») می‌گیرد.
-- **استثناها را خودکار رد نمی‌کند.** کد، URL، شناسه و نام‌های خارجی در پرانتز از قبل مستثنا هستند، اما این مستثناها گاهی خودِ مشکل‌سازند (مثلاً یک پرانتز که به‌جای توضیح فارسی، کل جمله‌ی انگلیشی را پنهان کرده باشد).
-- **همه‌ی موارد پرچم‌خورده را بررسی نمی‌کند.** برخی موارد ممکن است به‌دلیل قاعده‌های mask (مثلاً کد درون‌خطی یا پرانتز) دیده نشوند.
+- **Does not translate.** If there is a Latin word in the text, the script does not delete or replace it; it only flags it. Writing the correct Persian version is up to you.
+- **Does not measure prose quality.** It does not detect a word-for-word translation feel, tone mismatch, wrong ZWNJ or a poor word choice; only a human eye (or the review in the "Advanced level" section) catches these.
+- **Does not reject exceptions automatically.** Code, URLs, IDs and foreign names in parentheses are already exempt, but these exemptions are sometimes the problem themselves (a parenthesis that hides a whole English sentence instead of a Persian explanation, for example).
+- **Does not check every item.** Some items may go unseen because of the mask rules (inline code or parentheses, for example).
 
-**پس چه باید کرد؟** هر موردی که پرچم می‌خورد (یا در `--strict` می‌بینید) را با قضاوت خودتان بررسی کنید، نه به‌صورت خودکار. مواردی مثل کد، URL، شناسه و نام‌های خارجیِ عمدی را فقط در صورتی نگه دارید که واقعاً استثنای معتبر باشند — در غیر این صورت یا توضیح فارسی بدهید یا اصطلاح را با نویسه‌گردانی فارسی بیاورید.
+**So what should you do?** Review every flagged item (or what you see with `--strict`) with your own judgment, not automatically. Keep items such as code, URLs, IDs and deliberate foreign names only if they are genuinely valid exceptions; otherwise give a Persian explanation or write the term in Persian transliteration.

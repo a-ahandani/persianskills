@@ -4,6 +4,19 @@ Load this when choosing fonts, building a type scale, writing Persian copy into 
 answering "which font should this project use?". This file carries both layers: the
 correctness rules and the taste recipes.
 
+## Contents
+
+1. What Persian script needs (and Latin defaults get wrong)
+2. Text faces — the free ladder (licensing verified 2026-07)
+3. Font safety — does the face actually work for Persian?
+4. Pairing recipes (the taste layer)
+5. Digits
+6. ی / ک and Unicode hygiene
+7. ZWNJ (نیم‌فاصله, U+200C)
+8. Persian AI-tells (the slop list)
+9. Webfont mechanics
+10. Specimen page (see-it-before-you-commit)
+
 ## 1. What Persian script needs (and Latin defaults get wrong)
 
 - **Line-height:** Persian has ascenders/descenders and dot stacks in both vertical

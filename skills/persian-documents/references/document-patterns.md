@@ -1,5 +1,17 @@
 # Document Generation Patterns
 
+## Contents
+
+- Report structure
+- Formal letter structure
+- Technical documentation
+- Resume/CV structure
+- Article/Essay structure
+- Table patterns
+- List patterns
+- Quotation patterns
+- Headers and footers
+
 ## Report structure
 
 ```

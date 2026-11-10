@@ -1,5 +1,7 @@
 # Citations, Evidence, Figures, Tables, Equations, and Quantitative Consistency
 
+Contents: General rule; Citations and bibliography; Figures; Tables; Equations and mathematical notation; Algorithms, pseudocode, and code listings; Units, quantities, and numerical style; Quantitative consistency pass; Statistical reporting integrity; Cross-reference integrity; Captions and prose relationship; Severity guidance.
+
 ## General rule
 
 Scholarly objects are part of the argument, not decoration. Review their semantic relation to the prose and their technical integrity. Never “fix” a mismatch by changing a number, equation, or citation without verifying the authoritative source.

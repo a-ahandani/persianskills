@@ -1,5 +1,23 @@
 # paknevis Editorial Rules — Detailed Reference
 
+## Contents
+
+- 1\. ZWNJ for prefixed verbs — `fix_zwnj_verbs`
+- 2\. Compound-verb prefix joining — `fix_zwnj_compound_verbs`
+- 3\. ZWNJ for comparative / superlative / plural suffixes — `fix_zwnj_suffixes`
+- 4\. ZWNJ for possessive enclitics — `fix_zwnj_possessives`
+- 5\. Arabic → Persian character mapping — `fix_arabic_chars`
+- 6\. Digit conversion — `convert_digits`
+- 7\. English → Persian punctuation — `fix_persian_punctuation`
+- 8\. Punctuation spacing — `fix_punctuation_spacing`
+- 9\. Ezafe kasre fix — `fix_ezafe`
+- 10\. Ellipsis normalization — `fix_ellipsis`
+- 11\. Repeated punctuation collapse — `fix_repeated_punctuation`
+- 12\. Extra-space removal — `remove_extra_spaces`
+- 13\. Spell-check — `spellcheck`
+- 14\. Full editorial pass — `edit_persian`
+- Why these rules matter
+
 This file documents each editorial rule implemented from the paknevis project
 (<https://github.com/afshin-ir/paknevis>), with before/after examples.
 

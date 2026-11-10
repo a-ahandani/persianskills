@@ -1,6 +1,12 @@
 ---
 name: iran-vod
 description: "Read-only Filimo and Namava catalogs: search, title details, episodes, new, genres, where to watch. Use when the user asks about Filimo and Namava (filimo.com) or wants films and series to stream on Filimo or Namava, or where to watch a title in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Filimo and Namava

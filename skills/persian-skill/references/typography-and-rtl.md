@@ -1,5 +1,7 @@
 # typography-and-rtl.md: Persian text mechanics
 
+Contents: 1. Letters: Persian, not Arabic; 2. ZWNJ (نیم‌فاصله, U+200C); 3. Digits; 4. Punctuation and spacing; 5. Bidirectional (RTL) layout; 6. Dates and calendars; 7. What the linter does vs. leaves to you; 8. Rendering Persian in files (RTL + alignment + font).
+
 The deterministic parts are enforced by `scripts/persian_lint.py`. This file explains the rules
 behind it and, more important, the cases the script leaves to your judgment. If you cannot run
 scripts (no code execution), apply sections 1 to 4 by hand; they are short.

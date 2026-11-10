@@ -1,6 +1,12 @@
 ---
 name: baneh
 description: "Unofficial read-only Baneh: search appliances, TVs, electronics, find the cheapest in-stock price. Use when the user asks about Baneh (baaneeh.com) or wants electronics, appliances or other goods in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Baneh

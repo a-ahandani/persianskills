@@ -1,5 +1,14 @@
 # davat API Reference
 
+## Contents
+
+- Design principle: composable single-purpose functions
+- Function reference
+- Pipeline runner
+- Preset pipelines
+- Common pipeline patterns
+- Credits
+
 This file documents the davat-style API (`github.com/mh-salari/davat`),
 implemented in `persian_cleanup.py`.
 

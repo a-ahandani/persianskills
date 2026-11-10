@@ -1,5 +1,19 @@
 # Academic Persian style
 
+## Contents
+
+- Register
+- Common EN→FA failures
+- Orthography
+- Dates and numerals
+- Cross-references and labels
+- Headings
+- Figures
+- Tables
+- Footnotes, quotes, and links
+- Citations
+- Ambiguity
+
 Register, orthography, and document mechanics. Terminology is not decided
 here — `terminology.md` owns the keep-English split, and bidi is
 `rtl-bidi.md`.

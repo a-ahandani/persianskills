@@ -1,16 +1,24 @@
 ---
 name: iranian-payment-gateways
-description: "Integrate Zarinpal and other Shaparak redirect gateways with a server-side verify call, Rial and Toman amounts, and one paid transition per authority. Use when adding an Iranian payment gateway or fixing callback, verify, or amount handling for IRR or IRT stores."
+description: >-
+  Integrates Zarinpal and other Shaparak redirect gateways with a server-side
+  verify call, Rial and Toman amounts, and one paid transition per
+  authority. Use when adding an Iranian payment gateway or fixing callback,
+  verify, or amount handling for IRR or IRT stores, or when the user writes
+  «درگاه پرداخت», «زرین‌پال», «شاپرک», «ریال» or «تومان».
 license: MIT
-compatibility: "The verify checker needs Node.js 20 or newer and no packages."
+compatibility: The verify checker needs Node.js 20 or newer and no packages.
 metadata:
   author: Naser Sadrmanesh
+  source: https://github.com/sadrmanesh/commerce-agent-skills
+  upstream-commit: 308c909
   version: "0.3.3"
+  changes: Frontmatter brought to the repo standard (source, Persian triggers) and the pointer to an upstream payment skill that is not in this repo reworded.
 ---
 
 # Iranian payment gateways
 
-Iranian card payments run through Shaparak, the national card switch, behind a payment facilitator or bank gateway such as Zarinpal. They share one flow: request a token, redirect the shopper, receive a callback, and **verify** on the server. Zarinpal request and verify fields are in [the Zarinpal notes](references/zarinpal-v4.md). The general rules in the payment gateway skill still apply.
+Iranian card payments run through Shaparak, the national card switch, behind a payment facilitator or bank gateway such as Zarinpal. They share one flow: request a token, redirect the shopper, receive a callback, and **verify** on the server. Zarinpal request and verify fields are in [the Zarinpal notes](references/zarinpal-v4.md). General payment-gateway practice still applies; this skill adds what is specific to Iranian gateways.
 
 ## Procedure
 

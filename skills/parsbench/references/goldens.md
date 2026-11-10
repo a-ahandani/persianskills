@@ -1,5 +1,12 @@
 # Goldens and checks
 
+## Contents
+
+- Field reference
+- Filtering checks with metrics=
+- Reading results
+- Generating goldens from the user's docs
+
 A `Golden` is one expectation: the user message plus what a good response
 looks like. Only `input` is required. Every filled field switches on its
 check; empty fields don't run.

@@ -1,6 +1,12 @@
 ---
 name: snapp
 description: "Unofficial read-only Snappfood & SnappMarket: search food and groceries, compare prices, deals. Use when the user asks about Snappfood & SnappMarket (snappfood.ir) or wants food or groceries delivered in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Snappfood & SnappMarket

@@ -1,5 +1,7 @@
 # Review and Apply Protocol
 
+Contents: Core workflow; Review levels; Issue dimensions; Category prefixes; Required issue format; Executive summary; Approval language; Stale-file protection; Patch discipline; Verification; Direct-edit exception.
+
 ## Core workflow
 
 ```text

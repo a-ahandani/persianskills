@@ -1,6 +1,12 @@
 ---
 name: fipiran
 description: "Read-only Fipiran (fipiran.ir) data on Iranian mutual funds and ETFs: NAV, returns, size, managers. Use when the user asks about Fipiran Funds (fipiran.ir) or wants stock exchange quotes, company filings, funds, bonds or commodity exchange trades in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Fipiran Funds

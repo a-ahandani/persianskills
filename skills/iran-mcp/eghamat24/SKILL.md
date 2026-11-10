@@ -1,6 +1,12 @@
 ---
 name: eghamat24
 description: "Read-only Eghamat24 (eghamat24.com) Iran hotels: search, room prices, deals, reviews, facilities. Use when the user asks about Eghamat24 Hotels (eghamat24.com) or wants flights, trains, buses, hotels, villas or tours in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Eghamat24 Hotels

@@ -4,6 +4,19 @@ Load this when the project is Flutter. Core rules live in SKILL.md; this is the 
 playbook. Flutter has first-class RTL support — most bugs come from bypassing it with
 physical values.
 
+## Contents
+
+1. Direction setup
+2. Directional widgets — the default dialect
+3. Icons
+4. Text fields
+5. Dates — Jalali
+6. Digits
+7. Typography in Flutter
+8. Overflow and long text
+9. Testing direction
+10. Gesture & drag math — where logical APIs can't save you
+
 ## 1. Direction setup
 
 - Direction comes from the locale, not from you: set `locale: Locale('fa')` (plus

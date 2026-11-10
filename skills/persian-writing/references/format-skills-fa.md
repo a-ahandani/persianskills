@@ -1,5 +1,12 @@
 # Persian patches for format-skill toolchains
 
+## Contents
+
+- 1\. Images & posters (canvas-design skill, PIL/Pillow)
+- 2\. Creating PDFs (pdf skill, reportlab)
+- 3\. Excel (xlsx skill, openpyxl / pandas)
+- 4\. Quick router
+
 The general docx/pptx/pdf/xlsx/canvas skills assume Latin text. Their default
 toolpaths silently mangle Persian: disconnected letters, reversed order,
 left-aligned sheets. This file patches each toolchain. (docx → docx-pdf.md,

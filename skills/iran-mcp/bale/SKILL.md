@@ -1,6 +1,12 @@
 ---
 name: bale
 description: "Private, local Bale bot for agents: read, search and answer messages, ask and wait, files. Use when the user asks about Bale Bot (bale.ai) or wants to run their own Bale messenger bot in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Bale Bot

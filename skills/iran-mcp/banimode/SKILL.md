@@ -1,6 +1,12 @@
 ---
 name: banimode
 description: "Unofficial read-only Banimode: search fashion, compare prices, sizes, stock and flash deals. Use when the user asks about Banimode (banimode.com) or wants clothes, shoes or bags in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Banimode

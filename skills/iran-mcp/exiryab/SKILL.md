@@ -1,6 +1,12 @@
 ---
 name: exiryab
 description: "Official read-only ExirYab: find Iranian doctors by name, city and specialty, with clinics and maps. Use when the user asks about ExirYab (exiryab.com) or wants doctors, clinics, labs, appointments or pharmacy products in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # ExirYab

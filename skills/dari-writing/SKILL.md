@@ -13,6 +13,8 @@ description: >-
   says "Persian".
 license: MIT
 metadata:
+  author: persianskills (Edyt)
+  source: https://github.com/edyt-app/persianskills
   version: 0.1.0
   status: AI drafted and source checked; needs native Dari review
 ---

@@ -1,5 +1,15 @@
 # Ensemble translation
 
+## Contents
+
+- Roles
+- Token rule
+- Brief for translators (paste as-is)
+- Brief for Luna (paste as-is)
+- Brief for fluency reader (paste as-is)
+- Procedure
+- What Luna and the fluency reader are not for
+
 How this skill uses three Cursor models without spending tokens on five
 full drafts of the same book. Terminology still belongs only in
 `terminology.md`. Mechanical checks still belong only in `check-fa.py`.

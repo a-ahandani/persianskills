@@ -1,5 +1,13 @@
 # House glossary
 
+## Contents
+
+- Always Persian
+- Persian unless it is this document's field term
+- Keep English — classes
+- Universal terms of art
+- Job terms
+
 Domain-agnostic lists. The policy that decides which list a token belongs to
 lives in `terminology.md`; do not re-derive it here. The forbidden Persian
 calques live in `term-pairs.tsv` where the checker can read them.

@@ -1,7 +1,22 @@
 ---
 name: tajik-toolkit
-description: Complete toolkit for Tajik-language (тоҷикӣ) text — editing and proofreading, OCR extraction from images/scans/PDFs, and full book restoration to a formatted DOCX matching the source. Covers mixed Tajik/Russian/English/Arabic/Persian text and Latin-transliterated Pahlavi. Use when writing, editing, correcting, reviewing, extracting, or restoring Tajik text or documents, or translating into/out of Tajik.
-version: 1.3.0
+description: >-
+  Edits and proofreads Tajik (тоҷикӣ) text, extracts Tajik text from images,
+  scans and PDFs with OCR, and restores whole scanned books into a formatted
+  DOCX that matches the source. Handles mixed Tajik, Russian, English, Arabic
+  and Persian text and Latin-transliterated Pahlavi. Use when writing,
+  editing, correcting, reviewing, extracting or restoring Tajik text or
+  documents, translating into or out of Tajik, or when the user mentions
+  Tajik Cyrillic, тоҷикӣ, «تاجیکی» or «فارسی تاجیکی».
+license: MIT
+metadata:
+  author: firdavsi-tech
+  source: https://github.com/firdavsi-tech/tajik-toolkit
+  upstream-commit: 975cd6e
+  version: "1.3.0"
+  changes: >-
+    Frontmatter standardized and reference files moved into references/, each
+    long one with a contents list.
 ---
 
 # Tajik Toolkit
@@ -12,17 +27,17 @@ One skill covering three layers of the same problem: **editing** Tajik text you 
 
 Tajik is a lower-resource language for this model compared to Russian, English, or major Persian corpora. Treat that as a real constraint, not a formality:
 
-- **High confidence, act directly:** the six Tajik-specific Cyrillic letters and their common confusions (see [orthography.md](orthography.md)), basic grammar, obvious typos, spacing/punctuation mechanics.
-- **Medium confidence, propose + flag:** register choices (Soviet-era loanword vs. native/Persian-origin alternative — see [register.md](register.md)), which spelling variant is more standard, domain terminology.
-- **Low confidence, query rather than assert:** claims about current official style-guide rules that aren't independently verifiable here, or Pahlavi transliteration conventions (see [mixed-script.md](mixed-script.md)). Say "I believe X, but this is worth checking" rather than presenting it as settled fact.
+- **High confidence, act directly:** the six Tajik-specific Cyrillic letters and their common confusions (see [orthography.md](references/orthography.md)), basic grammar, obvious typos, spacing/punctuation mechanics.
+- **Medium confidence, propose + flag:** register choices (Soviet-era loanword vs. native/Persian-origin alternative — see [register.md](references/register.md)), which spelling variant is more standard, domain terminology.
+- **Low confidence, query rather than assert:** claims about current official style-guide rules that aren't independently verifiable here, or Pahlavi transliteration conventions (see [mixed-script.md](references/mixed-script.md)). Say "I believe X, but this is worth checking" rather than presenting it as settled fact.
 
 ## Which mode applies
 
 | Situation | Use |
 |---|---|
-| You already have Tajik text (typed, pasted, or from a prior transcription) and need to fix/review it | Editing mode — below, plus [orthography.md](orthography.md), [register.md](register.md), [mixed-script.md](mixed-script.md) |
-| You have an image, scan, or PDF and need the text out of it | OCR mode — [ocr-engines.md](ocr-engines.md), [ocr-pipeline.md](ocr-pipeline.md) |
-| You need a whole scanned book/document turned into a properly formatted DOCX matching the source (headings, footnotes, TOC, bibliography) | Restoration mode — [restoration.md](restoration.md), [formatting.md](formatting.md) |
+| You already have Tajik text (typed, pasted, or from a prior transcription) and need to fix/review it | Editing mode — below, plus [orthography.md](references/orthography.md), [register.md](references/register.md), [mixed-script.md](references/mixed-script.md) |
+| You have an image, scan, or PDF and need the text out of it | OCR mode — [ocr-engines.md](references/ocr-engines.md), [ocr-pipeline.md](references/ocr-pipeline.md) |
+| You need a whole scanned book/document turned into a properly formatted DOCX matching the source (headings, footnotes, TOC, bibliography) | Restoration mode — [restoration.md](references/restoration.md), [formatting.md](references/formatting.md) |
 
 These aren't mutually exclusive — restoration mode uses OCR mode's extraction and editing mode's correction rules underneath, per its own method.
 
@@ -45,11 +60,11 @@ There are two fundamentally different kinds of OCR:
 1. **Classical trained OCR** (Tesseract, PaddleOCR-classic, RapidOCR): a fixed model trained per language. No Tajik model exists anywhere — verified directly against Tesseract's official `tessdata_fast`/`tessdata_contrib` repos via GitHub's API. The only workaround is approximating with the nearest language (`rus`), which systematically misreads the six Tajik-only letters.
 2. **Vision-LLM-based OCR** (this model's own vision, PaddleOCR-VL, DeepSeek-OCR): reads the image guided by a text prompt, not a fixed trained character set — so it can be told about an unsupported language's alphabet directly. A real workaround classical OCR cannot offer.
 
-**Default to option 2.** For a single image or small batch: describe/paste the image and transcribe directly, noting explicitly that it's Tajik (Cyrillic + Ғ ғ Қ қ Ҳ ҳ Ҷ ҷ Ӣ ӣ Ӯ ӯ). No script, no API key needed. Reserve the classical-engine fallback ([ocr-pipeline.md](ocr-pipeline.md)'s `scripts/`) for bulk/offline processing, and expect to need the correction pass in [orthography.md](orthography.md) afterward. See [ocr-engines.md](ocr-engines.md) for the full engine comparison and [ocr-pipeline.md](ocr-pipeline.md) for tested usage, empirical findings, and the output contract.
+**Default to option 2.** For a single image or small batch: describe/paste the image and transcribe directly, noting explicitly that it's Tajik (Cyrillic + Ғ ғ Қ қ Ҳ ҳ Ҷ ҷ Ӣ ӣ Ӯ ӯ). No script, no API key needed. Reserve the classical-engine fallback ([ocr-pipeline.md](references/ocr-pipeline.md)'s `scripts/`) for bulk/offline processing, and expect to need the correction pass in [orthography.md](references/orthography.md) afterward. See [ocr-engines.md](references/ocr-engines.md) for the full engine comparison and [ocr-pipeline.md](references/ocr-pipeline.md) for tested usage, empirical findings, and the output contract.
 
 ## Restoration mode
 
-A restoration corrects by **cross-referencing the source repeatedly**, not one-shot transcription — and delivers under a fixed formatting contract, not plain text. See [restoration.md](restoration.md) for the method and supported formats, [formatting.md](formatting.md) for the concrete DOCX implementation (Palatino Linotype per element, real Heading styles for TOC, real footnotes, RTL Arabic/Persian blocks).
+A restoration corrects by **cross-referencing the source repeatedly**, not one-shot transcription — and delivers under a fixed formatting contract, not plain text. See [restoration.md](references/restoration.md) for the method and supported formats, [formatting.md](references/formatting.md) for the concrete DOCX implementation (Palatino Linotype per element, real Heading styles for TOC, real footnotes, RTL Arabic/Persian blocks).
 
 ## Output delivery — STRICT rules, no exceptions
 
@@ -59,7 +74,7 @@ These were violated in real use once and the user flagged it explicitly. Non-neg
 2. **Footnotes are real footnotes**, anchored at the source's marker position (`FootnoteReferenceRun` + `footnotes` config in docx-js) — never plain paragraphs appended after a section.
 3. **Uncertain readings get a minimal, silent, pre-agreed marker if any** — not inline prose explaining the uncertainty. Explain uncertainty once, in the chat, not in the file.
 
-See [delivery.md](delivery.md) for the full checklist and verification steps (grep the output for forbidden strings before declaring done).
+See [delivery.md](references/delivery.md) for the full checklist and verification steps (grep the output for forbidden strings before declaring done).
 
 ## Rules adopted from the 12+ skills this was built from, and why
 
@@ -72,18 +87,20 @@ See [delivery.md](delivery.md) for the full checklist and verification steps (gr
 
 | File | Load when |
 |---|---|
-| [orthography.md](orthography.md) | Checking letter confusions, izafat/hyphenation, or transliteration of names |
-| [register.md](register.md) | A register/loanword judgment call comes up |
-| [glossary.md](glossary.md) | Recurring Arabic honorific formulas (салла-л-Лоҳу алайҳи ва саллам, etc.) in historical/religious texts |
-| [mixed-script.md](mixed-script.md) | Text mixes Tajik with Russian/English/Arabic/Persian, or quotes Pahlavi in Latin transliteration |
-| [ocr-engines.md](ocr-engines.md) | Choosing a specific OCR engine/API |
-| [ocr-pipeline.md](ocr-pipeline.md) | Running the classical-OCR fallback scripts, batch/PDF processing, or the output contract |
-| [restoration.md](restoration.md) | Restoring a whole scanned book/document — method (page-offset calibration, TOC-first heading hierarchy, number/date cross-checks), supported source formats (PDF/DJVU — verified via a real round-trip test/PNG/TIFF/JPEG, DPI guidance), non-text elements, multi-volume series, author-vs-editor footnotes, large-book batching |
-| [formatting.md](formatting.md) | Generating the DOCX for a restoration — concrete docx-js patterns, including tables and verse/poetry line breaks |
-| [delivery.md](delivery.md) | Before writing any output file — clean-body-text and real-footnote checklist; run `scripts/verify_docx.py` to automate it |
-| [case-log.md](case-log.md) | Recording (and checking) real cases found during restorations — register calls, footnote-attribution catches, formatting bugs |
+| [orthography.md](references/orthography.md) | Checking letter confusions, izafat/hyphenation, or transliteration of names |
+| [register.md](references/register.md) | A register/loanword judgment call comes up |
+| [glossary.md](references/glossary.md) | Recurring Arabic honorific formulas (салла-л-Лоҳу алайҳи ва саллам, etc.) in historical/religious texts |
+| [mixed-script.md](references/mixed-script.md) | Text mixes Tajik with Russian/English/Arabic/Persian, or quotes Pahlavi in Latin transliteration |
+| [ocr-engines.md](references/ocr-engines.md) | Choosing a specific OCR engine/API |
+| [ocr-pipeline.md](references/ocr-pipeline.md) | Running the classical-OCR fallback scripts, batch/PDF processing, or the output contract |
+| [restoration.md](references/restoration.md) | Restoring a whole scanned book/document — method (page-offset calibration, TOC-first heading hierarchy, number/date cross-checks), supported source formats (PDF/DJVU — verified via a real round-trip test/PNG/TIFF/JPEG, DPI guidance), non-text elements, multi-volume series, author-vs-editor footnotes, large-book batching |
+| [formatting.md](references/formatting.md) | Generating the DOCX for a restoration — concrete docx-js patterns, including tables and verse/poetry line breaks |
+| [delivery.md](references/delivery.md) | Before writing any output file — clean-body-text and real-footnote checklist; run `scripts/verify_docx.py` to automate it |
+| [case-log.md](references/case-log.md) | Recording (and checking) real cases found during restorations — register calls, footnote-attribution catches, formatting bugs |
 
 ## Scripts
+
+Run each as `python3 scripts/<name>.py` from the skill folder; `--help` prints its arguments, and [ocr-pipeline.md](references/ocr-pipeline.md) has tested invocations. Run the regression suite with `python3 scripts/tests/run_tests.py`.
 
 | Script | Purpose |
 |---|---|

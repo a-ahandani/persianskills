@@ -13,8 +13,10 @@ description: >-
   "is literal" or "doesn't make sense".
 license: MIT
 metadata:
+  author: persianskills (Edyt)
+  source: https://github.com/edyt-app/persianskills
   version: 0.1.0
-  source: Lessons from shipping edyt.app in Persian, reviewed by a native Persian speaker
+  based-on: Lessons from shipping edyt.app in Persian, reviewed by a native Persian speaker
 ---
 
 # Persian localization

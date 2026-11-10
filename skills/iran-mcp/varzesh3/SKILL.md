@@ -1,6 +1,12 @@
 ---
 name: varzesh3
 description: "Read-only Varzesh3 (varzesh3.com) Iranian sports: live scores, tables, fixtures, teams, news. Use when the user asks about Varzesh3 Sports (varzesh3.com) or wants live scores, league tables, fixtures or sports news in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Varzesh3 Sports

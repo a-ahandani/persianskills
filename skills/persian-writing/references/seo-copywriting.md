@@ -1,5 +1,11 @@
 # Persian SEO writing & copywriting
 
+## Contents
+
+- Part A: SEO writing (سئو)
+- Part B: Copywriting (کپی‌رایتینگ)
+- Part C: Content quality standards (E-E-A-T for Persian sites)
+
 Two crafts, one file, because in practice they overlap: SEO content that reads
 like a robot doesn't rank long, and copy that ignores search never gets seen.
 Everything in writing-style.md still applies — register detection first, AI

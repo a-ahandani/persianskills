@@ -1,6 +1,12 @@
 ---
 name: tsetmc
 description: "Unofficial read-only Tehran Stock Exchange (TSETMC): quotes, movers, order book, history, indices. Use when the user asks about TSETMC Tehran Stock Exchange (tsetmc.com) or wants stock exchange quotes, company filings, funds, bonds or commodity exchange trades in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # TSETMC Tehran Stock Exchange

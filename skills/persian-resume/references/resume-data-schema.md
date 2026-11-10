@@ -1,5 +1,12 @@
 # Resume Data Schema
 
+## Contents
+
+- Top-level object
+- candidate
+- sections[]
+- options
+
 JSON input structure for `generate_resume.py`.
 
 ## Top-level object

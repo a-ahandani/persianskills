@@ -27,16 +27,16 @@ Built and validated against real material, not just synthetic tests: a 49-page 1
 | File | Covers |
 |---|---|
 | `SKILL.md` | Confidence calibration, mode selection (edit / OCR / restore), strict output-delivery rules |
-| `orthography.md` | The six Tajik-only letters, izafat, compounding, transliteration |
-| `register.md` | Soviet-era loanword vs. native/Persian register judgment calls |
-| `glossary.md` | Recurring Arabic honorific formulas in historical/religious texts |
-| `mixed-script.md` | Tajik+Russian+English, Tajik+Arabic-script, Arabic-vs-Persian, Pahlavi transliteration |
-| `ocr-engines.md` | Vision-LLM vs. classical OCR engine comparison and security notes |
-| `ocr-pipeline.md` | Tested pipeline, empirical failure-mode findings, output contract |
-| `restoration.md` | Cross-reference-the-source correction method (page-offset calibration, TOC-first heading hierarchy, number/date cross-checks), supported formats (PDF/DJVU — verified via real round-trip test/PNG/TIFF/JPEG, DPI guidance), non-text elements, multi-volume series, author-vs-editor footnotes, large-book batching, formatting contract |
-| `formatting.md` | Concrete docx-js implementation (verified against actual type definitions, not assumed), including table formatting and verse/poetry line breaks |
-| `delivery.md` | Clean-body-text and real-footnote verification checklist |
-| `case-log.md` | Log of real cases found during restorations (register calls, footnote-attribution catches, formatting bugs) — grows over time, not invented |
+| `references/orthography.md` | The six Tajik-only letters, izafat, compounding, transliteration |
+| `references/register.md` | Soviet-era loanword vs. native/Persian register judgment calls |
+| `references/glossary.md` | Recurring Arabic honorific formulas in historical/religious texts |
+| `references/mixed-script.md` | Tajik+Russian+English, Tajik+Arabic-script, Arabic-vs-Persian, Pahlavi transliteration |
+| `references/ocr-engines.md` | Vision-LLM vs. classical OCR engine comparison and security notes |
+| `references/ocr-pipeline.md` | Tested pipeline, empirical failure-mode findings, output contract |
+| `references/restoration.md` | Cross-reference-the-source correction method (page-offset calibration, TOC-first heading hierarchy, number/date cross-checks), supported formats (PDF/DJVU — verified via real round-trip test/PNG/TIFF/JPEG, DPI guidance), non-text elements, multi-volume series, author-vs-editor footnotes, large-book batching, formatting contract |
+| `references/formatting.md` | Concrete docx-js implementation (verified against actual type definitions, not assumed), including table formatting and verse/poetry line breaks |
+| `references/delivery.md` | Clean-body-text and real-footnote verification checklist |
+| `references/case-log.md` | Log of real cases found during restorations (register calls, footnote-attribution catches, formatting bugs) — grows over time, not invented |
 | `scripts/find_scanned_files.py` | Read-only, cross-drive discovery of scanned-document files |
 | `scripts/ocr_batch.py` | Local Tesseract batch OCR with PDF rendering and letter-substitution flagging |
 | `scripts/djvu_to_pdf.py` | Converts DJVU to PDF via DjVuLibre's `ddjvu`, tested with a real round-trip |

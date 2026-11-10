@@ -1,6 +1,12 @@
 ---
 name: shopino
 description: "Unofficial read-only Shopino: search fashion across Iranian shops, compare prices, sizes, stock. Use when the user asks about Shopino (shopino.app) or wants clothes, shoes or bags in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Shopino

@@ -1,5 +1,16 @@
 # Persian DOCX + PDF: RTL and pagination recipes
 
+## Contents
+
+- Table of contents
+- 1\. RTL correctness
+- 2\. Divider / full-bleed pages (OPTIONAL — only if the design calls for them)
+- 3\. Pagination
+- 4\. Fonts and PDF conversion
+- 4\.5 Package integrity — "Word says the file is corrupt"
+- 5\. Verification checklist (run every time)
+- 6\. python-docx equivalents
+
 Battle-tested fixes from real Persian proposal production. The docx-js (npm `docx`)
 examples are the reference implementation; python-docx equivalents follow at the
 end. Read the whole file before generating a Persian Word document — most of these

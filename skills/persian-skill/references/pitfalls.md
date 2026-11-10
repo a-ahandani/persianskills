@@ -1,5 +1,7 @@
 # pitfalls.md: what machine Persian gets wrong, and the idiomatic fix
 
+Contents: rules P1 to P58, one `## Pn` section each, in order; then Worked exemplars (aligned EN↔FA) at the end.
+
 Each rule comes from a real difference between a model's first draft and a published
 professional translation (Ghabraei's *Kite Runner*, Haghighat's *Interpreter of Maladies*, and
 others). ✗ = avoid, ✓ = use.

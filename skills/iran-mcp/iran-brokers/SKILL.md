@@ -1,6 +1,12 @@
 ---
 name: iran-brokers
 description: "Read-only Iran broker data from Mofid and Agah: stocks, funds, options, bonds, gold, education. Use when the user asks about Iran Brokers Market Data (emofid.com) or wants stock exchange quotes, company filings, funds, bonds or commodity exchange trades in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Iran Brokers Market Data

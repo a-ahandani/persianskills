@@ -1,6 +1,14 @@
 ---
 name: virastar
-description: Audit, edit, translate, look up English-to-Persian scholarly terminology, and structurally review Persian academic writing—especially theses, dissertations, papers, research reports, and LaTeX/XePersian projects. Trigger for Persian/Farsi scholarly prose, academic translation into Persian, bilingual terminology lookup or consistency, thesis chapter review, scientific-claim calibration, or manuscript/LaTeX submission checks. Do not use for casual Persian writing, marketing copy, literary rewriting, or translation whose target is not academic Persian. Default to report-first review; preserve scientific meaning, evidence strength, citations, numbers, equations, notation, and author voice.
+description: Audits, edits, translates, looks up English-to-Persian scholarly terminology for, and structurally reviews Persian academic writing, especially theses, dissertations, papers, research reports, and LaTeX/XePersian projects. Use for Persian/Farsi scholarly prose, academic translation into Persian, bilingual terminology lookup or consistency, thesis chapter review, scientific-claim calibration, or manuscript/LaTeX submission checks, and when the user mentions «ویراستاری علمی», «پایان‌نامه», «رساله», «مقاله» or «معادل فارسی اصطلاح». Not for casual Persian writing, marketing copy, literary rewriting, or translation whose target is not academic Persian. Defaults to report-first review and preserves scientific meaning, evidence strength, citations, numbers, equations, notation, and author voice.
+license: MIT
+compatibility: Helper scripts need Python 3.11+ (standard library only) and are run with uv; the optional glossary importer needs pdfplumber and tomlkit.
+metadata:
+  author: Mahyar (mhyrzt)
+  source: https://github.com/mhyrzt/virastar
+  upstream-commit: 04937f4
+  version: "0.2.0"
+  changes: Description in the third person with Persian trigger words, the audit command uses the skill directory instead of a fixed .agents path, contents lists added to long references, and metadata added.
 ---
 
 # Virastar
@@ -98,7 +106,7 @@ For a repository or LaTeX manuscript:
 The helper script can perform a deterministic first pass:
 
 ```bash
-uv run python .agents/skills/virastar/scripts/audit_virastar.py \
+uv run --project <skill-directory> python <skill-directory>/scripts/audit_virastar.py \
   --root main.tex \
   --profile editorial/project-profile.toml \
   --terms editorial/terminology-register.toml \

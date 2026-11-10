@@ -1,5 +1,21 @@
 # Persian academic writing (نگارش علمی فارسی)
 
+## Contents
+
+- 1\. Two genre families — decide first
+- 2\. The academic register
+- 3\. AI tells specific to academic text
+- 4\. Terminology and Latin material
+- 5\. Citations and references
+- 5\.5 Rewriting from a source: fidelity and the strength of every claim
+- 6\. Numbers, statistics, formulas
+- 7\. Structure conventions (journal/thesis format)
+- 7\.5 House style (شیوه‌نامه) and advisor preferences
+- 8\. First-person calibration (by document type)
+- 9\. Worked example
+- 9\.5 AI assistance, disclosure, and detector accusations
+- 10\. Checklist before delivering academic text
+
 For theses (پایان‌نامه), journal papers (مقاله علمی-پژوهشی), student reports,
 technical analyses, research reviews (مرور پژوهش), and case studies
 (مطالعه موردی). Academic Persian is a *fourth register* — more formal than

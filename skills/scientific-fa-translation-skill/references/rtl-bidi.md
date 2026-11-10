@@ -1,5 +1,17 @@
 # RTL and bidirectional isolation
 
+## Contents
+
+- Document root
+- Code blocks are never RTL
+- Isolate every LTR run
+- Joined LTR runs (one isolate)
+- Wrong vs right
+- What must stay LTR
+- Headings, lists, tables, figures
+- Markdown fallback
+- Self-check
+
 Precise right-to-left layout is not `text-align: right`. Persian is RTL;
 English terms, digits, math, and URLs are LTR. The Unicode Bidirectional
 Algorithm will misplace punctuation and parentheses unless every LTR run

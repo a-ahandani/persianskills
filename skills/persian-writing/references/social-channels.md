@@ -1,5 +1,14 @@
 # Persian social channels: Telegram, Instagram, and repurposing
 
+## Contents
+
+- 1\. Rules shared by every channel
+- 2\. Telegram
+- 3\. Instagram
+- 4\. Announcements and product introductions
+- 5\. Repurposing between formats
+- 6\. Pre-publish checks
+
 Channel craft, not channel decoration. Register comes from writing-style.md,
 structure and honesty from content-structures.md; this file adds what changes
 when the text is consumed on a phone, in a feed, in seconds.

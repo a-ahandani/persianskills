@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """persian_lint.py - deterministic Persian text mechanics normalizer / linter.
 
-Part of the `persian` skill. Fixes the "small things" that make Persian text look
+Part of the `persian-skill` skill. Fixes the "small things" that make Persian text look
 wrong no matter how good the word choice is: Arabic-vs-Persian letters, digits,
 ZWNJ (نیم‌فاصله), punctuation, spacing, and kashida. None of this needs human
 judgment, so it lives in code: repeatable, testable, fast. Stdlib only.

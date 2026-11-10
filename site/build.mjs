@@ -93,7 +93,7 @@ const page = `<!doctype html>
 </head>
 <body>
 <header class="top"><div class="bar">
-  <a class="brand" href="/" aria-label="Persian Skills home">${edyt}<span class="slash" aria-hidden="true">/</span>Persian Skills</a>
+  <a class="brand" href="/" aria-label="Persian Skills home">${edyt}<span class="brand-name"><span class="slash" aria-hidden="true">/</span>Persian Skills</span></a>
   <nav class="links" aria-label="Sections">
     <a href="#skills">Skills</a><a href="#install">Install</a><a href="#agents">Agents</a><a href="#sources">Credits</a><a href="#contribute">Contribute</a>
   </nav>
@@ -129,7 +129,7 @@ const page = `<!doctype html>
 
 <section class="section wrap" id="skills">
   <h2>Every Persian skill, in one repo.</h2>
-  <p class="lede">${num(skillFiles)} skills from ${num(skillAuthors)} authors, copied with their licenses and credit, plus our own. The four marked Link only can't be copied and stay in their authors' repos.</p>
+  <p class="lede">${num(skillFiles)} skills from ${num(skillAuthors)} authors, copied with their licenses and credit, plus our own, all written to one standard. Entries marked Link only stay in their authors' repos, because they can't be copied or they overlap a skill here.</p>
   <div class="db">
     <div class="db-head">
       <div class="db-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></svg>Skills directory</div>
@@ -216,6 +216,7 @@ const apply = () => {
 input.addEventListener("input", apply);
 const header = document.querySelector("header.top");
 new IntersectionObserver(([e]) => header.classList.toggle("solid", !e.isIntersecting), { rootMargin: "-68px 0px 0px 0px" }).observe(document.querySelector(".hero .wrap"));
+new IntersectionObserver(([e]) => header.classList.toggle("named", !e.isIntersecting), { rootMargin: "-68px 0px 0px 0px" }).observe(document.querySelector(".hero h1"));
 document.addEventListener("keydown", (e) => {
   if (e.key === "/" && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); input.focus(); }
 });

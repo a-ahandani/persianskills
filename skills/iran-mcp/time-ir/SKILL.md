@@ -1,6 +1,12 @@
 ---
 name: time-ir
 description: "Read-only Time.ir Iranian calendar: Jalali/Gregorian/Hijri dates, holidays, events, prayer times. Use when the user asks about Time.ir Calendar (time.ir) or wants Jalali, Gregorian or Hijri dates, holidays or prayer times in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Time.ir Calendar

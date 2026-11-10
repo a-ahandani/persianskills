@@ -3,6 +3,17 @@
 Load this when building or reviewing web UI. Core rules live in SKILL.md; this file is the
 full playbook with values and code.
 
+## Contents
+
+1. Direction setup
+2. Logical properties — the default dialect
+3. Icon mirroring
+4. Bidi: mixed text and LTR islands
+5. Forms and inputs
+6. Layout, scroll, motion
+7. React/Next specifics
+8. Overflow and long text
+
 ## 1. Direction setup
 
 - Set direction once, at the root: `<html dir="rtl" lang="fa">`. Never simulate RTL with

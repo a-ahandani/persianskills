@@ -1,6 +1,12 @@
 ---
 name: fidibo
 description: "Unofficial read-only Fidibo: search Persian ebooks and audiobooks, compare prices, free books. Use when the user asks about Fidibo (fidibo.com) or wants ebooks, audiobooks or printed books in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Fidibo

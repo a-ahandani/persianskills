@@ -1,6 +1,12 @@
 ---
 name: iranketab
 description: "Read-only Iranketab (iranketab.ir) books: search, translations compared, ratings, reviews, prices. Use when the user asks about Iranketab Books (iranketab.ir) or wants ebooks, audiobooks or printed books in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Iranketab Books

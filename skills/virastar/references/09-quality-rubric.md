@@ -1,5 +1,7 @@
 # Quality Rubric and Completion Gates
 
+Contents: Purpose; Scoring scale; Dimensions; Phase-specific completion gates; Suggested report summary; Stop conditions.
+
 ## Purpose
 
 Use this rubric to summarize manuscript quality and decide whether an audit, editing pass, or final check is complete. Scores support diagnosis; they do not replace issue-level evidence.

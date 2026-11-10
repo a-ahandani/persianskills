@@ -1,5 +1,7 @@
 # Academic Style, Claims, Evidence, and Statistics
 
+Contents: What “academic” means here; Register and precision; Claim ladder; Causality; Statistical significance; Quantifiers, modality, and scope; Comparative and superiority claims; Novelty and contribution claims; Generalization and external validity; Results, interpretation, and recommendation; Evidence and citation fit; Negative results and limitations; Paragraph-level academic prose; Translationese; “Humanizing” and anti-AI heuristics; Rewrite protocol for a meaning-sensitive sentence.
+
 ## What “academic” means here
 
 Academic Persian should be precise, traceable, proportionate to the evidence, and readable by the intended disciplinary audience. It does not need to sound ceremonial, bureaucratic, impersonal, archaic, or translated from English.

@@ -1,5 +1,7 @@
 # LaTeX and XePersian Safety
 
+Contents: Review the workspace, not only the root file; Establish the toolchain; Protected scholarly spans; Macro preservation; XePersian-specific directionality; ZWNJ and TeX source; Fonts and glyph coverage; Bibliography and glossary; Figures and floats; Cross-references and labels; Comments and draft residue; Build-and-verify protocol; Source-versus-PDF review; Safe-edit boundary.
+
 ## Review the workspace, not only the root file
 
 Before editing prose in a LaTeX project, discover the dependency graph:

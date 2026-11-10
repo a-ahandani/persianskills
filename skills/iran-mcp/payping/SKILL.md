@@ -1,6 +1,12 @@
 ---
 name: payping
 description: "PayPing merchant account for agents: balance, sales, invoices; create invoices and payment links. Use when the user asks about PayPing (payping.ir) or wants to manage their own PayPing merchant account in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # PayPing

@@ -1,6 +1,12 @@
 ---
 name: quera
 description: "Read-only Quera (quera.org): Iranian tech jobs, companies, contests, problems, courses and blog. Use when the user asks about Quera (quera.org) or wants job ads, employers or salaries in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Quera

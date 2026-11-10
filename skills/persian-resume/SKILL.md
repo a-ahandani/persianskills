@@ -1,16 +1,28 @@
 ---
 name: persian-resume
 description: >-
-  Generate professional Persian (RTL) resumes/CVs that render correctly with mixed
-  Persian-English content. Use this skill whenever the user asks to create,
-  rewrite, polish, or transform a Persian resume/CV, or when a resume contains
-  mixed Persian and English/technical content that must remain readable and
-  correctly ordered in RTL. Also trigger when the user provides career info in
-  any language and wants a professional Persian CV, or asks to fix RTL/bidi
-  issues in a Persian resume. This skill is scoped to resumes and CVs only —
-  not general Persian documents such as reports, letters, articles, or
-  technical docs.
-version: 0.1.2
+  Generates professional Persian (RTL) resumes and CVs that render correctly
+  with mixed Persian and English content, as PDF or DOCX. Use when the user
+  asks to create, rewrite, polish or transform a Persian resume or CV
+  («رزومه», «سی‌وی», «رزومه فارسی»), when a resume mixes Persian with English
+  or technical terms that must stay readable and correctly ordered in RTL,
+  when the user gives career information in any language and wants a
+  professional Persian CV, or asks to fix RTL or bidi problems in a Persian
+  resume. Scoped to resumes and CVs only, not reports, letters, articles or
+  technical docs (use `persian-documents` for those).
+license: MIT
+compatibility: >-
+  Python 3 with python-docx for DOCX and weasyprint for PDF.
+metadata:
+  author: ehsanghaffar
+  source: https://github.com/ehsanghaffar/skills
+  upstream-commit: bac8138
+  version: "0.1.2"
+  changes: >-
+    Default font changed from Vazir to Sahel (HTML and PDF) and from B Nazanin
+    to Sahel (DOCX); frontmatter standardized, description rewritten in the
+    third person, script usage added, and the long schema reference given a
+    contents list.
 ---
 
 # Persian Resume / CV Generator
@@ -26,7 +38,7 @@ transforming existing content.
 - User provides career info in any language and wants a Persian CV
 - Fixing RTL/bidi issues in an existing Persian resume
 - Output must be PDF or DOCX for real job applications
-- **Not for**: reports, letters, articles — general documents are outside this skill's scope
+- **Not for**: reports, letters, articles — general documents are outside this skill's scope; use `persian-documents` for those
 
 ## Core principle
 
@@ -204,6 +216,14 @@ Do not invent role-specific experience to fit the vacancy.
 - `scripts/validate_resume.py` — Validate RTL, content, file integrity
 - `references/resume-data-schema.md` — JSON schema for resume input data
 - `references/validation-rules.md` — Detailed validation rules and checks
+
+```bash
+python3 scripts/generate_resume.py --input resume.json --output resume.pdf
+python3 scripts/generate_resume.py --input resume.json --output resume.docx --format docx
+python3 scripts/validate_resume.py --input resume.json --output resume.pdf
+```
+
+PDF output needs WeasyPrint; without it the generator falls back to DOCX.
 
 ## Quality checklist
 

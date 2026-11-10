@@ -1,6 +1,12 @@
 ---
 name: flytoday
 description: "Unofficial read-only Flytoday: Iranian and international flights, hotels, villas, trains, buses. Use when the user asks about Flytoday (flytoday.ir) or wants flights, trains, buses, hotels, villas or tours in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Flytoday

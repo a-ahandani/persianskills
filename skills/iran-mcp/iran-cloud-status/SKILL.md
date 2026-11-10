@@ -1,6 +1,12 @@
 ---
 name: iran-cloud-status
 description: "Read-only status, incidents and prices of Iranian clouds: Arvan, Hamravesh, Chabokan, Liara, more. Use when the user asks about Iran Cloud Status (arvancloud.ir) or wants the status, outages or prices of cloud providers in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # Iran Cloud Status

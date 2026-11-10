@@ -1,6 +1,12 @@
 ---
 name: mrbilit
 description: "Unofficial read-only MrBilit: Iranian flights, trains, buses, taxis and hotels, seats and prices. Use when the user asks about MrBilit (mrbilit.com) or wants flights, trains, buses, hotels, villas or tours in Iran."
+license: MIT
+metadata:
+  author: sepehr071
+  source: https://github.com/sepehr071/iran-mcp
+  upstream-commit: 51ba858
+  changes: Copied the skill file only (the MCP server stays upstream); frontmatter standardized.
 ---
 
 # MrBilit
